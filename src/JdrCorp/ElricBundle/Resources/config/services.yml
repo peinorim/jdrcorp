@@ -1,0 +1,7 @@
+parameters:
+#    jdr_corp_elric.example.class: JdrCorp\ElricBundle\Example
+
+services:
+#    jdr_corp_elric.example:
+#        class: %jdr_corp_elric.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

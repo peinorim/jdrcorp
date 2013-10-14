@@ -1,0 +1,4 @@
+jdr_corp_elric:
+    resource: "@JdrCorpElricBundle/Resources/config/routing.yml"
+    prefix:   /
+

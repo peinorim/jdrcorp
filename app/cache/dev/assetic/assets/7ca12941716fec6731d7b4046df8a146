@@ -1,0 +1,14 @@
+$(document).ready(function() {
+    // Smart Wizard 	
+    $('#wizard').smartWizard({transitionEffect: 'slideleft', onLeaveStep: leaveAStepCallback, onFinish: onFinishCallback, enableFinishButton: true});
+
+    function leaveAStepCallback(obj) {
+        var step_num = obj.attr('rel');
+        return validateSteps(step_num);
+    }
+    function onFinishCallback() {
+        if (validateAllSteps()) {
+            $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+        }
+    }
+});
