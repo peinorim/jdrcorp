@@ -19,3 +19,7 @@ root {
     height: 135px;
     resize:none;
 }
+.form-horizontal{
+    margin-top:10px;
+    margin-left:10px;
+}
