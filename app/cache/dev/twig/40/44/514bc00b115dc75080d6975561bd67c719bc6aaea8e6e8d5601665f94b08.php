@@ -17,7 +17,7 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
     {
         // line 1
         echo "<h2 class=\"StepTitle\">Les caractéristiques</h2>  
-<div class=\"form-horizontal col-md-6\" style=\"margin-top:10px;margin-left:10px;\">
+<div class=\"form-horizontal col-md-6\">
     <div class=\"form-group\">
         <label for=\"force\" class=\"col-lg-2 control-label\">Force</label>
         <div class=\"col-lg-4 input-group\">
@@ -90,8 +90,8 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
         </div>
     </div>
     <div class=\"form-group\">
-        <label for=\"naiss\" class=\"control-label\">Lieu de naissance</label>
-        <div class=\"col-lg-10\">
+        <label for=\"naiss\" class=\"col-lg-3 control-label\">Lieu de naissance</label>
+        <div class=\"col-lg-8\">
             <select class=\"form-control\" id=\"naiss\">
                 <option>Argimiliar</option> 
                 <option>Dharijor</option>
@@ -114,7 +114,7 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
     </div>
     <div class=\"form-group\">
         <label for=\"sexe\" class=\"col-lg-3 control-label\">Sexe</label>
-        <div class=\"col-lg-5\">
+        <div class=\"col-lg-3\">
             <select class=\"form-control\" id=\"sexe\">
                 <option>M</option> 
                 <option>F</option>
@@ -129,7 +129,7 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
     </div>
     <div class=\"form-group\">
         <label for=\"allure\" class=\"col-lg-3 control-label\">Allure, attitude</label>
-        <div class=\"\">
+        <div class=\"col-lg-5\">
             <textarea id=\"allure\"></textarea>
         </div>
     </div>
@@ -145,6 +145,6 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
 
     public function getDebugInfo()
     {
-        return array (  150 => 45,  146 => 44,  142 => 43,  112 => 15,  86 => 13,  81 => 12,  49 => 10,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  19 => 1,);
     }
 }
