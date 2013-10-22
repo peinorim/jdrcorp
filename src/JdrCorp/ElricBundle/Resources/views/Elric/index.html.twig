@@ -6,9 +6,19 @@
         {% javascripts'@JdrCorpElricBundle/Resources/public/js/jquery-1.10.2.min.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/*' %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% javascripts'@JdrCorpElricBundle/Resources/public/js/jquery.jeditable.js' %}
+        <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        {% javascripts'@JdrCorpElricBundle/Resources/public/js/jquery.smartWizard-2.0.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts'@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts'@JdrCorpElricBundle/Resources/public/js/index.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         {% stylesheets '@JdrCorpElricBundle/Resources/public/css/*' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
