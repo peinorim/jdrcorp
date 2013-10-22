@@ -13,23 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class CompetenceMetier {
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Sdz\JdrCorpElricBundle\Entity\Competence")
+     * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\Competence")
      */
     private $competence;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Sdz\JdrCorpElricBundle\Entity\Metier")
+     * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\Metier")
      */
     private $metier;
 

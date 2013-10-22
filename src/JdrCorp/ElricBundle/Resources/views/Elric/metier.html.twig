@@ -1,10 +1,23 @@
 <h2 class="StepTitle">Métiers & Compétences</h2>
+<div class="col-md-4" style="margin-top:10px;">
+    <select class="form-control">
+{% for met in listeMet %}
+        <option>{{ met.getMetierNom }}</option>
+  {% endfor %}
+    </select>
+</div>
 <div class="col-md-6" style="height:500px;overflow:auto;">
     <table class="table table-hover">
+        <thead>
+        <th>Compétences</th>
+        <th>%age de base</th>
+        </thead>
+        <tbody>
   {% for comp in listeComp %}
-        <tr>
-            <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td>
-        </tr>
+            <tr>
+                <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td>
+            </tr>
   {% endfor %}
+        </tbody>
     </table>
 </div>

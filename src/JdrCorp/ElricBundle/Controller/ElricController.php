@@ -7,9 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ElricController extends Controller {
 
     public function indexAction() {
-        $repository = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
-        $listeComp = $repository->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig',array('listeComp' => $listeComp));
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+        $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
+        $listeComp = $repositoryComp->findAll();
+        $listeMet = $repositoryMetier->findAll();
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet));
     }
 
 }
