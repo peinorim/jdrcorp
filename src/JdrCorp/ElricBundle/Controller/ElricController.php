@@ -14,4 +14,8 @@ class ElricController extends Controller {
         return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet));
     }
 
+    public function getCompMetierAction() {
+        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig');
+    }
+
 }

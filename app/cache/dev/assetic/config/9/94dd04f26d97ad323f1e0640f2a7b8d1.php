@@ -22,19 +22,59 @@ return array (
       ),
     ),
   ),
-  'eb89cff' => 
+  '8c7118d' => 
   array (
     0 => 
     array (
-      0 => '@JdrCorpElricBundle/Resources/public/js/*',
+      0 => '@JdrCorpElricBundle/Resources/public/js/jquery.smartWizard-2.0.min.js',
     ),
     1 => 
     array (
     ),
     2 => 
     array (
-      'output' => '_controller/js/eb89cff.js',
-      'name' => 'eb89cff',
+      'output' => '_controller/js/8c7118d.js',
+      'name' => '8c7118d',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  8116159 => 
+  array (
+    0 => 
+    array (
+      0 => '@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/8116159.js',
+      'name' => '8116159',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  '625ac1e' => 
+  array (
+    0 => 
+    array (
+      0 => '@JdrCorpElricBundle/Resources/public/js/index.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/625ac1e.js',
+      'name' => '625ac1e',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
