@@ -4,3 +4,6 @@ Elric_home:
 Elric:
     path:     /elric
     defaults: { _controller: JdrCorpElricBundle:Elric:index }
+Metier_Comp:
+    path:     /metierComp/{id}
+    defaults: { _controller: JdrCorpElricBundle:Elric:getCompMetier }

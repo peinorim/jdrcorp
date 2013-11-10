@@ -14,8 +14,17 @@ class ElricController extends Controller {
         return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet));
     }
 
-    public function getCompMetierAction() {
-        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig');
+    public function getCompMetierAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $metier = $em->getRepository('JdrCorpElricBundle:Metier')->find($id);
+        
+        if ($metier === null) {
+            throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
+        } else {
+            $liste_CompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByCompetence($metier->getId());
+        }
+        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $liste_CompMetier));
     }
 
 }
