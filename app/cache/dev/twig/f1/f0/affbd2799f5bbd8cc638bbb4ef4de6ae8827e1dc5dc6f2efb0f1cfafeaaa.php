@@ -20,28 +20,44 @@ class __TwigTemplate_f1f0affbd2799f5bbd8cc638bbb4ef4de6ae8827e1dc5dc6f2efb0f1cfa
     <thead>
     <th>Compétences</th>
     <th>%age de base</th>
+    <th>%age rajouté</th>
+    <th style='text-align: center;'>%age total</th>
 </thead>
 <tbody>
   ";
-        // line 7
+        // line 9
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listeComp"]) ? $context["listeComp"] : $this->getContext($context, "listeComp")));
         foreach ($context['_seq'] as $context["_key"] => $context["comp"]) {
-            // line 8
+            // line 10
             echo "    <tr>
-        <td class=\"col-md-4\">";
-            // line 9
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getNom"), "html", null, true);
-            echo "</td><td class=\"col-md-2\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getBase"), "html", null, true);
-            echo "%</td>
-    </tr>
+        ";
+            // line 11
+            if (twig_in_filter((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), (isset($context["listeCompMetier"]) ? $context["listeCompMetier"] : $this->getContext($context, "listeCompMetier")))) {
+                // line 12
+                echo "        <td class=\"col-md-4\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getNom"), "html", null, true);
+                echo "</td><td class=\"col-md-2\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getBase"), "html", null, true);
+                echo "%</td><td><input type=\"text\" class=\"comp\" value=\"\"/>%</td><td style='text-align: center;'></td>
+        ";
+            } else {
+                // line 14
+                echo "        <td class=\"col-md-4\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getNom"), "html", null, true);
+                echo "</td><td class=\"col-md-2\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getBase"), "html", null, true);
+                echo "%</td><td></td>
+        ";
+            }
+            // line 16
+            echo "    </tr>
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comp'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 12
+        // line 18
         echo "</tbody>
 </table>
 ";
@@ -59,6 +75,6 @@ class __TwigTemplate_f1f0affbd2799f5bbd8cc638bbb4ef4de6ae8827e1dc5dc6f2efb0f1cfa
 
     public function getDebugInfo()
     {
-        return array (  34 => 9,  31 => 8,  27 => 7,  45 => 12,  40 => 8,  29 => 6,  25 => 5,  19 => 1,);
+        return array (  61 => 18,  54 => 16,  46 => 14,  38 => 12,  36 => 11,  33 => 10,  29 => 9,  19 => 1,);
     }
 }

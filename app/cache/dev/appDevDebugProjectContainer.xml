@@ -1996,6 +1996,9 @@
           </service>
         </argument>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="cme.twig.url_decode_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="templating.globals"/>
@@ -2336,6 +2339,9 @@
     </service>
     <service id="sensio_framework_extra.cache.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener">
       <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="cme.twig.url_decode_extension" class="JdrCorp\ElricBundle\Twig\UrlDecodeExtension">
+      <tag name="twig.extension"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>

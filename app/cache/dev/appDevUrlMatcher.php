@@ -231,6 +231,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  '_route' => 'Elric',);
         }
 
+        // Metier_Comp
+        if (0 === strpos($pathinfo, '/metierComp') && preg_match('#^/metierComp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'Metier_Comp')), array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::getCompMetierAction',));
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

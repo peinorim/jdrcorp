@@ -44,6 +44,7 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         '_configurator_final' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/_configurator/final',    ),  ),  4 =>   array (  ),),
         'Elric_home' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),  4 =>   array (  ),),
         'Elric' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/elric',    ),  ),  4 =>   array (  ),),
+        'Metier_Comp' => array (  0 =>   array (    0 => 'id',  ),  1 =>   array (    '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::getCompMetierAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'id',    ),    1 =>     array (      0 => 'text',      1 => '/metierComp',    ),  ),  4 =>   array (  ),),
     );
 
     /**

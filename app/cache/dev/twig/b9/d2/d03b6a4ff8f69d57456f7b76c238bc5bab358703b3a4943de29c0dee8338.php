@@ -38,8 +38,9 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 8
         echo "    </select>
+    <div class=\"alert alert-warning\">Vous avez <span id=\"totPts\">250</span> points à répartir</div>
 </div>
-<div class=\"col-md-6\" style=\"height:500px;overflow:auto;\">
+<div id=\"compMetiers\" class=\"col-md-8\" style=\"height:500px;overflow:auto;\">
     <table class=\"table table-hover\">
         <thead>
         <th>Compétences</th>
@@ -47,14 +48,14 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
         </thead>
         <tbody>
   ";
-        // line 17
+        // line 18
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listeComp"]) ? $context["listeComp"] : $this->getContext($context, "listeComp")));
         foreach ($context['_seq'] as $context["_key"] => $context["comp"]) {
-            // line 18
+            // line 19
             echo "            <tr>
                 <td class=\"col-md-4\">";
-            // line 19
+            // line 20
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getNom"), "html", null, true);
             echo "</td><td class=\"col-md-2\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["comp"]) ? $context["comp"] : $this->getContext($context, "comp")), "getBase"), "html", null, true);
@@ -65,10 +66,29 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comp'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
+        // line 23
         echo "        </tbody>
     </table>
-</div>";
+</div>
+
+<script>
+    \$(document).ready(function() {
+        \$(\"#metiers\").change(function() {
+            var id = parseInt(\$(this).val());
+            if (id !== 0) {
+                \$.post(\"";
+        // line 32
+        echo sprintf($this->env->getExtension('url_decode_extension')->urlDecode($this->env->getExtension('routing')->getPath("Metier_Comp", array("id" => "%s"))), "\"+id+\"");
+        echo "\",
+                        function(response) {
+                            \$('#compMetiers').html(response);
+                        });
+            } else {
+                \$('#compMetiers').html('');
+            }
+        });
+    });
+</script>";
     }
 
     public function getTemplateName()
@@ -83,6 +103,6 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
 
     public function getDebugInfo()
     {
-        return array (  69 => 22,  58 => 19,  55 => 18,  51 => 17,  40 => 8,  29 => 6,  25 => 5,  19 => 1,);
+        return array (  81 => 32,  70 => 23,  59 => 20,  56 => 19,  52 => 18,  40 => 8,  29 => 6,  25 => 5,  19 => 1,);
     }
 }
