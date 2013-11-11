@@ -18,13 +18,18 @@ class ElricController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $metier = $em->getRepository('JdrCorpElricBundle:Metier')->find($id);
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+        $listeComp = $repositoryComp->findAll();
         
         if ($metier === null) {
             throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
         } else {
             $listeCompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($metier->getId());
+            foreach($listeCompMetier as $compMetier){
+                $allCompMetier[] = $compMetier->getCompetence();
+            }
         }
-        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $listeCompMetier));
+        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp));
     }
 
 }

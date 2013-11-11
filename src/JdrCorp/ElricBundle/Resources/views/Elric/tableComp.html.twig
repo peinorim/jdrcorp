@@ -2,11 +2,17 @@
     <thead>
     <th>Compétences</th>
     <th>%age de base</th>
+    <th>%age rajouté</th>
+    <th style='text-align: center;'>%age total</th>
 </thead>
 <tbody>
-  {% for comp in listeCompMetier %}
+  {% for comp in listeComp %}
     <tr>
-        <td class="col-md-4">{{ comp.getCompetence.getNom }}</td><td class="col-md-2">{{ comp.getCompetence.getBase }}%</td>
+        {% if comp in listeCompMetier %}
+        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp" value=""/>%</td><td style='text-align: center;'></td>
+        {% else %}
+        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
+        {% endif %}
     </tr>
   {% endfor %}
 </tbody>

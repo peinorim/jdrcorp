@@ -7,6 +7,31 @@ $(document).ready(function() {
         $(this).parent().siblings().filter(":first").val(dice);
         $(this).parent().parent().parent().addClass('has-success');
     });
+
+    $(document).on('keyup', '.comp', function() {
+        var tot = 250;
+        $('.comp').each(function() {
+            var ajout = parseInt($(this).val());
+            if (!isNaN(ajout)) {
+                tot -= ajout;
+                $('#totPts').text(tot);
+                var base = parseInt($(this).parent().siblings("td:eq(1)").html());
+                var saisi = ajout + base;
+                $(this).parent().siblings("td:eq(2)").html('<b>' + saisi + '%</b>');
+                if(tot < 0){
+                    $('#totPts').parent().addClass('alert-danger');
+                    $('#totPts').parent().removeClass('alert-warning');
+                } else if(tot === 0){
+                    $('#totPts').parent().removeClass('alert-danger');
+                    $('#totPts').parent().removeClass('alert-warning');
+                    $('#totPts').parent().addClass('alert-success');
+                } else {
+                    $('#totPts').parent().removeClass('alert-danger');
+                    $('#totPts').parent().addClass('alert-warning');
+                }
+            }
+        });
+    });
 });
 function leaveAStepCallback(obj) {
     var step_num = obj.attr('rel');
@@ -96,6 +121,12 @@ function validateStep2() {
     if (parseInt($('#metiers').val()) === 0) {
         isValid = false;
         $('#metiers').parent().addClass('has-error');
+    } else {
+        $('#metiers').parent().removeClass('has-error');
+        $('#nom').parent().parent().addClass('has-success');
+    }
+    if (parseInt($('#totPts').text()) !== 0) {
+        isValid = false;
     }
     return isValid;
 }
