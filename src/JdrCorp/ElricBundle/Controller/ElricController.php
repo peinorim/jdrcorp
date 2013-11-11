@@ -22,9 +22,9 @@ class ElricController extends Controller {
         if ($metier === null) {
             throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
         } else {
-            $liste_CompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByCompetence($metier->getId());
+            $listeCompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($metier->getId());
         }
-        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $liste_CompMetier));
+        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $listeCompMetier));
     }
 
 }

@@ -4,9 +4,9 @@
     <th>%age de base</th>
 </thead>
 <tbody>
-  {% for comp in listeComp %}
+  {% for comp in listeCompMetier %}
     <tr>
-        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td>
+        <td class="col-md-4">{{ comp.getCompetence.getNom }}</td><td class="col-md-2">{{ comp.getCompetence.getBase }}%</td>
     </tr>
   {% endfor %}
 </tbody>

@@ -5,3 +5,7 @@ services:
 #    jdr_corp_elric.example:
 #        class: %jdr_corp_elric.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    cme.twig.url_decode_extension:
+        class: JdrCorp\ElricBundle\Twig\UrlDecodeExtension
+        tags:
+            - { name: twig.extension }

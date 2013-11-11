@@ -27,12 +27,11 @@
 <script>
     $(document).ready(function() {
         $("#metiers").change(function() {
-            if (parseInt($(this).val()) !== 0) {
-                $.post("{{path('Metier_Comp', {'id':" + parseInt($(this).val()) + "})}}",
+            var id = parseInt($(this).val());
+            if (id !== 0) {
+                $.post("{{path('Metier_Comp', {'id': "%s" }) | url_decode | format('"+id+"') | raw }}",
                         function(response) {
-                            if (response.code == 100 && response.success) {//dummy check
-                                alert(response);
-                            }
+                             $('#compMetiers').html(response);
                         });
             } else {
                 $('#compMetiers').html('');
