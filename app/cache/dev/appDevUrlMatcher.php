@@ -217,13 +217,18 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // Elric_home
+        // jdr_corp_index_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'Elric_home');
+                return $this->redirect($pathinfo.'/', 'jdr_corp_index_homepage');
             }
 
-            return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  '_route' => 'Elric_home',);
+            return array (  '_controller' => 'JdrCorp\\IndexBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_index_homepage',);
+        }
+
+        // jdr_corp_guildes_homepage
+        if ($pathinfo === '/guildes') {
+            return array (  '_controller' => 'JdrCorp\\GuildesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_guildes_homepage',);
         }
 
         // Elric

@@ -2866,6 +2866,8 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\src\\JdrCorp\\ElricBundle/Resources/views', 'JdrCorpElric');
+        $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\src\\JdrCorp\\GuildesBundle/Resources/views', 'JdrCorpGuildes');
+        $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\src\\JdrCorp\\IndexBundle/Resources/views', 'JdrCorpIndex');
         $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\Program Files (x86)\\EasyPHP-DevServer-13.1VC11\\data\\localweb\\jdrcorp\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources/views');
@@ -3299,6 +3301,8 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'JdrCorpElricBundle' => 'JdrCorp\\ElricBundle\\JdrCorpElricBundle',
+                'JdrCorpGuildesBundle' => 'JdrCorp\\GuildesBundle\\JdrCorpGuildesBundle',
+                'JdrCorpIndexBundle' => 'JdrCorp\\IndexBundle\\JdrCorpIndexBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

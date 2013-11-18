@@ -1,3 +1,11 @@
+jdr_corp_index:
+    resource: "@JdrCorpIndexBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jdr_corp_guildes:
+    resource: "@JdrCorpGuildesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 jdr_corp_elric:
     resource: "@JdrCorpElricBundle/Resources/config/routing.yml"
     prefix:   /
