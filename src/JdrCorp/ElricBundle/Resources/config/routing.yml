@@ -1,6 +1,3 @@
-Elric_home:
-    path:     /
-    defaults: { _controller: JdrCorpElricBundle:Elric:index }
 Elric:
     path:     /elric
     defaults: { _controller: JdrCorpElricBundle:Elric:index }
