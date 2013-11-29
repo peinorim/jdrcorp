@@ -4,3 +4,6 @@ Elric:
 Metier_Comp:
     path:     /metierComp/{id}
     defaults: { _controller: JdrCorpElricBundle:Elric:getCompMetier }
+    requirements:
+        page:  \d+
+        _method:  POST
