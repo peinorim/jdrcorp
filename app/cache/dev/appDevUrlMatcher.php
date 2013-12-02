@@ -238,8 +238,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // Metier_Comp
         if (0 === strpos($pathinfo, '/metierComp') && preg_match('#^/metierComp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_Metier_Comp;
+            }
+
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'Metier_Comp')), array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::getCompMetierAction',));
         }
+        not_Metier_Comp:
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
