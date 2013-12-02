@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JdrCorp\ElricBundle\Entity\ArmeRepository")
  */
-class Arme
-{
+class Arme {
+
     /**
      * @var integer
      *
@@ -20,6 +20,13 @@ class Arme
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
 
     /**
      * @var integer
@@ -49,15 +56,34 @@ class Arme
      */
     private $structure;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Arme
+     */
+    public function setNom($nom) {
+        $this->base = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom() {
+        return $this->nom;
     }
 
     /**
@@ -66,10 +92,9 @@ class Arme
      * @param integer $base
      * @return Arme
      */
-    public function setBase($base)
-    {
+    public function setBase($base) {
         $this->base = $base;
-    
+
         return $this;
     }
 
@@ -78,8 +103,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getBase()
-    {
+    public function getBase() {
         return $this->base;
     }
 
@@ -89,10 +113,9 @@ class Arme
      * @param string $degats
      * @return Arme
      */
-    public function setDegats($degats)
-    {
+    public function setDegats($degats) {
         $this->degats = $degats;
-    
+
         return $this;
     }
 
@@ -101,8 +124,7 @@ class Arme
      *
      * @return string 
      */
-    public function getDegats()
-    {
+    public function getDegats() {
         return $this->degats;
     }
 
@@ -112,10 +134,9 @@ class Arme
      * @param string $mains
      * @return Arme
      */
-    public function setMains($mains)
-    {
+    public function setMains($mains) {
         $this->mains = $mains;
-    
+
         return $this;
     }
 
@@ -124,8 +145,7 @@ class Arme
      *
      * @return string 
      */
-    public function getMains()
-    {
+    public function getMains() {
         return $this->mains;
     }
 
@@ -135,10 +155,9 @@ class Arme
      * @param integer $structure
      * @return Arme
      */
-    public function setStructure($structure)
-    {
+    public function setStructure($structure) {
         $this->structure = $structure;
-    
+
         return $this;
     }
 
@@ -147,8 +166,8 @@ class Arme
      *
      * @return integer 
      */
-    public function getStructure()
-    {
+    public function getStructure() {
         return $this->structure;
     }
+
 }
