@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new JdrCorp\ElricBundle\JdrCorpElricBundle(),
             new JdrCorp\GuildesBundle\JdrCorpGuildesBundle(),
             new JdrCorp\IndexBundle\JdrCorpIndexBundle(),
+new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
