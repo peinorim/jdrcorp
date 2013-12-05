@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/var/www/dev/jdrcorp/app</parameter>
+    <parameter key="kernel.root_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">/var/www/dev/jdrcorp/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/var/www/dev/jdrcorp/app/logs</parameter>
+    <parameter key="kernel.cache_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -19,7 +19,6 @@
       <parameter key="JdrCorpElricBundle">JdrCorp\ElricBundle\JdrCorpElricBundle</parameter>
       <parameter key="JdrCorpGuildesBundle">JdrCorp\GuildesBundle\JdrCorpGuildesBundle</parameter>
       <parameter key="JdrCorpIndexBundle">JdrCorp\IndexBundle\JdrCorpIndexBundle</parameter>
-      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -84,7 +83,7 @@
     <parameter key="debug.errors_logger_listener.class">Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
-    <parameter key="debug.container.dump">/var/www/dev/jdrcorp/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
@@ -100,7 +99,7 @@
     <parameter key="session.handler.native_file.class">Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler</parameter>
     <parameter key="session_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\SessionListener</parameter>
     <parameter key="session.storage.options" type="collection"/>
-    <parameter key="session.save_path">/var/www/dev/jdrcorp/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/sessions</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
     <parameter key="form.registry.class">Symfony\Component\Form\FormRegistry</parameter>
     <parameter key="form.factory.class">Symfony\Component\Form\FormFactory</parameter>
@@ -156,7 +155,7 @@
     <parameter key="validator.mapping.loader.yaml_files_loader.class">Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader</parameter>
     <parameter key="validator.validator_factory.class">Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory</parameter>
     <parameter key="validator.mapping.loader.xml_files_loader.mapping_files" type="collection">
-      <parameter>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</parameter>
+      <parameter>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</parameter>
     </parameter>
     <parameter key="validator.mapping.loader.yaml_files_loader.mapping_files" type="collection"/>
     <parameter key="validator.translation_domain">validators</parameter>
@@ -173,7 +172,7 @@
     <parameter key="data_collector.router.class">Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/var/www/dev/jdrcorp/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -197,7 +196,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/var/www/dev/jdrcorp/app/cache/dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -309,7 +308,7 @@
       <parameter key="exception_controller">twig.controller.exception:showAction</parameter>
       <parameter key="autoescape_service">null</parameter>
       <parameter key="autoescape_service_method">null</parameter>
-      <parameter key="cache">/var/www/dev/jdrcorp/app/cache/dev/twig</parameter>
+      <parameter key="cache">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -362,7 +361,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/var/www/dev/jdrcorp/app/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
     <parameter key="swiftmailer.spool.enabled">true</parameter>
@@ -385,7 +384,7 @@
     <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">/var/www/dev/jdrcorp/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
       <parameter>JdrCorpElricBundle</parameter>
     </parameter>
@@ -397,13 +396,13 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">/var/www/dev/jdrcorp/app/../web</parameter>
-    <parameter key="assetic.write_to">/var/www/dev/jdrcorp/app/../web</parameter>
+    <parameter key="assetic.read_from">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/../web</parameter>
+    <parameter key="assetic.write_to">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">/usr/bin/java</parameter>
+    <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
-    <parameter key="assetic.ruby.bin">/home/analyst/.rvm/rubies/ruby-2.0.0-p247/bin/ruby</parameter>
-    <parameter key="assetic.sass.bin">/home/analyst/.rvm/gems/ruby-2.0.0-p247/bin/sass</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
+    <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
     <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
@@ -465,7 +464,7 @@
     <parameter key="doctrine.orm.naming_strategy.default.class">Doctrine\ORM\Mapping\DefaultNamingStrategy</parameter>
     <parameter key="doctrine.orm.naming_strategy.underscore.class">Doctrine\ORM\Mapping\UnderscoreNamingStrategy</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/var/www/dev/jdrcorp/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -477,16 +476,6 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
-    <parameter key="knp_snappy.pdf.internal_generator.class">Knp\Snappy\Pdf</parameter>
-    <parameter key="knp_snappy.pdf.class">Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator</parameter>
-    <parameter key="knp_snappy.pdf.binary">wkhtmltopdf</parameter>
-    <parameter key="knp_snappy.pdf.options" type="collection"/>
-    <parameter key="knp_snappy.pdf.env" type="collection"/>
-    <parameter key="knp_snappy.image.internal_generator.class">Knp\Snappy\Image</parameter>
-    <parameter key="knp_snappy.image.class">Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator</parameter>
-    <parameter key="knp_snappy.image.binary">wkhtmltoimage</parameter>
-    <parameter key="knp_snappy.image.options" type="collection"/>
-    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -687,7 +676,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/dev/jdrcorp/app/Resources</argument>
+                <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -713,7 +702,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/dev/jdrcorp/app/Resources</argument>
+                <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -735,7 +724,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/var/www/dev/jdrcorp/app/Resources</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -807,7 +796,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/dev/jdrcorp/app/cache/dev/translations</argument>
+        <argument key="cache_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
     </service>
@@ -1214,7 +1203,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/var/www/dev/jdrcorp/app/cache/dev</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -1252,7 +1241,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>/var/www/dev/jdrcorp/app</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -1310,7 +1299,7 @@
             <argument type="service">
               <service class="Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader" public="false">
                 <argument type="collection">
-                  <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+                  <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
                 </argument>
               </service>
             </argument>
@@ -1333,7 +1322,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:/var/www/dev/jdrcorp/app/cache/dev/profiler</argument>
+          <argument>file:C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1626,7 +1615,7 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/secure_random.seed</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="security.rememberme.response_listener" class="Symfony\Component\Security\Http\RememberMe\ResponseListener">
@@ -1883,7 +1872,7 @@
         <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="autoescape_service">null</argument>
         <argument key="autoescape_service_method">null</argument>
-        <argument key="cache">/var/www/dev/jdrcorp/app/cache/dev/twig</argument>
+        <argument key="cache">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -1932,7 +1921,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>/var/www/dev/jdrcorp/app</argument>
+            <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2032,7 +2021,7 @@
       <argument>true</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/var/www/dev/jdrcorp/app/logs/dev.log</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
     </service>
@@ -2078,7 +2067,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>/var/www/dev/jdrcorp/app/cache/dev/assetic/config</argument>
+                <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2095,7 +2084,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>JdrCorpElricBundle</argument>
-                  <argument>/var/www/dev/jdrcorp/app/Resources/JdrCorpElricBundle/views</argument>
+                  <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources/JdrCorpElricBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2103,7 +2092,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>JdrCorpElricBundle</argument>
-                  <argument>/var/www/dev/jdrcorp/src/JdrCorp/ElricBundle/Resources/views</argument>
+                  <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\src\JdrCorp\ElricBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2119,7 +2108,7 @@
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>/var/www/dev/jdrcorp/app/Resources/views</argument>
+            <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -2132,7 +2121,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>/var/www/dev/jdrcorp/app/../web</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -2159,7 +2148,7 @@
       </call>
     </service>
     <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/assetic/assets</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/assetic/assets</argument>
     </service>
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
@@ -2252,7 +2241,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_c31d718eb9235ffbee2b28f5980b6aa2</argument>
+                  <argument>sf2orm_default_a7f6cce9f898bdcc414b8dc8183ae59b</argument>
                 </call>
               </service>
             </argument>
@@ -2261,7 +2250,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_c31d718eb9235ffbee2b28f5980b6aa2</argument>
+                  <argument>sf2orm_default_a7f6cce9f898bdcc414b8dc8183ae59b</argument>
                 </call>
               </service>
             </argument>
@@ -2270,7 +2259,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_c31d718eb9235ffbee2b28f5980b6aa2</argument>
+                  <argument>sf2orm_default_a7f6cce9f898bdcc414b8dc8183ae59b</argument>
                 </call>
               </service>
             </argument>
@@ -2283,7 +2272,7 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>/var/www/dev/jdrcorp/src/JdrCorp/ElricBundle/Entity</argument>
+                        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\src\JdrCorp\ElricBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2293,7 +2282,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>/var/www/dev/jdrcorp/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2355,28 +2344,6 @@
     </service>
     <service id="cme.twig.url_decode_extension" class="JdrCorp\ElricBundle\Twig\UrlDecodeExtension">
       <tag name="twig.extension"/>
-    </service>
-    <service id="knp_snappy.pdf" class="Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator">
-      <tag name="monolog.logger" channel="snappy"/>
-      <argument type="service">
-        <service class="Knp\Snappy\Pdf" public="false">
-          <argument>wkhtmltopdf</argument>
-          <argument type="collection"/>
-          <argument type="collection"/>
-        </service>
-      </argument>
-      <argument type="service" id="monolog.logger.snappy" on-invalid="null"/>
-    </service>
-    <service id="knp_snappy.image" class="Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator">
-      <tag name="monolog.logger" channel="snappy"/>
-      <argument type="service">
-        <service class="Knp\Snappy\Image" public="false">
-          <argument>wkhtmltoimage</argument>
-          <argument type="collection"/>
-          <argument type="collection"/>
-        </service>
-      </argument>
-      <argument type="service" id="monolog.logger.snappy" on-invalid="null"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -2448,7 +2415,7 @@
       <argument>bottom</argument>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>/var/www/dev/jdrcorp/app</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app</argument>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
       <argument>request</argument>
@@ -2585,30 +2552,15 @@
         <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
-    <service id="monolog.logger.snappy" class="Symfony\Bridge\Monolog\Logger">
-      <argument>snappy</argument>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.chromephp"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.firephp"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.main"/>
-      </call>
-      <call method="pushHandler">
-        <argument type="service" id="monolog.handler.debug"/>
-      </call>
-    </service>
     <service id="monolog.handler.debug" class="Symfony\Bridge\Monolog\Handler\DebugHandler">
       <argument>100</argument>
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/sessions</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/sessions</argument>
     </service>
     <service id="session.handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/sessions</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/sessions</argument>
     </service>
     <service id="templating.loader" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader">
       <argument type="service" id="templating.locator"/>
@@ -2652,9 +2604,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/assetic/routing.yml</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/dev/jdrcorp/app/cache/dev</argument>
+        <argument key="cache_dir">C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2673,7 +2625,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>/var/www/dev/jdrcorp/app/cache/dev/annotations</argument>
+      <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -2691,50 +2643,50 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\swiftmailer-bundle\Symfony\Bundle\SwiftmailerBundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\doctrine\doctrine-bundle\Doctrine\Bundle\DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/src/JdrCorp/ElricBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\src\JdrCorp\ElricBundle/Resources/views</argument>
         <argument>JdrCorpElric</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/src/JdrCorp/GuildesBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\src\JdrCorp\GuildesBundle/Resources/views</argument>
         <argument>JdrCorpGuildes</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/src/JdrCorp/IndexBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\src\JdrCorp\IndexBundle/Resources/views</argument>
         <argument>JdrCorpIndex</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/app/Resources/views</argument>
+        <argument>C:/Program Files (x86)/EasyPHP-DevServer-13.1VC11/data/localweb/jdrcorp/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/dev/jdrcorp/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\jdrcorp\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
