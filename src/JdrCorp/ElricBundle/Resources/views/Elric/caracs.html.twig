@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="force" class="col-lg-2 control-label">Force</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="force" value="" readonly/>
+            <input type="text" class="form-control" id="force" name="force" value="" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -12,7 +12,7 @@
     <div class="form-group">
         <label for="consti" class="col-lg-2 control-label">Constitution</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="consti" readonly/>
+            <input type="text" class="form-control" id="consti" name="consti" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -21,7 +21,7 @@
     <div class="form-group">
         <label for="taille" class="col-lg-2 control-label">Taille</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="taille" readonly/>
+            <input type="text" class="form-control" id="taille" name="taille" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -30,7 +30,7 @@
     <div class="form-group">
         <label for="intell" class="col-lg-2 control-label">Intelligence</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="intell" readonly/>
+            <input type="text" class="form-control" id="intell" name="intell" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -39,7 +39,7 @@
     <div class="form-group">
         <label for="pouvoir" class="col-lg-2 control-label">Pouvoir</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="pouvoir" readonly/>
+            <input type="text" class="form-control" id="pouvoir" name="pouvoir" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -48,7 +48,7 @@
     <div class="form-group">
         <label for="dexte" class="col-lg-2 control-label">Dextérité</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="dexte" readonly/>
+            <input type="text" class="form-control" id="dexte" name="dexte" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -57,7 +57,7 @@
     <div class="form-group">
         <label for="appa" class="col-lg-2 control-label">Apparence</label>
         <div class="col-lg-4 input-group">
-            <input type="text" class="form-control" id="appa" readonly/>
+            <input type="text" class="form-control" id="appa" name="appa" readonly/>
             <span class="input-group-btn">
                 <button class="btn btn-primary dice_carac" type="button">2D6 + 6</button>
             </span>
@@ -68,13 +68,13 @@
     <div class="form-group">
         <label for="nom" class="col-lg-3 control-label">Nom</label>
         <div class="col-lg-8">
-            <input type="text" class="form-control" id="nom"/>
+            <input type="text" class="form-control" id="nom" name="nom"/>
         </div>
     </div>
     <div class="form-group">
         <label for="naiss" class="col-lg-3 control-label">Lieu de naissance</label>
         <div class="col-lg-8">
-            <select class="form-control" id="naiss">
+            <select class="form-control" id="naiss" name="naiss">
                 <option>Argimiliar</option> 
                 <option>Dharijor</option>
                 <option>Dorel</option>
@@ -97,7 +97,7 @@
     <div class="form-group">
         <label for="sexe" class="col-lg-3 control-label">Sexe</label>
         <div class="col-lg-3">
-            <select class="form-control" id="sexe">
+            <select class="form-control" id="sexe" name="sexe">
                 <option>M</option> 
                 <option>F</option>
             </select>
@@ -106,13 +106,13 @@
     <div class="form-group">
         <label for="age" class="col-lg-3 control-label">Age</label>
         <div class="col-lg-5">
-            <input type="number" class="form-control" id="age"/>
+            <input type="number" class="form-control" id="age" name="age/>
         </div>
     </div>
     <div class="form-group">
         <label for="allure" class="col-lg-3 control-label">Allure, attitude</label>
         <div class="col-lg-5">
-            <textarea id="allure"></textarea>
+            <textarea id="allure" name="allure" maxlength="100"></textarea>
         </div>
     </div>
 
