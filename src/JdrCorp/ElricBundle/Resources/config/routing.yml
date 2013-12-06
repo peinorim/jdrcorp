@@ -7,3 +7,8 @@ Metier_Comp:
     requirements:
         page:  \d+
         _method:  POST
+Create:
+    path:     /create
+    defaults: { _controller: JdrCorpElricBundle:Elric:create }
+    requirements:
+        _method:  POST        
