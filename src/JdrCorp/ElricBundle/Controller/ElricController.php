@@ -3,6 +3,7 @@
 namespace JdrCorp\ElricBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JdrCorp\ElricBundle\Entity\Perso;
 
 class ElricController extends Controller {
 
@@ -36,5 +37,11 @@ class ElricController extends Controller {
         return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp));
     }
     public function createAction() {
+        $perso = new Perso();
+        $request = $this->getRequest();
+        if ($request->getMethod() === 'POST') {
+            $perso->setNom($request->request->get('nom'));
+            return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso));
+        }
     }
 }

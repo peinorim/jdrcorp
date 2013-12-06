@@ -29,7 +29,7 @@
         $("#metiers").change(function() {
             var id = parseInt($(this).val());
             if (id !== 0) {
-                $.post("{{path('Metier_Comp', {'id': "%s" }) | url_decode | format('"+id+"') | raw }}",
+                $.post("{{path('Elric_Metier_Comp', {'id': "%s" }) | url_decode | format('"+id+"') | raw }}",
                         function(response) {
                             $('#compMetiers').html(response);
                         });

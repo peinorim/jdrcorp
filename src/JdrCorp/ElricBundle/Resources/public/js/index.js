@@ -18,10 +18,10 @@ $(document).ready(function() {
                 var base = parseInt($(this).parent().siblings("td:eq(1)").html());
                 var saisi = ajout + base;
                 $(this).parent().siblings("td:eq(2)").html('<b>' + saisi + '%</b>');
-                if(tot < 0){
+                if (tot < 0) {
                     $('#totPts').parent().addClass('alert-danger');
                     $('#totPts').parent().removeClass('alert-warning');
-                } else if(tot === 0){
+                } else if (tot === 0) {
                     $('#totPts').parent().removeClass('alert-danger');
                     $('#totPts').parent().removeClass('alert-warning');
                     $('#totPts').parent().addClass('alert-success');
@@ -39,25 +39,24 @@ function leaveAStepCallback(obj) {
 }
 function onFinishCallback() {
     if (validateAllSteps()) {
-        $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+        $('#create').submit();
     }
 }
 function validateAllSteps() {
     var isStepValid = true;
-    if (parseInt(step) === 1) {
-        if (validateStep1() === false) {
-            isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 1, iserror: true});
-        } else {
-            $('#wizard').smartWizard('setError', {stepnum: 1, iserror: false});
-        }
-    } else if (parseInt(step) === 2) {
-        if (validateStep2() === false) {
-            isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 2, iserror: true});
-        } else {
-            $('#wizard').smartWizard('setError', {stepnum: 2, iserror: false});
-        }
+
+    if (validateStep1() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 1, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 1, iserror: false});
+    }
+
+    if (validateStep2() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 2, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 2, iserror: false});
     }
 
     if (!isStepValid) {
