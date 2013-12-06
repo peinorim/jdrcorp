@@ -47,9 +47,11 @@
                             </span>                   
                         </a></li>
                 </ul>
-                <div id="caracs">{% include 'JdrCorpElricBundle:Elric:caracs.html.twig' %}</div>
-                <div id="metier">{% include 'JdrCorpElricBundle:Elric:metier.html.twig' %}</div>                      
-                <div id="equip">{% include 'JdrCorpElricBundle:Elric:equip.html.twig' %}</div>
+                <form method="post" {{ form_enctype(form) }}>.
+                    <div id="caracs">{% include 'JdrCorpElricBundle:Elric:caracs.html.twig' %}</div>
+                    <div id="metier">{% include 'JdrCorpElricBundle:Elric:metier.html.twig' %}</div>                      
+                    <div id="equip">{% include 'JdrCorpElricBundle:Elric:equip.html.twig' %}</div>
+                </form>
             </div>
         </div>	
     </body>
