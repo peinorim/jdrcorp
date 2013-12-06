@@ -35,6 +35,6 @@ class ElricController extends Controller {
         }
         return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp));
     }
-    public function createAction($id) {
+    public function createAction() {
     }
 }
