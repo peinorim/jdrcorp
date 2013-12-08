@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 déc. 2013, 21:19:33
+    Author     : Arnaud
+*/
+span{
+    font-family: Calibri;
+    font-size: 25px;
+    font-weight: bold;
+    position:absolute;
+}
+#fiche_recto {
+    background:url('../../bundles/jdrcorpelric/images/Elric!-1.jpg') no-repeat left top;
+    width:1169px;
+    height:1694px;
+}
+#nom{  
+    top:245px;
+    left:400px;
+}
+#fort{
+    top:270px;
+    left:100px;
+}

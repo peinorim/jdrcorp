@@ -16,7 +16,13 @@
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
-        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/*' filter='cssrewrite' %}
+        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/bootstrap.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/index.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/smart_wizard.css' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
     </head>

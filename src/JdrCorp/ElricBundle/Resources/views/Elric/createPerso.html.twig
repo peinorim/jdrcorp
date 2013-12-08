@@ -1,1 +1,22 @@
-{{ perso.nom }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fiche de personnage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% stylesheets 'bundles/jdrcorpelric/css/z_recto.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div id="fiche_recto">
+        </div>	
+        <span id="nom">{{perso.getNom}}</span>
+        <span id="fort">{{perso.getFort}}</span>
+        <span id="consti">{{perso.getConsti}}</span>
+        <span id="taille">{{perso.getTaille}}</span>
+        <span id="intell">{{perso.getIntell}}</span>
+        <span id="pouvoir">{{perso.getPouvoir}}</span>
+        <span id="dexte">{{perso.getDexte}}</span>
+        <span id="appa">{{perso.getApparence}}</span>
+    </body>
+</html>

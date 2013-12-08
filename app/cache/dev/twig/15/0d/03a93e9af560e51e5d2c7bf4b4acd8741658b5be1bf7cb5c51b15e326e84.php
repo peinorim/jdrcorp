@@ -16,7 +16,70 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "nom"), "html", null, true);
+        echo "<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fiche de personnage</title>
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        ";
+        // line 6
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "f567677_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_f567677_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/f567677_z_recto_1.css");
+            // line 7
+            echo "        <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+        } else {
+            // asset "f567677"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_f567677") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/f567677.css");
+            echo "        <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+        }
+        unset($context["asset_url"]);
+        // line 9
+        echo "    </head>
+    <body>
+        <div id=\"fiche_recto\">
+        </div>\t
+        <span id=\"nom\">";
+        // line 13
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getNom"), "html", null, true);
+        echo "</span>
+        <span id=\"fort\">";
+        // line 14
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getFort"), "html", null, true);
+        echo "</span>
+        <span id=\"consti\">";
+        // line 15
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getConsti"), "html", null, true);
+        echo "</span>
+        <span id=\"taille\">";
+        // line 16
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getTaille"), "html", null, true);
+        echo "</span>
+        <span id=\"intell\">";
+        // line 17
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getIntell"), "html", null, true);
+        echo "</span>
+        <span id=\"pouvoir\">";
+        // line 18
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getPouvoir"), "html", null, true);
+        echo "</span>
+        <span id=\"dexte\">";
+        // line 19
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getDexte"), "html", null, true);
+        echo "</span>
+        <span id=\"appa\">";
+        // line 20
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getApparence"), "html", null, true);
+        echo "</span>
+    </body>
+</html>
+";
     }
 
     public function getTemplateName()
@@ -31,6 +94,6 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,);
+        return array (  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
     }
 }
