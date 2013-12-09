@@ -140,6 +140,33 @@ class Perso
      */
     private $armure;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idee", type="integer")
+     */
+    private $idee;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="chance", type="integer")
+     */
+    private $chance;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dexterite", type="integer")
+     */
+    private $dexterite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="charisme", type="integer")
+     */
+    private $charisme;
 
     /**
      * Get id
@@ -252,6 +279,7 @@ class Perso
     public function setIntell($intell)
     {
         $this->intell = $intell;
+	$this->setIdee();
     
         return $this;
     }
@@ -275,6 +303,7 @@ class Perso
     public function setPouvoir($pouvoir)
     {
         $this->pouvoir = $pouvoir;
+	$this->setChance();
     
         return $this;
     }
@@ -298,7 +327,8 @@ class Perso
     public function setDexte($dexte)
     {
         $this->dexte = $dexte;
-    
+    	$this->setDexterite();
+
         return $this;
     }
 
@@ -321,7 +351,7 @@ class Perso
     public function setApparence($apparence)
     {
         $this->apparence = $apparence;
-    
+    	$this->setCharisme();
         return $this;
     }
 
@@ -540,5 +570,89 @@ class Perso
     public function getArmure()
     {
         return $this->armure;
+    }
+    
+    /**
+     * Get idee
+     *
+     * @return integer 
+     */
+    public function getIdee()
+    {
+        return $this->idee;
+    }
+    
+    /**
+     * Get chance
+     *
+     * @return integer 
+     */
+    public function getChance()
+    {
+        return $this->chance;
+    }
+    
+    /**
+     * Get dexterite
+     *
+     * @return integer 
+     */
+    public function getDexterite()
+    {
+        return $this->dexterite;
+    }
+    
+    /**
+     * Get charisme
+     *
+     * @return integer 
+     */
+    public function getCharisme()
+    {
+        return $this->idee;
+    }
+    
+    /**
+     * Set idee
+     *
+     * @return Perso 
+     */
+    private function setIdee()
+    {
+	    $this->idee = $this->intell*5;
+        return $this;
+    }
+    
+    /**
+     * Set chance
+     *
+     * @return Perso 
+     */
+    private function setChance()
+    {
+	    $this->chance = $this->pouvoir*5;
+        return $this;
+    }
+    
+    /**
+     * Set dexterite
+     *
+     * @return Perso 
+     */
+    private function setDexterite()
+    {
+	    $this->dexterite = $this->dexte*5;
+        return $this;
+    }
+    
+    /**
+     * Set charisme
+     *
+     * @return Perso 
+     */
+    private function setCharisme()
+    {
+	    $this->charisme = $this->appa*5;
+        return $this;
     }
 }
