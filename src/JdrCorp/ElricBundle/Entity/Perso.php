@@ -27,6 +27,13 @@ class Perso {
      * @ORM\Column(name="nom", type="string", length=50)
      */
     private $nom;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proprio", type="string", length=50)
+     */
+    private $proprio;
 
     /**
      * @var integer
@@ -203,6 +210,27 @@ class Perso {
      */
     public function getNom() {
         return $this->nom;
+    }
+    
+    /**
+     * Set nom
+     *
+     * @param string $proprio
+     * @return Perso
+     */
+    public function setProprio($proprio) {
+        $this->proprio = $proprio;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getProprio() {
+        return $this->proprio;
     }
 
     /**

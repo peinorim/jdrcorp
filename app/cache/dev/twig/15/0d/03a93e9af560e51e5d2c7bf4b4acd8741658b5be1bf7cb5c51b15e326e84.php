@@ -44,58 +44,78 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
         echo "    </head>
     <body>
         <div id=\"fiche_recto\">
-        </div>\t
-        <span id=\"nom\">";
+        </div>
+        <span id=\"proprio\">";
         // line 13
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getProprio"), "html", null, true);
+        echo "</span>
+        <span id=\"nom\">";
+        // line 14
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getNom"), "html", null, true);
         echo "</span>
         <span id=\"fort\">";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getFort"), "html", null, true);
         echo "</span>
         <span id=\"consti\">";
-        // line 15
+        // line 16
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getConsti"), "html", null, true);
         echo "</span>
         <span id=\"taille\">";
-        // line 16
+        // line 17
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getTaille"), "html", null, true);
         echo "</span>
         <span id=\"intell\">";
-        // line 17
+        // line 18
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getIntell"), "html", null, true);
         echo "</span>
         <span id=\"pouvoir\">";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getPouvoir"), "html", null, true);
         echo "</span>
         <span id=\"dexte\">";
-        // line 19
+        // line 20
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getDexte"), "html", null, true);
         echo "</span>
         <span id=\"appa\">";
-        // line 20
+        // line 21
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getApparence"), "html", null, true);
         echo "</span>
         <span id=\"idee\">";
-        // line 21
+        // line 22
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getIdee"), "html", null, true);
         echo "</span>
         <span id=\"chance\">";
-        // line 22
+        // line 23
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getChance"), "html", null, true);
         echo "</span>
         <span id=\"dexterite\">";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getDexterite"), "html", null, true);
         echo "</span>
         <span id=\"charisme\">";
-        // line 24
+        // line 25
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getCharisme"), "html", null, true);
         echo "</span>
         <span id=\"modif_degats\">";
-        // line 25
+        // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getModifDegats"), "html", null, true);
+        echo "</span>
+        <span id=\"allure\">";
+        // line 27
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getAllure"), "html", null, true);
+        echo "</span>
+        <span id=\"naiss\">";
+        // line 28
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getNaiss"), "html", null, true);
+        echo "</span>
+        <span id=\"sexe\">";
+        // line 29
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getSexe"), "html", null, true);
+        echo "</span>
+        <span id=\"age\">";
+        // line 30
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getAge"), "html", null, true);
         echo "</span>
     </body>
 </html>
@@ -114,6 +134,6 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
 
     public function getDebugInfo()
     {
-        return array (  98 => 25,  94 => 24,  90 => 23,  86 => 22,  82 => 21,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  118 => 30,  114 => 29,  110 => 28,  106 => 27,  102 => 26,  98 => 25,  94 => 24,  90 => 23,  86 => 22,  82 => 21,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
     }
 }

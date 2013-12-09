@@ -41,6 +41,7 @@ class ElricController extends Controller {
         $request = $this->getRequest();
         if ($request->getMethod() === 'POST') {
             $perso->setNom($request->request->get('nom'));
+            $perso->setProprio($request->request->get('proprio'));
             $perso->setFort($request->request->get('force'));
             $perso->setConsti($request->request->get('consti'));
             $perso->setTaille($request->request->get('taille'));
@@ -48,6 +49,10 @@ class ElricController extends Controller {
             $perso->setPouvoir($request->request->get('pouvoir'));
             $perso->setDexte($request->request->get('dexte'));
             $perso->setApparence($request->request->get('appa'));
+            $perso->setAllure($request->request->get('allure'));
+            $perso->setNaiss($request->request->get('naiss'));
+            $perso->setSexe($request->request->get('sexe'));
+            $perso->setAge($request->request->get('age'));
             return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso));
         }
     }

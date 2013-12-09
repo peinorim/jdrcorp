@@ -90,6 +90,12 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
         </div>
     </div>
     <div class=\"form-group\">
+        <label for=\"nom\" class=\"col-lg-3 control-label\">Nom du joueur</label>
+        <div class=\"col-lg-8\">
+            <input type=\"text\" class=\"form-control\" id=\"proprio\" name=\"proprio\"/>
+        </div>
+    </div>
+    <div class=\"form-group\">
         <label for=\"naiss\" class=\"col-lg-3 control-label\">Lieu de naissance</label>
         <div class=\"col-lg-8\">
             <select class=\"form-control\" id=\"naiss\" name=\"naiss\">
@@ -130,7 +136,7 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
     <div class=\"form-group\">
         <label for=\"allure\" class=\"col-lg-3 control-label\">Allure, attitude</label>
         <div class=\"col-lg-5\">
-            <textarea id=\"allure\" name=\"allure\" maxlength=\"100\"></textarea>
+            <textarea id=\"allure\" name=\"allure\" maxlength=\"200\"></textarea>
         </div>
     </div>
 
@@ -152,6 +158,6 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
 
     public function getDebugInfo()
     {
-        return array (  183 => 54,  179 => 53,  175 => 52,  146 => 26,  140 => 22,  108 => 20,  104 => 19,  101 => 18,  87 => 16,  82 => 15,  68 => 13,  63 => 12,  49 => 10,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  19 => 1,);
     }
 }
