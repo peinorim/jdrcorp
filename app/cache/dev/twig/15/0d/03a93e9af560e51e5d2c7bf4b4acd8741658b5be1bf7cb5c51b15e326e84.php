@@ -77,6 +77,26 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
         // line 20
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getApparence"), "html", null, true);
         echo "</span>
+        <span id=\"idee\">";
+        // line 21
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getIdee"), "html", null, true);
+        echo "</span>
+        <span id=\"chance\">";
+        // line 22
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getChance"), "html", null, true);
+        echo "</span>
+        <span id=\"dexterite\">";
+        // line 23
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getDexterite"), "html", null, true);
+        echo "</span>
+        <span id=\"charisme\">";
+        // line 24
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getCharisme"), "html", null, true);
+        echo "</span>
+        <span id=\"modif_degats\">";
+        // line 25
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getModifDegats"), "html", null, true);
+        echo "</span>
     </body>
 </html>
 ";
@@ -94,6 +114,6 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
 
     public function getDebugInfo()
     {
-        return array (  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  98 => 25,  94 => 24,  90 => 23,  86 => 22,  82 => 21,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
     }
 }

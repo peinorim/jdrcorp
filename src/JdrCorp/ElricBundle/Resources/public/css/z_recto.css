@@ -30,6 +30,10 @@ span{
     top:353px;
     left:150px;
 }
+#modif_degats{
+    top:353px;
+    left:235px;
+}
 #taille{
     top:383px;
     left:150px;
@@ -38,17 +42,33 @@ span{
     top:410px;
     left:150px;
 }
+#idee{
+    top:410px;
+    left:325px;
+}
 #pouvoir{
     top:439px;
     left:150px;
+}
+#chance{
+    top:437px;
+    left:325px;
 }
 #dexte{
     top:469px;
     left:150px;
 }
+#dexterite{
+    top:467px;
+    left:325px;
+}
 #appa{
     top:496px;
     left:150px;
+}
+#charisme{
+    top:494px;
+    left:325px;
 }
 
 
