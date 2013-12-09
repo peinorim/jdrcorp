@@ -27,7 +27,7 @@ class Perso {
      * @ORM\Column(name="nom", type="string", length=50)
      */
     private $nom;
-    
+
     /**
      * @var string
      *
@@ -182,6 +182,23 @@ class Perso {
      */
     private $modif_degats;
 
+    public function __construct($request) {
+        $this->setNom($request->request->get('nom'));
+        $this->setProprio($request->request->get('proprio'));
+        $this->setFort($request->request->get('force'));
+        $this->setConsti($request->request->get('consti'));
+        $this->setTaille($request->request->get('taille'));
+        $this->setintell($request->request->get('intell'));
+        $this->setPouvoir($request->request->get('pouvoir'));
+        $this->setDexte($request->request->get('dexte'));
+        $this->setApparence($request->request->get('appa'));
+        $this->setAllure($request->request->get('allure'));
+        $this->setNaiss($request->request->get('naiss'));
+        $this->setSexe($request->request->get('sexe'));
+        $this->setAge($request->request->get('age'));
+        return $this;
+    }
+
     /**
      * Get id
      *
@@ -211,7 +228,7 @@ class Perso {
     public function getNom() {
         return $this->nom;
     }
-    
+
     /**
      * Set nom
      *

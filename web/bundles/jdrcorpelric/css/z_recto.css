@@ -19,7 +19,7 @@ span{
     height:1694px;
 }
 #proprio{  
-    top:245px;
+    top:240px;
     left:400px;
 }
 #nom{  
@@ -77,9 +77,10 @@ span{
 #allure{
     top:414px;
     left:400px;
-    width:320px;
+    width:350px;
     font-size: 15px;
     line-height: 28px;
+    text-align: justify;
 }
 #naiss{
     top:358px;
