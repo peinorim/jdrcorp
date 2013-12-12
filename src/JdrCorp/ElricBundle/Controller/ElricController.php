@@ -45,7 +45,13 @@ class ElricController extends Controller {
         $request = $this->getRequest();
 
         if ($request->getMethod() === 'POST') {
+            
+            $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+            foreach ($request->request->get('comp') as $id => $value) {
+                $competences[] = $repositoryComp->find($id)->setTotal($value);
+            }
             $perso = new Perso($request);
+            $perso->setCompetences($competences);
             return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'listeComp' => $listeComp));
         }
     }

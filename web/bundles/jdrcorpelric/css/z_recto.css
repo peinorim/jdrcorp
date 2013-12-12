@@ -7,11 +7,12 @@ and open the template in the editor.
     Created on : 8 déc. 2013, 21:19:33
     Author     : Arnaud
 */
-span{
+span, table{
     font-family: Calibri;
     font-size: 25px;
     font-weight: bold;
     position:absolute;
+    display:block;
 }
 #fiche_recto {
     background:url('../images/Elric!-1.jpg') no-repeat left top;
@@ -96,4 +97,12 @@ span{
     top:358px;
     left:770px;
     font-size: 20px;
+}
+#myComp{
+    top:570px;
+    left:110px;
+    width:750px;
+    height: 350px;
+    overflow:auto;
+    font-size: 15px;
 }

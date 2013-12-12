@@ -117,7 +117,11 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
         // line 30
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["perso"]) ? $context["perso"] : $this->getContext($context, "perso")), "getAge"), "html", null, true);
         echo "</span>
-    </body>
+        ";
+        // line 31
+        $this->env->loadTemplate("JdrCorpElricBundle:Elric:myComp.html.twig")->display($context);
+        // line 32
+        echo "    </body>
 </html>
 ";
     }
@@ -134,6 +138,6 @@ class __TwigTemplate_150d03a93e9af560e51e5d2c7bf4b4acd8741658b5be1bf7cb5c51b15e3
 
     public function getDebugInfo()
     {
-        return array (  118 => 30,  114 => 29,  110 => 28,  106 => 27,  102 => 26,  98 => 25,  94 => 24,  90 => 23,  86 => 22,  82 => 21,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  124 => 32,  122 => 31,  118 => 30,  114 => 29,  110 => 28,  106 => 27,  102 => 26,  98 => 25,  94 => 24,  90 => 23,  86 => 22,  82 => 21,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
     }
 }

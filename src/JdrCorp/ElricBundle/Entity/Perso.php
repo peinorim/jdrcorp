@@ -197,7 +197,6 @@ class Perso {
         $this->setSexe($request->request->get('sexe'));
         $this->setAge($request->request->get('age'));
         //$this->setMetier($request->request->get('metier'));
-        $this->setCompetences($request->request->get('comp'));
         return $this;
     }
 
@@ -542,10 +541,7 @@ class Perso {
      * @return Perso 
      */
     public function setCompetences($comp) {
-        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
-        foreach ($comp as $id => $value) {
-            $this->competences[] = $repositoryComp->find($id)->setTotal($value);
-        }
+        $this->competences = $comp;
         return $this;
     }
 
@@ -554,7 +550,7 @@ class Perso {
      *
      * @return array 
      */
-    public function getCompetences($comp) {
+    public function getCompetences() {
         return $this->competences;
     }
 
