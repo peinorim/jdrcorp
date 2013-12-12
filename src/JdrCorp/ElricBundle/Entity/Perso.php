@@ -178,7 +178,7 @@ class Perso {
     /**
      * @var string
      *
-     * @ORM\Column(name="charisme", type="integer")
+     * @ORM\Column(name="modif_degats", type="string")
      */
     private $modif_degats;
 
@@ -196,6 +196,8 @@ class Perso {
         $this->setNaiss($request->request->get('naiss'));
         $this->setSexe($request->request->get('sexe'));
         $this->setAge($request->request->get('age'));
+        //$this->setMetier($request->request->get('metier'));
+        $this->setCompetences($request->request->get('comp'));
         return $this;
     }
 
@@ -535,23 +537,24 @@ class Perso {
     }
 
     /**
-     * Set competences
+     * Set Comp
      *
-     * @param array $competences
-     * @return Perso
+     * @return Perso 
      */
-    public function setCompetences($competences) {
-        $this->competences = $competences;
-
+    public function setCompetences($comp) {
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+        foreach ($comp as $id => $value) {
+            $this->competences[] = $repositoryComp->find($id)->setTotal($value);
+        }
         return $this;
     }
 
     /**
-     * Get competences
+     * Get Comp
      *
      * @return array 
      */
-    public function getCompetences() {
+    public function getCompetences($comp) {
         return $this->competences;
     }
 
@@ -576,26 +579,26 @@ class Perso {
         return $this->sorts;
     }
 
-    /**
-     * Set metier
-     *
-     * @param string $metier
-     * @return Perso
-     */
-    public function setMetier($metier) {
-        $this->metier = $metier;
-
-        return $this;
-    }
-
-    /**
-     * Get metier
-     *
-     * @return string 
-     */
-    public function getMetier() {
-        return $this->metier;
-    }
+//    /**
+//     * Set metier
+//     *
+//     * @param integer $metier_id
+//     * @return Perso
+//     */
+//    public function setMetier($metier_id) {
+//        $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
+//        $this->metier = $repositoryMetier->find($metier_id);
+//        return $this;
+//    }
+//
+//    /**
+//     * Get metier
+//     *
+//     * @return string 
+//     */
+//    public function getMetier() {
+//        return $this->metier;
+//    }
 
     /**
      * Set armes

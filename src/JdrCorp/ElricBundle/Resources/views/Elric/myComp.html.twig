@@ -1,0 +1,18 @@
+<table>
+    <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+</thead>
+<tbody>
+  {% for comp in listeComp %}
+    <tr>
+        {% if comp in myComp %}
+        <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }})%</td><td class="col-md-2">{{ comp.getTotal }}%</td>
+        {% else %}
+        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
+        {% endif %}
+    </tr>
+  {% endfor %}
+</tbody>
+</table>

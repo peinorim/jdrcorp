@@ -84,7 +84,7 @@ class __TwigTemplate_4044514bc00b115dc75080d6975561bd67c719bc6aaea8e6e8d5601665f
 </div>
 <div class=\"form-horizontal col-md-5\" >
     <div class=\"form-group\">
-        <label for=\"nom\" class=\"col-lg-3 control-label\">Nom</label>
+        <label for=\"nom\" class=\"col-lg-3 control-label\">Nom du personnage</label>
         <div class=\"col-lg-8\">
             <input type=\"text\" class=\"form-control\" id=\"nom\" name=\"nom\"/>
         </div>

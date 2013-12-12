@@ -1,6 +1,6 @@
 <h2 class="StepTitle">Métiers & Compétences</h2>
 <div class="col-md-4" style="margin-top:10px;">
-    <select id="metiers" class="form-control">
+    <select id="metiers" name="metier" class="form-control">
         <option value="0">Choisissez un métier</option>
 {% for met in listeMet %}
         <option value="{{ met.getId }}">{{ met.getMetierNom }}</option>

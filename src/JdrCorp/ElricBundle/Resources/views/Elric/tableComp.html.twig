@@ -9,7 +9,7 @@
   {% for comp in listeComp %}
     <tr>
         {% if comp in listeCompMetier %}
-        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp" value=""/>%</td><td style='text-align: center;'></td>
+        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp" name="comp[{{ comp.getId }}]" value=""/>%</td><td style='text-align: center;'></td>
         {% else %}
         <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
         {% endif %}

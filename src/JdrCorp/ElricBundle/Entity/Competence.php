@@ -34,6 +34,13 @@ class Competence {
      * @ORM\Column(name="base", type="integer")
      */
     private $base;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total", type="integer")
+     */
+    private $total;
 
     /**
      * Get id
@@ -84,6 +91,27 @@ class Competence {
      */
     public function getBase() {
         return $this->base;
+    }
+    
+    /**
+     * Set total
+     *
+     * @param integer $total
+     * @return Competence
+     */
+    public function setTotal($total) {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return integer 
+     */
+    public function getTotal() {
+        return $this->total;
     }
 
     /**

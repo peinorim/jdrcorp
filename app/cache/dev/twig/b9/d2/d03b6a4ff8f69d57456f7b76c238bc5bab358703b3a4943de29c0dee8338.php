@@ -18,7 +18,7 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
         // line 1
         echo "<h2 class=\"StepTitle\">Métiers & Compétences</h2>
 <div class=\"col-md-4\" style=\"margin-top:10px;\">
-    <select id=\"metiers\" class=\"form-control\">
+    <select id=\"metiers\" name=\"metier\" class=\"form-control\">
         <option value=\"0\">Choisissez un métier</option>
 ";
         // line 5
@@ -103,6 +103,6 @@ class __TwigTemplate_b9d2d03b6a4ff8f69d57456f7b76c238bc5bab358703b3a4943de29c0de
 
     public function getDebugInfo()
     {
-        return array (  81 => 32,  70 => 23,  59 => 20,  56 => 19,  52 => 18,  40 => 8,  29 => 6,  25 => 5,  183 => 54,  179 => 53,  175 => 52,  146 => 26,  140 => 22,  108 => 20,  104 => 19,  101 => 18,  87 => 16,  82 => 15,  68 => 13,  63 => 12,  49 => 10,  44 => 9,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  81 => 32,  70 => 23,  59 => 20,  56 => 19,  52 => 18,  40 => 8,  29 => 6,  25 => 5,  19 => 1,);
     }
 }

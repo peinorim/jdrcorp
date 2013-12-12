@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JdrCorp\ElricBundle\Entity\MetierRepository")
  */
-class Metier
-{
+class Metier {
+
     /**
      * @var integer
      *
@@ -34,15 +34,14 @@ class Metier
      * @ORM\Column(name="argent_supp", type="integer")
      */
     private $argentSupp;
-
+    
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -52,10 +51,9 @@ class Metier
      * @param string $metierNom
      * @return Metier
      */
-    public function setMetierNom($metierNom)
-    {
+    public function setMetierNom($metierNom) {
         $this->metierNom = $metierNom;
-    
+
         return $this;
     }
 
@@ -64,8 +62,7 @@ class Metier
      *
      * @return string 
      */
-    public function getMetierNom()
-    {
+    public function getMetierNom() {
         return $this->metierNom;
     }
 
@@ -75,10 +72,9 @@ class Metier
      * @param integer $argentSupp
      * @return Metier
      */
-    public function setArgentSupp($argentSupp)
-    {
+    public function setArgentSupp($argentSupp) {
         $this->argentSupp = $argentSupp;
-    
+
         return $this;
     }
 
@@ -87,8 +83,21 @@ class Metier
      *
      * @return integer 
      */
-    public function getArgentSupp()
-    {
+    public function getArgentSupp() {
         return $this->argentSupp;
     }
+
+    /**
+     * Get Competences
+     *
+     * @return array 
+     */
+    public function getComp() {
+        $listeCompMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($this->getId());
+        foreach ($listeCompMetier as $compMetier) {
+            $allCompMetier[] = $compMetier->getCompetence();
+        }
+        return $allCompMetier;
+    }
+
 }

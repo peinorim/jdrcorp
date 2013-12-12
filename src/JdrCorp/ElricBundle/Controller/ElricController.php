@@ -36,11 +36,18 @@ class ElricController extends Controller {
         }
         return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp));
     }
+
     public function createAction() {
+        $em = $this->getDoctrine()->getManager();
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+        $listeComp = $repositoryComp->findAll();
+
         $request = $this->getRequest();
+
         if ($request->getMethod() === 'POST') {
             $perso = new Perso($request);
-            return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso));
+            return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'listeComp' => $listeComp));
         }
     }
+
 }
