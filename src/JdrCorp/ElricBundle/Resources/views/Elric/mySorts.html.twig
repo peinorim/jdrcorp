@@ -1,0 +1,14 @@
+<table id="mySorts">
+    <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+</thead>
+<tbody>
+  {% for sort in mySorts %}
+    <tr>
+        <td>{{sort.getSortNom}}</td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>

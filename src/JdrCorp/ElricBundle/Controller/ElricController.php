@@ -50,9 +50,15 @@ class ElricController extends Controller {
             foreach ($request->request->get('comp') as $id => $value) {
                 $competences[] = $repositoryComp->find($id)->setTotal($value);
             }
+            $listeSortMetier = $em->getRepository('JdrCorpElricBundle:SortMetier')->findByMetier($request->request->get('metier'));
+            foreach ($listeSortMetier as $id => $sort) {
+                $sorts[] = $sort->getSort();
+            }
+            
             $perso = new Perso($request);
             $perso->setCompetences($competences);
-            return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'listeComp' => $listeComp));
+            $perso->setSorts($sorts);
+            return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp));
         }
     }
 

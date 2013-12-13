@@ -196,7 +196,6 @@ class Perso {
         $this->setNaiss($request->request->get('naiss'));
         $this->setSexe($request->request->get('sexe'));
         $this->setAge($request->request->get('age'));
-        //$this->setMetier($request->request->get('metier'));
         return $this;
     }
 
