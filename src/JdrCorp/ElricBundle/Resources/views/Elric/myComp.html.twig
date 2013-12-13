@@ -1,20 +1,22 @@
 <table id="myComp">
     <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-</thead>
-<tbody>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
   {% for comp in listeComp %}
-    <tr>
+        <tr>
         {% if comp in myComp and comp.getTotal != '' %}
-        <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">{{ comp.getTotal }}%</td>
+            <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">{{ comp.getTotal }}%</td>
         {%elseif comp in myComp and comp.getTotal == '' %}
-        <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___%</td>
+            <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___%</td>
         {% else %}
-        <td class="col-md-1"><input type="checkbox" disabled/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___</td>
+            <td class="col-md-1"><input type="checkbox" disabled/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___</td>
         {% endif %}
-    </tr>
+        </tr>
   {% endfor %}
-</tbody>
+    </tbody>
 </table>

@@ -1,14 +1,16 @@
 <table id="mySorts">
     <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-</thead>
-<tbody>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
   {% for sort in mySorts %}
-    <tr>
-        <td class="col-md-2">{{sort.getSortNom}}</td>
-    </tr>
+        <tr>
+            <td class="col-md-2">{{sort.getSortNom}}</td>
+        </tr>
   {% endfor %}
-</tbody>
+    </tbody>
 </table>

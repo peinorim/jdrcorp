@@ -4,6 +4,7 @@ namespace JdrCorp\ElricBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JdrCorp\ElricBundle\Entity\Perso;
+use Symfony\Component\HttpFoundation\Response;
 
 class ElricController extends Controller {
 
