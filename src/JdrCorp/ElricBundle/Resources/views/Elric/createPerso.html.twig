@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fiche de personnage</title>
+        <title>Elric - Fiche de personnage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% stylesheets 'bundles/jdrcorpelric/css/z_recto.css' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -30,5 +30,6 @@
         <span id="age">{{perso.getAge}}</span>
         {% include "JdrCorpElricBundle:Elric:myComp.html.twig" %}
         {% include "JdrCorpElricBundle:Elric:mySorts.html.twig" %}
+        {% include "JdrCorpElricBundle:Elric:myCompContact.html.twig" %}
     </body>
 </html>

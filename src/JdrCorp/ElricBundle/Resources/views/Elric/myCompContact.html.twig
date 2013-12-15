@@ -1,0 +1,22 @@
+<table id="myCompContact">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+  {% for comp in listeComp %}
+        <tr>
+        {% if comp in myComp and comp.getTotal != '' and comp.getType == 'C' %}
+            <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">{{ comp.getTotal }}%</td>
+        {%elseif comp in myComp and comp.getTotal == '' and comp.getType == 'C' %}
+            <td class="col-md-1"><input type="checkbox" checked="checked"/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___%</td>
+        {% elseif comp.getType == 'C' %}
+            <td class="col-md-1"><input type="checkbox" disabled/></td><td class="col-md-4">{{ comp.getNom }}({{ comp.getBase }}%)</td><td class="col-md-2">___</td>
+        {% endif %}
+        </tr>
+  {% endfor %}
+    </tbody>
+</table>
