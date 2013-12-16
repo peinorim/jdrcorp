@@ -32,9 +32,54 @@
 <tbody>
   {% for arme in listeArmes %}
     <tr>
-        <td><div class="checkbox"><label><input type="checkbox" class="nb_contact"/>{{ arme.getNom }}</label></div></td><td class="col-md-2">{{ arme.getBase }}%</td><td class="col-md-2">{{ arme.getDegats }}</td><td class="col-md-2">{{ arme.getMains }}</td><td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td><td style='text-align: center;'></td>
+        <td>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_contact"/>{{ arme.getNom }}
+                </label>
+            </div>
+        </td>
+        <td class="col-md-2">{{ arme.getBase }}%</td>
+        <td class="col-md-2">{{ arme.getDegats }}</td>
+        <td class="col-md-2">{{ arme.getMains }}</td>
+        <td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td>
+        <td style='text-align: center;'></td>
     </tr>
   {% endfor %}
 </tbody>
 </table>
+
+<script>
+    $(document).ready(function() {
+        var contact_max = parseInt({{metier.getNbContact}});
+        var nb_contact_max = 0;
+        $(document).on('click', '.cb_contact', function() {
+            if ($(this).prop('checked') === true) {
+                nb_contact_max++;
+                if (nb_contact_max === contact_max) {
+                    $(".cb_contact").each(function() {
+                        if ($(this).prop('checked') === false) {
+                            $(this).attr("disabled", "disabled");
+                            $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
+                            $(this).parent().siblings("td:last").html('');
+                        }
+                    });
+                } else {
+                    $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").removeAttr("disabled");
+                    $(".cb_contact").each(function() {
+                        if ($(this).prop('checked') === false) {
+                            $(this).removeAttr("disabled");
+                            $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").attr("disabled", "disabled");
+                        }
+                    });
+                }
+            } else {
+                nb_contact_max--;
+                $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").attr("disabled", "disabled");
+                $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
+                $(this).parent().parent().parent().siblings("td:last").html('');
+            }
+        });
+    });
+</script>
 {% endif %}
