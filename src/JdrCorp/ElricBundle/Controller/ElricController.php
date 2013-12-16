@@ -26,6 +26,9 @@ class ElricController extends Controller {
         $metier = $em->getRepository('JdrCorpElricBundle:Metier')->find($id);
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $listeComp = $repositoryComp->findAll();
+        
+        $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
+        $listeArmes = $repositoryArmes->findAll();
 
         if ($metier === null) {
             throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
@@ -35,7 +38,7 @@ class ElricController extends Controller {
                 $allCompMetier[] = $compMetier->getCompetence();
             }
         }
-        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp));
+        return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp, 'metier' => $metier, 'listeArmes' => $listeArmes));
     }
 
     public function createAction() {

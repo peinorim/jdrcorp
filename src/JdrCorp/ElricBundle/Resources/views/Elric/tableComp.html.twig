@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover" style="height:300px;overflow:auto;">
     <thead>
     <th>Compétences</th>
     <th>%age de base</th>
@@ -9,7 +9,7 @@
   {% for comp in listeComp %}
     <tr>
         {% if comp in listeCompMetier %}
-        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp" name="comp[{{ comp.getId }}]" value=""/>%</td><td style='text-align: center;'></td>
+        <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp col-md-6" name="comp[{{ comp.getId }}]" value=""/>%</td><td style='text-align: center;'></td>
         {% else %}
         <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
         {% endif %}
@@ -17,3 +17,24 @@
   {% endfor %}
 </tbody>
 </table>
+
+{% if metier.getNbContact > 0 %}
+
+<table class="table table-hover" style="height:200px;overflow:auto;">
+    <thead>
+    <th>Armes de contact</th>
+    <th>Base</th>
+    <th>Dégâts</th>
+    <th>Mains</th>
+    <th>%age rajouté</th>
+    <th style='text-align: center;'>%age total</th>
+</thead>
+<tbody>
+  {% for arme in listeArmes %}
+    <tr>
+        <td><div class="checkbox"><label><input type="checkbox" class="nb_contact"/>{{ arme.getNom }}</label></div></td><td class="col-md-2">{{ arme.getBase }}%</td><td class="col-md-2">{{ arme.getDegats }}</td><td class="col-md-2">{{ arme.getMains }}</td><td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td><td style='text-align: center;'></td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+{% endif %}

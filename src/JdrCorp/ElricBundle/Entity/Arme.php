@@ -55,6 +55,20 @@ class Arme {
      * @ORM\Column(name="structure", type="integer")
      */
     private $structure;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $type;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prix", type="integer")
+     */
+    private $prix;
 
     /**
      * Get id
@@ -168,6 +182,48 @@ class Arme {
      */
     public function getStructure() {
         return $this->structure;
+    }
+    
+     /**
+     * Set type
+     *
+     * @param string $type
+     * @return Arme
+     */
+    public function setType($type) {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType() {
+        return $this->type;
+    }
+    
+     /**
+     * Set prix
+     *
+     * @param integer $prix
+     * @return Arme
+     */
+    public function setPrix($prix) {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer 
+     */
+    public function getPrix() {
+        return $this->prix;
     }
 
 }

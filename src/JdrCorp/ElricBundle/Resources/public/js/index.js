@@ -8,16 +8,20 @@ $(document).ready(function() {
         $(this).parent().parent().parent().addClass('has-success');
     });
 
-    $(document).on('keyup', '.comp', function() {
+    $(document).on('keyup', '.comp, .armes', function() {
         var tot = 250;
-        $('.comp').each(function() {
-            var ajout = parseInt($(this).val());
+        $('.comp, .armes').each(function() {
+            var montant = $(this).val();
+            if(montant === ''){
+                montant = 0;
+            }
+            var ajout = parseInt(montant);
             if (!isNaN(ajout)) {
                 tot -= ajout;
                 $('#totPts').text(tot);
                 var base = parseInt($(this).parent().siblings("td:eq(1)").html());
                 var saisi = ajout + base;
-                $(this).parent().siblings("td:eq(2)").html('<b>' + saisi + '%</b>');
+                $(this).parent().siblings("td:last").html('<b>' + saisi + '%</b>');
                 if (tot < 0) {
                     $('#totPts').parent().addClass('alert-danger');
                     $('#totPts').parent().removeClass('alert-warning');
