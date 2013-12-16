@@ -76,8 +76,10 @@
             } else {
                 nb_contact_max--;
                 $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").attr("disabled", "disabled");
-                var newTot = parseInt($(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val()) + parseInt($('#totPts').text());
-                $('#totPts').text(newTot);
+                if ($(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val() !== "") {
+                    var newTot = parseInt($(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val()) + parseInt($('#totPts').text());
+                    $('#totPts').text(newTot);
+                }
                 $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
                 $(this).parent().parent().parent().siblings("td:last").html('');
             }
