@@ -65,6 +65,8 @@
                             $(this).attr("disabled", "disabled");
                             $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
                             $(this).parent().siblings("td:last").html('');
+                        } else{
+                            $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").removeAttr("disabled");
                         }
                     });
                 } else {
