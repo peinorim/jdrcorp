@@ -9,7 +9,9 @@
     </head>
     <body>
         <div id="fiche_recto"></div>
+        {% if image.path != null %}
         <img src="{{image.path}}" height="100" width="100" style="top:0;left:0;z-index: 100"/>
+        {% endif %}
         <span id="proprio">{{perso.getProprio}}</span>
         <span id="nom">{{perso.getNom}}</span>
         <span id="fort">{{perso.getFort}}</span>

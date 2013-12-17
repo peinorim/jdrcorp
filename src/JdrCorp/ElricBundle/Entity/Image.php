@@ -7,18 +7,14 @@ namespace JdrCorp\ElricBundle\Entity;
 class Image {
 
     public $id;
-    public $name;
     public $path;
 
     public function __construct($upload = null) {
-        if ($upload !== null) {
+        if ($upload->files->get('avatar') !== null) {
             $upload->files->get('avatar')->move($this->getUploadRootDir(), 'test.png');
-            $this->name = 'test';
             $this->path = $this->getUploadRootDir() . '/test.png';
-            return $this;
-        } else {
-            return null;
         }
+        return $this;
     }
 
     /**
