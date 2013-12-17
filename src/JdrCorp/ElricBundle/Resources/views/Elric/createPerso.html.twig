@@ -8,9 +8,8 @@
         {% endstylesheets %}
     </head>
     <body>
-        <div id="fiche_recto">
-        </div>
-        <img src="{{image}}" style="height:100px;width:100px;"/>
+        <div id="fiche_recto"></div>
+        <img src="{{image.path}}" height="100" width="100" style="top:0;left:0;z-index: 100"/>
         <span id="proprio">{{perso.getProprio}}</span>
         <span id="nom">{{perso.getNom}}</span>
         <span id="fort">{{perso.getFort}}</span>
