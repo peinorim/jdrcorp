@@ -12,7 +12,7 @@ $(document).ready(function() {
         var tot = 250;
         $('.comp, .armes').each(function() {
             var montant = $(this).val();
-            if(montant === ''){
+            if (montant === '') {
                 montant = 0;
             }
             var ajout = parseInt(montant);
@@ -115,6 +115,32 @@ function validateStep1() {
         isValid = false;
     } else {
         $('#nom').parent().parent().addClass('has-success');
+    }
+    var file = $('#avatar').val();
+    var exts = ['jpg', 'png', 'jpeg', 'bmp'];
+    if (file) {
+        // split file name at dot
+        var get_ext = file.split('.');
+        // reverse name to check extension
+        get_ext = get_ext.reverse();
+        // check file type is valid as given in 'exts' array
+        if ($.inArray(get_ext[0].toLowerCase(), exts) > -1) {
+            $('#avatar').parent().parent().addClass('has-success');
+            var size = $('#avatar')[0].files[0].size;
+            if (size > 50000) {
+                $('#avatar').parent().siblings('label').text("L'image chargée est trop lourde (50ko max).");
+                $('#avatar').parent().parent().removeClass('has-success');
+                $('#avatar').parent().parent().addClass('has-error');
+                isValid = false;
+            } else {
+                $('#avatar').parent().siblings('label').text("Emblème / Portrait");
+                $('#avatar').parent().parent().addClass('has-success');
+            }
+        } else {
+            $('#avatar').parent().siblings('label').text("Type de fichier incorrect.");
+            $('#avatar').parent().parent().addClass('has-error');
+            isValid = false;
+        }
     }
     return isValid;
 }
