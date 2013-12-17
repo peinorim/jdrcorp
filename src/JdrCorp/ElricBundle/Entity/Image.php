@@ -6,26 +6,20 @@ namespace JdrCorp\ElricBundle\Entity;
 
 class Image {
 
-    public $id;
     public $path;
 
     public function __construct($upload = null) {
         if ($upload->files->get('avatar') !== null) {
-            $upload->files->get('avatar')->move($this->getUploadRootDir(), 'test.png');
-            $this->path = $this->getUploadRootDir() . '/test.png';
+            $this->path = rand(1,100).'_'.date('YmdHis').'.png';
+            $upload->files->get('avatar')->move($this->getUploadRootDir(), $this->path);
         }
         return $this;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId() {
-        return $this->id;
+    public function getWebPath() {
+        return $this->getUploadDir() . '/' . $this->path;
     }
-
+    
     public function getUploadRootDir() {
         // the absolute directory path where uploaded
         // documents should be saved

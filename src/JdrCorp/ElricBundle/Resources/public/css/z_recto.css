@@ -22,6 +22,11 @@ span, table, img{
     top:325px;
     left:450px;
 }
+#embleme{
+    top:260px;
+    left:860px;
+    z-index: 100;
+}
 #fort{
     top:325px;
     left:150px;
