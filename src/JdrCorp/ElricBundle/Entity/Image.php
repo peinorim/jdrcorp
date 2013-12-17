@@ -17,6 +17,25 @@ class Image {
     // On ajoute cet attribut pour y stocker le nom du fichier temporairement
     private $tempFilename;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     // On modifie le setter de File, pour prendre en compte l'upload d'un fichier lorsqu'il en existe déjà un autre
     public function setFile(UploadedFile $file)
     {
@@ -117,5 +136,9 @@ class Image {
         return __DIR__ . '/../../../../web/' . $this->getUploadDir();
     }
 
-    // …
+    public function getWebPath()
+    {
+        return $this->getUploadDir() . '/' . $this->getId() . '.' . $this->getUrl();
+    }
+
 }
