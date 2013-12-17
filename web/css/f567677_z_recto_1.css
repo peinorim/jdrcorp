@@ -10,7 +10,7 @@ span, table{
     display:block;
 }
 #fiche_recto {
-    background:url('../images/Elric!-1.jpg') no-repeat left top;
+    background:url('../../bundles/jdrcorpelric/images/Elric!-1.jpg') no-repeat left top;
     width:1169px;
     height:1694px;
 }
@@ -109,12 +109,4 @@ span, table{
     overflow:auto;
     font-size: 14px;
     line-height: 19px;
-}
-#myCompContact{
-    top:1190px;
-    left:90px;
-    width:750px;
-    height: 200px;
-    overflow:auto;
-    font-size: 14px;
 }

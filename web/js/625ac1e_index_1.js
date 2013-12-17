@@ -11,11 +11,7 @@ $(document).ready(function() {
     $(document).on('keyup', '.comp', function() {
         var tot = 250;
         $('.comp').each(function() {
-            var montant = $(this).val();
-            if(montant === ''){
-                montant = 0;
-            }
-            var ajout = parseInt(montant);
+            var ajout = parseInt($(this).val());
             if (!isNaN(ajout)) {
                 tot -= ajout;
                 $('#totPts').text(tot);
