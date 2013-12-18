@@ -56,11 +56,46 @@
         </tbody>
     </table>
 </div>
+{% endif %}
 
+{% if metier.getNbJet > 0 %}
+<div style="max-height:200px;overflow:auto;">
+    <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
+        <thead>
+        <th>Armes de jet</th>
+        <th>Base</th>
+        <th>Dégâts</th>
+        <th>%age rajouté</th>
+        <th style='text-align: center;'>%age total</th>
+        </thead>
+        <tbody>
+  {% for arme in listeArmes %}
+            {% if arme.getType == 'J' %}
+            <tr>
+                <td>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_jet"/>{{ arme.getNom }}
+                        </label>
+                    </div>
+                </td>
+                <td class="col-md-2">{{ arme.getBase }}%</td>
+                <td class="col-md-2">{{ arme.getDegats }}</td>
+                <td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td>
+                <td style='text-align: center;'></td>
+            </tr>
+            {% endif %}
+  {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
 <script>
     $(document).ready(function() {
         var contact_max = parseInt({{metier.getNbContact}});
         var nb_contact_max = 0;
+        var jet_max = parseInt({{metier.getNbJet}});
+        var nb_jet_max = 0;
         $(document).on('click', '.cb_contact', function() {
             if ($(this).prop('checked') === true) {
                 nb_contact_max++;
@@ -94,6 +129,38 @@
                 $(this).parent().parent().parent().siblings("td:last").html('');
             }
         });
+        $(document).on('click', '.cb_jet', function() {
+            if ($(this).prop('checked') === true) {
+                nb_jet_max++;
+                if (nb_jet_max === jet_max) {
+                    $(".cb_jet").each(function() {
+                        if ($(this).prop('checked') === false) {
+                            $(this).attr("disabled", "disabled");
+                            $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val('');
+                            $(this).parent().siblings("td:last").html('');
+                        } else {
+                            $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").removeAttr("disabled");
+                        }
+                    });
+                } else {
+                    $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").removeAttr("disabled");
+                    $(".cb_jet").each(function() {
+                        if ($(this).prop('checked') === false) {
+                            $(this).removeAttr("disabled");
+                            $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").attr("disabled", "disabled");
+                        }
+                    });
+                }
+            } else {
+                nb_jet_max--;
+                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").attr("disabled", "disabled");
+                if ($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val() !== "") {
+                    var newTot = parseInt($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val()) + parseInt($('#totPts').text());
+                    $('#totPts').text(newTot);
+                }
+                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val('');
+                $(this).parent().parent().parent().siblings("td:last").html('');
+            }
+        });
     });
 </script>
-{% endif %}

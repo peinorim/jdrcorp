@@ -1,0 +1,24 @@
+<table id="myCompJet">
+    <thead>
+        <tr>
+            <th>Arme</th>
+            <th>Pourcentage</th>
+            <th>Dégâts</th>
+            <th>Pts Structure</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for arme in myArmes %}
+     {% if arme.getType == 'J' %}
+        <tr>
+            <td class="col-md-4">{{ arme.getNom }} ({{ arme.getBase }}%)</td>
+            <td class="col-md-2">{{ arme.getTotal }}%</td>
+            <td class="col-md-2">{{ arme.getDegats }}</td>
+            <td class="col-md-2">{{ arme.getStructure }}</td>
+            <td class="col-md-2">{{ arme.getMains }}%</td>
+        </tr>
+    {% endif %}
+{% endfor %}
+    </tbody>
+</table>

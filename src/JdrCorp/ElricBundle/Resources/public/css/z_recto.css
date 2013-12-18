@@ -123,3 +123,11 @@ span, table, img{
     overflow:auto;
     font-size: 14px;
 }
+#myCompJet{
+    top:1350px;
+    left:630px;
+    width:750px;
+    height: 100px;
+    overflow:auto;
+    font-size: 14px;
+}
