@@ -29,11 +29,6 @@ class Sort {
     private $sortNom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="JdrCorp\ElricBundle\Entity\Metier", cascade={"persist"})
-     */
-    private $metiers;
-
-    /**
      * Get id
      *
      * @return integer 

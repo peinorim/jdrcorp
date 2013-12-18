@@ -574,26 +574,26 @@ class Perso {
         return $this->sorts;
     }
 
-//    /**
-//     * Set metier
-//     *
-//     * @param integer $metier_id
-//     * @return Perso
-//     */
-//    public function setMetier($metier_id) {
-//        $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
-//        $this->metier = $repositoryMetier->find($metier_id);
-//        return $this;
-//    }
-//
-//    /**
-//     * Get metier
-//     *
-//     * @return string 
-//     */
-//    public function getMetier() {
-//        return $this->metier;
-//    }
+    /**
+     * Set metier
+     *
+     * @param integer $metier_id
+     * @return Perso
+     */
+    public function setMetier($metier_id) {
+        $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
+        $this->metier = $repositoryMetier->find($metier_id);
+        return $this;
+    }
+
+    /**
+     * Get metier
+     *
+     * @return string 
+     */
+    public function getMetier() {
+        return $this->metier;
+    }
 
     /**
      * Set armes

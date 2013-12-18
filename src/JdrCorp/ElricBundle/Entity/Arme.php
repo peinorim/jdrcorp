@@ -55,14 +55,14 @@ class Arme {
      * @ORM\Column(name="structure", type="integer")
      */
     private $structure;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=1)
      */
     private $type;
-    
+
     /**
      * @var integer
      *
@@ -71,11 +71,19 @@ class Arme {
     private $prix;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="total", type="integer")
+     */
+    private $total;
+
+    /**
      * Get id
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -85,7 +93,8 @@ class Arme {
      * @param string $nom
      * @return Arme
      */
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->base = $nom;
 
         return $this;
@@ -96,7 +105,8 @@ class Arme {
      *
      * @return string 
      */
-    public function getNom() {
+    public function getNom()
+    {
         return $this->nom;
     }
 
@@ -106,7 +116,8 @@ class Arme {
      * @param integer $base
      * @return Arme
      */
-    public function setBase($base) {
+    public function setBase($base)
+    {
         $this->base = $base;
 
         return $this;
@@ -117,7 +128,8 @@ class Arme {
      *
      * @return integer 
      */
-    public function getBase() {
+    public function getBase()
+    {
         return $this->base;
     }
 
@@ -127,7 +139,8 @@ class Arme {
      * @param string $degats
      * @return Arme
      */
-    public function setDegats($degats) {
+    public function setDegats($degats)
+    {
         $this->degats = $degats;
 
         return $this;
@@ -138,7 +151,8 @@ class Arme {
      *
      * @return string 
      */
-    public function getDegats() {
+    public function getDegats()
+    {
         return $this->degats;
     }
 
@@ -148,7 +162,8 @@ class Arme {
      * @param string $mains
      * @return Arme
      */
-    public function setMains($mains) {
+    public function setMains($mains)
+    {
         $this->mains = $mains;
 
         return $this;
@@ -159,7 +174,8 @@ class Arme {
      *
      * @return string 
      */
-    public function getMains() {
+    public function getMains()
+    {
         return $this->mains;
     }
 
@@ -169,7 +185,8 @@ class Arme {
      * @param integer $structure
      * @return Arme
      */
-    public function setStructure($structure) {
+    public function setStructure($structure)
+    {
         $this->structure = $structure;
 
         return $this;
@@ -180,17 +197,19 @@ class Arme {
      *
      * @return integer 
      */
-    public function getStructure() {
+    public function getStructure()
+    {
         return $this->structure;
     }
-    
-     /**
+
+    /**
      * Set type
      *
      * @param string $type
      * @return Arme
      */
-    public function setType($type) {
+    public function setType($type)
+    {
         $this->type = $type;
 
         return $this;
@@ -201,17 +220,19 @@ class Arme {
      *
      * @return string 
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->type;
     }
-    
-     /**
+
+    /**
      * Set prix
      *
      * @param integer $prix
      * @return Arme
      */
-    public function setPrix($prix) {
+    public function setPrix($prix)
+    {
         $this->prix = $prix;
 
         return $this;
@@ -222,8 +243,32 @@ class Arme {
      *
      * @return integer 
      */
-    public function getPrix() {
+    public function getPrix()
+    {
         return $this->prix;
+    }
+
+    /**
+     * Set total
+     *
+     * @param integer $total
+     * @return Competence
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return integer 
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 
 }

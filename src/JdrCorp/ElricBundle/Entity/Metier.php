@@ -100,19 +100,6 @@ class Metier {
         return $this->argentSupp;
     }
 
-    /**
-     * Get Competences
-     *
-     * @return array 
-     */
-    public function getComp() {
-        $listeCompMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($this->getId());
-        foreach ($listeCompMetier as $compMetier) {
-            $allCompMetier[] = $compMetier->getCompetence();
-        }
-        return $allCompMetier;
-    }
-    
      /**
      * Set nbContact
      *

@@ -10,7 +10,10 @@
   {% for comp in listeComp %}
             <tr>
         {% if comp in listeCompMetier %}
-                <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td><input type="text" class="comp col-md-6" name="comp[{{ comp.getId }}]" value=""/>%</td><td style='text-align: center;'></td>
+                <td class="col-md-4">{{ comp.getNom }}</td>
+                <td class="col-md-2">{{ comp.getBase }}%</td>
+                <td><input type="text" class="comp col-md-6" name="comp[{{ comp.getId }}]" value=""/>%</td>
+                <td style='text-align: center;'></td>
         {% else %}
                 <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
         {% endif %}
@@ -33,6 +36,7 @@
         </thead>
         <tbody>
   {% for arme in listeArmes %}
+            {% if arme.getType == 'C' %}
             <tr>
                 <td>
                     <div class="checkbox">
@@ -47,6 +51,7 @@
                 <td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td>
                 <td style='text-align: center;'></td>
             </tr>
+            {% endif %}
   {% endfor %}
         </tbody>
     </table>
@@ -65,7 +70,7 @@
                             $(this).attr("disabled", "disabled");
                             $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
                             $(this).parent().siblings("td:last").html('');
-                        } else{
+                        } else {
                             $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").removeAttr("disabled");
                         }
                     });
