@@ -14,6 +14,18 @@ span, table, img{
     width:1169px;
     height:1694px;
 }
+#fiche_verso1 {
+    background:url('../images/Elric!-2.jpg') no-repeat left top;
+    top:1700px;
+    width:1169px;
+    height:1694px;
+}
+#fiche_verso2 {
+    background:url('../images/Elric!-3.jpg') no-repeat left top;
+    top:3390px;
+    width:1169px;
+    height:1694px;
+}
 #proprio{  
     top:240px;
     left:400px;
