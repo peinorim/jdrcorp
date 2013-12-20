@@ -2,7 +2,7 @@
     Created on : 8 déc. 2013, 21:19:33
     Author     : Arnaud
 */
-span, table, img{
+span, table, img, ul{
     font-family: Calibri;
     font-size: 20px;
     font-weight: bold;
@@ -108,12 +108,19 @@ span, table, img{
     left:770px;
 }
 #myComp{
-    top:570px;
-    left:110px;
+    top:560px;
+    left:100px;
     width:750px;
-    height: 350px;
-    overflow:auto;
-    font-size: 15px;
+    overflow:hidden;
+    font-size: 12px;
+}
+#myComp li  { 
+    width:50%;
+}
+li{
+    line-height:1.5em;
+    float:left;
+    display:inline;
 }
 #mySorts{
     top:979px;
