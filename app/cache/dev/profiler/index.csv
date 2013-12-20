@@ -1,3 +1,7 @@
-e3dce2,127.0.0.1,POST,http://localhost/jdrcorp/web/app_dev.php/elric/create,1387140248,
-f8173a,127.0.0.1,POST,http://localhost/jdrcorp/web/app_dev.php/elric/create,1387140368,
-7008d8,127.0.0.1,POST,http://localhost/jdrcorp/web/app_dev.php/elric/create,1387140371,
+a5c998,127.0.0.1,GET,http://localhost/dev/jdrcorp/web/app_dev.php/elric/create,1387544010,810429
+810429,127.0.0.1,POST,http://localhost/dev/jdrcorp/web/app_dev.php/elric/create,1387544010,
+12fec8,127.0.0.1,POST,http://localhost/dev/jdrcorp/web/app_dev.php/elric/create,1387544093,
+eb3df2,127.0.0.1,POST,http://localhost/dev/jdrcorp/web/app_dev.php/elric/create,1387544831,
+bba747,127.0.0.1,GET,http://localhost/dev/jdrcorp/web/app_dev.php/elric,1387544846,
+f71ab3,127.0.0.1,POST,http://localhost/dev/jdrcorp/web/app_dev.php/elric/metierComp/1,1387544857,
+f89c03,127.0.0.1,POST,http://localhost/dev/jdrcorp/web/app_dev.php/elric/create,1387544861,

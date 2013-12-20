@@ -68,9 +68,9 @@ swiftmailer:
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     /usr/local/bin/wkhtmltopdf
+        binary:     /usr/bin/wkhtmltopdf
         options:    []
     image:
         enabled:    true
-        binary:     /usr/local/bin/wkhtmltoimage
+        binary:     /usr/bin/wkhtmltoimage
         options:    []

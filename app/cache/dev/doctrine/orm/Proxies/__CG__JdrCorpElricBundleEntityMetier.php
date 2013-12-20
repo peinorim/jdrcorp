@@ -75,16 +75,34 @@ class Metier extends \JdrCorp\ElricBundle\Entity\Metier implements \Doctrine\ORM
         return parent::getArgentSupp();
     }
 
-    public function getComp()
+    public function setNbContact($nb_contact)
     {
         $this->__load();
-        return parent::getComp();
+        return parent::setNbContact($nb_contact);
+    }
+
+    public function getNbContact()
+    {
+        $this->__load();
+        return parent::getNbContact();
+    }
+
+    public function setNbJet($nb_jet)
+    {
+        $this->__load();
+        return parent::setNbJet($nb_jet);
+    }
+
+    public function getNbJet()
+    {
+        $this->__load();
+        return parent::getNbJet();
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'metierNom', 'argentSupp');
+        return array('__isInitialized__', 'id', 'metierNom', 'argentSupp', 'nb_contact', 'nb_jet');
     }
 
     public function __clone()

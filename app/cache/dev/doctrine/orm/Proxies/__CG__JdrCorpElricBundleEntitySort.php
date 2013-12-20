@@ -72,7 +72,7 @@ class Sort extends \JdrCorp\ElricBundle\Entity\Sort implements \Doctrine\ORM\Pro
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'sortNom', 'metiers');
+        return array('__isInitialized__', 'id', 'sortNom');
     }
 
     public function __clone()
