@@ -4,7 +4,7 @@
 */
 span, table, img{
     font-family: Calibri;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     position:absolute;
     display:block;
@@ -27,11 +27,11 @@ span, table, img{
     height:1694px;
 }
 #proprio{  
-    top:240px;
+    top:245px;
     left:400px;
 }
 #nom{  
-    top:325px;
+    top:330px;
     left:450px;
 }
 #embleme{
@@ -40,55 +40,55 @@ span, table, img{
     z-index: 100;
 }
 #fort{
-    top:325px;
+    top:330px;
     left:150px;
 }
 #consti{
-    top:353px;
+    top:358px;
     left:150px;
 }
 #modif_degats{
-    top:353px;
+    top:358px;
     left:235px;
 }
 #taille{
-    top:383px;
+    top:388px;
     left:150px;
 }
 #intell{
-    top:410px;
+    top:415px;
     left:150px;
 }
 #idee{
-    top:410px;
+    top:415px;
     left:325px;
 }
 #pouvoir{
-    top:439px;
+    top:444px;
     left:150px;
 }
 #chance{
-    top:437px;
+    top:442px;
     left:325px;
 }
 #dexte{
-    top:469px;
+    top:474px;
     left:150px;
 }
 #dexterite{
-    top:467px;
+    top:472px;
     left:325px;
 }
 #appa{
-    top:496px;
+    top:501px;
     left:150px;
 }
 #charisme{
-    top:494px;
+    top:499px;
     left:325px;
 }
 #allure{
-    top:414px;
+    top:419px;
     left:400px;
     width:350px;
     font-size: 15px;
@@ -98,17 +98,14 @@ span, table, img{
 #naiss{
     top:358px;
     left:528px;
-    font-size: 20px;
 }
 #sexe{
     top:358px;
     left:685px;
-    font-size: 20px;
 }
 #age{
     top:358px;
     left:770px;
-    font-size: 20px;
 }
 #myComp{
     top:570px;
