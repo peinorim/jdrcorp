@@ -84,20 +84,11 @@ class ElricController extends Controller {
             $perso = new Perso($request);
             $perso->setCompetences($competences);
             $perso->setSorts($sorts);
-            $html = $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
-//
-            return new Response(
-                    $this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array(
-                'Content-Type' => 'application/pdf'
-                    )
-            );
-//            return new Response(
-//                    $this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array(
-//                'Content-Type' => 'image/jpg',
-//                'Content-Disposition' => 'filename="elric.jpg"'
-//                    )
-//            );
-            // return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+
+            //return $this->render('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+            return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
         }
     }
+
 }

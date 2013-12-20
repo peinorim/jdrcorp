@@ -1,6 +1,9 @@
+	
+<base href="http://{{app.request.host}}">
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" >
         <title>Elric - Fiche de personnage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -48,12 +51,15 @@
             height:1694px;
         }
         #fiche_verso1 {
+            page-break-before:always;
+            page-break-after:always;
             background:url("{{ asset('images/Elric!-2.jpg') }}") no-repeat left top;
             top:1700px;
             width:1169px;
             height:1694px;
         }
         #fiche_verso2 {
+            page-break-before:always;
             background:url("{{ asset('images/Elric!-3.jpg') }}") no-repeat left top;
             top:3390px;
             width:1169px;
@@ -141,11 +147,11 @@
             left:770px;
         }
         #myComp{
-            top:560px;
+            top:565px;
             left:100px;
             width:750px;
             overflow:hidden;
-            font-size: 12px;
+            font-size: 13px;
         }
         #myComp li  { 
             width:50%;
@@ -158,26 +164,16 @@
         #mySorts{
             top:979px;
             left:115px;
-            width:750px;
-            height: 200px;
-            overflow:auto;
             font-size: 14px;
-            line-height: 19px;
         }
         #myCompContact{
             top:1170px;
             left:90px;
-            width:750px;
-            height: 200px;
-            overflow:auto;
             font-size: 14px;
         }
         #myCompJet{
             top:1350px;
             left:630px;
-            width:750px;
-            height: 100px;
-            overflow:auto;
             font-size: 14px;
         }
     </style>
