@@ -1,14 +1,14 @@
 Elric:
-    path:     /elric
+    path:     /jdrcorp/elric
     defaults: { _controller: JdrCorpElricBundle:Elric:index }
 Elric_Metier_Comp:
-    path:     /elric/metierComp/{id}
+    path:     /jdrcorp/elric/metierComp/{id}
     defaults: { _controller: JdrCorpElricBundle:Elric:getCompMetier }
     requirements:
         page:  \d+
         _method:  POST
 Elric_Create:
-    path:     /elric/create
+    path:     /jdrcorp/elric/create
     defaults: { _controller: JdrCorpElricBundle:Elric:create }
     requirements:
         _method:  POST        

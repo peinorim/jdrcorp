@@ -235,47 +235,46 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // jdr_corp_index_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'jdr_corp_index_homepage');
+        if (0 === strpos($pathinfo, '/jdrcorp')) {
+            // jdr_corp_index_homepage
+            if ($pathinfo === '/jdrcorp') {
+                return array (  '_controller' => 'JdrCorp\\IndexBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_index_homepage',);
             }
 
-            return array (  '_controller' => 'JdrCorp\\IndexBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_index_homepage',);
-        }
-
-        // jdr_corp_guildes_homepage
-        if ($pathinfo === '/guildes') {
-            return array (  '_controller' => 'JdrCorp\\GuildesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_guildes_homepage',);
-        }
-
-        if (0 === strpos($pathinfo, '/elric')) {
-            // Elric
-            if ($pathinfo === '/elric') {
-                return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  '_route' => 'Elric',);
+            // jdr_corp_guildes_homepage
+            if ($pathinfo === '/jdrcorp/guildes') {
+                return array (  '_controller' => 'JdrCorp\\GuildesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'jdr_corp_guildes_homepage',);
             }
 
-            // Elric_Metier_Comp
-            if (0 === strpos($pathinfo, '/elric/metierComp') && preg_match('#^/elric/metierComp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_Elric_Metier_Comp;
+            if (0 === strpos($pathinfo, '/jdrcorp/elric')) {
+                // Elric
+                if ($pathinfo === '/jdrcorp/elric') {
+                    return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::indexAction',  '_route' => 'Elric',);
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'Elric_Metier_Comp')), array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::getCompMetierAction',));
-            }
-            not_Elric_Metier_Comp:
+                // Elric_Metier_Comp
+                if (0 === strpos($pathinfo, '/jdrcorp/elric/metierComp') && preg_match('#^/jdrcorp/elric/metierComp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_Elric_Metier_Comp;
+                    }
 
-            // Elric_Create
-            if ($pathinfo === '/elric/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_Elric_Create;
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'Elric_Metier_Comp')), array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::getCompMetierAction',));
                 }
+                not_Elric_Metier_Comp:
 
-                return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::createAction',  '_route' => 'Elric_Create',);
+                // Elric_Create
+                if ($pathinfo === '/jdrcorp/elric/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_Elric_Create;
+                    }
+
+                    return array (  '_controller' => 'JdrCorp\\ElricBundle\\Controller\\ElricController::createAction',  '_route' => 'Elric_Create',);
+                }
+                not_Elric_Create:
+
             }
-            not_Elric_Create:
 
         }
 
