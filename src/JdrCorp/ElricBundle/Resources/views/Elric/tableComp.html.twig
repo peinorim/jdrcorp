@@ -1,95 +1,137 @@
-<div style="max-height:300px;overflow:auto;">
-    <table class="table table-hover">
-        <thead>
-        <th>Compétences</th>
-        <th>%age de base</th>
-        <th>%age rajouté</th>
-        <th style='text-align: center;'>%age total</th>
-        </thead>
-        <tbody>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Compétences
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div style="max-height:350px;overflow:auto;">
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Compétences</th>
+                        <th>%age de base</th>
+                        <th>%age rajouté</th>
+                        <th style='text-align: left;'>%age total</th>
+                        </thead>
+                        <tbody>
   {% for comp in listeComp %}
-            <tr>
+                            <tr>
         {% if comp in listeCompMetier %}
-                <td class="col-md-4">{{ comp.getNom }}</td>
-                <td class="col-md-2">{{ comp.getBase }}%</td>
-                <td><input type="text" class="comp col-md-6" name="comp[{{ comp.getId }}]" value=""/>%</td>
-                <td style='text-align: center;'></td>
+                                <td class="col-md-4">{{ comp.getNom }}</td>
+                                <td class="col-md-2">{{ comp.getBase }}%</td>
+                                <td class="col-md-2"><div class="input-group"><input type="text" class="comp form-control col-md-3 " name="comp[{{ comp.getId }}]" value=""  maxlength="3"/><span class="input-group-addon">%</span></div></td>
+                                <td  class="col-md-4"style='text-align: left;'></td>
         {% else %}
-                <td class="col-md-4">{{ comp.getNom }}</td><td class="col-md-2">{{ comp.getBase }}%</td><td></td>
+                                <td class="col-md-4">{{ comp.getNom }}</td>
+                                <td class="col-md-2">{{ comp.getBase }}%</td>
+                                <td class="col-md-2"></td>
+                                <td class="col-md-4" style='text-align: left;'></td>
         {% endif %}
-            </tr>
+                            </tr>
   {% endfor %}
-        </tbody>
-    </table>
-</div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% if metier.getNbContact > 0 %}
-<div style="max-height:200px;overflow:auto;">
-    <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
-        <thead>
-        <th>Armes de contact</th>
-        <th>Base</th>
-        <th>Dégâts</th>
-        <th>Mains</th>
-        <th>%age rajouté</th>
-        <th style='text-align: center;'>%age total</th>
-        </thead>
-        <tbody>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    Armes de contact
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div style="max-height:350px;overflow:auto;">
+                <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
+                    <thead>
+                    <th>Armes de contact</th>
+                    <th>Base</th>
+                    <th>Dégâts</th>
+                    <th>Mains</th>
+                    <th>%age rajouté</th>
+                    <th style='text-align: center;'>%age total</th>
+                    </thead>
+                    <tbody>
   {% for arme in listeArmes %}
             {% if arme.getType == 'C' %}
-            <tr>
-                <td>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_contact"/>{{ arme.getNom }}
-                        </label>
-                    </div>
-                </td>
-                <td class="col-md-2">{{ arme.getBase }}%</td>
-                <td class="col-md-2">{{ arme.getDegats }}</td>
-                <td class="col-md-2">{{ arme.getMains }}</td>
-                <td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td>
-                <td style='text-align: center;'></td>
-            </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_contact"/>{{ arme.getNom }}
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="col-md-2">{{ arme.getBase }}%</td>
+                            <td class="col-md-2">{{ arme.getDegats }}</td>
+                            <td class="col-md-2">{{ arme.getMains }}</td>
+                            <td><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/>%</td>
+                            <td style='text-align: center;'></td>
+                        </tr>
             {% endif %}
   {% endfor %}
-        </tbody>
-    </table>
-</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endif %}
 
 {% if metier.getNbJet > 0 %}
-<div style="max-height:200px;overflow:auto;">
-    <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
-        <thead>
-        <th>Armes de jet</th>
-        <th>Base</th>
-        <th>Dégâts</th>
-        <th>%age rajouté</th>
-        <th style='text-align: center;'>%age total</th>
-        </thead>
-        <tbody>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    Armes de jet
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div style="max-height:350px;overflow:auto;">
+                <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
+                    <thead>
+                    <th>Armes de jet</th>
+                    <th>Base</th>
+                    <th>Dégâts</th>
+                    <th>%age rajouté</th>
+                    <th style='text-align: center;'>%age total</th>
+                    </thead>
+                    <tbody>
   {% for arme in listeArmes %}
             {% if arme.getType == 'J' %}
-            <tr>
-                <td>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_jet"/>{{ arme.getNom }}
-                        </label>
-                    </div>
-                </td>
-                <td class="col-md-2">{{ arme.getBase }}%</td>
-                <td class="col-md-2">{{ arme.getDegats }}</td>
-                <td><input type="text" class="armes col-md-6" name="arme[{{ arme.getId }}]" value="" disabled/>%</td>
-                <td style='text-align: center;'></td>
-            </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_jet"/>{{ arme.getNom }}
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="col-md-2">{{ arme.getBase }}%</td>
+                            <td class="col-md-2">{{ arme.getDegats }}</td>
+                            <td><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/>%</td>
+                            <td style='text-align: center;'></td>
+                        </tr>
             {% endif %}
   {% endfor %}
-        </tbody>
-    </table>
-</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endif %}
+</div>
+
 <script>
     $(document).ready(function() {
         var contact_max = parseInt({{metier.getNbContact}});

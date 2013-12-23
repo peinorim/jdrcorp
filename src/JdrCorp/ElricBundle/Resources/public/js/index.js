@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    
+    $("#removeFile").on("click", function () {
+        $('#avatar').val('');
+    });
     // Smart Wizard 	
     $('#wizard').smartWizard({transitionEffect: 'slideleft', onLeaveStep: leaveAStepCallback, onFinish: onFinishCallback, enableFinishButton: true});
     $(".dice_carac").click(function() {
@@ -19,9 +23,9 @@ $(document).ready(function() {
             if (!isNaN(ajout)) {
                 tot -= ajout;
                 $('#totPts').text(tot);
-                var base = parseInt($(this).parent().siblings("td:eq(1)").html());
+                var base = parseInt($(this).parent().parent().siblings("td:eq(1)").html());
                 var saisi = ajout + base;
-                $(this).parent().siblings("td:last").html('<b>' + saisi + '%</b>');
+                $(this).parent().parent().siblings("td:last").html('<b>' + saisi + '%</b>');
                 if (tot < 0) {
                     $('#totPts').parent().addClass('alert-danger');
                     $('#totPts').parent().removeClass('alert-warning');
@@ -64,7 +68,7 @@ function validateAllSteps() {
     }
 
     if (!isStepValid) {
-        $('#wizard').smartWizard('showMessage', 'Please correct the errors in the steps and continue');
+        $('#wizard').smartWizard('showMessage', 'Veuillez corriger les erreurs pour chaque étape avant de continuer svp.');
     }
     return isStepValid;
 }

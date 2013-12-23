@@ -16,11 +16,15 @@ root {
     width:50%;
 }
 #allure{
-    width: 260px;
     height: 100px;
     resize:none;
 }
 .form-horizontal{
     margin-top:10px;
     margin-left:10px;
+}
+.panel-default > .panel-heading {
+    background-color: #428BCA;
+    border-color: #428BCA;
+    color: #FFFFFF;
 }
