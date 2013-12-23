@@ -156,6 +156,8 @@ function validateStep2() {
     }
     if (parseInt($('#totPts').text()) !== 0) {
         isValid = false;
+        $('#totPts').parent().addClass('alert-danger');
+        $('#totPts').parent().removeClass('alert-warning');
     }
     return isValid;
 }

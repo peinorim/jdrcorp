@@ -96,6 +96,20 @@
         var nb_contact_max = 0;
         var jet_max = parseInt({{metier.getNbJet}});
         var nb_jet_max = 0;
+        var info = $('#info_armes');
+        if (contact_max > 0 || jet_max > 0) {
+            info.addClass('alert alert-info');
+            info.html('');
+            if (contact_max > 0) {
+                info.append("<li>Vous pouvez choisir jusqu'à " + contact_max + " arme(s) de contact.</li>");
+            }
+            if (jet_max > 0) {
+                info.append("<li>Vous pouvez choisir jusqu'à " + jet_max + " arme(s) de jet.</li>");
+            }
+        } else {
+            info.removeClass('alert alert-info');
+            info.html('');
+        }
         $(document).on('click', '.cb_contact', function() {
             if ($(this).prop('checked') === true) {
                 nb_contact_max++;

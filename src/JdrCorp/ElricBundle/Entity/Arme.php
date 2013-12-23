@@ -59,6 +59,13 @@ class Arme {
     /**
      * @var string
      *
+     * @ORM\Column(name="for_dex", type="string", length=10)
+     */
+    private $for_dex;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="type", type="string", length=1)
      */
     private $type;
@@ -73,7 +80,7 @@ class Arme {
     /**
      * @var integer
      *
-     * @ORM\Column(name="total", type="integer")
+     * @ORM\Column(name="total", type="integer",nullable=true)
      */
     private $total;
 
@@ -200,6 +207,29 @@ class Arme {
     public function getStructure()
     {
         return $this->structure;
+    }
+
+    /**
+     * Set for_dex
+     *
+     * @param string $for_dex
+     * @return Arme
+     */
+    public function setForDex($for_dex)
+    {
+        $this->mains = $mains;
+
+        return $this;
+    }
+
+    /**
+     * Get for_dex
+     *
+     * @return string 
+     */
+    public function getForDex()
+    {
+        return $this->for_dex;
     }
 
     /**
