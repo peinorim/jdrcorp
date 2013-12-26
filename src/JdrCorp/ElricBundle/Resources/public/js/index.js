@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    
-    $("#removeFile").on("click", function () {
+
+    $("#removeFile").on("click", function() {
         $('#avatar').val('');
     });
     // Smart Wizard 	
@@ -10,6 +10,11 @@ $(document).ready(function() {
         var dice = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1) + 6;
         $(this).parent().siblings().filter(":first").val(dice);
         $(this).parent().parent().parent().addClass('has-success');
+    });
+
+    $(".param").click(function() {
+        $(this).children(':input').attr('checked', 'checked');
+        $(this).siblings().children(':input').removeAttr('checked');
     });
 
     $(document).on('keyup', '.comp, .armes', function() {

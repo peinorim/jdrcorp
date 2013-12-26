@@ -214,12 +214,12 @@
                 }
             } else {
                 nb_jet_max--;
-                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").attr("disabled", "disabled");
-                if ($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val() !== "") {
-                    var newTot = parseInt($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val()) + parseInt($('#totPts').text());
+                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").attr("disabled", "disabled");
+                if ($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").val() !== "") {
+                    var newTot = parseInt($(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").val()) + parseInt($('#totPts').text());
                     $('#totPts').text(newTot);
                 }
-                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").val('');
+                $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").val('');
                 $(this).parent().parent().parent().siblings("td:last").html('');
                 $(".cb_jet").each(function() {
                     if ($(this).prop('checked') === false) {
