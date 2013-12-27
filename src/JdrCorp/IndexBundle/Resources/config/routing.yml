@@ -1,3 +1,6 @@
 jdr_corp_index_homepage:
-    pattern:  /jdrcorp
-    defaults: { _controller: JdrCorpIndexBundle:Default:index }
+    pattern:  /jdrcorp/
+    defaults: { _controller: JdrCorpIndexBundle:Index:index }    
+jdr_corp_index_homepage_duplicate:
+    pattern:  /jdrcorp/index
+    defaults: { _controller: JdrCorpIndexBundle:Index:index }    

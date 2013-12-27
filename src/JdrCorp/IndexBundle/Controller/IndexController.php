@@ -4,10 +4,10 @@ namespace JdrCorp\IndexBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class IndexController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('JdrCorpIndexBundle:Default:index.html.twig');
+        return $this->render('JdrCorpIndexBundle:Index:index.html.twig');
     }
 }
