@@ -11,6 +11,10 @@ $(document).ready(function() {
         $(this).parent().siblings().filter(":first").val(dice);
         $(this).parent().parent().parent().addClass('has-success');
     });
+    $(".carac").keyup(function() {
+        $(this).prop("readonly", true);
+        $(this).val('');
+    });
 
     $(".param").click(function() {
         $(this).children(':input').attr('checked', 'checked');
@@ -103,16 +107,17 @@ function validateSteps(step) {
 
 function validateStep1() {
     var isValid = true;
-    var caracs = ['force', 'consti', 'taille', 'intell', 'pouvoir', 'dexte', 'appa'];
-    for (var key in caracs) {
-        var carac = $('#' + caracs[key]).val();
+    $(".carac").each(function() {
+        var carac = $(this).val();
         if (!carac && carac.length <= 0) {
             isValid = false;
-            $('#' + caracs[key]).parent().parent().addClass('has-error');
+            $(this).parent().parent().removeClass('has-success');
+            $(this).parent().parent().addClass('has-error');
         } else {
-            $('#' + caracs[key]).parent().parent().addClass('has-success');
+            $(this).parent().parent().removeClass('has-error');
+            $(this).parent().parent().addClass('has-success');
         }
-    }
+    });
     if (isNaN($('#age').val()) || $('#age').val() === '' || parseInt($('#age').val()) <= 0) {
         $('#age').parent().parent().addClass('has-error');
         isValid = false;
