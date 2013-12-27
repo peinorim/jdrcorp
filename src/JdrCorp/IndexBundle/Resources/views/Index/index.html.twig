@@ -1,1 +1,28 @@
-Hello Index !
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JdrCorp - Accueil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% javascripts 'bundles/jdrcorpelric/js/jquery-1.10.2.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts 'bundles/jdrcorpelric/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% stylesheets 'bundles/jdrcorpelric/css/bootstrap.css'  filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets 'bundles/jdrcorpindex/css/index.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div id="elric_container" class="col-md-6 center">
+            <a class="col-md-6 center" href="{{path('Elric')}}">
+                <img src="{{ asset('bundles/jdrcorpindex/images/Elric_index.jpg') }}" class="img-responsive elric col-md-12 center">
+                <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric</button>
+            </a>
+        </div>
+    </body>
+</html>
