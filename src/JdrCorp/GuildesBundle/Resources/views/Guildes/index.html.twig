@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JdrCorp - Guildes - Accueil</title>
+        <title>Guildes - JdrCorp - Accueil</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% javascripts 'bundles/jdrcorpelric/js/jquery-1.10.2.min.js' %}
+        {% javascripts '@JdrCorpElricBundle/Resources/public/js/jquery-1.10.2.min.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% javascripts 'bundles/jdrcorpelric/js/bootstrap.min.js' %}
+        {% javascripts '@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/turn.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/index.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
@@ -18,5 +24,6 @@
         {% endstylesheets %}
     </head>
     <body>
+       
     </body>
 </html>

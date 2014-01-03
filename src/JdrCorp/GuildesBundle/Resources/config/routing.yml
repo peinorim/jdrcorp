@@ -1,3 +1,9 @@
 Guildes:
     pattern:  /jdrcorp/guildes
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }
+Guildes_duplicate:
+    pattern:  /jdrcorp/guildes/
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }
+Guildes_duplicate_2:
+    pattern:  /jdrcorp/guildes/index
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }

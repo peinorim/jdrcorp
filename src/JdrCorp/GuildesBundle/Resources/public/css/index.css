@@ -1,0 +1,16 @@
+body{
+    display:block;
+}
+h1.label{
+    font-size:150%;
+}
+a, a:hover{
+    text-decoration: none;
+}
+.center{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    float:none;
+    display:block;
+}
+
