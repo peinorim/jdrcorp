@@ -4,10 +4,10 @@ namespace JdrCorp\GuildesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class GuildesController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('JdrCorpGuildesBundle:Default:index.html.twig');
+        return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig');
     }
 }

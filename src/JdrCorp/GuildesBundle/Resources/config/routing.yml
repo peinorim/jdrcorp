@@ -1,3 +1,3 @@
-jdr_corp_guildes_homepage:
+Guildes:
     pattern:  /jdrcorp/guildes
-    defaults: { _controller: JdrCorpGuildesBundle:Default:index }
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }
