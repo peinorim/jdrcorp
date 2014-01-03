@@ -5,6 +5,7 @@ namespace JdrCorp\ElricBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JdrCorp\ElricBundle\Entity\Perso;
 use JdrCorp\ElricBundle\Entity\Image;
+use JdrCorp\ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
 
 class ElricController extends Controller {
@@ -15,11 +16,13 @@ class ElricController extends Controller {
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
         $repositoryArmure = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Armure');
+        $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+        $nbFiches = count($repositoryFiche->findAll());
         $listeComp = $repositoryComp->findAll();
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
         $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures));
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures,'nbFiches'=> $nbFiches));
     }
 
     public function getCompMetierAction($id)
@@ -82,6 +85,10 @@ class ElricController extends Controller {
             }
             $avatar = new Image($request);
             $perso = new Perso($request);
+            $fiche = new Fiche();
+            $em->persist($fiche);
+            $em->persist($perso);
+            $em->flush();
             $perso->setCompetences($competences);
             $perso->setSorts($sorts);
 

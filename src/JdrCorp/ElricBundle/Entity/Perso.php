@@ -196,6 +196,7 @@ class Perso {
         $this->setNaiss($request->request->get('naiss'));
         $this->setSexe($request->request->get('sexe'));
         $this->setAge($request->request->get('age'));
+        $this->setMetier($request->request->get('metier'));
         return $this;
     }
 
@@ -581,8 +582,7 @@ class Perso {
      * @return Perso
      */
     public function setMetier($metier_id) {
-        $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
-        $this->metier = $repositoryMetier->find($metier_id);
+        $this->metier = $metier_id;
         return $this;
     }
 

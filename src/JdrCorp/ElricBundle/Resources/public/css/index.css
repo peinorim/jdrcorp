@@ -34,3 +34,7 @@ h1{
     text-align: left !important;
     font-size:170% !important;
 }
+.badge {
+    background-color: #FFFFFF;
+    color: #428BCA;
+}
