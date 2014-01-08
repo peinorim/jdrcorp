@@ -18,3 +18,8 @@ a, a:hover{
     float:none !important;
     z-index: -100;
 }
+.guildes{
+    content:url('../images/Guildes_index.jpg');
+    float:none !important;
+    z-index: -100;
+}
