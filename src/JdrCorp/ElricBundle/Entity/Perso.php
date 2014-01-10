@@ -182,7 +182,15 @@ class Perso {
      */
     private $modif_degats;
 
-    public function __construct($request) {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pv", type="integer")
+     */
+    private $pv;
+
+    public function __construct($request)
+    {
         $this->setNom($request->request->get('nom'));
         $this->setProprio($request->request->get('proprio'));
         $this->setFort($request->request->get('force'));
@@ -197,6 +205,7 @@ class Perso {
         $this->setSexe($request->request->get('sexe'));
         $this->setAge($request->request->get('age'));
         $this->setMetier($request->request->get('metier'));
+        $this->setPv();
         return $this;
     }
 
@@ -205,7 +214,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -215,7 +225,8 @@ class Perso {
      * @param string $nom
      * @return Perso
      */
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->nom = $nom;
 
         return $this;
@@ -226,7 +237,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getNom() {
+    public function getNom()
+    {
         return $this->nom;
     }
 
@@ -236,7 +248,8 @@ class Perso {
      * @param string $proprio
      * @return Perso
      */
-    public function setProprio($proprio) {
+    public function setProprio($proprio)
+    {
         $this->proprio = $proprio;
 
         return $this;
@@ -247,7 +260,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getProprio() {
+    public function getProprio()
+    {
         return $this->proprio;
     }
 
@@ -257,7 +271,8 @@ class Perso {
      * @param integer $fort
      * @return Perso
      */
-    public function setFort($fort) {
+    public function setFort($fort)
+    {
         $this->fort = $fort;
 
         return $this;
@@ -268,7 +283,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getFort() {
+    public function getFort()
+    {
         return $this->fort;
     }
 
@@ -278,7 +294,8 @@ class Perso {
      * @param integer $consti
      * @return Perso
      */
-    public function setConsti($consti) {
+    public function setConsti($consti)
+    {
         $this->consti = $consti;
 
         return $this;
@@ -289,7 +306,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getConsti() {
+    public function getConsti()
+    {
         return $this->consti;
     }
 
@@ -299,7 +317,8 @@ class Perso {
      * @param integer $taille
      * @return Perso
      */
-    public function setTaille($taille) {
+    public function setTaille($taille)
+    {
         $this->taille = $taille;
         $this->setModifDegats();
 
@@ -312,35 +331,63 @@ class Perso {
      * @param integer $taille
      * @return Perso
      */
-    public function setModifDegats() {
+    public function setModifDegats()
+    {
         $modif = $this->fort + $this->taille;
-        if ($modif >= 2 && $modif <= 12) {
+        if ($modif >= 2 && $modif <= 12)
+        {
             $this->modif_degats = "-1D6";
-        } else if ($modif >= 13 && $modif <= 16) {
+        }
+        else if ($modif >= 13 && $modif <= 16)
+        {
             $this->modif_degats = "-1D4";
-        } else if ($modif >= 17 && $modif <= 24) {
+        }
+        else if ($modif >= 17 && $modif <= 24)
+        {
             $this->modif_degats = "0";
-        } else if ($modif >= 25 && $modif <= 32) {
+        }
+        else if ($modif >= 25 && $modif <= 32)
+        {
             $this->modif_degats = "+1D4";
-        } else if ($modif >= 33 && $modif <= 40) {
+        }
+        else if ($modif >= 33 && $modif <= 40)
+        {
             $this->modif_degats = "-1D6";
-        } else if ($modif >= 41 && $modif <= 56) {
+        }
+        else if ($modif >= 41 && $modif <= 56)
+        {
             $this->modif_degats = "+2D6";
-        } else if ($modif >= 57 && $modif <= 72) {
+        }
+        else if ($modif >= 57 && $modif <= 72)
+        {
             $this->modif_degats = "+3D6";
-        } else if ($modif >= 73 && $modif <= 88) {
+        }
+        else if ($modif >= 73 && $modif <= 88)
+        {
             $this->modif_degats = "+4D6";
-        } else if ($modif >= 89 && $modif <= 104) {
+        }
+        else if ($modif >= 89 && $modif <= 104)
+        {
             $this->modif_degats = "+5D6";
-        } else if ($modif >= 105 && $modif <= 120) {
+        }
+        else if ($modif >= 105 && $modif <= 120)
+        {
             $this->modif_degats = "+6D6";
-        } else if ($modif >= 121 && $modif <= 136) {
+        }
+        else if ($modif >= 121 && $modif <= 136)
+        {
             $this->modif_degats = "+7D6";
-        } else if ($modif >= 137 && $modif <= 152) {
+        }
+        else if ($modif >= 137 && $modif <= 152)
+        {
             $this->modif_degats = "+8D6";
-        } else if ($modif >= 153 && $modif <= 168) {
+        }
+        else if ($modif >= 153 && $modif <= 168)
+        {
             $this->modif_degats = "+9D6";
-        } else if ($modif >= 169 && $modif <= 184) {
+        }
+        else if ($modif >= 169 && $modif <= 184)
+        {
             $this->modif_degats = "+10D6";
         }
         return $this;
@@ -351,7 +398,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getModifDegats() {
+    public function getModifDegats()
+    {
         return $this->modif_degats;
     }
 
@@ -360,7 +408,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getTaille() {
+    public function getTaille()
+    {
         return $this->taille;
     }
 
@@ -370,7 +419,8 @@ class Perso {
      * @param integer $intell
      * @return Perso
      */
-    public function setIntell($intell) {
+    public function setIntell($intell)
+    {
         $this->intell = $intell;
         $this->setIdee();
 
@@ -382,7 +432,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getIntell() {
+    public function getIntell()
+    {
         return $this->intell;
     }
 
@@ -392,7 +443,8 @@ class Perso {
      * @param integer $pouvoir
      * @return Perso
      */
-    public function setPouvoir($pouvoir) {
+    public function setPouvoir($pouvoir)
+    {
         $this->pouvoir = $pouvoir;
         $this->setChance();
 
@@ -404,7 +456,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getPouvoir() {
+    public function getPouvoir()
+    {
         return $this->pouvoir;
     }
 
@@ -414,7 +467,8 @@ class Perso {
      * @param integer $dexte
      * @return Perso
      */
-    public function setDexte($dexte) {
+    public function setDexte($dexte)
+    {
         $this->dexte = $dexte;
         $this->setDexterite();
 
@@ -426,7 +480,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getDexte() {
+    public function getDexte()
+    {
         return $this->dexte;
     }
 
@@ -436,7 +491,8 @@ class Perso {
      * @param integer $apparence
      * @return Perso
      */
-    public function setApparence($apparence) {
+    public function setApparence($apparence)
+    {
         $this->apparence = $apparence;
         $this->setCharisme();
         return $this;
@@ -447,7 +503,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getApparence() {
+    public function getApparence()
+    {
         return $this->apparence;
     }
 
@@ -457,7 +514,8 @@ class Perso {
      * @param string $naiss
      * @return Perso
      */
-    public function setNaiss($naiss) {
+    public function setNaiss($naiss)
+    {
         $this->naiss = $naiss;
 
         return $this;
@@ -468,7 +526,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getNaiss() {
+    public function getNaiss()
+    {
         return $this->naiss;
     }
 
@@ -478,7 +537,8 @@ class Perso {
      * @param string $sexe
      * @return Perso
      */
-    public function setSexe($sexe) {
+    public function setSexe($sexe)
+    {
         $this->sexe = $sexe;
 
         return $this;
@@ -489,7 +549,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getSexe() {
+    public function getSexe()
+    {
         return $this->sexe;
     }
 
@@ -499,7 +560,8 @@ class Perso {
      * @param integer $age
      * @return Perso
      */
-    public function setAge($age) {
+    public function setAge($age)
+    {
         $this->age = $age;
 
         return $this;
@@ -510,7 +572,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getAge() {
+    public function getAge()
+    {
         return $this->age;
     }
 
@@ -520,7 +583,8 @@ class Perso {
      * @param string $allure
      * @return Perso
      */
-    public function setAllure($allure) {
+    public function setAllure($allure)
+    {
         $this->allure = $allure;
 
         return $this;
@@ -531,7 +595,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getAllure() {
+    public function getAllure()
+    {
         return $this->allure;
     }
 
@@ -540,7 +605,8 @@ class Perso {
      *
      * @return Perso 
      */
-    public function setCompetences($comp) {
+    public function setCompetences($comp)
+    {
         $this->competences = $comp;
         return $this;
     }
@@ -550,7 +616,8 @@ class Perso {
      *
      * @return array 
      */
-    public function getCompetences() {
+    public function getCompetences()
+    {
         return $this->competences;
     }
 
@@ -560,7 +627,8 @@ class Perso {
      * @param array $sorts
      * @return Perso
      */
-    public function setSorts($sorts) {
+    public function setSorts($sorts)
+    {
         $this->sorts = $sorts;
 
         return $this;
@@ -571,7 +639,8 @@ class Perso {
      *
      * @return array 
      */
-    public function getSorts() {
+    public function getSorts()
+    {
         return $this->sorts;
     }
 
@@ -581,7 +650,8 @@ class Perso {
      * @param integer $metier_id
      * @return Perso
      */
-    public function setMetier($metier_id) {
+    public function setMetier($metier_id)
+    {
         $this->metier = $metier_id;
         return $this;
     }
@@ -591,7 +661,8 @@ class Perso {
      *
      * @return string 
      */
-    public function getMetier() {
+    public function getMetier()
+    {
         return $this->metier;
     }
 
@@ -601,7 +672,8 @@ class Perso {
      * @param array $armes
      * @return Perso
      */
-    public function setArmes($armes) {
+    public function setArmes($armes)
+    {
         $this->armes = $armes;
 
         return $this;
@@ -612,7 +684,8 @@ class Perso {
      *
      * @return array 
      */
-    public function getArmes() {
+    public function getArmes()
+    {
         return $this->armes;
     }
 
@@ -622,7 +695,8 @@ class Perso {
      * @param array $armure
      * @return Perso
      */
-    public function setArmure($armure) {
+    public function setArmure($armure)
+    {
         $this->armure = $armure;
 
         return $this;
@@ -633,7 +707,8 @@ class Perso {
      *
      * @return array 
      */
-    public function getArmure() {
+    public function getArmure()
+    {
         return $this->armure;
     }
 
@@ -642,7 +717,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getIdee() {
+    public function getIdee()
+    {
         return $this->idee;
     }
 
@@ -651,7 +727,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getChance() {
+    public function getChance()
+    {
         return $this->chance;
     }
 
@@ -660,7 +737,8 @@ class Perso {
      *
      * @return integer 
      */
-    public function getDexterite() {
+    public function getDexterite()
+    {
         return $this->dexterite;
     }
 
@@ -669,8 +747,19 @@ class Perso {
      *
      * @return integer 
      */
-    public function getCharisme() {
+    public function getCharisme()
+    {
         return $this->idee;
+    }
+
+    /**
+     * Get pv
+     *
+     * @return integer 
+     */
+    public function getPv()
+    {
+        return $this->pv;
     }
 
     /**
@@ -678,7 +767,8 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setIdee() {
+    private function setIdee()
+    {
         $this->idee = $this->intell * 5;
         return $this;
     }
@@ -688,7 +778,8 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setChance() {
+    private function setChance()
+    {
         $this->chance = $this->pouvoir * 5;
         return $this;
     }
@@ -698,7 +789,8 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setDexterite() {
+    private function setDexterite()
+    {
         $this->dexterite = $this->dexte * 5;
         return $this;
     }
@@ -708,8 +800,20 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setCharisme() {
+    private function setCharisme()
+    {
         $this->charisme = $this->apparence * 5;
+        return $this;
+    }
+
+    /**
+     * Set pv
+     *
+     * @return Perso 
+     */
+    private function setPv()
+    {
+        $this->pv = ceil(($this->consti + $this->taille) / 2);
         return $this;
     }
 
