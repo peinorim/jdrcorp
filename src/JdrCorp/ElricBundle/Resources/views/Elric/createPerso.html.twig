@@ -36,6 +36,7 @@
         {% include "JdrCorpElricBundle:Elric:mySorts.html.twig" %}
         {% include "JdrCorpElricBundle:Elric:myCompContact.html.twig" %}
         {% include "JdrCorpElricBundle:Elric:myCompJet.html.twig" %}
+        {% include "JdrCorpElricBundle:Elric:mypvmana.html.twig" %}
     </body>
     <style>
         span, table, img, ul{
@@ -175,6 +176,36 @@
             top:1350px;
             left:630px;
             font-size: 14px;
+        }
+        #myPv{
+            top:600px;
+            left:850px;
+            width:150px;
+            overflow:hidden;
+            font-size: 13.5px;
+        }
+        #myPv li:first-child  { 
+            margin-left:40px;;
+        }
+        #myPv li  { 
+            width:10%;
+            margin-left:5px;
+            margin-right:5px;
+        }
+        #myMana{
+            top:833px;
+            left:870px;
+            width:150px;
+            overflow:hidden;
+            font-size: 12px;
+        }
+        #myMana li:first-child  { 
+            margin-left:70px;;
+        }
+        #myMana li  { 
+            width:2px;
+            margin-left:10px;
+            margin-right:10px;
         }
     </style>
 </html>

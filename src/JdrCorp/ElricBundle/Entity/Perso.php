@@ -189,6 +189,13 @@ class Perso {
      */
     private $pv;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mana", type="integer")
+     */
+    private $mana;
+
     public function __construct($request)
     {
         $this->setNom($request->request->get('nom'));
@@ -206,6 +213,7 @@ class Perso {
         $this->setAge($request->request->get('age'));
         $this->setMetier($request->request->get('metier'));
         $this->setPv();
+        $this->setMana();
         return $this;
     }
 
@@ -763,6 +771,16 @@ class Perso {
     }
 
     /**
+     * Get mana
+     *
+     * @return integer 
+     */
+    public function getMana()
+    {
+        return $this->mana;
+    }
+
+    /**
      * Set idee
      *
      * @return Perso 
@@ -814,6 +832,17 @@ class Perso {
     private function setPv()
     {
         $this->pv = ceil(($this->consti + $this->taille) / 2);
+        return $this;
+    }
+
+    /**
+     * Set mana
+     *
+     * @return Perso 
+     */
+    private function setMana()
+    {
+        $this->mana = $this->pouvoir;
         return $this;
     }
 

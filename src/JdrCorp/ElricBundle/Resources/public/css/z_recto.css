@@ -143,3 +143,13 @@ li{
     overflow:auto;
     font-size: 14px;
 }
+#myPv{
+    top:560px;
+    left:500px;
+    width:150px;
+    overflow:hidden;
+    font-size: 12px;
+}
+#myComp li  { 
+    width:5%;
+}

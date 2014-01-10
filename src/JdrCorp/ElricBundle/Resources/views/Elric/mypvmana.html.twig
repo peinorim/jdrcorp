@@ -1,0 +1,18 @@
+<ul id="myPv">
+{% for i in -2..49 %}
+    {% if perso.getPv == i %}
+    <li style='color:red;'>{{ i }}</li>
+    {% else %}
+    <li>{{ i }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+<ul id="myMana">
+{% for i in -2..85 %}
+        {% if perso.getMana == i and perso.getMana >= 16 %}
+    <li style='color:red;'>{{ i }}</li>
+    {% else %}
+    <li>{{ i }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
