@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Watch My Desk{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% javascripts 'bundles/jdrcorpelric/js/jquery-1.10.2.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts 'bundles/jdrcorpelric/js/jquery.smartWizard-2.0.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts 'bundles/jdrcorpelric/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts 'bundles/jdrcorpelric/js/index.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% stylesheets 'bundles/jdrcorpelric/css/bootstrap.css'  filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets 'bundles/jdrcorpelric/css/index.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets 'bundles/jdrcorpelric/css/smart_wizard.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+
+{# Dans notre layout, il faut définir le block body #}
+{% block body %}
+
+  {# On affiche les messages flash que définissent les contrôleurs du bundle #}
+  {% for key, message in app.session.flashbag.all() %}
+    <div class="alert alert-{{ key }}">
+      {{ message|trans({}, 'FOSUserBundle') }}
+    </div>
+  {% endfor %}
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+{% else %}
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('jdr_corp_index_homepage') }}">Accueil</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Inscrivez-vous pour sauvegarder vos personnages.</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="email">    
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="mot de passe">    
+                </div>
+                <a class="btn btn-default" href="{{ path('fos_user_security_login') }}">Connexion</a>
+            </form>
+        </div>
+    </nav>
+{% endif %}
+
+  {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
+  {% block fos_user_content %}
+  {% endblock fos_user_content %}
+
+{% endblock %}
+</html>
