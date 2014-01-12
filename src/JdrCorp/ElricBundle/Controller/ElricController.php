@@ -10,8 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ElricController extends Controller {
 
-    public function indexAction()
-    {
+    public function indexAction() {
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
@@ -22,11 +21,10 @@ class ElricController extends Controller {
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
         $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures,'nbFiches'=> $nbFiches));
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches));
     }
 
-    public function getCompMetierAction($id)
-    {
+    public function getCompMetierAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $metier = $em->getRepository('JdrCorpElricBundle:Metier')->find($id);
@@ -36,23 +34,18 @@ class ElricController extends Controller {
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
         $listeArmes = $repositoryArmes->findAll();
 
-        if ($metier === null)
-        {
+        if ($metier === null) {
             throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
-        }
-        else
-        {
+        } else {
             $listeCompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($metier->getId());
-            foreach ($listeCompMetier as $compMetier)
-            {
+            foreach ($listeCompMetier as $compMetier) {
                 $allCompMetier[] = $compMetier->getCompetence();
             }
         }
         return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp, 'metier' => $metier, 'listeArmes' => $listeArmes));
     }
 
-    public function createAction()
-    {
+    public function createAction() {
         $em = $this->getDoctrine()->getManager();
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryArme = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
@@ -60,32 +53,25 @@ class ElricController extends Controller {
 
         $request = $this->getRequest();
 
-        if ($request->getMethod() === 'POST')
-        {
+        if ($request->getMethod() === 'POST') {
 
-            foreach ($request->request->get('comp') as $id => $value)
-            {
+            foreach ($request->request->get('comp') as $id => $value) {
                 $competences[] = $repositoryComp->find($id)->setTotal($value);
             }
             $listeSortMetier = $em->getRepository('JdrCorpElricBundle:SortMetier')->findByMetier($request->request->get('metier'));
-            foreach ($listeSortMetier as $id => $sort)
-            {
+            foreach ($listeSortMetier as $id => $sort) {
                 $sorts[] = $sort->getSort();
             }
-            if (count($request->request->get('arme')) > 0)
-            {
-                foreach ($request->request->get('arme') as $id => $value)
-                {
+            if (count($request->request->get('arme')) > 0) {
+                foreach ($request->request->get('arme') as $id => $value) {
                     $armes[] = $repositoryArme->find($id)->setTotal($value);
                 }
-            }
-            else
-            {
+            } else {
                 $armes = null;
             }
             $avatar = new Image($request);
             $perso = new Perso($request);
-            $fiche = new Fiche();
+            $fiche = new Fiche($perso);
             $em->persist($fiche);
             $em->persist($perso);
             $em->flush();
@@ -93,12 +79,9 @@ class ElricController extends Controller {
             $perso->setSorts($sorts);
 
             $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
-            if ($request->request->get('options') === 'jpg')
-            {
+            if ($request->request->get('options') === 'jpg') {
                 return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
-            }
-            else
-            {
+            } else {
                 return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
             }
         }

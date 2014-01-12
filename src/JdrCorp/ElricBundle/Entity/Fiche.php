@@ -28,8 +28,12 @@ class Fiche {
      */
     private $date;
 
-    public function __construct()
-    {
+    /**
+     * @ORM\OneToOne(targetEntity="JdrCorp\ElricBundle\Entity\Perso", cascade={"persist"})
+     */
+    private $perso;
+
+    public function __construct() {
         $this->setDate(new \DateTime());
         return $this;
     }
@@ -39,8 +43,7 @@ class Fiche {
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -50,8 +53,7 @@ class Fiche {
      * @param \DateTime $date
      * @return Fiche
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -62,9 +64,22 @@ class Fiche {
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
+    }
+
+    /**
+     * @param JdrCorp\ElricBundle\Entity\Perso $perso
+     */
+    public function setPerso(JdrCorp\ElricBundle\Entity\Perso $perso) {
+        $this->perso = $perso;
+    }
+
+    /**
+     * @return JdrCorp\ElricBundle\Entity\Perso
+     */
+    public function getPerso() {
+        return $this->perso;
     }
 
 }
