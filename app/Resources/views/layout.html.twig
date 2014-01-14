@@ -39,7 +39,6 @@
             </button>
             <a class="navbar-brand" href="#">Génération de fiche de personnage pour Elric</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 {% if is_granted("ROLE_USER") == false %}
@@ -48,7 +47,7 @@
                 <li><span class="label label-warning pull-right" style="font-size:100%;">{{nbFiches}} fiches créées à ce jour</span></li>
             </ul>
             {% if is_granted("ROLE_USER") == false %}
-            <form class="navbar-form navbar-right"action="{{ path('login_check') }}" method="post">
+            <form class="navbar-form navbar-right" action="{{ path('login_check') }}" method="post">
                 <div class="form-group">
                     <input type="text" class="form-control" name="_useremail" placeholder="email">    
                 </div>
@@ -59,14 +58,15 @@
                 <input type="submit" class="btn btn-default" value="Connexion"/>
             </form>
             {% else %}
-            <form class="navbar-form navbar-right" role="search">
-                <a class="btn btn-default" href="#">Déconnexion</a>
+                <form class="navbar-form navbar-right" action="{{ path('logout') }}" method="post">
+                    <input type="submit" class="btn btn-default" value="Déconnexion"/>
+                </form>
             </form>
             {% endif %}
         </div>
     </nav>
   {% if notice %}
-    <div class="alert alert-{{type}}">{{ notice.message }}</div>
+    <div class="alert alert-{{type}} alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ notice.message }}</div>
   {% endif %}
   {% block fos_user_content %}
   {% endblock fos_user_content %}

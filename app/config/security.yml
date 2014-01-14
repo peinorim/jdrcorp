@@ -39,7 +39,9 @@ security:
                 password_parameter:             _password
                 csrf_parameter:                 _csrf_token
                 intention:                      authenticate
-
+            logout:
+                path:   /logout
+                target: /jdrcorp/elric
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
