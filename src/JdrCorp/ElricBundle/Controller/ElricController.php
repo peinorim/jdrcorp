@@ -7,10 +7,25 @@ use JdrCorp\ElricBundle\Entity\Perso;
 use JdrCorp\ElricBundle\Entity\Image;
 use JdrCorp\ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class ElricController extends Controller {
 
     public function indexAction() {
+
+        $request = $this->getRequest();
+        $session = $request->getSession();
+
+        // On vérifie s'il y a des erreurs d'une précédente soumission du formulaire
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $notice = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+            $type = 'danger';
+        } else {
+            $notice = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+            $type = 'danger';
+        }
+
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
@@ -21,7 +36,8 @@ class ElricController extends Controller {
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
         $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches));
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches, 'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+                    'notice' => $notice, 'type' => $type));
     }
 
     public function getCompMetierAction($id) {

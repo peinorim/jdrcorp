@@ -3,12 +3,13 @@
 namespace JdrCorp\ElricBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User {
+class User implements UserInterface {
 
     /**
      * @ORM\Column(name="id", type="integer")
@@ -21,6 +22,11 @@ class User {
      * @ORM\Column(name="username", type="string", length=255, unique=true)
      */
     private $username;
+
+    /**
+     * @ORM\Column(name="useremail", type="string", length=50, unique=true)
+     */
+    private $useremail;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
@@ -38,7 +44,8 @@ class User {
     private $roles;
 
     public function __construct() {
-        $this->roles = array();
+        $this->roles = array('ROLE_USER');
+        $this->salt = '';
     }
 
     public function getId() {
@@ -52,6 +59,15 @@ class User {
 
     public function getUsername() {
         return $this->username;
+    }
+
+    public function setUseremail($useremail) {
+        $this->useremail = $useremail;
+        return $this;
+    }
+
+    public function getUseremail() {
+        return $this->useremail;
     }
 
     public function setPassword($password) {
