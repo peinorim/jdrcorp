@@ -117,7 +117,6 @@ class ElricController extends Controller {
             $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
             $listeComp = $repositoryComp->findAll();
             $avatar = new Image($perso->getId(), $id, null);
-            $avatar = null;
 
             if (count($perso->getArmes()) > 0) {
                 foreach ($perso->getArmes() as $id => $value) {

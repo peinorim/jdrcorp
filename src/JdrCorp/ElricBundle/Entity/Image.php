@@ -13,11 +13,7 @@ class Image {
         if ($upload !== null && $upload->files->get('avatar') !== null && filesize($upload->files->get('avatar')) < 50000) {
             $upload->files->get('avatar')->move($this->getUploadRootDir(), $this->path);
         }
-        if (file_exists($this->getWebPath())) {
-            return $this;
-        } else {
-            return null;
-        }
+        return $this;
     }
 
     public function getWebPath() {
