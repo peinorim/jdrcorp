@@ -8,18 +8,22 @@ class Image {
 
     public $path;
 
-    public function __construct($upload = null) {
-        if ($upload->files->get('avatar') !== null && filesize($upload->files->get('avatar')) < 50000) {
-            $this->path = rand(1,100).'_'.date('YmdHis').'.png';
+    public function __construct($perso_id, $fiche_id, $upload = null) {
+        $this->path = $fiche_id . '_' . $perso_id . '.png';
+        if ($upload !== null && $upload->files->get('avatar') !== null && filesize($upload->files->get('avatar')) < 50000) {
             $upload->files->get('avatar')->move($this->getUploadRootDir(), $this->path);
         }
-        return $this;
+        if (file_exists($this->getWebPath())) {
+            return $this;
+        } else {
+            return null;
+        }
     }
 
     public function getWebPath() {
         return $this->getUploadDir() . '/' . $this->path;
     }
-    
+
     public function getUploadRootDir() {
         return __DIR__ . '/../../../../web/' . $this->getUploadDir();
     }

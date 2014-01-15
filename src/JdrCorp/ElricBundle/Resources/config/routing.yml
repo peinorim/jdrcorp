@@ -11,4 +11,10 @@ Elric_Create:
     path:     /jdrcorp/elric/create
     defaults: { _controller: JdrCorpElricBundle:Elric:create }
     requirements:
-        _method:  POST        
+        _method:  POST  
+Elric_review:
+    path:     /jdrcorp/elric/review/{id}/{format}
+    defaults: { _controller: JdrCorpElricBundle:Elric:review }
+    requirements:
+        page:  \d+
+        _method:  POST

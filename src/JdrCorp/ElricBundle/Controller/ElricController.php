@@ -8,6 +8,7 @@ use JdrCorp\ElricBundle\Entity\Image;
 use JdrCorp\ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class ElricController extends Controller {
 
@@ -88,12 +89,12 @@ class ElricController extends Controller {
             } else {
                 $armes = null;
             }
-            $avatar = new Image($request);
             $perso = new Perso($request);
             $fiche = new Fiche($perso, $this->getUser());
             $em->persist($fiche);
             $em->persist($perso);
             $em->flush();
+            $avatar = new Image($perso->getId(), $fiche->getId(), $request);
             $perso->setCompetences($competences);
             $perso->setSorts($sorts);
 
@@ -103,6 +104,37 @@ class ElricController extends Controller {
             } else {
                 return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
             }
+        }
+    }
+
+    public function reviewAction($id, $format) {
+        $repositoryPerso = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Perso');
+        $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+        $repositoryArme = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
+        $perso = $repositoryFiche->find($id)->getPerso();
+        if ($perso !== null) {
+
+            $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+            $listeComp = $repositoryComp->findAll();
+            $avatar = new Image($perso->getId(), $id, null);
+            $avatar = null;
+
+            if (count($perso->getArmes()) > 0) {
+                foreach ($perso->getArmes() as $id => $value) {
+                    $armes[] = $repositoryArme->find($id)->setTotal($value);
+                }
+            } else {
+                $armes = null;
+            }
+
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+            if ($format === 'jpg') {
+                return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
+            } else {
+                return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
+            }
+        } else {
+            throw new AccessDeniedHttpException("Cette fiche n'existe pas");
         }
     }
 
