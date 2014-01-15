@@ -16,12 +16,15 @@ class ElricController extends Controller {
         $request = $this->getRequest();
         $session = $request->getSession();
 
-        // On vérifie s'il y a des erreurs d'une précédente soumission du formulaire
         if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $notice = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+            $notice = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR)->getMessage();
             $type = 'danger';
         } else {
-            $notice = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $notice = null;
+            if ($error !== null) {
+                $notice = "Erreur nom d'utilisateur / mot de passe";
+            }
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
             $type = 'danger';
         }
@@ -36,7 +39,7 @@ class ElricController extends Controller {
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
         $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches, 'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches,
                     'notice' => $notice, 'type' => $type));
     }
 
@@ -86,7 +89,7 @@ class ElricController extends Controller {
                 $armes = null;
             }
             $avatar = new Image($request);
-            $perso = new Perso($request);
+            $perso = new Perso($request, $this->getUser());
             $fiche = new Fiche($perso);
             $em->persist($fiche);
             $em->persist($perso);

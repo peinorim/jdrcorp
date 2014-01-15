@@ -33,8 +33,9 @@ class Fiche {
      */
     private $perso;
 
-    public function __construct() {
+    public function __construct($perso = null) {
         $this->setDate(new \DateTime());
+        $this->setPerso($perso);
         return $this;
     }
 
@@ -71,7 +72,7 @@ class Fiche {
     /**
      * @param JdrCorp\ElricBundle\Entity\Perso $perso
      */
-    public function setPerso(JdrCorp\ElricBundle\Entity\Perso $perso) {
+    public function setPerso($perso) {
         $this->perso = $perso;
     }
 

@@ -1,0 +1,8 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+JdrCorp - Elric - Mes fiches générées
+{% endblock %}
+{% block fos_user_content %}
+{% if is_granted('ROLE_USER') %}
+{% endif %}
+{% endblock fos_user_content %}
