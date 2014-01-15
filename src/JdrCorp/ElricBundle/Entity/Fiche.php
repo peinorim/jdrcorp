@@ -30,12 +30,20 @@ class Fiche {
 
     /**
      * @ORM\OneToOne(targetEntity="JdrCorp\ElricBundle\Entity\Perso", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $perso;
 
-    public function __construct($perso = null) {
+    /**
+     * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    public function __construct($perso = null, $user = null) {
         $this->setDate(new \DateTime());
         $this->setPerso($perso);
+        $this->setUser($user);
         return $this;
     }
 
@@ -81,6 +89,24 @@ class Fiche {
      */
     public function getPerso() {
         return $this->perso;
+    }
+
+    /**
+     * Set user
+     *
+     * @param JdrCorp\ElricBundle\Entity\user $user
+     */
+    public function setUser($user) {
+        $this->user = $user;
+    }
+
+    /**
+     * Get article
+     *
+     * @return JdrCorp\ElricBundle\Entity\user
+     */
+    public function getUser() {
+        return $this->user;
     }
 
 }

@@ -22,12 +22,6 @@ class Perso {
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $user;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=50)
@@ -202,7 +196,7 @@ class Perso {
      */
     private $mana;
 
-    public function __construct($request, $user = null) {
+    public function __construct($request) {
         $this->setNom($request->request->get('nom'));
         $this->setProprio($request->request->get('proprio'));
         $this->setFort($request->request->get('force'));
@@ -219,9 +213,6 @@ class Perso {
         $this->setMetier($request->request->get('metier'));
         $this->setPv();
         $this->setMana();
-        if ($user !== null) {
-            $this->setUser($user);
-        }
         return $this;
     }
 
@@ -774,24 +765,6 @@ class Perso {
     private function setMana() {
         $this->mana = $this->pouvoir;
         return $this;
-    }
-
-    /**
-     * Set user
-     *
-     * @param JdrCorp\ElricBundle\Entity\user $user
-     */
-    public function setUser($user) {
-        $this->user = $user;
-    }
-
-    /**
-     * Get article
-     *
-     * @return JdrCorp\ElricBundle\Entity\user
-     */
-    public function getUser() {
-        return $this->user;
     }
 
 }

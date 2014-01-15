@@ -4,7 +4,7 @@ namespace JdrCorp\IndexBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JdrCorp\ElricBundle\Entity\User;
-use JdrCorp\ElricBundle\Entity\Perso;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class IndexController extends Controller {
 
@@ -22,22 +22,18 @@ class IndexController extends Controller {
 
             if (null !== $user) {
                 $em = $this->getDoctrine()->getManager();
-                $mypersos = $em->getRepository('JdrCorpElricBundle:Perso')->findByUser($user->getId());
-                if (count($mypersos) > 0) {
-                    foreach ($mypersos as $perso) {
-                        $myfiches[] = $repositoryFiche->findByPerso($perso->getId());
-                    }
-                } else {
+                $myfiches = $em->getRepository('JdrCorpElricBundle:Fiche')->findByUser($user->getId());
+                if (count($myfiches) === 0) {
                     $type = "warning";
                     $notice = "Vous n'avez créé aucune fiche pour l'instant.";
                     $myfiches = null;
                 }
-                return $this->render('JdrCorpIndexBundle:Index:profile.html.twig', array('nbFiches' => $nbFiches, 'notice' => $notice, 'type' => $type, 'myfiches' => $myfiches, 'mypersos' => $mypersos));
+                return $this->render('JdrCorpIndexBundle:Index:profile.html.twig', array('nbFiches' => $nbFiches, 'notice' => $notice, 'type' => $type, 'myfiches' => $myfiches));
             } else {
                 throw new AccessDeniedHttpException('Accès limité aux inscrits');
             }
         } else {
-            return $this->redirect($this->generateUrl('Elric'));
+            throw new AccessDeniedHttpException('Accès limité aux inscrits');
         }
     }
 

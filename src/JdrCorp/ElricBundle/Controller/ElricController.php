@@ -89,8 +89,8 @@ class ElricController extends Controller {
                 $armes = null;
             }
             $avatar = new Image($request);
-            $perso = new Perso($request, $this->getUser());
-            $fiche = new Fiche($perso);
+            $perso = new Perso($request);
+            $fiche = new Fiche($perso, $this->getUser());
             $em->persist($fiche);
             $em->persist($perso);
             $em->flush();
