@@ -13,21 +13,18 @@ class ElricController extends Controller {
 
     public function indexAction() {
 
-        $request = $this->getRequest();
         $notice = null;
-        $type=null;
+        $type = null;
 
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
-        $repositoryArmure = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Armure');
         $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
         $nbFiches = count($repositoryFiche->findAll());
         $listeComp = $repositoryComp->findAll();
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
-        $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures, 'nbFiches' => $nbFiches,
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'nbFiches' => $nbFiches,
                     'notice' => $notice, 'type' => $type));
     }
 
@@ -56,7 +53,9 @@ class ElricController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryArme = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
+        $repositoryArmure = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Armure');
         $listeComp = $repositoryComp->findAll();
+        $listeArmures = $repositoryArmure->findAll();
 
         $request = $this->getRequest();
 
@@ -76,16 +75,21 @@ class ElricController extends Controller {
             } else {
                 $armes = null;
             }
+            foreach ($listeArmures as $armure) {
+                $armures[] = $repositoryArmure->find($armure->getId());
+            }
             $perso = new Perso($request);
             $fiche = new Fiche($perso, $this->getUser());
+            $perso->setCompetences($competences);
+            $perso->setSorts($sorts);
+            $perso->setArmes($armes);
+            $perso->setArmure($armures);
             $em->persist($fiche);
             $em->persist($perso);
             $em->flush();
             $avatar = new Image($perso->getId(), $fiche->getId(), $request);
-            $perso->setCompetences($competences);
-            $perso->setSorts($sorts);
 
-            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes, 'myArmures' => $perso->getArmure()));
             if ($request->request->get('options') === 'jpg') {
                 return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
             } else {
@@ -97,23 +101,15 @@ class ElricController extends Controller {
     public function reviewAction($id, $format) {
         $repositoryPerso = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Perso');
         $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
-        $repositoryArme = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
-        $perso = $repositoryFiche->find($id)->getPerso();
+        $persoFiche = $repositoryFiche->find($id)->getPerso();
+        $perso = $repositoryPerso->find($persoFiche->getId());
         if ($perso !== null) {
 
             $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
             $listeComp = $repositoryComp->findAll();
             $avatar = new Image($perso->getId(), $id, null);
 
-            if (count($perso->getArmes()) > 0) {
-                foreach ($perso->getArmes() as $id => $value) {
-                    $armes[] = $repositoryArme->find($id)->setTotal($value);
-                }
-            } else {
-                $armes = null;
-            }
-
-            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $perso->getArmes(), 'myArmures' => $perso->getArmure()));
             if ($format === 'jpg') {
                 return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
             } else {

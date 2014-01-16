@@ -143,6 +143,14 @@ li{
     overflow:auto;
     font-size: 14px;
 }
+#myArmure{
+    top:1050px;
+    left:630px;
+    width:750px;
+    height: 100px;
+    overflow:auto;
+    font-size: 14px;
+}
 #myPv{
     top:560px;
     left:500px;

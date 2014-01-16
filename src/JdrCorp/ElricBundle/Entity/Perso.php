@@ -19,182 +19,182 @@ class Perso {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=50)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="proprio", type="string", length=50)
      */
-    private $proprio;
+    protected $proprio;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="fort", type="integer")
      */
-    private $fort;
+    protected $fort;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="consti", type="integer")
      */
-    private $consti;
+    protected $consti;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="taille", type="integer")
      */
-    private $taille;
+    protected $taille;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="intell", type="integer")
      */
-    private $intell;
+    protected $intell;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="pouvoir", type="integer")
      */
-    private $pouvoir;
+    protected $pouvoir;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="dexte", type="integer")
      */
-    private $dexte;
+    protected $dexte;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="apparence", type="integer")
      */
-    private $apparence;
+    protected $apparence;
 
     /**
      * @var string
      *
      * @ORM\Column(name="naiss", type="string", length=50)
      */
-    private $naiss;
+    protected $naiss;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sexe", type="string", length=1)
      */
-    private $sexe;
+    protected $sexe;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="age", type="integer")
      */
-    private $age;
+    protected $age;
 
     /**
      * @var string
      *
      * @ORM\Column(name="allure", type="string", length=100)
      */
-    private $allure;
+    protected $allure;
 
     /**
      * @var array
      *
      * @ORM\Column(name="competences", type="array")
      */
-    private $competences;
+    protected $competences;
 
     /**
      * @var array
      *
      * @ORM\Column(name="sorts", type="array")
      */
-    private $sorts;
+    protected $sorts;
 
     /**
      * @var string
      *
      * @ORM\Column(name="metier", type="string", length=50)
      */
-    private $metier;
+    protected $metier;
 
     /**
      * @var array
      *
      * @ORM\Column(name="armes", type="array")
      */
-    private $armes;
+    protected $armes;
 
     /**
      * @var array
      *
      * @ORM\Column(name="armure", type="array")
      */
-    private $armure;
+    protected $armure;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="idee", type="integer")
      */
-    private $idee;
+    protected $idee;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="chance", type="integer")
      */
-    private $chance;
+    protected $chance;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="dexterite", type="integer")
      */
-    private $dexterite;
+    protected $dexterite;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="charisme", type="integer")
      */
-    private $charisme;
+    protected $charisme;
 
     /**
      * @var string
      *
      * @ORM\Column(name="modif_degats", type="string")
      */
-    private $modif_degats;
+    protected $modif_degats;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="pv", type="integer")
      */
-    private $pv;
+    protected $pv;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="mana", type="integer")
      */
-    private $mana;
+    protected $mana;
 
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
@@ -712,7 +712,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setIdee() {
+    public function setIdee() {
         $this->idee = $this->intell * 5;
         return $this;
     }
@@ -722,7 +722,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setChance() {
+    public function setChance() {
         $this->chance = $this->pouvoir * 5;
         return $this;
     }
@@ -732,7 +732,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setDexterite() {
+    public function setDexterite() {
         $this->dexterite = $this->dexte * 5;
         return $this;
     }
@@ -742,7 +742,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setCharisme() {
+    public function setCharisme() {
         $this->charisme = $this->apparence * 5;
         return $this;
     }
@@ -752,7 +752,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setPv() {
+    public function setPv() {
         $this->pv = ceil(($this->consti + $this->taille) / 2);
         return $this;
     }
@@ -762,7 +762,7 @@ class Perso {
      *
      * @return Perso 
      */
-    private function setMana() {
+    public function setMana() {
         $this->mana = $this->pouvoir;
         return $this;
     }
