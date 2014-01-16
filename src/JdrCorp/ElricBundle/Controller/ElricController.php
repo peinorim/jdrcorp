@@ -101,6 +101,7 @@ class ElricController extends Controller {
     public function reviewAction($id, $format) {
         $repositoryPerso = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Perso');
         $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $persoFiche = $repositoryFiche->find($id)->getPerso();
         $perso = $repositoryPerso->find($persoFiche->getId());
         if ($perso !== null) {
@@ -108,8 +109,12 @@ class ElricController extends Controller {
             $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
             $listeComp = $repositoryComp->findAll();
             $avatar = new Image($perso->getId(), $id, null);
+            
+            foreach ($perso->getCompetences() as $comp) {
+                $myComp[] = $repositoryComp->find($comp->getId());
+            }
 
-            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $perso->getArmes(), 'myArmures' => $perso->getArmure()));
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $myComp, 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $perso->getArmes(), 'myArmures' => $perso->getArmure()));
             if ($format === 'jpg') {
                 return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
             } else {
