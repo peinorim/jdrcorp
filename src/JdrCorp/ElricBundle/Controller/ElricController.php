@@ -7,26 +7,28 @@ use JdrCorp\ElricBundle\Entity\Perso;
 use JdrCorp\ElricBundle\Entity\Image;
 use JdrCorp\ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class ElricController extends Controller {
 
-    public function indexAction()
-    {
+    public function indexAction() {
+
+        $notice = null;
+        $type = null;
+
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
-        $repositoryArmure = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Armure');
         $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
         $nbFiches = count($repositoryFiche->findAll());
         $listeComp = $repositoryComp->findAll();
         $listeMet = $repositoryMetier->findAll();
         $listeArmes = $repositoryArmes->findAll();
-        $listeArmures = $repositoryArmure->findAll();
-        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'listeArmures' => $listeArmures,'nbFiches'=> $nbFiches));
+        return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'nbFiches' => $nbFiches,
+                    'notice' => $notice, 'type' => $type));
     }
 
-    public function getCompMetierAction($id)
-    {
+    public function getCompMetierAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $metier = $em->getRepository('JdrCorpElricBundle:Metier')->find($id);
@@ -36,71 +38,90 @@ class ElricController extends Controller {
         $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
         $listeArmes = $repositoryArmes->findAll();
 
-        if ($metier === null)
-        {
+        if ($metier === null) {
             throw $this->createNotFoundException('Metier[id=' . $id . '] inexistant.');
-        }
-        else
-        {
+        } else {
             $listeCompMetier = $em->getRepository('JdrCorpElricBundle:CompetenceMetier')->findByMetier($metier->getId());
-            foreach ($listeCompMetier as $compMetier)
-            {
+            foreach ($listeCompMetier as $compMetier) {
                 $allCompMetier[] = $compMetier->getCompetence();
             }
         }
         return $this->render('JdrCorpElricBundle:Elric:tableComp.html.twig', array('listeCompMetier' => $allCompMetier, 'listeComp' => $listeComp, 'metier' => $metier, 'listeArmes' => $listeArmes));
     }
 
-    public function createAction()
-    {
+    public function createAction() {
         $em = $this->getDoctrine()->getManager();
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryArme = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
+        $repositoryArmure = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Armure');
         $listeComp = $repositoryComp->findAll();
+        $listeArmures = $repositoryArmure->findAll();
 
         $request = $this->getRequest();
 
-        if ($request->getMethod() === 'POST')
-        {
+        if ($request->getMethod() === 'POST') {
 
-            foreach ($request->request->get('comp') as $id => $value)
-            {
+            foreach ($request->request->get('comp') as $id => $value) {
                 $competences[] = $repositoryComp->find($id)->setTotal($value);
             }
             $listeSortMetier = $em->getRepository('JdrCorpElricBundle:SortMetier')->findByMetier($request->request->get('metier'));
-            foreach ($listeSortMetier as $id => $sort)
-            {
+            foreach ($listeSortMetier as $id => $sort) {
                 $sorts[] = $sort->getSort();
             }
-            if (count($request->request->get('arme')) > 0)
-            {
-                foreach ($request->request->get('arme') as $id => $value)
-                {
+            if (count($request->request->get('arme')) > 0) {
+                foreach ($request->request->get('arme') as $id => $value) {
                     $armes[] = $repositoryArme->find($id)->setTotal($value);
                 }
-            }
-            else
-            {
+            } else {
                 $armes = null;
             }
-            $avatar = new Image($request);
+            foreach ($listeArmures as $armure) {
+                $armures[] = $repositoryArmure->find($armure->getId());
+            }
             $perso = new Perso($request);
-            $fiche = new Fiche();
+            $fiche = new Fiche($perso, $this->getUser());
+            $perso->setCompetences($competences);
+            $perso->setSorts($sorts);
+            $perso->setArmes($armes);
+            $perso->setArmure($armures);
             $em->persist($fiche);
             $em->persist($perso);
             $em->flush();
-            $perso->setCompetences($competences);
-            $perso->setSorts($sorts);
+            $avatar = new Image($perso->getId(), $fiche->getId(), $request);
 
-            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes));
-            if ($request->request->get('options') === 'jpg')
-            {
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $perso->getCompetences(), 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $armes, 'myArmures' => $perso->getArmure()));
+            if ($request->request->get('options') === 'jpg') {
                 return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
-            }
-            else
-            {
+            } else {
                 return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
             }
+        }
+    }
+
+    public function reviewAction($id, $format) {
+        $repositoryPerso = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Perso');
+        $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+        $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+        $persoFiche = $repositoryFiche->find($id)->getPerso();
+        $perso = $repositoryPerso->find($persoFiche->getId());
+        if ($perso !== null) {
+
+            $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+            $listeComp = $repositoryComp->findAll();
+            $avatar = new Image($perso->getId(), $id, null);
+            
+            foreach ($perso->getCompetences() as $comp) {
+                $myComp[] = $repositoryComp->find($comp->getId());
+            }
+
+            $html = $this->renderView('JdrCorpElricBundle:Elric:createPerso.html.twig', array('perso' => $perso, 'myComp' => $myComp, 'mySorts' => $perso->getSorts(), 'listeComp' => $listeComp, 'image' => $avatar, 'myArmes' => $perso->getArmes(), 'myArmures' => $perso->getArmure()));
+            if ($format === 'jpg') {
+                return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="elric.jpg"'));
+            } else {
+                return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
+            }
+        } else {
+            throw new AccessDeniedHttpException("Cette fiche n'existe pas");
         }
     }
 

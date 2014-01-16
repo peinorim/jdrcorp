@@ -4,6 +4,5 @@ namespace JdrCorp\ElricBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class JdrCorpElricBundle extends Bundle
-{
+class JdrCorpElricBundle extends Bundle {
 }

@@ -9,4 +9,20 @@ jdr_corp_guildes:
 jdr_corp_elric:
     resource: "@JdrCorpElricBundle/Resources/config/routing.yml"
     prefix:   /
+    
+register:
+    pattern:   /jdrcorp/register
+    defaults:  { _controller: JdrCorpIndexBundle:Index:register } 
+register_submit:
+    pattern:   /jdrcorp/register/submit
+    defaults:  { _controller: JdrCorpIndexBundle:Index:register_submit }    
+    
+login:
+    pattern:   /jdrcorp/login
+    defaults:  { _controller: JdrCorpIndexBundle:Index:login }
 
+login_check:
+    pattern:   /login_check
+    
+logout:
+    pattern:   /logout

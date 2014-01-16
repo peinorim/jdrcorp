@@ -19,14 +19,14 @@ class Sort {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sort_nom", type="string", length=255)
      */
-    private $sortNom;
+    protected $sortNom;
 
     /**
      * Get id

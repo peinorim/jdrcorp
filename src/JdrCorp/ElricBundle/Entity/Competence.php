@@ -19,35 +19,35 @@ class Competence {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="base", type="integer")
      */
-    private $base;
+    protected $base;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="total", type="integer")
      */
-    private $total;
+    protected $total;
 
     /**
      * @var string
      *
      * @ORM\Column(name="type", type="string")
      */
-    private $type;
+    protected $type;
 
     /**
      * Get id
