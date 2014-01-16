@@ -7,7 +7,6 @@ use JdrCorp\ElricBundle\Entity\Perso;
 use JdrCorp\ElricBundle\Entity\Image;
 use JdrCorp\ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class ElricController extends Controller {
@@ -15,20 +14,8 @@ class ElricController extends Controller {
     public function indexAction() {
 
         $request = $this->getRequest();
-        $session = $request->getSession();
-
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $notice = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR)->getMessage();
-            $type = 'danger';
-        } else {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $notice = null;
-            if ($error !== null) {
-                $notice = "Erreur nom d'utilisateur / mot de passe";
-            }
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-            $type = 'danger';
-        }
+        $notice = null;
+        $type=null;
 
         $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
         $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');

@@ -5,11 +5,31 @@ namespace JdrCorp\IndexBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JdrCorp\ElricBundle\Entity\User;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class IndexController extends Controller {
 
     public function indexAction() {
         return $this->render('JdrCorpIndexBundle:Index:index.html.twig');
+    }
+
+    public function loginAction() {
+        $request = $this->getRequest();
+        $session = $request->getSession();
+
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $notice = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR)->getMessage();
+            $type = 'danger';
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $notice = null;
+            if ($error !== null) {
+                $notice = "Erreur nom d'utilisateur / mot de passe";
+            }
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+            $type = 'danger';
+        }
+        return $this->redirect($this->generateUrl('Elric'));
     }
 
     public function profileAction() {
