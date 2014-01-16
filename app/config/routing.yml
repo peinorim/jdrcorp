@@ -19,7 +19,7 @@ register_submit:
     
 login:
     pattern:   /jdrcorp/login
-    defaults:  { _controller: JdrCorpIndexBundle:Index:login }
+    defaults:  { _controller: JdrCorpElricBundle:Elric:index }
 
 login_check:
     pattern:   /login_check
