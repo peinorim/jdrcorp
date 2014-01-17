@@ -143,4 +143,22 @@ class ElricController extends Controller {
         }
     }
 
+    public function deleteAction($id) {
+
+        $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+        $nbFiches = count($repositoryFiche->findAll());
+        $user_fiche = $repositoryFiche->find($id)->getUser();
+        $fiche_suppr = $repositoryFiche->find($id);
+        $user = $this->getUser();
+        $myfiches = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche')->findByUser($user->getId());
+
+        if ($user !== null && $fiche_suppr !== null && $user->getId() === $user_fiche->getId()) {
+            $this->getDoctrine()->getManager()->remove($fiche_suppr);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirect($this->generateUrl('profile'));
+        } else {
+            return $this->render('JdrCorpIndexBundle:Index:profile.html.twig', array('notice' => 'Erreur ! Vous ne pouvez pas supprimer cette fiche.', 'type' => 'danger', 'myfiches' => $myfiches, 'nbFiches' => $nbFiches));
+        }
+    }
+
 }

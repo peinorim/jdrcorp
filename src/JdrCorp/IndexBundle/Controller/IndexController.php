@@ -14,8 +14,6 @@ class IndexController extends Controller {
 
     public function profileAction() {
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
-            $nbFiches = count($repositoryFiche->findAll());
             $notice = null;
             $type = null;
             $user = $this->getUser();
@@ -23,12 +21,14 @@ class IndexController extends Controller {
             if (null !== $user) {
                 $em = $this->getDoctrine()->getManager();
                 $myfiches = $em->getRepository('JdrCorpElricBundle:Fiche')->findByUser($user->getId());
+                $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+                $nbFiches = count($repositoryFiche->findAll());
                 if (count($myfiches) === 0) {
                     $type = "warning";
                     $notice = "Vous n'avez créé aucune fiche pour l'instant.";
                     $myfiches = null;
                 }
-                return $this->render('JdrCorpIndexBundle:Index:profile.html.twig', array('nbFiches' => $nbFiches, 'notice' => $notice, 'type' => $type, 'myfiches' => $myfiches));
+                return $this->render('JdrCorpIndexBundle:Index:profile.html.twig', array('notice' => $notice, 'type' => $type, 'myfiches' => $myfiches, 'nbFiches' => $nbFiches));
             } else {
                 throw new AccessDeniedHttpException('Accès limité aux inscrits');
             }
@@ -71,7 +71,17 @@ class IndexController extends Controller {
                     $manager = $this->getDoctrine()->getManager();
                     $manager->persist($user);
                     $manager->flush();
-                    return $this->redirect($this->generateUrl('Elric'));
+
+                    $repositoryComp = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Competence');
+                    $repositoryMetier = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Metier');
+                    $repositoryArmes = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Arme');
+                    $repositoryFiche = $this->getDoctrine()->getManager()->getRepository('JdrCorpElricBundle:Fiche');
+                    $nbFiches = count($repositoryFiche->findAll());
+                    $listeComp = $repositoryComp->findAll();
+                    $listeMet = $repositoryMetier->findAll();
+                    $listeArmes = $repositoryArmes->findAll();
+                    return $this->render('JdrCorpElricBundle:Elric:index.html.twig', array('listeComp' => $listeComp, 'listeMet' => $listeMet, 'listeArmes' => $listeArmes, 'nbFiches' => $nbFiches,
+                                'notice' => 'Inscription réussie ! Vous pouvez maintenant vous connecter.', 'type' => 'success'));
                 } else {
                     $type = 'danger';
                     $notice = 'Mot de passe différent de la confirmation.';

@@ -18,3 +18,9 @@ Elric_review:
     requirements:
         page:  \d+
         _method:  POST
+Elric_delete_fiche:
+    path:     /jdrcorp/elric/delete/{id}
+    defaults: { _controller: JdrCorpElricBundle:Elric:delete }
+    requirements:
+        page:  \d+
+        _method:  POST
