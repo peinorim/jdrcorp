@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JdrCorp\GuildesBundle\Entity\ArmeRepository")
  */
-class Arme
-{
+class Arme {
+
     /**
      * @var integer
      *
@@ -91,14 +91,18 @@ class Arme
      */
     private $peff;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Competence")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $competence;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -108,10 +112,9 @@ class Arme
      * @param string $nom
      * @return Arme
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
@@ -120,8 +123,7 @@ class Arme
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
 
@@ -131,10 +133,9 @@ class Arme
      * @param integer $init
      * @return Arme
      */
-    public function setInit($init)
-    {
+    public function setInit($init) {
         $this->init = $init;
-    
+
         return $this;
     }
 
@@ -143,8 +144,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getInit()
-    {
+    public function getInit() {
         return $this->init;
     }
 
@@ -154,10 +154,9 @@ class Arme
      * @param integer $att
      * @return Arme
      */
-    public function setAtt($att)
-    {
+    public function setAtt($att) {
         $this->att = $att;
-    
+
         return $this;
     }
 
@@ -166,8 +165,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getAtt()
-    {
+    public function getAtt() {
         return $this->att;
     }
 
@@ -177,10 +175,9 @@ class Arme
      * @param integer $def
      * @return Arme
      */
-    public function setDef($def)
-    {
+    public function setDef($def) {
         $this->def = $def;
-    
+
         return $this;
     }
 
@@ -189,8 +186,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getDef()
-    {
+    public function getDef() {
         return $this->def;
     }
 
@@ -200,10 +196,9 @@ class Arme
      * @param string $blessure
      * @return Arme
      */
-    public function setBlessure($blessure)
-    {
+    public function setBlessure($blessure) {
         $this->blessure = $blessure;
-    
+
         return $this;
     }
 
@@ -212,8 +207,7 @@ class Arme
      *
      * @return string 
      */
-    public function getBlessure()
-    {
+    public function getBlessure() {
         return $this->blessure;
     }
 
@@ -223,10 +217,9 @@ class Arme
      * @param integer $enc
      * @return Arme
      */
-    public function setEnc($enc)
-    {
+    public function setEnc($enc) {
         $this->enc = $enc;
-    
+
         return $this;
     }
 
@@ -235,8 +228,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getEnc()
-    {
+    public function getEnc() {
         return $this->enc;
     }
 
@@ -246,10 +238,9 @@ class Arme
      * @param integer $fort
      * @return Arme
      */
-    public function setFort($fort)
-    {
+    public function setFort($fort) {
         $this->fort = $fort;
-    
+
         return $this;
     }
 
@@ -258,8 +249,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getFort()
-    {
+    public function getFort() {
         return $this->fort;
     }
 
@@ -269,10 +259,9 @@ class Arme
      * @param integer $cad
      * @return Arme
      */
-    public function setCad($cad)
-    {
+    public function setCad($cad) {
         $this->cad = $cad;
-    
+
         return $this;
     }
 
@@ -281,8 +270,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getCad()
-    {
+    public function getCad() {
         return $this->cad;
     }
 
@@ -292,10 +280,9 @@ class Arme
      * @param integer $pmoy
      * @return Arme
      */
-    public function setPmoy($pmoy)
-    {
+    public function setPmoy($pmoy) {
         $this->pmoy = $pmoy;
-    
+
         return $this;
     }
 
@@ -304,8 +291,7 @@ class Arme
      *
      * @return integer 
      */
-    public function getPmoy()
-    {
+    public function getPmoy() {
         return $this->pmoy;
     }
 
@@ -315,10 +301,9 @@ class Arme
      * @param integer $peff
      * @return Arme
      */
-    public function setPeff($peff)
-    {
+    public function setPeff($peff) {
         $this->peff = $peff;
-    
+
         return $this;
     }
 
@@ -327,8 +312,16 @@ class Arme
      *
      * @return integer 
      */
-    public function getPeff()
-    {
+    public function getPeff() {
         return $this->peff;
     }
+
+    public function setCompetence(\JdrCorp\GuildesBundle\Entity\Competence $competence) {
+        $this->competence = $competence;
+    }
+
+    public function getCompetence() {
+        return $this->competence;
+    }
+
 }

@@ -56,48 +56,6 @@ class Tour {
     private $maison;
 
     /**
-     * Set maison
-     *
-     * @param JdrCorp\GuildesBundle\Entity\Maison $maison
-     */
-    public function setMaison(\JdrCorp\GuildesBundle\Entity\Maison $maison) {
-        $this->maison = $maison;
-    }
-
-    /**
-     * Get maison
-     *
-     * @return JdrCorp\GuildesBundle\Entity\Maison
-     */
-    public function getMaison() {
-        return $this->maison;
-    }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\ArtefactType")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $type;
-
-    /**
-     * Set type
-     *
-     * @param JdrCorp\GuildesBundle\Entity\ArtefactType $type
-     */
-    public function setType(\JdrCorp\GuildesBundle\Entity\ArtefactType $type) {
-        $this->type = $type;
-    }
-
-    /**
-     * Get type
-     *
-     * @return JdrCorp\GuildesBundle\Entity\Maison
-     */
-    public function getType() {
-        return $this->type;
-    }
-
-    /**
      * Get id
      *
      * @return integer 
@@ -188,6 +146,24 @@ class Tour {
      */
     public function getEffet() {
         return $this->effet;
+    }
+
+    /**
+     * Set maison
+     *
+     * @param JdrCorp\GuildesBundle\Entity\Maison $maison
+     */
+    public function setMaison(\JdrCorp\GuildesBundle\Entity\Maison $maison) {
+        $this->maison = $maison;
+    }
+
+    /**
+     * Get maison
+     *
+     * @return JdrCorp\GuildesBundle\Entity\Maison
+     */
+    public function getMaison() {
+        return $this->maison;
     }
 
 }
