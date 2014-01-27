@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Artefact {
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
@@ -20,16 +29,23 @@ class Artefact {
     private $nom;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
      */
     private $maison;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\ArtefactType")
      */
     private $type;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
 
     /**
      * Set nom

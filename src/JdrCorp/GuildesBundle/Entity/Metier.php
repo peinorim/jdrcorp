@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JdrCorp\GuildesBundle\Entity\MetierRepository")
  */
-class Metier
-{
+class Metier {
+
     /**
      * @var integer
      *
@@ -28,14 +28,18 @@ class Metier
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $maison;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -45,10 +49,9 @@ class Metier
      * @param string $nom
      * @return Metier
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
@@ -57,8 +60,26 @@ class Metier
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
+
+    /**
+     * Set maison
+     *
+     * @param JdrCorp\GuildesBundle\Entity\Maison $maison
+     */
+    public function setMaison(\JdrCorp\GuildesBundle\Entity\Maison $maison) {
+        $this->maison = $maison;
+    }
+
+    /**
+     * Get maison
+     *
+     * @return JdrCorp\GuildesBundle\Entity\Maison
+     */
+    public function getMaison() {
+        return $this->maison;
+    }
+
 }
