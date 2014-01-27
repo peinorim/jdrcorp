@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Guildes - JdrCorp - Accueil</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/jquery-1.10.2.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/turn.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/index.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
-        {% stylesheets 'bundles/jdrcorpelric/css/bootstrap.css'  filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets 'bundles/jdrcorpguildes/css/index.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-    </head>
-    <body>
-       
-    </body>
-</html>
+{% extends "::layout_guildes.html.twig" %}
+{% block title %}
+JdrCorp - Guildes - Accueil
+{% endblock %}
+{% block fos_user_content %}
+<div class="" style="margin-top:50px;">
+</div>	
+{% endblock fos_user_content %}

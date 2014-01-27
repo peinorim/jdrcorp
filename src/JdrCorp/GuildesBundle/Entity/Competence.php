@@ -30,13 +30,13 @@ class Competence {
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Chapitre")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $chapitre;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Carac")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $carac;
 
