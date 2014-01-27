@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JdrCorp\GuildesBundle\Entity\CompetenceRepository")
  */
-class Competence
-{
+class Competence {
+
     /**
      * @var integer
      *
@@ -28,14 +28,24 @@ class Competence
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Chapitre")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $chapitre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Carac")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $carac;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -45,10 +55,9 @@ class Competence
      * @param string $nom
      * @return Competence
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
@@ -57,8 +66,44 @@ class Competence
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
+
+    /**
+     * Set chapitre
+     *
+     * @param JdrCorp\GuildesBundle\Entity\Chapitre $chapitre
+     */
+    public function setChapitre(\JdrCorp\GuildesBundle\Entity\Chapitre $chapitre) {
+        $this->chapitre = $chapitre;
+    }
+
+    /**
+     * Get chapitre
+     *
+     * @return JdrCorp\GuildesBundle\Entity\Chapitre
+     */
+    public function getChapitre() {
+        return $this->chapitre;
+    }
+    
+    /**
+     * Set carac
+     *
+     * @param JdrCorp\GuildesBundle\Entity\Carac $carac
+     */
+    public function setCarac(\JdrCorp\GuildesBundle\Entity\Carac $carac) {
+        $this->carac = $carac;
+    }
+
+    /**
+     * Get carac
+     *
+     * @return JdrCorp\GuildesBundle\Entity\carac
+     */
+    public function getCarac() {
+        return $this->carac;
+    }
+
 }
