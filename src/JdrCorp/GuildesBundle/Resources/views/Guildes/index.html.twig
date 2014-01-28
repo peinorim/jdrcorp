@@ -91,6 +91,14 @@ JdrCorp - Guildes - Accueil
                                 for (metier_id in response['metier']) {
                                     $('#metier_' + metier_id).addClass('active');
                                 }
+                            } else if (response['compCarac'] !== null) {
+                                for (comp_id in response['compCarac']) {
+                                    $('#comp_' + comp_id).addClass('active');
+                                }
+                            } else if (response['compChap'] !== null) {
+                                for (chap_id in response['compChap']) {
+                                    $('#comp_' + chap_id).addClass('active');
+                                }
                             }
                         });
             }

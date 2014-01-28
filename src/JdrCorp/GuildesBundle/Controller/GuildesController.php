@@ -34,6 +34,8 @@ class GuildesController extends Controller {
         $em = $this->getDoctrine()->getManager('guildes');
         $allCompMetier = null;
         $allMetierComp = null;
+        $allCompCarac = null;
+        $allCompChap = null;
 
         if ($type === 'metier' && $id > 0) {
             $metier = $em->getRepository('JdrCorpGuildesBundle:Metier')->find($id);
@@ -55,10 +57,29 @@ class GuildesController extends Controller {
                     $allMetierComp[$compMetier->getMetier()->getId()] = $compMetier->getMetier()->getNom();
                 }
             }
+        } else if ($type === 'carac' && $id > 0) {
+            $carac = $em->getRepository('JdrCorpGuildesBundle:Carac')->find($id);
+            if ($carac === null) {
+                throw $this->createNotFoundException('Carac[id=' . $id . '] inexistante.');
+            } else {
+                $listeCompCarac = $em->getRepository('JdrCorpGuildesBundle:Competence')->findByCarac($carac->getId());
+                foreach ($listeCompCarac as $comp) {
+                    $allCompCarac[$comp->getId()] = $comp->getNom();
+                }
+            }
+        } else if ($type === 'chap' && $id > 0) {
+            $chap = $em->getRepository('JdrCorpGuildesBundle:Chapitre')->find($id);
+            if ($chap === null) {
+                throw $this->createNotFoundException('Chapitre[id=' . $id . '] inexistant.');
+            } else {
+                $listeCompChap = $em->getRepository('JdrCorpGuildesBundle:Competence')->findByChapitre($chap->getId());
+                foreach ($listeCompChap as $comp) {
+                    $allCompChap[$comp->getId()] = $comp->getNom();
+                }
+            }
         }
 
-
-        $response = new Response(json_encode(array('type' => $type, 'id' => $id, 'comp' => $allCompMetier, 'metier' => $allMetierComp)));
+        $response = new Response(json_encode(array('type' => $type, 'id' => $id, 'comp' => $allCompMetier, 'metier' => $allMetierComp, 'compCarac' => $allCompCarac, 'compChap' => $allCompChap)));
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
