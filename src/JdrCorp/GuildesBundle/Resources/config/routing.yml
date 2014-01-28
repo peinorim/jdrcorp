@@ -7,3 +7,8 @@ Guildes_duplicate:
 Guildes_duplicate_2:
     pattern:  /jdrcorp/guildes/index
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }
+Guildes_links:
+    pattern:  /jdrcorp/guildes/links/{type}/{id}
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:links }
+    requirements:
+        _method:  POST

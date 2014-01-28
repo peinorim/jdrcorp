@@ -14,3 +14,18 @@ a, a:hover{
     display:block;
 }
 
+#all_comp, #all_met{
+    overflow:hidden;
+    display:block;
+}
+#all_comp li { 
+    width:25%;
+}
+#all_met li{
+    width:50%;
+}
+li{
+    line-height:1.5em;
+    float:left;
+    display:inline;
+}
