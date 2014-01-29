@@ -26,13 +26,22 @@ JdrCorp - Guildes - Accueil
         </div>
         <div class="panel-body"> 
             <ul id="all_comp" class="nav nav-pills nav-stacked">
-        {% for comp in listeComp %}
-                <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
-                    <a href="#">
-                    {{comp.getNom}}
-                    </a>
-                </li>
-        {% endfor %}
+                <div style="margin:0!important;" class="page-header">Compétences d'apprenti</div>
+                {% for comp in listeCompApp %}
+                    <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                        <a href="#">
+                        {{comp.getNom}}
+                        </a>
+                    </li>
+                {% endfor %}
+                <div style="margin:0!important;" class="page-header">Compétences de compagnon</div>
+                {% for comp in listeCompCpg %}
+                    <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                        <a href="#">
+                        {{comp.getNom}}
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

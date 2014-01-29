@@ -41,6 +41,13 @@ class Competence {
     private $carac;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="apprenti", type="integer")
+     */
+    private $apprenti;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -87,7 +94,7 @@ class Competence {
     public function getChapitre() {
         return $this->chapitre;
     }
-    
+
     /**
      * Set carac
      *
@@ -104,6 +111,27 @@ class Competence {
      */
     public function getCarac() {
         return $this->carac;
+    }
+
+    /**
+     * Set apprenti
+     *
+     * @param boolean $apprenti
+     * @return Competence
+     */
+    public function setApprenti($apprenti) {
+        $this->apprenti = $apprenti;
+
+        return $this;
+    }
+
+    /**
+     * Get apprenti
+     *
+     * @return boolean 
+     */
+    public function getApprenti() {
+        return $this->apprenti;
     }
 
 }

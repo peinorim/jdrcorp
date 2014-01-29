@@ -18,14 +18,16 @@ class GuildesController extends Controller {
 
         $listeCarac = $repositoryCarac->findAll();
         $listeChap = $repositoryChap->findAll();
-        $listeComp = $repositoryComp->findBy(array(), array('nom' => 'asc'));
+        $listeCompApp = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 1')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
+        $listeCompCpg = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 0')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
 
         return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig', array('notice' => $notice,
                     'type' => $type,
                     'listeCarac' => $listeCarac,
                     'listeChap' => $listeChap,
-                    'listeComp' => $listeComp,
+                    'listeCompApp' => $listeCompApp,
+                    'listeCompCpg' => $listeCompCpg,
                     'listeMetiers' => $listeMetier));
     }
 
