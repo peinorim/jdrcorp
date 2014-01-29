@@ -24,23 +24,25 @@ JdrCorp - Guildes - Accueil
         <div class="panel-heading">
             <h3 class="panel-title">Compétences</h3>
         </div>
-        <div class="panel-body"> 
+        <div class="panel-body">
+            <div style="margin:0!important;" class="page-header">Compétences d'apprenti</div>
             <ul id="all_comp" class="nav nav-pills nav-stacked">
-                <div style="margin:0!important;" class="page-header">Compétences d'apprenti</div>
                 {% for comp in listeCompApp %}
-                    <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
-                        <a href="#">
+                <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                    <a href="#">
                         {{comp.getNom}}
-                        </a>
-                    </li>
+                    </a>
+                </li>
                 {% endfor %}
-                <div style="margin:0!important;" class="page-header">Compétences de compagnon</div>
+            </ul>
+            <div style="margin:0!important;" class="page-header">Compétences de compagnon</div>
+            <ul id="all_compcpg" class="nav nav-pills nav-stacked">
                 {% for comp in listeCompCpg %}
-                    <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
-                        <a href="#">
+                <li style="float:left;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                    <a href="#">
                         {{comp.getNom}}
-                        </a>
-                    </li>
+                    </a>
+                </li>
                 {% endfor %}
             </ul>
         </div>
@@ -113,13 +115,13 @@ JdrCorp - Guildes - Accueil
             }
         });
 
-        $("#all_comp li").mouseenter(function() {
+        $("#all_comp li, #all_compcpg li").mouseenter(function() {
             var carac_id = parseInt($(this).attr('data-carac'));
             var chap_id = parseInt($(this).attr('data-chap'));
             $('#carac_' + carac_id).addClass('active');
             $('#chap_' + chap_id).addClass('active');
         });
-        $("#all_comp li").mouseleave(function() {
+        $("#all_comp li, #all_compcpg li").mouseleave(function() {
             var carac_id = parseInt($(this).attr('data-carac'));
             var chap_id = parseInt($(this).attr('data-chap'));
             $('#carac_' + carac_id).removeClass('active');

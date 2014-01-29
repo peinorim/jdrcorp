@@ -14,11 +14,11 @@ a, a:hover{
     display:block;
 }
 
-#all_comp, #all_met{
+#all_comp, #all_met,#all_compcpg{
     overflow:hidden;
     display:block;
 }
-#all_comp li { 
+#all_comp li, #all_compcpg li { 
     width:25%;
 }
 #all_met li{
