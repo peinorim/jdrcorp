@@ -1,0 +1,133 @@
+{% extends "::layout_guildes.html.twig" %}
+{% block title %}
+JdrCorp - Guildes - Compétences & Métiers
+{% endblock %}
+{% block fos_user_content %}
+
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Métiers</h3>
+        </div>
+        <div class="panel-body"> 
+            <ul id="all_met" class="nav nav-pills nav-stacked" style="max-width: 260px;">
+        {% for metier in listeMetiers %}
+                <li style="float:left;" id="metier_{{metier.getId}}">
+                    <a href="#">{{metier.getNom}}</a>
+                </li>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Compétences</h3>
+        </div>
+        <div class="panel-body">
+            <div style="margin:0!important;" class="page-header">Compétences d'apprenti</div>
+            <ul id="all_comp" class="nav nav-pills nav-stacked">
+                {% for comp in listeCompApp %}
+                <li style="float:left;margin-top:0!important;line-height: 1.25em;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                    <a href="#">
+                        {{comp.getNom}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div style="margin:0!important;" class="page-header">Compétences de compagnon</div>
+            <ul id="all_compcpg" class="nav nav-pills nav-stacked">
+                {% for comp in listeCompCpg %}
+                <li style="float:left;margin-top:0!important;line-height: 1.25em;" id="comp_{{comp.getId}}" data-carac="{{comp.getCarac.getId}}" data-chap="{{comp.getChapitre.getId}}">
+                    <a href="#">
+                        {{comp.getNom}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Caractéristiques</h3>
+        </div>
+        <div class="panel-body"> 
+            <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+        {% for carac in listeCarac %}
+                <li id="carac_{{carac.getId}}">
+                    <a href="#">
+                        {{carac.getNom}}
+                    </a>
+                </li>
+        {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Chapitres</h3>
+        </div>
+        <div class="panel-body"> 
+            <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+        {% for chap in listeChap %}
+                <li id="chap_{{chap.getId}}">
+                    <a href="#">
+                        {{chap.getNom}}
+                    </a>
+                </li>
+        {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("li").click(function() {
+            $("li.active").each(function(index) {
+                $(this).removeClass('active');
+            });
+            $(this).addClass('active');
+            var type = $(this).attr('id').split("_")[0];
+            var id = parseInt($(this).attr('id').split("_")[1]);
+            if (id !== 0) {
+                $.post("{{path('Guildes_links', {'type': "%s",'id':"%s" }) | url_decode | format('"+type+"','"+id+"') | raw }}",
+                        function(response) {
+                            if (response['comp'] !== null) {
+                                for (comp_id in response['comp']) {
+                                    $('#comp_' + comp_id).addClass('active');
+                                }
+                            } else if (response['metier'] !== null) {
+                                for (metier_id in response['metier']) {
+                                    $('#metier_' + metier_id).addClass('active');
+                                }
+                            } else if (response['compCarac'] !== null) {
+                                for (comp_id in response['compCarac']) {
+                                    $('#comp_' + comp_id).addClass('active');
+                                }
+                            } else if (response['compChap'] !== null) {
+                                for (chap_id in response['compChap']) {
+                                    $('#comp_' + chap_id).addClass('active');
+                                }
+                            }
+                        });
+            }
+        });
+
+        $("#all_comp li, #all_compcpg li").mouseenter(function() {
+            var carac_id = parseInt($(this).attr('data-carac'));
+            var chap_id = parseInt($(this).attr('data-chap'));
+            $('#carac_' + carac_id).addClass('active');
+            $('#chap_' + chap_id).addClass('active');
+        });
+        $("#all_comp li, #all_compcpg li").mouseleave(function() {
+            var carac_id = parseInt($(this).attr('data-carac'));
+            var chap_id = parseInt($(this).attr('data-chap'));
+            $('#carac_' + carac_id).removeClass('active');
+            $('#chap_' + chap_id).removeClass('active');
+        });
+    });
+</script>
+
+{% endblock fos_user_content %}

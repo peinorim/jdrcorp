@@ -6,8 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class GuildesController extends Controller {
-
+    
     public function indexAction() {
+        $notice = null;
+        $type = null;
+        return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig', array('notice' => $notice, 'type' => $type));
+    }
+
+    public function compAction() {
         $notice = null;
         $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
@@ -22,7 +28,7 @@ class GuildesController extends Controller {
         $listeCompCpg = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 0')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
 
-        return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig', array('notice' => $notice,
+        return $this->render('JdrCorpGuildesBundle:Guildes:comp.html.twig', array('notice' => $notice,
                     'type' => $type,
                     'listeCarac' => $listeCarac,
                     'listeChap' => $listeChap,
