@@ -1,0 +1,15 @@
+{% extends "::layout_guildes.html.twig" %}
+{% block title %}
+JdrCorp - Guildes - Lanceur de dés
+{% endblock %}
+{% block fos_user_content %}
+
+
+
+
+
+
+{% javascripts '@JdrCorpGuildesBundle/Resources/public/js/dice.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock fos_user_content %}

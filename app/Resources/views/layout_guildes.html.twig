@@ -21,7 +21,23 @@
         {% endstylesheets %}
     </head>
 {% block body %}
-
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{path('Guildes')}}">Aides de jeu pour Guildes Eldorado</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar">
+                <li><a href="{{path('Guildes') }}">Métiers & Compétences</a></li>
+                <li><a href="{{path('Guildes_dice') }}">Lanceur de dés</a></li>
+            </ul>
+        </div>
+    </nav>
   {% if notice %}
     <div class="alert alert-{{type}} alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ notice }}</div>
   {% endif %}
@@ -30,12 +46,12 @@
 
 {% endblock %}
     <script>
-        /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
          
          ga('create', 'UA-47119875-1', 'paocorp.com');
-         ga('send', 'pageview');*/
+         ga('send', 'pageview');
     </script>
 </html>

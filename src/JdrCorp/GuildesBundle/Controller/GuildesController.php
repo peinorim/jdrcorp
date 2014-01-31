@@ -87,4 +87,10 @@ class GuildesController extends Controller {
         return $response;
     }
 
+    public function diceAction() {
+        $notice = null;
+        $type = null;
+        return $this->render('JdrCorpGuildesBundle:Guildes:dice.html.twig', array('notice' => $notice, 'type' => $type));
+    }
+
 }
