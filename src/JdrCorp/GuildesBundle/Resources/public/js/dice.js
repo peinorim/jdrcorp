@@ -300,9 +300,8 @@ function dice() {
     } else if ($('#rad_noncomp').is(':checked')) {
 
         var comp_id = $('#comp_nom').val();
-        var nb_des = parseInt($('#nb_des').val());
 
-        if (comp_id !== '0' && nb_des !== 0) {
+        if (comp_id !== '0') {
 
             var arraydest = [0];
             var dicedest = (Math.floor(Math.random() * 6)) + 1;
@@ -342,55 +341,28 @@ function dice() {
                 {
                     op = op + String(arraydest[i]) + ")";
                 }
-                if (arraydest.length > 1)
-                {
-                    op = op.bold().fontcolor("red");
-                    jetdest = op + " => " + sommedest;
-                }
-                else
-                {
-                    jetdest = String(sommedest);
-                    jetdest = jetdest.fontcolor("red");
-                }
             }
-            if (nb_des > 1)
+            sommedest -= 3;
+            if (arraydest.length > 1)
             {
-                var arraydices = [Number(sommedest)];
-                var max1 = sommedest;
-                var min1 = 0;
-
-                if (arraydest.length === 1)
-                {
-                    op = op.replace(")", "");
-                }
-
-                op = op.fontcolor("red");
-
-                var jettot = op;
-
-                for (var i = 0; i < (nb_des - 1); i++)
-                {
-                    arraydices[i + 1] = (Math.floor(Math.random() * 6)) + 1;
-
-                    if (arraydices[i + 1] > max1)
-                    {
-                        max1 = arraydices[i + 1];
-                        jettot = jettot + " + " + String(max1);
-                    }
-                    else
-                    {
-                        min1 = arraydices[i + 1];
-                        jettot = jettot + " + " + String(min1);
-                    }
-                }
-                var tot = max1 * 1 - 3;
-                jettot = jettot + " => " + String(max1) + " - 3 " + " = " + tot;
-                $('#res').html(jettot + getDiff(max1).bold());
+                op = op.bold().fontcolor("red");
+                jetdest = op + " => " + sommedest;
+            }
+            else if (arraydest.length === 1)
+            {
+                op = op.replace(")", "");
             }
             else
             {
-                $('#res').html(jetdest + getDiff(sommedest).bold());
+                jetdest = String(sommedest);
+                jetdest = jetdest.fontcolor("red");
             }
+
+            op = op.fontcolor("red");
+
+            var jettot = op;
+            jettot = jettot + " - 3 " + " = " + sommedest;
+            $('#res').html(jettot + getDiff(sommedest).bold());
         }
     } else if ($('#rad_carac').is(':checked')) {
 
