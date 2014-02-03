@@ -395,7 +395,7 @@ function dice() {
     } else if ($('#rad_carac').is(':checked')) {
 
         var carac_id = $('#carac_nom').val();
-        var nb_des = parseInt($('#nb_des').val());
+        var nb_des = parseInt($('#carac_niv').val());
         var carac_niv = parseInt($('#carac_niv').val());
 
         if (carac_id !== "0" && nb_des !== 0 && carac_niv !== 0) {
