@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class GuildesController extends Controller {
-    
+
     public function indexAction() {
         $notice = null;
         $type = null;
@@ -96,7 +96,15 @@ class GuildesController extends Controller {
     public function diceAction() {
         $notice = null;
         $type = null;
-        return $this->render('JdrCorpGuildesBundle:Guildes:dice.html.twig', array('notice' => $notice, 'type' => $type));
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryCarac = $em->getRepository('JdrCorpGuildesBundle:Carac');
+        $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
+        $listeCarac = $repositoryCarac->findAll();
+        $listeComp = $repositoryComp->findBy(array(), array('nom' => 'asc'));
+        return $this->render('JdrCorpGuildesBundle:Guildes:dice.html.twig', array('notice' => $notice,
+                    'type' => $type, 'liste',
+                    'listeComp' => $listeComp,
+                    'listeCarac' => $listeCarac));
     }
 
 }
