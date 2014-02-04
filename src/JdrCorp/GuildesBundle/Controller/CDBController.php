@@ -13,15 +13,21 @@ class CDBController extends Controller {
         $repositoryCdbAll = $em->getRepository('JdrCorpGuildesBundle:CDBAll');
         $repositoryMesAll = $em->getRepository('JdrCorpGuildesBundle:MESAll');
         $repositoryCdbMaison = $em->getRepository('JdrCorpGuildesBundle:CDBMaison');
+        $repositoryCdbAcademie = $em->getRepository('JdrCorpGuildesBundle:CDBAcademie');
+        $repositoryMesAcademie = $em->getRepository('JdrCorpGuildesBundle:MESAcademie');
         $repositoryMaison = $em->getRepository('JdrCorpGuildesBundle:Maison');
         $listeCdball = $repositoryCdbAll->findAll();
         $listeCdbMaison = $repositoryCdbMaison->findAll();
+        $listeCdbAcademie = $repositoryCdbAcademie->findAll();
+        $listeMesAcademie = $repositoryMesAcademie->findAll();
         $listeMaison = $repositoryMaison->findAll();
         $listeMesall = $repositoryMesAll->findAll();
         return $this->render('JdrCorpGuildesBundle:Guildes:cdb.html.twig', array('notice' => $notice,
                     'type' => $type,
                     'listecdb_all' => $listeCdball,
                     'listecdbmaison' => $listeCdbMaison,
+                    'listecdbacademie' => $listeCdbAcademie,
+                    'listemesacademie' => $listeMesAcademie,
                     'listemaison' => $listeMaison,
                     'listemes_all' => $listeMesall));
     }

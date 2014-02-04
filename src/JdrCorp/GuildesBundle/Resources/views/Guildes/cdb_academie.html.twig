@@ -1,0 +1,48 @@
+<div class="panel-group" id="accordionAca">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionAca" href="#acaOne">
+                    Coups de bols
+                </a>
+            </h4>
+        </div>
+        <div id="acaOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                {% for cdb in listecdbacademie %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <b>{{cdb.getNom}}</b>
+                            <p><i>{{cdb.getEffet}}</i></p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionAca" href="#acaTwo">
+                    Mésaventures
+                </a>
+            </h4>
+        </div>
+        <div id="acaTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                {% for mes in listemesacademie %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <b>{{mes.getNom}}</b>
+                            <p><i>{{mes.getEffet}}</i></p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
