@@ -488,16 +488,6 @@ function getDiff(tot) {
         } else if (tot < 6) {
             reussi = " Schkoumoune...";
         }
-    } else if (diff === 15) {
-        if (tot >= 15 && tot < 21) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 21) {
-            reussi = " Baraka !";
-        } else if (tot < 15 && tot >= 9) {
-            reussi = " Echec.";
-        } else if (tot < 9) {
-            reussi = " Schkoumoune...";
-        }
     } else if (diff === 18) {
         if (tot >= 18 && tot < 24) {
             reussi = " Réussite normale.";
@@ -508,25 +498,35 @@ function getDiff(tot) {
         } else if (tot < 12) {
             reussi = " Schkoumoune...";
         }
+    } else if (diff === 25) {
+        if (tot >= 25 && tot < 31) {
+            reussi = " Réussite normale.";
+        } else if (tot >= 31) {
+            reussi = " Baraka !";
+        } else if (tot < 25 && tot >= 19) {
+            reussi = " Echec.";
+        } else if (tot < 19) {
+            reussi = " Schkoumoune...";
+        }
     } else if (diff === 0) {
         reussi = '';
     }
     switch (reussi) {
 
         case ' Réussite normale.':
-            $('#res').removeClass().addClass().addClass('alert alert-success');
+            $('#res').removeClass().addClass('alert alert-success');
             break;
         case ' Baraka !':
-            $('#res').removeClass().addClass().addClass('alert alert-success');
+            $('#res').removeClass().addClass('alert alert-success');
             break;
         case ' Echec.':
-            $('#res').removeClass().addClass().addClass('alert alert-warning');
+            $('#res').removeClass().addClass('alert alert-warning');
             break;
         case ' Schkoumoune...':
-            $('#res').removeClass().addClass().addClass('alert alert-danger');
+            $('#res').removeClass().addClass('alert alert-danger');
             break;
         default:
-            $('#res').removeClass().addClass().addClass('alert alert-info');
+            $('#res').removeClass().addClass('alert alert-info');
             break;
     }
     if (reussi !== null) {
