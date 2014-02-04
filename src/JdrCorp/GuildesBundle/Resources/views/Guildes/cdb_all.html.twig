@@ -1,0 +1,48 @@
+<div class="panel-group" id="accordionAll">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionAll" href="#collapseOne">
+                    Coups de bols
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                {% for cdb_all in listecdb_all %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <b>{{cdb_all.getNom}}</b>
+                            <p><i>{{cdb_all.getEffet}}</i></p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionAll" href="#collapseTwo">
+                    Mésaventures
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                {% for mes_all in listemes_all %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <b>{{mes_all.getNom}}</b>
+                            <p><i>{{mes_all.getEffet}}</i></p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>

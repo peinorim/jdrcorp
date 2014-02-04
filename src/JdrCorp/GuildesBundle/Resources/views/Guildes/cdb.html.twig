@@ -6,16 +6,21 @@ JdrCorp - Guildes - Cdb & Més
 {% block fos_user_content %}
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#rivages" data-toggle="tab">Rivages</a></li>
-    <li><a href="#académie" data-toggle="tab">Académie</a></li>
+    <li class="active"><a href="#generiques" data-toggle="tab">Génériques</a></li>
+    <li><a href="#maisons" data-toggle="tab">Maisons</a></li>
+    <li><a href="#academie" data-toggle="tab">Académie</a></li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane active" id="rivages">
-
+    <div class="tab-pane active" id="generiques">
+        {% include 'JdrCorpGuildesBundle:Guildes:cdb_all.html.twig' %}
     </div>
-    <div class="tab-pane" id="académie">
 
+    <div class="tab-pane" id="maisons">
+        {% include 'JdrCorpGuildesBundle:Guildes:cdb_maisons.html.twig' %}
+    </div>
+    <div class="tab-pane" id="academie">
+        
     </div>
 </div>
 
