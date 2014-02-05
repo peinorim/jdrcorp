@@ -18,15 +18,23 @@
         {% endstylesheets %}
     </head>
     <body>
-        <div class="col-md-6 center">
-            <a class="col-md-6" href="{{path('Elric')}}">
-                <img src="{{ asset('bundles/jdrcorpindex/images/Elric_index.jpg') }}" class="img-responsive elric col-md-12 center">
-                <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric</button>
-            </a>
-            <a class="col-md-6" href="{{path('Guildes')}}">
-                <img src="{{ asset('bundles/jdrcorpindex/images/Guildes_index.jpg') }}" class="img-responsive guildes col-md-12 center">
-                <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
-            </a>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+            </div>
+            <div class="col-md-3">
+                <a class="thumbnail" href="{{path('Elric')}}">
+                    <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Elric_index.jpg') }}">
+                    <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric</button>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a class="thumbnail" href="{{path('Guildes')}}">
+                    <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Guildes_index.jpg') }}">
+                    <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+            </div>
         </div>
     </body>
 </html>

@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    $("#dice_path").addClass('active');
-
     $('#rad_comp').change(function() {
         $('#res').hide();
         if ($(this).is(':checked')) {

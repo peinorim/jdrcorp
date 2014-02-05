@@ -24,11 +24,6 @@ a, a:hover{
 #all_met li{
     width:50%;
 }
-li{
-    line-height:1.5em;
-    float:left;
-    display:inline;
-}
 p{
     text-align:justify;
 }
