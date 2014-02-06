@@ -51,3 +51,7 @@ h1{
 .navbar-default .navbar-brand:hover,.navbar-default .navbar-nav > li > a:hover {
     color: yellow;
 }
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #2564A8;
+    color: #FFFFFF;
+}

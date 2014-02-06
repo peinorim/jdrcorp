@@ -9,10 +9,10 @@ Guildes_duplicate_2:
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:index }
 Guildes_comp:
     pattern:  /jdrcorp/guildes/comp
-    defaults: { _controller: JdrCorpGuildesBundle:Guildes:comp }
+    defaults: { _controller: JdrCorpGuildesBundle:Comp:comp }
 Guildes_links:
     pattern:  /jdrcorp/guildes/links/{type}/{id}
-    defaults: { _controller: JdrCorpGuildesBundle:Guildes:links }
+    defaults: { _controller: JdrCorpGuildesBundle:Comp:links }
     requirements:
         _method:  POST
 Guildes_artefacts:
@@ -26,4 +26,7 @@ Guildes_cdb:
     defaults: { _controller: JdrCorpGuildesBundle:CDB:cdb }    
 Guildes_loom:
     pattern:  /jdrcorp/guildes/loom
-    defaults: { _controller: JdrCorpGuildesBundle:Loom:loom }    
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:loom }    
+Guildes_armes:
+    pattern:  /jdrcorp/guildes/armes
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:armes }     
