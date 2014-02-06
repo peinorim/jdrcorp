@@ -4,7 +4,7 @@ JdrCorp - Guildes - Accueil
 {% endblock %}
 {% block fos_user_content %}
 
-<div class="col-md-2"> 
+<div class="col-md-1"> 
 </div>
 
 <div class="col-md-2">
@@ -45,7 +45,7 @@ JdrCorp - Guildes - Accueil
 <div class="col-md-2">
     <a href="{{path('Guildes_artefacts')}}">
         <div class="thumbnail">
-            <img src="" alt="...">
+            <img src="{{ asset('bundles/jdrcorpguildes/images/book.png') }}" alt="...">
             <div class="caption">
                 <h3>Artefacts</h3>
                 <p>Liste des artefacts disponibles.</p>
@@ -53,7 +53,18 @@ JdrCorp - Guildes - Accueil
         </div>
     </a>
 </div>
-<div class="col-md-2">  
+<div class="col-md-2">
+    <a href="{{path('Guildes_loom')}}">
+        <div class="thumbnail">
+            <img src="{{ asset('bundles/jdrcorpguildes/images/flame.png') }}" alt="...">
+            <div class="caption">
+                <h3>Loom</h3>
+                <p>Liste des tours, sorts et sortilèges.</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="col-md-1"> 
 </div>
 
 {% endblock fos_user_content %}
