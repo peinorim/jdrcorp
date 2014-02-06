@@ -1,0 +1,41 @@
+{% extends "::layout_guildes.html.twig" %}
+{% block title %}
+JdrCorp - Guildes - Artefacts
+{% endblock %}
+
+{% block fos_user_content %}
+
+<div class="panel-group" id="accordionMaisons">
+    {% for maison in listemaison %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionMaisons" href="#collapse{{maison.getId}}">
+                    {{maison.getNom}}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse{{maison.getId}}" class="panel-collapse collapse">
+            <div class="panel-body">
+                {% for type in listeArteType %}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{type.getNom}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                        {% for arte in listeArte %}
+                            {%if arte.getType.getId == type.getId and arte.getMaison.getId == maison.getId%}
+                                <li>{{arte.getNom}}</li>
+                            {%endif%}
+                        {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{% endblock fos_user_content %}

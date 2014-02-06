@@ -3,43 +3,57 @@
 JdrCorp - Guildes - Accueil
 {% endblock %}
 {% block fos_user_content %}
-<div class="col-md-4 center">
-    <div class="col-sm-4 col-md-6">
-        <a href="{{path('Guildes_comp')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Compétences & Métiers</h3>
-                    <p>Présentées sous la forme de listes, les métiers affichent leurs compétences liées ainsi que leurs caractéristiques dépendantes.</p>
-                </div>
-            </div>
-        </a>
-    </div>
+
+<div class="col-md-2"> 
 </div>
-<div class="col-md-4 center">
-    <div class="col-sm-4  col-md-6">
-        <a href="{{path('Guildes_dice')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Lanceur de dés</h3>
-                    <p>Lanceur de dés pour des jets de type compétence, caractéristique et non-compétence. L'explosion éventuelle du dé du destin est prise en compte telle qu'expliquée dans le livre de règles Guildes Eldorado.</p>
-                </div>
+
+<div class="col-md-2">
+    <a href="{{path('Guildes_comp')}}">
+        <div class="thumbnail">
+            <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
+            <div class="caption">
+                <h3>Compétences & Métiers</h3>
+                <p>Présentées sous la forme de listes, les métiers affichent leurs compétences liées ainsi que leurs caractéristiques dépendantes.</p>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
 </div>
-<div class="col-md-4 center">
-    <div class="col-sm-4  col-md-6">
-        <a href="{{path('Guildes_cdb')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Coups de bol & Mésaventures</h3>
-                    <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
-                </div>
+
+<div class="col-md-2">
+    <a href="{{path('Guildes_dice')}}">
+        <div class="thumbnail">
+            <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
+            <div class="caption">
+                <h3>Lanceur de dés</h3>
+                <p>Lanceur de dés pour des jets de type compétence, caractéristique et non-compétence. L'explosion du dé du destin est prise en compte telle qu'expliquée dans le livre de règles Guildes Eldorado.</p>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
 </div>
+</div>
+<div class="col-md-2">
+    <a href="{{path('Guildes_cdb')}}">
+        <div class="thumbnail">
+            <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
+            <div class="caption">
+                <h3>Coups de bol & Mésaventures</h3>
+                <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="col-md-2">
+    <a href="{{path('Guildes_artefacts')}}">
+        <div class="thumbnail">
+            <img src="" alt="...">
+            <div class="caption">
+                <h3>Artefacts</h3>
+                <p>Liste des artefacts disponibles.</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="col-md-2">  
+</div>
+
 {% endblock fos_user_content %}

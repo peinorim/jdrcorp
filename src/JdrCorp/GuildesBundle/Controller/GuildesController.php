@@ -107,4 +107,21 @@ class GuildesController extends Controller {
                     'listeCarac' => $listeCarac));
     }
 
+    public function artefactsAction() {
+        $notice = null;
+        $type = null;
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryMaison = $em->getRepository('JdrCorpGuildesBundle:Maison');
+        $repositoryArtef = $em->getRepository('JdrCorpGuildesBundle:Artefact');
+        $repositoryArteType = $em->getRepository('JdrCorpGuildesBundle:ArtefactType');
+        $listeMaison = $repositoryMaison->findAll();
+        $listeArtefac = $repositoryArtef->findAll();
+        $listeArteType = $repositoryArteType->findAll();
+        return $this->render('JdrCorpGuildesBundle:Guildes:artefacts.html.twig', array('notice' => $notice,
+                    'type' => $type, 'liste',
+                    'listeArte' => $listeArtefac,
+                    'listemaison' => $listeMaison,
+                    'listeArteType' => $listeArteType));
+    }
+
 }

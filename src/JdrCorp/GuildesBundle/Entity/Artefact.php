@@ -76,12 +76,12 @@ class Artefact {
         return $this->maison;
     }
 
-    public function setCompetence(\JdrCorp\GuildesBundle\Entity\ArtefactType $type) {
+    public function setType(\JdrCorp\GuildesBundle\Entity\ArtefactType $type) {
         $this->type = $type;
     }
 
-    public function getCompetence() {
-        return $this->competence;
+    public function getType() {
+        return $this->type;
     }
 
 }

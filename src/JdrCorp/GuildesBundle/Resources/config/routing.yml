@@ -15,6 +15,9 @@ Guildes_links:
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:links }
     requirements:
         _method:  POST
+Guildes_artefacts:
+    pattern:  /jdrcorp/guildes/artefacts
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:artefacts } 
 Guildes_dice:
     pattern:  /jdrcorp/guildes/dice
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:dice }
