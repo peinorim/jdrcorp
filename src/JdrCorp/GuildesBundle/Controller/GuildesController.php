@@ -84,4 +84,19 @@ class GuildesController extends Controller {
                     'listeComp' => $listeComp));
     }
 
+    public function equipementAction() {
+        $notice = null;
+        $type = null;
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
+        $repositoryEqCate = $em->getRepository('JdrCorpGuildesBundle:EquipCategorie');
+        $listeEquip = $repositoryEquip->findAll();
+        $listeEqCate = $repositoryEqCate->findAll();
+
+        return $this->render('JdrCorpGuildesBundle:Guildes:equipement.html.twig', array('notice' => $notice,
+                    'type' => $type,
+                    'listeEquip' => $listeEquip,
+                    'listeEqCate' => $listeEqCate));
+    }
+
 }

@@ -29,4 +29,7 @@ Guildes_loom:
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:loom }    
 Guildes_armes:
     pattern:  /jdrcorp/guildes/armes
-    defaults: { _controller: JdrCorpGuildesBundle:Guildes:armes }     
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:armes }   
+Guildes_equipement:
+    pattern:  /jdrcorp/guildes/equipement
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:equipement }    

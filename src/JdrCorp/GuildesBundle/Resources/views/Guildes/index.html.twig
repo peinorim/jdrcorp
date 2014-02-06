@@ -4,73 +4,87 @@ JdrCorp - Guildes - Accueil
 {% endblock %}
 {% block fos_user_content %}
 
-<div class="col-md-2">
-    <a href="{{path('Guildes_comp')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
-            <div class="caption">
-                <h3>Compétences & Métiers</h3>
-                <p>Présentées sous la forme de listes, les métiers affichent leurs compétences liées ainsi que leurs caractéristiques dépendantes.</p>
+<div class="row">
+    <div class="col-md-4">
+        <a href="{{path('Guildes_comp')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Compétences & Métiers</h3>
+                    <p>Présentées sous la forme de listes, les métiers affichent leurs compétences liées ainsi que leurs caractéristiques dépendantes.</p>
+                </div>
             </div>
-        </div>
-    </a>
-</div>
+        </a>
+    </div>
 
-<div class="col-md-2">
-    <a href="{{path('Guildes_dice')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
-            <div class="caption">
-                <h3>Lanceur de dés</h3>
-                <p>Lanceur de dés pour des jets de type compétence, caractéristique et non-compétence. L'explosion du dé du destin est prise en compte telle qu'expliquée dans le livre de règles Guildes Eldorado.</p>
+    <div class="col-md-4">
+        <a href="{{path('Guildes_dice')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Lanceur de dés</h3>
+                    <p>Lanceur de dés pour des jets de type compétence, caractéristique et non-compétence. L'explosion du dé du destin est prise en compte telle qu'expliquée dans le livre de règles Guildes Eldorado.</p>
+                </div>
             </div>
-        </div>
-    </a>
-</div>
-</div>
-<div class="col-md-2">
-    <a href="{{path('Guildes_cdb')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
-            <div class="caption">
-                <h3>Coups de bol & Mésaventures</h3>
-                <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="{{path('Guildes_cdb')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Coups de bol & Mésaventures</h3>
+                    <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>
-<div class="col-md-2">
-    <a href="{{path('Guildes_loom')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/flame.png') }}" alt="...">
-            <div class="caption">
-                <h3>Loom</h3>
-                <p>Liste des tours, sorts et sortilèges.</p>
+<div class="row">
+    <div class="col-md-3">
+        <a href="{{path('Guildes_loom')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/flame.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Loom</h3>
+                    <p>Liste des tours, sorts et sortilèges.</p>
+                </div>
             </div>
-        </div>
-    </a>
-</div>
-<div class="col-md-2">
-    <a href="{{path('Guildes_armes')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/swords.png') }}" alt="...">
-            <div class="caption">
-                <h3>Armes & Armures</h3>
-                <p>Liste des armes et armures.</p>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{path('Guildes_armes')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/swords.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Armes & Armures</h3>
+                    <p>Liste des armes et armures.</p>
+                </div>
             </div>
-        </div>
-    </a>
-</div>
-<div class="col-md-2">
-    <a href="{{path('Guildes_artefacts')}}">
-        <div class="thumbnail">
-            <img src="{{ asset('bundles/jdrcorpguildes/images/book.png') }}" alt="...">
-            <div class="caption">
-                <h3>Artefacts</h3>
-                <p>Liste des artefacts.</p>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{path('Guildes_artefacts')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/book.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Artefacts</h3>
+                    <p>Liste des artefacts.</p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{path('Guildes_equipement')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/pack.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Equipement</h3>
+                    <p>Liste de l'équipement.</p>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
 {% endblock fos_user_content %}
