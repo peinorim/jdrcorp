@@ -52,7 +52,7 @@ class Sort {
     /**
      * @var string
      *
-     * @ORM\Column(name="effet", type="string", length=255)
+     * @ORM\Column(name="effet", type="text")
      */
     private $effet;
 

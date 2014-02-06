@@ -24,3 +24,6 @@ Guildes_dice:
 Guildes_cdb:
     pattern:  /jdrcorp/guildes/cdb
     defaults: { _controller: JdrCorpGuildesBundle:CDB:cdb }    
+Guildes_loom:
+    pattern:  /jdrcorp/guildes/loom
+    defaults: { _controller: JdrCorpGuildesBundle:Loom:loom }    
