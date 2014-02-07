@@ -1,40 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>JdrCorp - Accueil</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% javascripts 'bundles/jdrcorpelric/js/jquery-1.10.2.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts 'bundles/jdrcorpelric/js/bootstrap.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
-        {% stylesheets 'bundles/jdrcorpelric/css/bootstrap.css'  filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets 'bundles/jdrcorpindex/css/index.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-            </div>
-            <div class="col-md-3">
-                <a class="thumbnail" href="{{path('Elric')}}">
-                    <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Elric_index.jpg') }}">
-                    <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric</button>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a class="thumbnail" href="{{path('Guildes')}}">
-                    <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Guildes_index.jpg') }}">
-                    <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-            </div>
-        </div>
-    </body>
-</html>
+{% extends "::layout_index.html.twig" %}
+{% block title %}
+JdrCorp - Accueil
+{% endblock %}
+{% block fos_user_content %}
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+    </div>
+    <div class="col-md-3">
+        <a class="thumbnail" href="{{path('Elric')}}">
+            <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Elric_index.jpg') }}">
+            <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric</button>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a class="thumbnail" href="{{path('Guildes')}}">
+            <img class="img-responsive" src="{{ asset('bundles/jdrcorpindex/images/Guildes_index.jpg') }}">
+            <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+    </div>
+</div>
+{% endblock fos_user_content %}
