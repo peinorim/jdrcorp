@@ -38,6 +38,13 @@ class Sort {
     /**
      * @var string
      *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="portee", type="string", length=255)
      */
     private $portee;
@@ -129,6 +136,27 @@ class Sort {
      */
     public function getDiff() {
         return $this->diff;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Sort
+     */
+    public function setType($type) {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType() {
+        return $this->type;
     }
 
     /**

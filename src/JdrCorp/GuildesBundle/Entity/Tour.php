@@ -45,6 +45,13 @@ class Tour {
     /**
      * @var string
      *
+     * @ORM\Column(name="duree", type="string", length=255)
+     */
+    private $duree;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="effet", type="text")
      */
     private $effet;
@@ -125,6 +132,27 @@ class Tour {
      */
     public function getCible() {
         return $this->cible;
+    }
+
+    /**
+     * Set duree
+     *
+     * @param string $duree
+     * @return Tour
+     */
+    public function setDuree($duree) {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get duree
+     *
+     * @return string 
+     */
+    public function getDuree() {
+        return $this->duree;
     }
 
     /**
