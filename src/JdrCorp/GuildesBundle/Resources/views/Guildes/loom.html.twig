@@ -35,7 +35,7 @@ JdrCorp - Guildes - Loom
                             </thead>
                             <tbody>
                                 {% for tour in listeTour %}
-                                    {%if tour.getMaison.getId == maison.getId%}
+                                {%if tour.getMaison.getId == maison.getId%}
                                 <tr>
                                     <td>{{tour.getNom}}</td>
                                     <td>{{tour.getPortee}}</td>
@@ -43,7 +43,7 @@ JdrCorp - Guildes - Loom
                                     <td>{{tour.getDuree}}</td>
                                     <td>{{tour.getEffet}}</td>
                                 </tr>
-                                    {%endif%}
+                                {%endif%}
                                 {%endfor%}
                             </tbody>
                         </table>
