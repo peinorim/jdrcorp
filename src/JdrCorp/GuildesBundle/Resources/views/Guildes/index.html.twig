@@ -5,7 +5,7 @@ JdrCorp - Guildes - Accueil
 {% block fos_user_content %}
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <a href="{{path('Guildes_comp')}}">
             <div class="thumbnail">
                 <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
@@ -17,7 +17,7 @@ JdrCorp - Guildes - Accueil
         </a>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <a href="{{path('Guildes_dice')}}">
             <div class="thumbnail">
                 <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
@@ -28,13 +28,24 @@ JdrCorp - Guildes - Accueil
             </div>
         </a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <a href="{{path('Guildes_cdb')}}">
             <div class="thumbnail">
                 <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
                 <div class="caption">
                     <h3>Coups de bol & Mésaventures</h3>
                     <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{path('Guildes_machinations')}}">
+            <div class="thumbnail">
+                <img src="{{ asset('bundles/jdrcorpguildes/images/machi.png') }}" alt="...">
+                <div class="caption">
+                    <h3>Machinations</h3>
+                    <p>Liste des machinations.</p>
                 </div>
             </div>
         </a>
