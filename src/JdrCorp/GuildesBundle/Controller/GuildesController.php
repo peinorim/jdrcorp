@@ -98,4 +98,19 @@ class GuildesController extends Controller {
                     'listeEqCate' => $listeEqCate));
     }
 
+    public function machinationAction() {
+        $notice = null;
+        $type = null;
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryMachin = $em->getRepository('JdrCorpGuildesBundle:Machination');
+        $repositoryChap = $em->getRepository('JdrCorpGuildesBundle:Chapitre');
+        $listeMachination = $repositoryMachin->findAll();
+        $listeChap = $repositoryChap->findAll();
+
+        return $this->render('JdrCorpGuildesBundle:Guildes:machinations.html.twig', array('notice' => $notice,
+                    'type' => $type,
+                    'listeMachination' => $listeMachination,
+                    'listeChap' => $listeChap));
+    }
+
 }

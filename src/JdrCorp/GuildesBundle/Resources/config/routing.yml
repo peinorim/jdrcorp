@@ -33,3 +33,6 @@ Guildes_armes:
 Guildes_equipement:
     pattern:  /jdrcorp/guildes/equipement
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:equipement }    
+Guildes_machinations:
+    pattern:  /jdrcorp/guildes/machinations
+    defaults: { _controller: JdrCorpGuildesBundle:Guildes:machination } 
