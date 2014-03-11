@@ -17,34 +17,22 @@ JdrCorp - Guildes - Machinations
         </div>
         <div id="collapse{{chap.getId}}" class="panel-collapse collapse">
             <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Niveau</th>
-                            <th>Description</th>
-                            <th>Novice</th>
-                            <th>Initié</th>
-                            <th>Expert</th>
-                            <th>Effet pervers</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for machi in listeMachination %}
-                        {%if machi.getChapitre.getId == chap.getId%}
-                        <tr>
-                            <td>{{machi.getNom}}</td>
-                            <td>{{machi.getNiveau}}</td>
-                            <td>{{machi.getDescription}}</td>
-                            <td>{{machi.getNovice}}</td>
-                            <td>{{machi.getInitie}}</td>
-                            <td>{{machi.getExpert}}</td>
-                            <td>{{machi.getEffetPervers}}</td>
-                        </tr>
-                        {%endif%}
-                        {%endfor%}
-                    </tbody>
-                </table>
+                {% for machi in listeMachination %}
+                {%if machi.getChapitre.getId == chap.getId%}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="well">
+                            <h4><b>{{machi.getNom}}</b></h4>
+                            <p><b>Niveau : </b>{{machi.getNiveau}}</p>
+                            <p><b>Description : </b>{{machi.getDescription}}</p>
+                            <p><b>Novice : </b> {{machi.getNovice}}</p>
+                            <p><b>Initié : </b> {{machi.getInitie}}</p>
+                            <p><b>Expert : </b> {{machi.getExpert}}</p>
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%endfor%}
             </div>
         </div>
     </div>
