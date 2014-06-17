@@ -9,7 +9,49 @@ class GuildesController extends Controller {
     public function indexAction() {
         $notice = null;
         $type = null;
-        return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig', array('notice' => $notice, 'type' => $type));
+        $tour = null;
+        $machi = null;
+        $cdb = null;
+        $mes = null;
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryTour = $em->getRepository('JdrCorpGuildesBundle:Tour');
+        $repositoryMachin = $em->getRepository('JdrCorpGuildesBundle:Machination');
+        $repositoryCdbAll = $em->getRepository('JdrCorpGuildesBundle:CDBAll');
+        $repositoryMesAll = $em->getRepository('JdrCorpGuildesBundle:MESAll');
+        $count = $repositoryTour->createQueryBuilder('u')
+                ->select('COUNT(u)')
+                ->getQuery()
+                ->getSingleScalarResult();
+
+        $countMac = $repositoryMachin->createQueryBuilder('u')
+                ->select('COUNT(u)')
+                ->getQuery()
+                ->getSingleScalarResult();
+
+        $countCdb = $repositoryCdbAll->createQueryBuilder('u')
+                ->select('COUNT(u)')
+                ->getQuery()
+                ->getSingleScalarResult();
+        
+        $countMes = $repositoryMesAll->createQueryBuilder('u')
+                ->select('COUNT(u)')
+                ->getQuery()
+                ->getSingleScalarResult();
+        while ($tour === null) {
+            $tour = $repositoryTour->createQueryBuilder('t')->where('t.id =' . rand(1, $count - 1))->getQuery()->getOneOrNullResult();
+        }
+        while ($machi === null) {
+            $machi = $repositoryMachin->createQueryBuilder('m')->where('m.id =' . rand(1, $countMac - 1))->getQuery()->getOneOrNullResult();
+        }
+        while ($cdb === null) {
+            $cdb = $repositoryCdbAll->createQueryBuilder('c')->where('c.id =' . rand(1, $countCdb - 1))->getQuery()->getOneOrNullResult();
+        }
+        
+        while ($mes === null) {
+            $mes = $repositoryMesAll->createQueryBuilder('c')->where('c.id =' . rand(1, $countMes - 1))->getQuery()->getOneOrNullResult();
+        }
+
+        return $this->render('JdrCorpGuildesBundle:Guildes:index.html.twig', array('notice' => $notice, 'type' => $type, 'tour' => $tour, 'machi' => $machi, 'cdb' => $cdb, 'mes' => $mes));
     }
 
     public function diceAction() {

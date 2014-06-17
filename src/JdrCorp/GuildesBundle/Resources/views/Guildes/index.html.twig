@@ -1,101 +1,63 @@
 {% extends "::layout_guildes.html.twig" %}
 {% block title %}
-JdrCorp - Guildes - Accueil
+    JdrCorp - Guildes - Accueil
 {% endblock %}
 {% block fos_user_content %}
 
-<div class="row">
-    <div class="col-md-3">
-        <a href="{{path('Guildes_comp')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/engrenage.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Compétences & Métiers</h3>
-                    <p>Présentées sous la forme de listes, les métiers affichent leurs compétences liées ainsi que leurs caractéristiques dépendantes.</p>
-                </div>
-            </div>
-        </a>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">L'histoire de Guildes</h3>
+        </div>
+        <div class="panel-body text-justify">
+            L'action du jeu se déroule dans un univers imaginaire nommé Cosme. Six peuples typés vivent dans un archipel nommé les Rivages alors que se produit un cataclysme : un raz-de-marée dévaste les côtes des îles. 
+            Quelques mois plus tard, on découvre qu'un nouveau continent est "apparu" à deux mois de navigation, recelant de mystérieuses peuplades, créatures et puissances magiques. 
+            Les joueurs interprètent des natifs des Rivages, faisant partie d'organisations nommées "Guildes" vouées à l'exploration et l'exploitation des ressources du Nouveau Monde. L'ambiance est très proche de l'exploration de l'Amérique par les Européens, le côté magique et fantastique en plus.
+            Le système de jeu est simple : chaque personnage est défini par des caractéristiques chiffrées (Fort, Agile, Résistant, Observateur, Savant, Rusé, Talentueux, Charmeur) et de compétences (Navigation, Médecine, Négoce, Astronomie, Armes, etc.). 
+            Afin de définir si une action est réussie, la somme de deux dés à six faces, de la caractéristique et la compétence appropriées est comparée sur une table avec la difficulté de l'action (de "routine" à "impossible"), et un niveau de réussite (ou d'échec) variant de "réussite critique" à "échec critique" est alors interprété par le meneur de jeu.
+        </div>
     </div>
 
-    <div class="col-md-3">
-        <a href="{{path('Guildes_dice')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/des.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Lanceur de dés</h3>
-                    <p>Lanceur de dés pour tous les types de jet. L'explosion du dé du destin est prise en compte telle qu'expliquée dans le livre de règles Guildes Eldorado.</p>
-                </div>
-            </div>
-        </a>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Un exemple de magie</h3>
+        </div>
+        <div class="panel-body">
+            <h4><b>{{tour.getNom}}</b></h4>
+            <p><b>Description : </b>{{tour.getEffet}}</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="{{path('Guildes_cdb')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/shamrock.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Coups de bol & Mésaventures</h3>
-                    <p>Liste des coups de bol et mésaventures des rivages et de l'académie selon l'édition Eldorado.</p>
-                </div>
-            </div>
-        </a>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Un exemple de coup de bol lié au personnage</h3>
+        </div>
+        <div class="panel-body">
+            <h4><b>{{cdb.getNom}}</b></h4>
+            <p><b>Description : </b>{{cdb.getNom}}</p>
+            <p><b>Effet : </b>{{cdb.getEffet}}</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="{{path('Guildes_machinations')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/machi.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Machinations</h3>
-                    <p>Liste des machinations.</p>
-                </div>
-            </div>
-        </a>
+
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">Un exemple de mésaventure liée au personnage</h3>
+        </div>
+        <div class="panel-body">
+            <h4><b>{{mes.getNom}}</b></h4>
+            <p><b>Description : </b>{{mes.getNom}}</p>
+            <p><b>Effet : </b>{{mes.getEffet}}</p>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        <a href="{{path('Guildes_loom')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/flame.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Loom</h3>
-                    <p>Liste des tours, sorts et sortilèges.</p>
-                </div>
-            </div>
-        </a>
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Un exemple de machination</h3>
+        </div>
+        <div class="panel-body">
+            <h4><b>{{machi.getNom}}</b></h4>
+            <p><b>Description : </b>{{machi.getNom}}</p>
+            <p><b>Effet pervers : </b>{{machi.getEffetPervers}}</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="{{path('Guildes_armes')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/swords.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Armes & Armures</h3>
-                    <p>Liste des armes et armures.</p>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{path('Guildes_artefacts')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/book.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Artefacts</h3>
-                    <p>Liste des artefacts.</p>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{path('Guildes_equipement')}}">
-            <div class="thumbnail">
-                <img src="{{ asset('bundles/jdrcorpguildes/images/pack.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Equipement</h3>
-                    <p>Liste de l'équipement.</p>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
 
 {% endblock fos_user_content %}
