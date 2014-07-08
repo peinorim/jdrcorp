@@ -1,25 +1,25 @@
 Elric:
-    path:     /jdrcorp/elric
+    path:     /elric
     defaults: { _controller: JdrCorpElricBundle:Elric:index }
 Elric_Metier_Comp:
-    path:     /jdrcorp/elric/metierComp/{id}
+    path:     /elric/metierComp/{id}
     defaults: { _controller: JdrCorpElricBundle:Elric:getCompMetier }
     requirements:
         page:  \d+
         _method:  POST
 Elric_Create:
-    path:     /jdrcorp/elric/create
+    path:     /elric/create
     defaults: { _controller: JdrCorpElricBundle:Elric:create }
     requirements:
         _method:  POST  
 Elric_review:
-    path:     /jdrcorp/elric/review/{id}/{format}
+    path:     /elric/review/{id}/{format}
     defaults: { _controller: JdrCorpElricBundle:Elric:review }
     requirements:
         page:  \d+
         _method:  POST
 Elric_delete_fiche:
-    path:     /jdrcorp/elric/delete/{id}
+    path:     /elric/delete/{id}
     defaults: { _controller: JdrCorpElricBundle:Elric:delete }
     requirements:
         page:  \d+
