@@ -1,0 +1,25 @@
+body{
+    display:block;
+}
+h1.label{
+    font-size:150%;
+}
+a, a:hover{
+    text-decoration: none;
+}
+.center{
+    margin-left:auto;
+    margin-right:auto;
+    float:none;
+    display:block;
+}
+.elric{
+    content:url('../images/Elric_index.jpg');
+    float:none !important;
+    z-index: -100;
+}
+.guildes{
+    content:url('../images/Guildes_index.jpg');
+    float:none !important;
+    z-index: -100;
+}

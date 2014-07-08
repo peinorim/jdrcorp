@@ -13,7 +13,6 @@ namespace Symfony\Component\Form\Tests;
 
 use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
-use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\FormView;
@@ -130,7 +129,7 @@ class CompoundFormTest extends AbstractFormTest
         $child = $factory->create('file', null, array('auto_initialize' => false));
 
         $this->form->add($child);
-        $this->form->submit(array('file' => null));
+        $this->form->submit(array('file' => null), false);
 
         $this->assertCount(0, $this->form->getExtraData());
     }
