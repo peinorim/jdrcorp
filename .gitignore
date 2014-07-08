@@ -1,3 +1,6 @@
+/web/
+/vendor/
+/bin/
+/app/logs/
+/app/cache/
 /nbproject/
-/elric.sql
-/web/uploads/
