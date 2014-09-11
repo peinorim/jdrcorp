@@ -1,0 +1,44 @@
+<h2 class="StepTitle">Les compétences</h2>  
+<div class="col-md-4" style="margin-top:10px;">
+    <select id="metiers" name="metier" class="form-control">
+        <option value="0">Choisissez un métier</option>
+        {% for met in listemetier %}
+            <option value="{{ met.getId }}">{{ met.getNom }}</option>
+        {% endfor %}
+    </select>
+    <div class="alert alert-warning">Vous avez <input class="form-control" type="number" id="totCompPts" value="14"/> points à répartir</div>
+</div>
+<div id="compMetiers" class="col-md-8" style="height:500px;overflow:auto;">
+    <table class="table table-hover" style="height:300px;overflow:auto;">
+        <thead>
+        <th>Compétences</th>
+        <th>Niveau</th>
+        </thead>
+        <tbody>
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#metiers").change(function() {
+            var id = parseInt($(this).val());
+            if (id !== 0) {
+                $.post("{{path('Guildes_create_getMetier', {'id':"%s" }) | url_decode | format('"+id+"') | raw }}",
+                        function(response) {
+                            if (response['comp'] !== null) {
+                                $('table tbody').html("");
+                                for (var comp_id in response['comp']) {
+                                    $('table tbody').append('<tr><td class="col-md-4">'+response['comp'][comp_id]+'</td><td class="col-md-4">'+"<select class='form-control' id=comp_"+comp_id+"><option>NC</option><option>N</option><option>I</option><option>E</option></select>"+'</td></tr>');
+                                }
+                            }
+                        });
+            }
+        });
+    });
+</script>
+

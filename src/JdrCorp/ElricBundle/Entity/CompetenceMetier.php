@@ -8,18 +8,25 @@ use Doctrine\ORM\Mapping as ORM;
  * CompetenceMetier
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="JdrCorp\ElricBundle\Entity\CompetenceMetierRepository")
  */
 class CompetenceMetier {
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\Competence")
      */
     private $competence;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="JdrCorp\ElricBundle\Entity\Metier")
      */
     private $metier;
