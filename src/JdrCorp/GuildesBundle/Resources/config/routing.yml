@@ -36,3 +36,6 @@ Guildes_equipement:
 Guildes_machinations:
     pattern:  /guildes/machinations
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:machination } 
+Guildes_create:
+    pattern:  /guildes/create
+    defaults: { _controller: JdrCorpGuildesBundle:Create:index } 
