@@ -10,20 +10,17 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group">
-                <label for="totCompPts" class="col-md-3 control-label">Points à répartir</label>
-                <div class="col-md-8">
-                    <input class="form-control" type="number" id="totCompPts" value="14"/>
-                </div>
+            <div class="alert alert-warning col-md-6">
+                Vous avez utilisé 0 points de compétence.
+                <ul class="col-md-12">
+                    <li>Non Compétent -> Novice = 1 pt</li>
+                    <li>Non Compétent -> Novice = 3 pt</li>
+                    <li>Non Compétent -> Novice = 7 pt</li>
+                    <li>Novice -> Initié = 2 pt</li>
+                    <li>Novice -> Expert = 6 pt</li>
+                    <li>Initié -> Expert = 4 pt</li>
+                </ul>
             </div>
-            <ul class="col-md-12">
-                <li>Non Compétent -> Novice = 1 pt</li>
-                <li>Non Compétent -> Novice = 3 pt</li>
-                <li>Non Compétent -> Novice = 7 pt</li>
-                <li>Novice -> Initié = 2 pt</li>
-                <li>Novice -> Expert = 6 pt</li>
-                <li>Initié -> Expert = 4 pt</li>
-            </ul>
         </div>
         <div id="compMetiers" class="col-md-8" style="height:500px;overflow:auto;">
             <table class="table table-hover" style="height:300px;overflow:auto;">
@@ -44,7 +41,7 @@
 
 <h2 class="StepTitle">L'Académie</h2>
 <div class="row">
-    <div class="alert alert-warning col-md-4">Vous avez <input class="form-control" type="number" id="totAcaPts" value="14"/> points à répartir</div>
+    <div class="alert alert-warning col-md-4">Vous avez utilisé 0 points de compétence.</div>
     <div class="col-md-8">
         <div id="compAcademie" style="height:500px;overflow:auto;">
             <table class="table table-hover col-md-10" style="height:300px;overflow:auto;">
@@ -62,11 +59,19 @@
         </div>
     </div>
 </div>
-<div class="col-md-4" style="margin-top:10px;">
+<div class="col-md-4">
     <select id="metierAca" name="metier" class="form-control">
         <option value="0">Ajouter un métier (dépend des coups de bol)</option>
         {% for met in listemetier %}
             <option value="{{ met.getId }}">{{ met.getNom }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="form-group col-md-4">
+    <select id="metiers" name="metier" class="form-control">
+        <option value="0">Acheter une compétence</option>
+        {% for comp in listecomp %}
+            <option value="{{ comp.getId }}">{{ comp.getNom }}</option>
         {% endfor %}
     </select>
 </div>
@@ -80,9 +85,13 @@
                         function(response) {
                             if (response['comp'] !== null) {
                                 $('#compMetiers tbody').html("");
+                                $('#compAcademie tbody').html("");
                                 $('#totCompPts').val(14);
                                 for (var comp_id in response['comp']) {
                                     $('#compMetiers tbody').append('<tr><td class="col-md-4">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                }
+                                for (var comp_id in response['aca']) {
+                                    $('#compAcademie tbody').append('<tr><td class="col-md-4">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                             }
                         });

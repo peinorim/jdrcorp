@@ -48,6 +48,13 @@ class Competence {
     private $apprenti;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="academie", type="integer")
+     */
+    private $academie;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -132,6 +139,15 @@ class Competence {
      */
     public function getApprenti() {
         return $this->apprenti;
+    }
+
+    /**
+     * Get academie
+     *
+     * @return boolean 
+     */
+    public function getAcademie() {
+        return $this->academie;
     }
 
 }
