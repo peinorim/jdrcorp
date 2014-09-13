@@ -88,10 +88,10 @@
                                 $('#compAcademie tbody').html("");
                                 $('#totCompPts').val(14);
                                 for (var comp_id in response['comp']) {
-                                    $('#compMetiers tbody').append('<tr><td class="col-md-4">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compMetiers tbody').append('<tr><td class="col-md-4">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compBase' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                                 for (var comp_id in response['aca']) {
-                                    $('#compAcademie tbody').append('<tr><td class="col-md-4">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compAcademie tbody').append('<tr><td class="col-md-4">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                             }
                         });

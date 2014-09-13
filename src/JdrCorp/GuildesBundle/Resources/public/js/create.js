@@ -12,6 +12,15 @@ $(document).ready(function() {
             $('#create').submit();
         }
     }
+    
+    $(document).on('change', '#metiers', function() {
+        $('#compAcademie tbody').append('<tr><td class="col-md-4"><button type="button" class="btn btn-primary removeComp"><span class="glyphicon glyphicon-remove"></span></button><span style="padding:6px 12px;">' + $(this).find(":selected").text() + '</span></td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + $(this).val() + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+    });
+    
+    $(document).on('click', '.removeComp', function() {
+        $(this).parent().parent().remove();
+    });
+    
     function validateAllSteps() {
         var isStepValid = true;
 
