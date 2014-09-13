@@ -42,7 +42,7 @@ class CreateController extends Controller {
                 $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
                 $listeCompAca = $repositoryComp->createQueryBuilder('c')->where('c.academie = 1')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
                 foreach ($listeCompMetier as $compMetier) {
-                    $allCompMetier[$compMetier->getId()] = $compMetier->getCompetence()->getNom();
+                    $allCompMetier[$compMetier->getCompetence()->getId()] = $compMetier->getCompetence()->getNom();
                 }
                 foreach ($listeCompAca as $compAca) {
                     if (!in_array($compAca->getNom(), $allCompMetier)) {

@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="col-md-4" style="margin-top:10px;">
             <div class="form-group">
-                <select id="metiers" name="metier" class="form-control">
+                <select id="metiers" name="metiers" class="form-control">
                     <option value="0">Choisissez un métier</option>
                     {% for met in listemetier %}
                         <option value="{{ met.getId }}">{{ met.getNom }}</option>
@@ -68,7 +68,7 @@
     </select>
 </div>
 <div class="form-group col-md-4">
-    <select id="metiers" name="metier" class="form-control">
+    <select id="metierSupp" name="metierSupp" class="form-control">
         <option value="0">Acheter une compétence</option>
         {% for comp in listecomp %}
             <option value="{{ comp.getId }}">{{ comp.getNom }}</option>
@@ -88,10 +88,10 @@
                                 $('#compAcademie tbody').html("");
                                 $('#totCompPts').val(14);
                                 for (var comp_id in response['comp']) {
-                                    $('#compMetiers tbody').append('<tr><td class="col-md-4">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compBase' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compMetiers tbody').append('<tr><td class="col-md-4" id="comp_' + comp_id + '">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compBase'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                                 for (var comp_id in response['aca']) {
-                                    $('#compAcademie tbody').append('<tr><td class="col-md-4">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + comp_id + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compAcademie tbody').append('<tr><td class="col-md-4" id="comp_' + comp_id + '">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compAca'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                             }
                         });

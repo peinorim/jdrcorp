@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     // Smart Wizard 	
     $('#wizard').smartWizard({transitionEffect: 'slideleft', onLeaveStep: leaveAStepCallback, onFinish: onFinishCallback, enableFinishButton: true});
@@ -12,15 +12,17 @@ $(document).ready(function() {
             $('#create').submit();
         }
     }
-    
-    $(document).on('change', '#metiers', function() {
-        $('#compAcademie tbody').append('<tr><td class="col-md-4"><button type="button" class="btn btn-primary removeComp"><span class="glyphicon glyphicon-remove"></span></button><span style="padding:6px 12px;">' + $(this).find(":selected").text() + '</span></td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + $(this).val() + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+
+    $(document).on('change', '#metierSupp', function () {
+        if (!$("#comp_" + $(this).val()).length) {
+            $('#compAcademie tbody').append('<tr><td class="col-md-4"><button type="button" class="btn btn-primary removeComp"><span class="glyphicon glyphicon-remove"></span></button><span style="padding:6px 12px;">' + $(this).find(":selected").text() + '</span></td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + $(this).val() + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+        }
     });
-    
-    $(document).on('click', '.removeComp', function() {
+
+    $(document).on('click', '.removeComp', function () {
         $(this).parent().parent().remove();
     });
-    
+
     function validateAllSteps() {
         var isStepValid = true;
 
@@ -136,7 +138,7 @@ $(document).ready(function() {
         } else {
             $('#nom').parent().parent().addClass('has-success');
         }
-        
+
         if ($('#maison').val() === '') {
             $('#maison').parent().parent().addClass('has-error');
             isValid = false;
