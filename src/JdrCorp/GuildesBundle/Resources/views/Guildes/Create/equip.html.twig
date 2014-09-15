@@ -17,7 +17,7 @@
                             <td>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="armes" value="{{arme.getId}}">
+                                        <input class="radArmes" type="radio" name="armes" value="{{arme.getId}}">
                                         {{arme.getNom}}
                                     </label>
                                 </div>
@@ -26,7 +26,7 @@
                             <td>{{arme.getAtt}}</td>
                             <td>{{arme.getDef}}</td>
                             <td>{{arme.getBlessure}}</td>
-                            <td>{{arme.getFort}}</td>
+                            <td id="fortReq_{{arme.getId}}">{{arme.getFort}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -38,7 +38,7 @@
 <h2 class="StepTitle">L'équipement</h2>  
 <div class="row">
     <div class="col-md-12">
-        <div id="listeArmes" class="col-md-12" style="height:500px;overflow:auto;">
+        <div id="listeEquip" class="col-md-12" style="height:500px;overflow:auto;">
             <table class="table table-hover" style="height:300px;overflow:auto;">
                 <thead>
                 <th>Nom</th>

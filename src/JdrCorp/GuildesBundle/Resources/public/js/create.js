@@ -18,30 +18,42 @@ $(document).ready(function () {
             $('#compAcademie tbody').append('<tr><td class="col-md-4"><button type="button" class="btn btn-primary removeComp"><span class="glyphicon glyphicon-remove"></span></button><span style="padding:6px 12px;">' + $(this).find(":selected").text() + '</span></td><td class="col-md-4">' + "<select class='form-control compAca' id=comp_" + $(this).val() + "><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
         }
     });
-    
+
+    $(document).on('change', '#fort', function () {
+        var fort = parseInt($("#fort").val());
+        $(".radArmes").each(function () {
+            $(this).prop('checked', false);
+            if (fort < parseInt($("#fortReq_" + $(this).val()).text())) {
+                $(this).prop('disabled', true);
+            } else {
+                $(this).prop('disabled', false);
+            }
+        });
+    });
+
     $(document).on('change', '.compBase', function () {
         var ptsBase = 0;
-        $(".compBase").each(function() {
-            if($(this).val() === "N"){
+        $(".compBase").each(function () {
+            if ($(this).val() === "N") {
                 ptsBase++;
-            } else if($(this).val() === "I"){
-                ptsBase+=3;
-            } else if($(this).val() === "E"){
-                ptsBase+=7;
+            } else if ($(this).val() === "I") {
+                ptsBase += 3;
+            } else if ($(this).val() === "E") {
+                ptsBase += 7;
             }
         });
         $("#ptsBase").text(ptsBase);
     });
-    
+
     $(document).on('change', '.compAca', function () {
         var ptsAca = 0;
-        $(".compAca").each(function() {
-            if($(this).val() === "N"){
-                ptsAca+=2;
-            } else if($(this).val() === "I"){
-                ptsAca+=6;
-            } else if($(this).val() === "E"){
-                ptsAca+=14;
+        $(".compAca").each(function () {
+            if ($(this).val() === "N") {
+                ptsAca += 2;
+            } else if ($(this).val() === "I") {
+                ptsAca += 6;
+            } else if ($(this).val() === "E") {
+                ptsAca += 14;
             }
         });
         $("#ptsAca").text(ptsAca);
