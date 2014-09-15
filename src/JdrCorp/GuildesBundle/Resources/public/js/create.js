@@ -19,6 +19,14 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('change', '.carac', function () {
+        var ptsCarac = 0;
+        $(".carac").each(function () {
+            ptsCarac += parseInt($(this).val());
+        });
+        $("#totCaracs").text(ptsCarac);
+    });
+
     $(document).on('change', '#fort', function () {
         var fort = parseInt($("#fort").val());
         $(".radArmes").each(function () {
