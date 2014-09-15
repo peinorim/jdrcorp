@@ -1,4 +1,72 @@
+<h2 class="StepTitle">Les armes</h2>  
+<div class="row">
+    <div class="col-md-12">
+        <div id="listeArmes" class="col-md-12" style="height:500px;overflow:auto;">
+            <table class="table table-hover" style="height:300px;overflow:auto;">
+                <thead>
+                <th>Arme</th>
+                <th>Init</th>
+                <th>Att</th>
+                <th>Def</th>
+                <th>Blessure</th>
+                <th>Fort requis</th>
+                </thead>
+                <tbody>
+                    {% for arme in listearme %}
+                        <tr>
+                            <td>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="armes" value="{{arme.getId}}">
+                                        {{arme.getNom}}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{arme.getInit}}</td>
+                            <td>{{arme.getAtt}}</td>
+                            <td>{{arme.getDef}}</td>
+                            <td>{{arme.getBlessure}}</td>
+                            <td>{{arme.getFort}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <h2 class="StepTitle">L'équipement</h2>  
-<div class="form-horizontal col-md-6">
+<div class="row">
+    <div class="col-md-12">
+        <div id="listeArmes" class="col-md-12" style="height:500px;overflow:auto;">
+            <table class="table table-hover" style="height:300px;overflow:auto;">
+                <thead>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Rareté</th>
+                </thead>
+                <tbody>
+                    {% for equip in listeequip %}
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        {% if equip.getBase == 0  %}
+                                            <input type="checkbox" name="equip" value="{{equip.getId}}">
+                                        {%else%}
+                                            <input type="checkbox" name="equip" value="{{equip.getId}}" checked disabled>
+                                        {% endif %}
+                                        {{equip.getNom}}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{equip.getPrix}}</td>
+                            <td>{{equip.getRarete}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 

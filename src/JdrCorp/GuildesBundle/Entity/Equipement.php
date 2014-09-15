@@ -49,6 +49,13 @@ class Equipement {
     private $categorie;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="base", type="integer")
+     */
+    private $base;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -126,6 +133,15 @@ class Equipement {
 
     public function getCategorie() {
         return $this->categorie;
+    }
+
+    /**
+     * Get base
+     *
+     * @return boolean 
+     */
+    public function getBase() {
+        return $this->base;
     }
 
 }

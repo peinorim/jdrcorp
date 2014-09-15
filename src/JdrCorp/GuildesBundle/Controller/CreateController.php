@@ -15,16 +15,22 @@ class CreateController extends Controller {
         $repositoryMaison = $em->getRepository('JdrCorpGuildesBundle:Maison');
         $repositoryMetier = $em->getRepository('JdrCorpGuildesBundle:Metier');
         $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
+        $repositoryArme = $em->getRepository('JdrCorpGuildesBundle:Arme');
+        $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
 
         $listeMaison = $repositoryMaison->findBy(array(), array('nom' => 'asc'));
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
+        $listeArme = $repositoryArme->findBy(array(), array('nom' => 'asc'));
         $listeComp = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 1')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
+        $listeEquip = $repositoryEquip->createQueryBuilder('c')->where('c.rarete <= 12')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
 
         return $this->render('JdrCorpGuildesBundle:Guildes/Create:index.html.twig', array('notice' => $notice,
                     'type' => $type,
                     'listemaison' => $listeMaison,
                     'listemetier' => $listeMetier,
-                    'listecomp' => $listeComp,));
+                    'listecomp' => $listeComp,
+                    'listearme' => $listeArme,
+                    'listeequip' => $listeEquip,));
     }
 
     public function getMetierAction($id) {
