@@ -1,4 +1,93 @@
-<h2 class="StepTitle">Le loom</h2>  
-<div class="form-horizontal col-md-6">
+<h2 class="StepTitle">Les tours</h2>  
+<div class="row">
+    <div class="col-md-12">
+        <div id="listeTour" class="col-md-12" style="height:500px;overflow:auto;">
+            <table class="table table-hover" style="height:300px;overflow:auto;">
+                <thead>
+                <th>Nom</th>
+                <th>Effet</th>
+                <th>Maison</th>
+                </thead>
+                <tbody>
+                    {% for tour in listetour %}
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="tour" value="{{tour.getId}}">
+                                        {{tour.getNom}}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{tour.getEffet}}</td>
+                            <td>{{tour.getMaison.getNom}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<h2 class="StepTitle">Les sorts</h2>  
+<div class="row">
+    <div class="col-md-12">
+        <div id="listeSort" class="col-md-12" style="height:500px;overflow:auto;">
+            <table class="table table-hover" style="height:300px;overflow:auto;">
+                <thead>
+                <th>Nom</th>
+                <th>Effet</th>
+                <th>Maison</th>
+                </thead>
+                <tbody>
+                    {% for sort in listesort %}
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="tour" value="{{sort.getId}}">
+                                        {{sort.getNom}}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{sort.getEffet}}</td>
+                            <td>{{sort.getMaison.getNom}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<h2 class="StepTitle">Les sortilèges</h2>  
+<div class="row">
+    <div class="col-md-12">
+        <div id="listeSortilege" class="col-md-12" style="height:500px;overflow:auto;">
+            <table class="table table-hover" style="height:300px;overflow:auto;">
+                <thead>
+                <th>Nom</th>
+                <th>Effet</th>
+                <th>Maison</th>
+                </thead>
+                <tbody>
+                    {% for sortilege in listesortilege %}
+                        <tr>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="tour" value="{{sortilege.getId}}">
+                                        {{sortilege.getNom}}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{sortilege.getEffet}}</td>
+                            <td>{{sortilege.getMaison.getNom}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 

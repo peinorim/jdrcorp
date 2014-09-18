@@ -17,12 +17,20 @@ class CreateController extends Controller {
         $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
         $repositoryArme = $em->getRepository('JdrCorpGuildesBundle:Arme');
         $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
+        $repositoryTour = $em->getRepository('JdrCorpGuildesBundle:Tour');
+        $repositorySort = $em->getRepository('JdrCorpGuildesBundle:Sort');
+        $repositorySortilege = $em->getRepository('JdrCorpGuildesBundle:Sortilege');
 
         $listeMaison = $repositoryMaison->findBy(array(), array('nom' => 'asc'));
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
         $listeArme = $repositoryArme->findBy(array(), array('nom' => 'asc'));
+        
+        $listeTour = $repositoryTour->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
+        $listeSort = $repositorySort->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
+        $listeSortilege = $repositorySortilege->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
+
         $listeComp = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 1')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
-        $listeEquip = $repositoryEquip->createQueryBuilder('c')->where('c.rarete <= 12')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
+        $listeEquip = $repositoryEquip->createQueryBuilder('c')->where('c.rarete < 12')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
 
         return $this->render('JdrCorpGuildesBundle:Guildes/Create:index.html.twig', array('notice' => $notice,
                     'type' => $type,
@@ -30,7 +38,10 @@ class CreateController extends Controller {
                     'listemetier' => $listeMetier,
                     'listecomp' => $listeComp,
                     'listearme' => $listeArme,
-                    'listeequip' => $listeEquip,));
+                    'listeequip' => $listeEquip,
+                    'listetour' => $listeTour,
+                    'listesort' => $listeSort,
+                    'listesortilege' => $listeSortilege,));
     }
 
     public function getMetierAction($id) {
