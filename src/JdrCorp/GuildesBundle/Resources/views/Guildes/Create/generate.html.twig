@@ -1,0 +1,41 @@
+	
+<base href="http://{{app.request.host}}">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>Guildes Eldorado - Fiche de personnage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="fiche_recto"></div>
+        <div id="fiche_verso"></div>
+        <span id="nom">{{nom}}</span>
+    </body>
+    <style>
+        span, table, img, ul{
+            font-family: Calibri;
+            font-size: 20px;
+            font-weight: bold;
+            position:absolute;
+            display:block;
+        }
+        #fiche_recto {
+            background:url("{{ asset('images/guildes_recto.jpg') }}") no-repeat left top;
+            width:1150px;
+            height:1573px;
+        }
+        #fiche_verso {
+            page-break-before:always;
+            page-break-after:always;
+            background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
+            top:1600px;
+            width:1150px;
+            height:1573px;
+        }
+        #nom{  
+            top:150px;
+            left:430px;
+        }
+    </style>
+</html>

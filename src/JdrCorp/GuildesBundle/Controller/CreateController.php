@@ -24,7 +24,7 @@ class CreateController extends Controller {
         $listeMaison = $repositoryMaison->findBy(array(), array('nom' => 'asc'));
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
         $listeArme = $repositoryArme->findBy(array(), array('nom' => 'asc'));
-        
+
         $listeTour = $repositoryTour->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
         $listeSort = $repositorySort->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
         $listeSortilege = $repositorySortilege->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
@@ -72,6 +72,23 @@ class CreateController extends Controller {
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
+    }
+
+    public function createAction() {
+
+        $request = $this->getRequest();
+
+        if ($request->getMethod() === 'POST') {
+            
+            $nom = $request->request->get('nom');
+
+            $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('nom' => $nom,));
+            if ($request->request->get('options') === 'jpg') {
+                return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="guildes.jpg"'));
+            } else {
+                return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
+            }
+        }
     }
 
 }

@@ -44,3 +44,8 @@ Guildes_create_getMetier:
     defaults: { _controller: JdrCorpGuildesBundle:Create:getMetier }
     requirements:
         _method:  POST
+Guildes_generate:
+    pattern:  /guildes/generate
+    defaults: { _controller: JdrCorpGuildesBundle:Create:create }
+    requirements:
+        _method:  POST
