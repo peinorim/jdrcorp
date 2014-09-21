@@ -16,6 +16,7 @@ class CreateController extends Controller {
         $repositoryMetier = $em->getRepository('JdrCorpGuildesBundle:Metier');
         $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
         $repositoryArme = $em->getRepository('JdrCorpGuildesBundle:Arme');
+        $repositoryArmure = $em->getRepository('JdrCorpGuildesBundle:Armure');
         $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
         $repositoryTour = $em->getRepository('JdrCorpGuildesBundle:Tour');
         $repositorySort = $em->getRepository('JdrCorpGuildesBundle:Sort');
@@ -24,6 +25,7 @@ class CreateController extends Controller {
         $listeMaison = $repositoryMaison->findBy(array(), array('nom' => 'asc'));
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));
         $listeArme = $repositoryArme->findBy(array(), array('nom' => 'asc'));
+        $listeArmure = $repositoryArmure->findBy(array(), array('nom' => 'asc'));
 
         $listeTour = $repositoryTour->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
         $listeSort = $repositorySort->createQueryBuilder('c')->orderBy('c.maison')->getQuery()->getResult();
@@ -38,6 +40,7 @@ class CreateController extends Controller {
                     'listemetier' => $listeMetier,
                     'listecomp' => $listeComp,
                     'listearme' => $listeArme,
+                    'listearmure' => $listeArmure,
                     'listeequip' => $listeEquip,
                     'listetour' => $listeTour,
                     'listesort' => $listeSort,
@@ -79,7 +82,7 @@ class CreateController extends Controller {
         $request = $this->getRequest();
 
         if ($request->getMethod() === 'POST') {
-            
+
             $nom = $request->request->get('nom');
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('nom' => $nom,));

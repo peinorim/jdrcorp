@@ -29,9 +29,17 @@ $(document).ready(function () {
 
     $(document).on('change', '#fort', function () {
         var fort = parseInt($("#fort").val());
-        $(".radArmes").each(function () {
+        $(".cbArmes").each(function () {
             $(this).prop('checked', false);
-            if (fort < parseInt($("#fortReq_" + $(this).val()).text())) {
+            if (fort < parseInt($(".fortReqArme_" + $(this).val()).text())) {
+                $(this).prop('disabled', true);
+            } else {
+                $(this).prop('disabled', false);
+            }
+        });
+        $(".cbArmures").each(function () {
+            $(this).prop('checked', false);
+            if (fort < parseInt($(".fortReqArmure_" + $(this).val()).text())) {
                 $(this).prop('disabled', true);
             } else {
                 $(this).prop('disabled', false);

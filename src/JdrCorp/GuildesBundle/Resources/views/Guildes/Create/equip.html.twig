@@ -1,71 +1,131 @@
-<h2 class="StepTitle">Les armes</h2>  
-<div class="row">
-    <div class="col-md-12">
-        <div id="listeArmes" class="col-md-12" style="height:500px;overflow:auto;">
-            <table class="table table-hover" style="height:300px;overflow:auto;">
-                <thead>
-                <th>Arme</th>
-                <th>Init</th>
-                <th>Att</th>
-                <th>Def</th>
-                <th>Blessure</th>
-                <th>Fort requis</th>
-                </thead>
-                <tbody>
-                    {% for arme in listearme %}
-                        <tr>
-                            <td>
-                                <div class="radio">
-                                    <label>
-                                        <input class="radArmes" type="radio" name="armes" value="{{arme.getId}}">
-                                        {{arme.getNom}}
-                                    </label>
-                                </div>
-                            </td>
-                            <td>{{arme.getInit}}</td>
-                            <td>{{arme.getAtt}}</td>
-                            <td>{{arme.getDef}}</td>
-                            <td>{{arme.getBlessure}}</td>
-                            <td id="fortReq_{{arme.getId}}">{{arme.getFort}}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+<div class="panel-group" id="accordionEquip"  style="height:500px;overflow:auto;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionEquip" href="#collapseOne">
+                    Les armes
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div id="listeArmes" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Arme</th>
+                    <th>Init</th>
+                    <th>Att</th>
+                    <th>Def</th>
+                    <th>Blessure</th>
+                    <th>Fort requis</th>
+                    </thead>
+                    <tbody>
+                        {% for arme in listearme %}
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label>
+                                            <input class="cbArmes" type="checkbox" name="armes" value="{{arme.getId}}">
+                                            {{arme.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{arme.getInit}}</td>
+                                <td>{{arme.getAtt}}</td>
+                                <td>{{arme.getDef}}</td>
+                                <td>{{arme.getBlessure}}</td>
+                                <td class="fortReqArme_{{arme.getId}}">{{arme.getFort}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<h2 class="StepTitle">L'équipement</h2>  
-<div class="row">
-    <div class="col-md-12">
-        <div id="listeEquip" class="col-md-12" style="height:500px;overflow:auto;">
-            <table class="table table-hover" style="height:300px;overflow:auto;">
-                <thead>
-                <th>Nom</th>
-                <th>Prix</th>
-                <th>Rareté</th>
-                </thead>
-                <tbody>
-                    {% for equip in listeequip %}
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        {% if equip.getBase == 0  %}
-                                            <input type="checkbox" name="equip" value="{{equip.getId}}">
-                                        {%else%}
-                                            <input type="checkbox" name="equip" value="{{equip.getId}}" checked disabled>
-                                        {% endif %}
-                                        {{equip.getNom}}
-                                    </label>
-                                </div>
-                            </td>
-                            <td>{{equip.getPrix}}</td>
-                            <td>{{equip.getRarete}}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionEquip" href="#collapseTwo">
+                    Les armures
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div id="listeArmures" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Armure</th>
+                    <th>Init</th>
+                    <th>Att</th>
+                    <th>Def</th>
+                    <th>Protection</th>
+                    <th>Encombrement</th>
+                    <th>Fort requis</th>
+                    </thead>
+                    <tbody>
+                        {% for armure in listearmure %}
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label>
+                                            <input class="cbArmures" type="checkbox" name="armes" value="{{armure.getId}}">
+                                            {{armure.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{armure.getInit}}</td>
+                                <td>{{armure.getAtt}}</td>
+                                <td>{{armure.getDef}}</td>
+                                <td>{{armure.getProtec}}</td>
+                                <td>{{armure.getEnc}}</td>
+                                <td class="fortReqArmure_{{armure.getId}}">{{armure.getFort}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionEquip" href="#collapseThree">
+                    L'équipement
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div id="listeEquip" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Rareté</th>
+                    </thead>
+                    <tbody>
+                        {% for equip in listeequip %}
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            {% if equip.getBase == 0  %}
+                                                <input type="checkbox" name="equip" value="{{equip.getId}}">
+                                            {%else%}
+                                                <input type="checkbox" name="equip" value="{{equip.getId}}" checked disabled>
+                                            {% endif %}
+                                            {{equip.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{equip.getPrix}}</td>
+                                <td>{{equip.getRarete}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
