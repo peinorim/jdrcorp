@@ -6,16 +6,24 @@
         <meta charset="UTF-8" >
         <title>Guildes Eldorado - Fiche de personnage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% javascripts '@JdrCorpElricBundle/Resources/public/js/jquery-1.10.2.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </head>
     <body>
         <div id="fiche_recto"></div>
         <div id="fiche_verso"></div>
-        <span id="nom">{{nom}}</span>
+        <span id="nom">{{perso.nom}}</span>
+        <span id="surnom">{{perso.surnom}}</span>
+        <span id="maison">{{perso.maison}}</span>
+        <span id="age">{{perso.age}}</span>
+        <span id="sexe">{{perso.sexe}}</span>
+        <span id="desc">{{perso.desc}}</span>
     </body>
     <style>
         span, table, img, ul{
             font-family: Calibri;
-            font-size: 20px;
+            font-size: 23px;
             font-weight: bold;
             position:absolute;
             display:block;
@@ -34,8 +42,30 @@
             height:1573px;
         }
         #nom{  
-            top:150px;
+            top:15px;
+            left:380px;
+        }
+        #surnom{  
+            top:15px;
+            left:640px;
+        }
+        #maison{  
+            top:15px;
+            left:920px;
+        }
+        #age{  
+            top:15px;
+            left:1085px;
+        }
+
+        #sexe{  
+            top:45px;
             left:430px;
+        }
+
+        #desc{  
+            top:73px;
+            left:310px;
         }
     </style>
 </html>

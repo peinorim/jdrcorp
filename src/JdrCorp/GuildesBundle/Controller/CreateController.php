@@ -4,6 +4,7 @@ namespace JdrCorp\GuildesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use JdrCorp\GuildesBundle\Entity\Perso;
 
 class CreateController extends Controller {
 
@@ -83,13 +84,13 @@ class CreateController extends Controller {
 
         if ($request->getMethod() === 'POST') {
 
-            $nom = $request->request->get('nom');
+            $perso = new Perso($request);
 
-            $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('nom' => $nom,));
+            $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {
-                return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="guildes.jpg"'));
+                return new Response($this->get('knp_snappy.image')->getOutputFromHtml($html), 200, array('Content-Type' => 'image/jpg', 'Content-Disposition' => 'filename="' . str_replace(" ", "_", $perso->getNom()) . ".jpg"));
             } else {
-                return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
+                return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf', 'Content-Disposition' => 'filename="' . str_replace(" ", "_", $perso->getNom()) . '.pdf'));
             }
         }
     }

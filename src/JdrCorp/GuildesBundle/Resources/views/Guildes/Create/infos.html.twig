@@ -10,13 +10,13 @@
     <div class="form-group">
         <label for="surnom" class="col-md-3 control-label">Surnom</label>
         <div class="col-md-8">
-            <input type="text" class="form-control" id="surnom" name="nom"/>
+            <input type="text" class="form-control" id="surnom" name="surnom"/>
         </div>
     </div>
     <div class="form-group">
         <label for="maison" class="col-md-3 control-label">Maison</label>
         <div class="col-md-8">
-            <select class="form-control" id="maison" name="naiss">
+            <select class="form-control" id="maison" name="maison">
                 {% for maison in listemaison %}
                     {% if maison.getNom != "Génériques" %}
                         <option>{{maison.getNom}}</option>
