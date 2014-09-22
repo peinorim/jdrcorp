@@ -119,6 +119,27 @@ class Perso {
      */
     private $tal;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="guerrier", type="integer")
+     */
+    private $guerrier;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etrange", type="integer")
+     */
+    private $etrange;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="guildien", type="integer")
+     */
+    private $guildien;
+
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
         $this->setSurnom($request->request->get('surnom'));
@@ -134,6 +155,9 @@ class Perso {
         $this->setSavant($request->request->get('ruse'));
         $this->setRuse($request->request->get('savant'));
         $this->setTal($request->request->get('tal'));
+        $this->setGuerrier($request->request->get('guerrier'));
+        $this->setEtrange($request->request->get('etrange'));
+        $this->setGuildien($request->request->get('guildien'));
 
         return $this;
     }
@@ -425,6 +449,66 @@ class Perso {
      */
     public function getTal() {
         return $this->tal;
+    }
+
+    /**
+     * Set guerrier
+     *
+     * @param integer $guerrier
+     * @return Perso
+     */
+    public function setGuerrier($guerrier) {
+        $this->guerrier = $guerrier;
+        return $this;
+    }
+
+    /**
+     * Get guerrier
+     *
+     * @return integer 
+     */
+    public function getGuerrier() {
+        return $this->guerrier;
+    }
+
+    /**
+     * Set etrange
+     *
+     * @param integer $etrange
+     * @return Perso
+     */
+    public function setEtrange($etrange) {
+        $this->etrange = $etrange;
+        return $this;
+    }
+
+    /**
+     * Get etrange
+     *
+     * @return integer 
+     */
+    public function getEtrange() {
+        return $this->etrange;
+    }
+
+    /**
+     * Set guildien
+     *
+     * @param integer $guildien
+     * @return Perso
+     */
+    public function setGuildien($guildien) {
+        $this->guildien = $guildien;
+        return $this;
+    }
+
+    /**
+     * Get guildien
+     *
+     * @return integer 
+     */
+    public function getGuildien() {
+        return $this->guildien;
     }
 
 }

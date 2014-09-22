@@ -41,22 +41,38 @@
         </span>
         <span id="charm">
             {% for i in 1..perso.charm %}
-                <p class="puce"></p>
+                <p class="puce1"></p>
             {% endfor %}
         </span>
         <span id="ruse">
             {% for i in 1..perso.ruse %}
-                <p class="puce"></p>
+                <p class="puce1"></p>
             {% endfor %}
         </span>
         <span id="savant">
             {% for i in 1..perso.savant %}
-                <p class="puce"></p>
+                <p class="puce1"></p>
             {% endfor %}
         </span>
         <span id="tal">
             {% for i in 1..perso.tal %}
-                <p class="puce"></p>
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+
+        <span id="guerrier">
+            {% for i in 1..perso.guerrier %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="etrange">
+            {% for i in 1..perso.etrange %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="guildien">
+            {% for i in 1..perso.guildien %}
+                <p class="puce1"></p>
             {% endfor %}
         </span>
     </body>
@@ -72,6 +88,14 @@
             display: inline-block;
             width: 10px;
             height: 10px;
+            border-radius: 50%;
+            margin:0px;
+            background-color: #000000;
+        }
+        .puce1{
+            display: inline-block;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
             margin:0px;
             background-color: #000000;
@@ -119,41 +143,56 @@
             top:251px;
             left:247px;
         }
-        
+
         #fort{  
             top:309px;
             left:247px;
         }
-        
+
         #res{  
             top:366px;
             left:247px;
         }
-        
+
         #obs{  
             top:422px;
             left:247px;
         }
-        
+
         #charm{  
-            top:250px;
+            top:249px;
             left:889px;
         }
-        
+
         #ruse{  
-            top:309px;
+            top:305px;
             left:889px;
         }
-        
+
         #savant{  
-            top:366px;
+            top:362px;
             left:889px;
         }
-        
+
         #tal{  
-            top:422px;
+            top:420px;
             left:889px;
         }
-        
+
+        #guerrier{  
+            top:223px;
+            left:989px;
+        }
+
+        #etrange{  
+            top:321px;
+            left:989px;
+        }
+
+        #guildien{  
+            top:420px;
+            left:989px;
+        }
+
     </style>
 </html>
