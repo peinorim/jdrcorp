@@ -88,19 +88,27 @@ class CreateController extends Controller {
             $metier = $em->getRepository('JdrCorpGuildesBundle:Metier')->find($request->request->get('metiers'));
             $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
 
-            foreach ($request->request->get('comp') as $id => $value) {
-                $comp = $repositoryComp->find($id);
-                if ($comp->getApprenti() === 1) {
-                    $competences[$comp->getNom()] = $value;
-                } else {
-                    $competencesCpg[$comp->getNom()] = $value;
+            if ($request->request->get('comp') !== null) {
+                foreach ($request->request->get('comp') as $id => $niveau) {
+                    $comp = $repositoryComp->find($id);
+                    if ($comp->getApprenti() === 1) {
+                        $competences[$comp->getNom()] = $niveau;
+                    } else {
+                        $competencesCpg[$comp->getNom()] = $niveau;
+                    }
                 }
+            }
+
+            $loom = ["jaune","noir","rouge","vert","violet"];
+            foreach ($loom as $couleur) {
+                $loom[$couleur] = $request->request->get($couleur);
             }
 
             $perso = new Perso($request);
             $perso->setMetier($metier->getNom());
             $perso->setCompetences($competences);
             $perso->setCompetencesCpg($competencesCpg);
+            $perso->setLoom($loom);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

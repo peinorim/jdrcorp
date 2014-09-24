@@ -141,6 +141,20 @@ class Perso {
     private $guildien;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="destin", type="integer")
+     */
+    private $destin;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pv", type="integer")
+     */
+    private $pv;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="metier", type="string")
@@ -152,7 +166,14 @@ class Perso {
      *
      * @ORM\Column(name="competences", type="array")
      */
-    protected $competences;
+    private $competences;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="loom", type="array")
+     */
+    private $loom;
 
     /**
      * @var array
@@ -179,6 +200,8 @@ class Perso {
         $this->setGuerrier($request->request->get('guerrier'));
         $this->setEtrange($request->request->get('etrange'));
         $this->setGuildien($request->request->get('guildien'));
+        $this->setDestin($request->request->get('destin'));
+        $this->setPv($this->res * 2);
 
         return $this;
     }
@@ -533,6 +556,46 @@ class Perso {
     }
 
     /**
+     * Set destin
+     *
+     * @param integer $destin
+     * @return Perso
+     */
+    public function setDestin($destin) {
+        $this->destin = $destin;
+        return $this;
+    }
+
+    /**
+     * Get destin
+     *
+     * @return integer 
+     */
+    public function getDestin() {
+        return $this->destin;
+    }
+
+    /**
+     * Set pv
+     *
+     * @param integer $pv
+     * @return Perso
+     */
+    public function setPv($pv) {
+        $this->pv = $pv;
+        return $this;
+    }
+
+    /**
+     * Get pv
+     *
+     * @return integer 
+     */
+    public function getPv() {
+        return $this->pv;
+    }
+
+    /**
      * Set Comp
      *
      * @return Perso 
@@ -549,6 +612,25 @@ class Perso {
      */
     public function getCompetences() {
         return $this->competences;
+    }
+
+    /**
+     * Set Loom
+     *
+     * @return Perso 
+     */
+    public function setLoom($loom) {
+        $this->loom = $loom;
+        return $this;
+    }
+
+    /**
+     * Get Loom
+     *
+     * @return array 
+     */
+    public function getLoom() {
+        return $this->loom;
     }
 
     /**

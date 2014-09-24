@@ -20,6 +20,7 @@
         <span id="sexe">{{perso.sexe}}</span>
         <span id="desc">{{perso.desc}}</span>
         <span id="metier">{{perso.metier}}</span>
+        <span id="destin">{{perso.destin}}</span>
         <span id="agile">
             {% for i in 1..perso.agile %}
                 <p class="puce"></p>
@@ -76,167 +77,216 @@
                 <p class="puce1"></p>
             {% endfor %}
         </span>
-        <table id="comp">
-            <thead>
-            <th></th>
-            <th></th>
-        </thead>
-        <tbody>
-            {% for comp, niv in perso.competences %}
-                <tr>
-                    <td>{{comp}}</td>
-                    <td style="padding-left: 40px;">{{niv}}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <table id="compCpg">
-        <thead>
-        <th></th>
-        <th></th>
-    </thead>
-    <tbody>
-        {% for comp, niv in perso.competencesCpg %}
-            <tr>
-                <td>{{comp}}</td>
-                <td style="padding-left: 85px;">{{niv}}</td>
-            </tr>
+        <table id="pv" style="width:102px;border-collapse: collapse;">
+            <tbody>
+                {% for i in 1..perso.res %}
+                    <tr>
+                        <td style="padding-top: 14px;padding-bottom: 14px;"><span class="puce"></span></td>
+                        <td><span class="puce"></span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="comp" style="width:245px;">
+            <tbody>
+                {% for comp, niv in perso.competences %}
+                    <tr>
+                        <td>{{comp}}</td>
+                        <td>{{niv}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="compCpg" style="width:265px;">
+            <tbody>
+                {% for comp, niv in perso.competencesCpg %}
+                    <tr>
+                        <td>{{comp}}</td>
+                        <td>{{niv}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% for couleur, pts in perso.loom %}
+            <span class="couleur" id="{{couleur}}">{{pts}}</span>
         {% endfor %}
-    </tbody>
-</table>
-</body>
-<style>
-    span, table, img, ul{
-        font-family: Calibri;
-        font-size: 23px;
-        font-weight: bold;
-        position:absolute;
-        display:block;
-    }
-    .puce{
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #000000;
-    }
-    .puce1{
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background-color: #000000;
-    }
-    #fiche_recto {
-        background:url("{{ asset('images/guildes_recto.jpg') }}") no-repeat left top;
-        width:1150px;
-        height:1573px;
-    }
-    #fiche_verso {
-        page-break-before:always;
-        page-break-after:always;
-        background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
-        top:1600px;
-        width:1150px;
-        height:1573px;
-    }
-    #nom{  
-        top:15px;
-        left:380px;
-    }
-    #surnom{  
-        top:15px;
-        left:640px;
-    }
-    #maison{  
-        top:15px;
-        left:920px;
-    }
-    #age{  
-        top:15px;
-        left:1085px;
-    }
+    </body>
+    <style>
+        span, table, img, ul{
+            font-family: Calibri;
+            font-size: 23px;
+            font-weight: bold;
+            position:absolute;
+            display:block;
+        }
+        .puce{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .puce1{
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .couleur, #destin{
+            font-size: 30px;
+            text-align: center;
+            width:50px;
+        }
+        #fiche_recto {
+            background:url("{{ asset('images/guildes_recto.jpg') }}") no-repeat left top;
+            width:1150px;
+            height:1573px;
+        }
+        #fiche_verso {
+            page-break-before:always;
+            page-break-after:always;
+            background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
+            top:1600px;
+            width:1150px;
+            height:1573px;
+        }
+        #nom{  
+            top:15px;
+            left:380px;
+        }
+        #surnom{  
+            top:15px;
+            left:640px;
+        }
+        #maison{  
+            top:15px;
+            left:920px;
+        }
+        #age{  
+            top:15px;
+            left:1085px;
+        }
 
-    #sexe{  
-        top:45px;
-        left:430px;
-    }
+        #sexe{  
+            top:45px;
+            left:430px;
+        }
 
-    #desc{  
-        top:73px;
-        left:310px;
-    }
-    #agile{  
-        top:241px;
-        left:247px;
-    }
+        #desc{  
+            top:73px;
+            left:310px;
+        }
+        #agile{  
+            top:241px;
+            left:247px;
+        }
 
-    #fort{  
-        top:298px;
-        left:247px;
-    }
+        #fort{  
+            top:298px;
+            left:247px;
+        }
 
-    #res{  
-        top:355px;
-        left:247px;
-    }
+        #res{  
+            top:355px;
+            left:247px;
+        }
 
-    #obs{  
-        top:412px;
-        left:247px;
-    }
+        #obs{  
+            top:412px;
+            left:247px;
+        }
 
-    #charm{  
-        top:239px;
-        left:889px;
-    }
+        #charm{  
+            top:239px;
+            left:889px;
+        }
 
-    #ruse{  
-        top:295px;
-        left:889px;
-    }
+        #ruse{  
+            top:295px;
+            left:889px;
+        }
 
-    #savant{  
-        top:352px;
-        left:889px;
-    }
+        #savant{  
+            top:352px;
+            left:889px;
+        }
 
-    #tal{  
-        top:410px;
-        left:889px;
-    }
+        #tal{  
+            top:410px;
+            left:889px;
+        }
 
-    #guerrier{  
-        top:213px;
-        left:989px;
-    }
+        #guerrier{  
+            top:213px;
+            left:989px;
+        }
 
-    #etrange{  
-        top:311px;
-        left:989px;
-    }
+        #etrange{  
+            top:311px;
+            left:989px;
+        }
 
-    #guildien{  
-        top:410px;
-        left:989px;
-    }
+        #guildien{  
+            top:410px;
+            left:989px;
+        }
 
-    #metier{  
-        top:130px;
-        left:400px;
-    }
+        #destin{  
+            top:410px;
+            left:580px;
+            color:red;
+        }
 
-    #comp{
-        top:612px;
-        left:60px;
-        font-weight: normal;
-    }
-    
-    #compCpg{
-        top:612px;
-        left:390px;
-        font-weight: normal;
-    }
+        #metier{  
+            top:130px;
+            left:400px;
+        }
 
-</style>
+        #comp{
+            top:620px;
+            left:60px;
+            font-weight: normal;
+        }
+
+        #compCpg{
+            top:617px;
+            left:380px;
+            font-weight: normal;
+        }
+
+        #jaune{
+            top:588px;
+            left:733px;
+            color:yellow;
+        }
+
+        #noir{
+            top:588px;
+            left:890px;
+            color:black;
+        }
+
+        #rouge{
+            top:588px;
+            left:1050px;
+            color:red;
+        }
+        #vert{
+            top:710px;
+            left:733px;
+            color:green;
+        }
+        #violet{
+            top:710px;
+            left:1050px;
+            color:purple;
+        }
+
+        #pv{
+            top:905px;
+            left:1054px;
+        }
+
+    </style>
 </html>
