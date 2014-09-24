@@ -140,6 +140,27 @@ class Perso {
      */
     private $guildien;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="metier", type="string")
+     */
+    private $metier;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="competences", type="array")
+     */
+    protected $competences;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="competencesCpg", type="array")
+     */
+    protected $competencesCpg;
+
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
         $this->setSurnom($request->request->get('surnom'));
@@ -509,6 +530,64 @@ class Perso {
      */
     public function getGuildien() {
         return $this->guildien;
+    }
+
+    /**
+     * Set Comp
+     *
+     * @return Perso 
+     */
+    public function setCompetences($comp) {
+        $this->competences = $comp;
+        return $this;
+    }
+
+    /**
+     * Get Comp
+     *
+     * @return array 
+     */
+    public function getCompetences() {
+        return $this->competences;
+    }
+
+    /**
+     * Set CompCpg
+     *
+     * @return Perso 
+     */
+    public function setCompetencesCpg($comp) {
+        $this->competencesCpg = $comp;
+        return $this;
+    }
+
+    /**
+     * Get Comp
+     *
+     * @return array 
+     */
+    public function getCompetencesCpg() {
+        return $this->competencesCpg;
+    }
+
+    /**
+     * Set metier
+     *
+     * @param string $metier
+     * @return Perso
+     */
+    public function setMetier($metier) {
+        $this->metier = $metier;
+        return $this;
+    }
+
+    /**
+     * Get metier
+     *
+     * @return string 
+     */
+    public function getMetier() {
+        return $this->metier;
     }
 
 }

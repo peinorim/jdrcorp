@@ -84,7 +84,23 @@ class CreateController extends Controller {
 
         if ($request->getMethod() === 'POST') {
 
+            $em = $this->getDoctrine()->getManager('guildes');
+            $metier = $em->getRepository('JdrCorpGuildesBundle:Metier')->find($request->request->get('metiers'));
+            $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
+
+            foreach ($request->request->get('comp') as $id => $value) {
+                $comp = $repositoryComp->find($id);
+                if ($comp->getApprenti() === 1) {
+                    $competences[$comp->getNom()] = $value;
+                } else {
+                    $competencesCpg[$comp->getNom()] = $value;
+                }
+            }
+
             $perso = new Perso($request);
+            $perso->setMetier($metier->getNom());
+            $perso->setCompetences($competences);
+            $perso->setCompetencesCpg($competencesCpg);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

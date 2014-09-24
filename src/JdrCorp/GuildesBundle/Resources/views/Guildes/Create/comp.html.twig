@@ -77,21 +77,21 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#metiers").change(function() {
+    $(document).ready(function () {
+        $("#metiers").change(function () {
             var id = parseInt($(this).val());
             if (id !== 0) {
                 $.post("{{path('Guildes_create_getMetier', {'id':"%s" }) | url_decode | format('"+id+"') | raw }}",
-                        function(response) {
+                        function (response) {
                             if (response['comp'] !== null) {
                                 $('#compMetiers tbody').html("");
                                 $('#compAcademie tbody').html("");
                                 $('#totCompPts').val(14);
                                 for (var comp_id in response['comp']) {
-                                    $('#compMetiers tbody').append('<tr><td class="col-md-4" id="comp_' + comp_id + '">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compBase'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compMetiers tbody').append('<tr><td class="col-md-4">' + response['comp'][comp_id] + '</td><td class="col-md-4">' + "<select name=comp[" + comp_id + "] class='form-control compBase'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                                 for (var comp_id in response['aca']) {
-                                    $('#compAcademie tbody').append('<tr><td class="col-md-4" id="comp_' + comp_id + '">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select class='form-control compAca'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
+                                    $('#compAcademie tbody').append('<tr><td class="col-md-4">' + response['aca'][comp_id] + '</td><td class="col-md-4">' + "<select name=comp[" + comp_id + "] class='form-control compAca'><option>NC</option><option>N</option><option>I</option><option>E</option></select>" + '</td></tr>');
                                 }
                             }
                         });
