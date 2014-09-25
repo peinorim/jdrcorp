@@ -171,6 +171,20 @@ class Perso {
     /**
      * @var array
      *
+     * @ORM\Column(name="armes", type="array")
+     */
+    private $armes;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="armures", type="array")
+     */
+    private $armures;
+
+    /**
+     * @var array
+     *
      * @ORM\Column(name="loom", type="array")
      */
     private $loom;
@@ -612,6 +626,44 @@ class Perso {
      */
     public function getCompetences() {
         return $this->competences;
+    }
+
+    /**
+     * Set armes
+     *
+     * @return Perso 
+     */
+    public function setArmes($armes) {
+        $this->armes = $armes;
+        return $this;
+    }
+
+    /**
+     * Get armes
+     *
+     * @return array 
+     */
+    public function getArmes() {
+        return $this->armes;
+    }
+
+    /**
+     * Set armures
+     *
+     * @return Perso 
+     */
+    public function setArmures($armures) {
+        $this->armures = $armures;
+        return $this;
+    }
+
+    /**
+     * Get armures
+     *
+     * @return array 
+     */
+    public function getArmures() {
+        return $this->armures;
     }
 
     /**

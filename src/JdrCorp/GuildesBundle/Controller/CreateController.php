@@ -87,6 +87,8 @@ class CreateController extends Controller {
             $em = $this->getDoctrine()->getManager('guildes');
             $metier = $em->getRepository('JdrCorpGuildesBundle:Metier')->find($request->request->get('metiers'));
             $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
+            $repositoryArmes = $em->getRepository('JdrCorpGuildesBundle:Arme');
+            $repositoryArmures = $em->getRepository('JdrCorpGuildesBundle:Armure');
 
             if ($request->request->get('comp') !== null) {
                 foreach ($request->request->get('comp') as $id => $niveau) {
@@ -97,11 +99,27 @@ class CreateController extends Controller {
                         $competencesCpg[$comp->getNom()] = $niveau;
                     }
                 }
+                ksort($competences);
+                ksort($competencesCpg);
             }
 
-            $loom = ["jaune","noir","rouge","vert","violet"];
+            $loom = ["jaune", "noir", "rouge", "vert", "violet"];
             foreach ($loom as $couleur) {
                 $loom[$couleur] = $request->request->get($couleur);
+            }
+
+            if ($request->request->get('armes') !== null) {
+                foreach ($request->request->get('armes') as $id) {
+                    $arme = $repositoryArmes->find($id);
+                    $armes[$arme->getId()] = $arme;
+                }
+            }
+            
+            if ($request->request->get('armures') !== null) {
+                foreach ($request->request->get('armures') as $id) {
+                    $armure = $repositoryArmures->find($id);
+                    $armures[$armure->getId()] = $armure;
+                }
             }
 
             $perso = new Perso($request);
@@ -109,6 +127,8 @@ class CreateController extends Controller {
             $perso->setCompetences($competences);
             $perso->setCompetencesCpg($competencesCpg);
             $perso->setLoom($loom);
+            $perso->setArmes($armes);
+            $perso->setArmures($armures);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

@@ -24,7 +24,7 @@
                                 <td>
                                     <div class="radio">
                                         <label>
-                                            <input class="cbArmes" type="checkbox" name="armes" value="{{arme.getId}}">
+                                            <input class="cbArmes" type="checkbox" name="armes[]" value="{{arme.getId}}">
                                             {{arme.getNom}}
                                         </label>
                                     </div>
@@ -68,7 +68,7 @@
                                 <td>
                                     <div class="radio">
                                         <label>
-                                            <input class="cbArmures" type="checkbox" name="armes" value="{{armure.getId}}">
+                                            <input class="cbArmures" type="checkbox" name="armures[]" value="{{armure.getId}}">
                                             {{armure.getNom}}
                                         </label>
                                     </div>
@@ -111,9 +111,9 @@
                                     <div class="checkbox">
                                         <label>
                                             {% if equip.getBase == 0  %}
-                                                <input type="checkbox" name="equip" value="{{equip.getId}}">
+                                                <input type="checkbox" name="equip[]" value="{{equip.getId}}">
                                             {%else%}
-                                                <input type="checkbox" name="equip" value="{{equip.getId}}" checked disabled>
+                                                <input type="checkbox" name="equip[]" value="{{equip.getId}}" checked disabled>
                                             {% endif %}
                                             {{equip.getNom}}
                                         </label>

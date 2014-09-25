@@ -77,7 +77,7 @@
                 <p class="puce1"></p>
             {% endfor %}
         </span>
-        <table id="pv" style="width:102px;border-collapse: collapse;">
+        <table id="pv" style="width:102px;">
             <tbody>
                 {% for i in 1..perso.res %}
                     <tr>
@@ -97,7 +97,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <table id="compCpg" style="width:265px;">
+        <table id="compCpg" style="width:280px;">
             <tbody>
                 {% for comp, niv in perso.competencesCpg %}
                     <tr>
@@ -110,6 +110,31 @@
         {% for couleur, pts in perso.loom %}
             <span class="couleur" id="{{couleur}}">{{pts}}</span>
         {% endfor %}
+        <table id="armes">
+            <tbody>
+                {% for arme in perso.armes %}
+                    <tr>
+                        <td style="padding:0px 60px 0px 0px;">{{arme.Nom}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Init}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Att}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Def}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Blessure}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="armures">
+            <tbody>
+                {% for armure in perso.armures %}
+                    <tr>
+                        <td style="padding:0px 20px 0px 0px;">{{armure.Nom}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Init}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Att}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Def}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </body>
     <style>
         span, table, img, ul{
@@ -118,6 +143,10 @@
             font-weight: bold;
             position:absolute;
             display:block;
+        }
+        table{
+            border-collapse: collapse;
+            font-weight: normal;
         }
         .puce{
             display: inline-block;
@@ -246,13 +275,11 @@
         #comp{
             top:620px;
             left:60px;
-            font-weight: normal;
         }
 
         #compCpg{
             top:617px;
             left:380px;
-            font-weight: normal;
         }
 
         #jaune{
@@ -286,6 +313,17 @@
         #pv{
             top:905px;
             left:1054px;
+        }
+
+        #armes{
+            top:1435px;
+            left:220px;
+        }
+        
+        #armures{
+            top:1195px;
+            left:680px;
+            font-size:17px;
         }
 
     </style>
