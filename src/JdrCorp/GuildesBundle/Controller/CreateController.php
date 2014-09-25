@@ -89,6 +89,7 @@ class CreateController extends Controller {
             $repositoryComp = $em->getRepository('JdrCorpGuildesBundle:Competence');
             $repositoryArmes = $em->getRepository('JdrCorpGuildesBundle:Arme');
             $repositoryArmures = $em->getRepository('JdrCorpGuildesBundle:Armure');
+            $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
 
             if ($request->request->get('comp') !== null) {
                 foreach ($request->request->get('comp') as $id => $niveau) {
@@ -99,8 +100,12 @@ class CreateController extends Controller {
                         $competencesCpg[$comp->getNom()] = $niveau;
                     }
                 }
-                ksort($competences);
-                ksort($competencesCpg);
+                if ($competences !== null) {
+                    ksort($competences);
+                }
+                if ($competencesCpg !== null) {
+                    ksort($competencesCpg);
+                }
             }
 
             $loom = ["jaune", "noir", "rouge", "vert", "violet"];
@@ -111,10 +116,12 @@ class CreateController extends Controller {
             if ($request->request->get('armes') !== null) {
                 foreach ($request->request->get('armes') as $id) {
                     $arme = $repositoryArmes->find($id);
-                    $armes[$arme->getId()] = $arme;
+                    if ($request->request->get('fort') >= $arme->getFort()) {
+                        $armes[$arme->getId()] = $arme;
+                    }
                 }
             }
-            
+
             if ($request->request->get('armures') !== null) {
                 foreach ($request->request->get('armures') as $id) {
                     $armure = $repositoryArmures->find($id);
@@ -122,13 +129,23 @@ class CreateController extends Controller {
                 }
             }
 
+            if ($request->request->get('equip') !== null) {
+                foreach ($request->request->get('equip') as $id) {
+                    $item = $repositoryEquip->find($id);
+                    $equip[$item->getId()] = $item;
+                }
+            }
+
             $perso = new Perso($request);
             $perso->setMetier($metier->getNom());
             $perso->setCompetences($competences);
-            $perso->setCompetencesCpg($competencesCpg);
+            if ($competencesCpg !== null) {
+                $perso->setCompetencesCpg($competencesCpg);
+            }
             $perso->setLoom($loom);
             $perso->setArmes($armes);
             $perso->setArmures($armures);
+            $perso->setEquip($equip);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

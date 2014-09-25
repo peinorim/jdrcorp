@@ -194,7 +194,14 @@ class Perso {
      *
      * @ORM\Column(name="competencesCpg", type="array")
      */
-    protected $competencesCpg;
+    private $competencesCpg;
+    
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="equip", type="array")
+     */
+    private $equip;
 
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
@@ -683,6 +690,25 @@ class Perso {
      */
     public function getLoom() {
         return $this->loom;
+    }
+    
+    /**
+     * Set equip
+     *
+     * @return Perso 
+     */
+    public function setEquip($equip) {
+        $this->equip = $equip;
+        return $this;
+    }
+
+    /**
+     * Get equip
+     *
+     * @return array 
+     */
+    public function getEquip() {
+        return $this->equip;
     }
 
     /**
