@@ -140,214 +140,215 @@
             {% for item in perso.equip %}
                 <li>{{item.Nom}}</li>
                 {% endfor %}
-        </span>
-</body>
-<style>
-    span, table, img, ul{
-        font-family: Calibri;
-        font-size: 23px;
-        font-weight: bold;
-        position:absolute;
-        display:block;
-    }
-    table{
-        border-collapse: collapse;
-        font-weight: normal;
-    }
-    .puce{
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #000000;
-    }
-    .puce1{
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background-color: #000000;
-    }
-    .couleur, #destin{
-        font-size: 30px;
-        text-align: center;
-        width:50px;
-    }
-    #fiche_recto {
-        background:url("{{ asset('images/guildes_recto.jpg') }}") no-repeat left top;
-        width:1150px;
-        height:1573px;
-    }
-    #fiche_verso {
-        page-break-before:always;
-        page-break-after:always;
-        background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
-        top:1600px;
-        width:1150px;
-        height:1573px;
-    }
-    #nom{  
-        top:15px;
-        left:380px;
-    }
-    #surnom{  
-        top:15px;
-        left:640px;
-    }
-    #maison{  
-        top:15px;
-        left:920px;
-    }
-    #age{  
-        top:15px;
-        left:1085px;
-    }
+        </ul>
+    </body>
+    <style>
+        span, table, img, ul{
+            font-family: Calibri;
+            font-size: 23px;
+            font-weight: bold;
+            position:absolute;
+            display:block;
+        }
+        table{
+            border-collapse: collapse;
+            font-weight: normal;
+        }
+        .puce{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .puce1{
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .couleur, #destin{
+            font-size: 30px;
+            text-align: center;
+            width:50px;
+        }
+        #fiche_recto {
+            background:url("{{ asset('images/guildes_recto.jpg') }}") no-repeat left top;
+            width:1150px;
+            height:1573px;
+        }
+        #fiche_verso {
+            page-break-before:always;
+            page-break-after:always;
+            background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
+            top:1600px;
+            width:1150px;
+            height:1573px;
+        }
+        #nom{  
+            top:15px;
+            left:380px;
+        }
+        #surnom{  
+            top:15px;
+            left:640px;
+        }
+        #maison{  
+            top:15px;
+            left:920px;
+        }
+        #age{  
+            top:15px;
+            left:1085px;
+        }
 
-    #sexe{  
-        top:45px;
-        left:430px;
-    }
+        #sexe{  
+            top:45px;
+            left:430px;
+        }
 
-    #desc{  
-        top:73px;
-        left:310px;
-    }
-    #agile{  
-        top:241px;
-        left:247px;
-    }
+        #desc{  
+            top:73px;
+            left:310px;
+        }
+        #agile{  
+            top:241px;
+            left:247px;
+        }
 
-    #fort{  
-        top:298px;
-        left:247px;
-    }
+        #fort{  
+            top:298px;
+            left:247px;
+        }
 
-    #res{  
-        top:355px;
-        left:247px;
-    }
+        #res{  
+            top:355px;
+            left:247px;
+        }
 
-    #obs{  
-        top:412px;
-        left:247px;
-    }
+        #obs{  
+            top:412px;
+            left:247px;
+        }
 
-    #charm{  
-        top:239px;
-        left:889px;
-    }
+        #charm{  
+            top:239px;
+            left:889px;
+        }
 
-    #ruse{  
-        top:295px;
-        left:889px;
-    }
+        #ruse{  
+            top:295px;
+            left:889px;
+        }
 
-    #savant{  
-        top:352px;
-        left:889px;
-    }
+        #savant{  
+            top:352px;
+            left:889px;
+        }
 
-    #tal{  
-        top:410px;
-        left:889px;
-    }
+        #tal{  
+            top:410px;
+            left:889px;
+        }
 
-    #guerrier{  
-        top:213px;
-        left:989px;
-    }
+        #guerrier{  
+            top:213px;
+            left:989px;
+        }
 
-    #etrange{  
-        top:311px;
-        left:989px;
-    }
+        #etrange{  
+            top:311px;
+            left:989px;
+        }
 
-    #guildien{  
-        top:410px;
-        left:989px;
-    }
+        #guildien{  
+            top:410px;
+            left:989px;
+        }
 
-    #destin{  
-        top:410px;
-        left:580px;
-        color:red;
-    }
+        #destin{  
+            top:410px;
+            left:580px;
+            color:red;
+        }
 
-    #metier{  
-        top:130px;
-        left:400px;
-    }
+        #metier{  
+            top:130px;
+            left:400px;
+        }
 
-    #comp{
-        top:620px;
-        left:60px;
-    }
+        #comp{
+            top:620px;
+            left:60px;
+        }
 
-    #compCpg{
-        top:617px;
-        left:380px;
-    }
+        #compCpg{
+            top:617px;
+            left:380px;
+        }
 
-    #jaune{
-        top:588px;
-        left:733px;
-        color:yellow;
-    }
+        #jaune{
+            top:588px;
+            left:733px;
+            color:yellow;
+        }
 
-    #noir{
-        top:588px;
-        left:890px;
-        color:black;
-    }
+        #noir{
+            top:588px;
+            left:890px;
+            color:black;
+        }
 
-    #rouge{
-        top:588px;
-        left:1050px;
-        color:red;
-    }
-    #vert{
-        top:710px;
-        left:733px;
-        color:green;
-    }
-    #violet{
-        top:710px;
-        left:1050px;
-        color:purple;
-    }
+        #rouge{
+            top:588px;
+            left:1050px;
+            color:red;
+        }
+        #vert{
+            top:710px;
+            left:733px;
+            color:green;
+        }
+        #violet{
+            top:710px;
+            left:1050px;
+            color:purple;
+        }
 
-    #pv{
-        top:905px;
-        left:1054px;
-    }
+        #pv{
+            top:905px;
+            left:1054px;
+        }
 
-    #armes{
-        top:1435px;
-        left:220px;
-    }
+        #armes{
+            top:1437px;
+            left:220px;
+            font-size:18px;
+        }
 
-    #armures{
-        top:1195px;
-        left:680px;
-        font-size:17px;
-    }
-    #encperm{
-        top:1765px;
-        left:550px;
-    }
-    #equip{
-        top:1780px;
-        left:30px;
-        width:800px;
-        font-size:18px;
-        list-style: none;
-    }
-    #equip li  { 
-        width:25%;
-        line-height:1.5em;
-        float:left;
-        display:inline;
-    }
+        #armures{
+            top:1195px;
+            left:680px;
+            font-size:17px;
+        }
+        #encperm{
+            top:1765px;
+            left:550px;
+        }
+        #equip{
+            top:1780px;
+            left:30px;
+            width:800px;
+            font-size:18px;
+            list-style: none;
+        }
+        #equip li  { 
+            width:25%;
+            line-height:1.5em;
+            float:left;
+            display:inline;
+        }
 
-</style>
+    </style>
 </html>
