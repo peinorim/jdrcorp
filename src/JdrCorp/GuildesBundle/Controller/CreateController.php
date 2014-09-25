@@ -90,6 +90,7 @@ class CreateController extends Controller {
             $repositoryArmes = $em->getRepository('JdrCorpGuildesBundle:Arme');
             $repositoryArmures = $em->getRepository('JdrCorpGuildesBundle:Armure');
             $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
+            $competencesCpg = Array();
 
             if ($request->request->get('comp') !== null) {
                 foreach ($request->request->get('comp') as $id => $niveau) {
@@ -100,15 +101,12 @@ class CreateController extends Controller {
                         $competencesCpg[$comp->getNom()] = $niveau;
                     }
                 }
-                if ($competences !== null) {
-                    ksort($competences);
-                }
-                if ($competencesCpg !== null) {
-                    ksort($competencesCpg);
-                }
+
+                ksort($competences);
+                ksort($competencesCpg);
             }
 
-            $loom = ["jaune", "noir", "rouge", "vert", "violet"];
+            $loom = ["jaune" => 0, "noir" => 0, "rouge" => 0, "vert" => 0, "violet" => 0];
             foreach ($loom as $couleur) {
                 $loom[$couleur] = $request->request->get($couleur);
             }
@@ -139,9 +137,7 @@ class CreateController extends Controller {
             $perso = new Perso($request);
             $perso->setMetier($metier->getNom());
             $perso->setCompetences($competences);
-            if ($competencesCpg !== null) {
-                $perso->setCompetencesCpg($competencesCpg);
-            }
+            $perso->setCompetencesCpg($competencesCpg);
             $perso->setLoom($loom);
             $perso->setArmes($armes);
             $perso->setArmures($armures);
