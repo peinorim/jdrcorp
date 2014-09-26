@@ -90,7 +90,11 @@ class CreateController extends Controller {
             $repositoryArmes = $em->getRepository('JdrCorpGuildesBundle:Arme');
             $repositoryArmures = $em->getRepository('JdrCorpGuildesBundle:Armure');
             $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
+            $repositoryTour = $em->getRepository('JdrCorpGuildesBundle:Tour');
             $competencesCpg = Array();
+            $tours = array();
+            $sorts = array();
+            $sortils = array();
 
             if ($request->request->get('comp') !== null) {
                 foreach ($request->request->get('comp') as $id => $niveau) {
@@ -133,6 +137,13 @@ class CreateController extends Controller {
                     $equip[$item->getId()] = $item;
                 }
             }
+            
+            if ($request->request->get('tour') !== null) {
+                foreach ($request->request->get('tour') as $id) {
+                    $tour = $repositoryTour->find($id);
+                    $tours[$tour->getId()] = $tour;
+                }
+            }
 
             $perso = new Perso($request);
             $perso->setMetier($metier->getNom());
@@ -142,6 +153,7 @@ class CreateController extends Controller {
             $perso->setArmes($armes);
             $perso->setArmures($armures);
             $perso->setEquip($equip);
+            $perso->setTours($tours);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

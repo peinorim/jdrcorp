@@ -10,12 +10,12 @@
     <body>
         <div id="fiche_recto"></div>
         <div id="fiche_verso"></div>
-        <span id="nom">{{perso.nom}}</span>
-        <span id="surnom">{{perso.surnom}}</span>
-        <span id="maison">{{perso.maison}}</span>
-        <span id="age">{{perso.age}}</span>
-        <span id="sexe">{{perso.sexe}}</span>
-        <span id="desc">{{perso.desc}}</span>
+        <span id="nom">{{perso.nom|raw }}</span>
+        <span id="surnom">{{perso.surnom|raw }}</span>
+        <span id="maison">{{perso.maison|raw }}</span>
+        <span id="age">{{perso.age|raw }}</span>
+        <span id="sexe">{{perso.sexe }}</span>
+        <span id="desc">{{perso.desc|raw }}</span>
         <span id="metier">{{perso.metier}}</span>
         <span id="destin">{{perso.destin}}</span>
         <span id="agile">
@@ -137,6 +137,14 @@
             {% for item in perso.equip %}
                 <li>{{item.Nom}}</li>
                 {% endfor %}
+        </ul>
+        <ul id="tours" style="width:520px;">
+            {% for tour in perso.tours %}
+                <li>Nom : {{tour.nom}}  -  Cible : {{tour.cible}}</li>    
+                <li>Portée : {{tour.portee}}</li>      
+                <li>Effet : {{tour.effet}}</li>
+                <li style="margin-top:20px;"></li>
+            {% endfor %}
         </ul>
     </body>
     <style>
@@ -345,6 +353,14 @@
             line-height:1.5em;
             float:left;
             display:inline;
+        }
+        #tours{
+            top:2530px;
+            left:0px;
+            position:absolute;
+            display:block;
+            font-size: 19px;
+            list-style: none;
         }
 
     </style>

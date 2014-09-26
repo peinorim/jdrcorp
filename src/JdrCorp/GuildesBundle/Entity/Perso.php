@@ -202,6 +202,13 @@ class Perso {
      * @ORM\Column(name="equip", type="array")
      */
     private $equip;
+    
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="tours", type="array")
+     */
+    private $tours;
 
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
@@ -748,6 +755,25 @@ class Perso {
      */
     public function getMetier() {
         return $this->metier;
+    }
+    
+    /**
+     * Set tours
+     *
+     * @return Perso 
+     */
+    public function setTours($tours) {
+        $this->tours = $tours;
+        return $this;
+    }
+
+    /**
+     * Get tours
+     *
+     * @return array 
+     */
+    public function getTours() {
+        return $this->tours;
     }
 
 }
