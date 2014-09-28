@@ -141,9 +141,20 @@
         <ul id="tours" style="width:520px;">
             {% for tour in perso.tours %}
                 <li>Nom : {{tour.nom}}  -  Cible : {{tour.cible}}</li>    
-                <li>Portée : {{tour.portee}}</li>      
+                <li>Portée : {{tour.portee}}</li> 
                 <li>Effet : {{tour.effet}}</li>
                 <li style="margin-top:20px;"></li>
+            {% endfor %}
+        </ul>
+        
+        <ul id="sorts" style="width:520px;">
+            {% for sort in perso.sorts %}
+                <li>Nom : {{sort.nom}}  -  Difficulté : {{sort.diff}}</li>    
+                <li>Type : {{sort.type}}</li>
+                <li style="margin-top:20px;"></li>
+            {% endfor %}
+            {% for sortil in perso.sortils %}
+                <li>Nom : {{sortil.nom}}  -  Difficulté : {{sortil.diff}}</li>    
             {% endfor %}
         </ul>
     </body>
@@ -343,7 +354,7 @@
         }
         #equip{
             top:1780px;
-            left:30px;
+            left:0px;
             width:800px;
             font-size:18px;
             list-style: none;
@@ -357,8 +368,12 @@
         #tours{
             top:2530px;
             left:0px;
-            position:absolute;
-            display:block;
+            font-size: 19px;
+            list-style: none;
+        }
+        #sorts{
+            top:2030px;
+            left:570px;
             font-size: 19px;
             list-style: none;
         }

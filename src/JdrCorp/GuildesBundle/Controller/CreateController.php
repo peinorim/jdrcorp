@@ -91,6 +91,8 @@ class CreateController extends Controller {
             $repositoryArmures = $em->getRepository('JdrCorpGuildesBundle:Armure');
             $repositoryEquip = $em->getRepository('JdrCorpGuildesBundle:Equipement');
             $repositoryTour = $em->getRepository('JdrCorpGuildesBundle:Tour');
+            $repositorySort = $em->getRepository('JdrCorpGuildesBundle:Sort');
+            $repositorySortil = $em->getRepository('JdrCorpGuildesBundle:Sortilege');
             $competencesCpg = Array();
             $tours = array();
             $sorts = array();
@@ -144,6 +146,20 @@ class CreateController extends Controller {
                     $tours[$tour->getId()] = $tour;
                 }
             }
+            
+            if ($request->request->get('sort') !== null) {
+                foreach ($request->request->get('sort') as $id) {
+                    $sort = $repositorySort->find($id);
+                    $sorts[$sort->getId()] = $sort;
+                }
+            }
+            
+            if ($request->request->get('sortil') !== null) {
+                foreach ($request->request->get('sortil') as $id) {
+                    $sortil = $repositorySortil->find($id);
+                    $sortils[$sortil->getId()] = $sortil;
+                }
+            }
 
             $perso = new Perso($request);
             $perso->setMetier($metier->getNom());
@@ -154,6 +170,8 @@ class CreateController extends Controller {
             $perso->setArmures($armures);
             $perso->setEquip($equip);
             $perso->setTours($tours);
+            $perso->setSorts($sorts);
+            $perso->setSortils($sortils);
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

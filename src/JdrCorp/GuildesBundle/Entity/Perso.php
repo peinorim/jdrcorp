@@ -195,20 +195,34 @@ class Perso {
      * @ORM\Column(name="competencesCpg", type="array")
      */
     private $competencesCpg;
-    
+
     /**
      * @var array
      *
      * @ORM\Column(name="equip", type="array")
      */
     private $equip;
-    
+
     /**
      * @var array
      *
      * @ORM\Column(name="tours", type="array")
      */
     private $tours;
+    
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="sorts", type="array")
+     */
+    private $sorts;
+    
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="sortils", type="array")
+     */
+    private $sortils;
 
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
@@ -698,7 +712,7 @@ class Perso {
     public function getLoom() {
         return $this->loom;
     }
-    
+
     /**
      * Set equip
      *
@@ -756,7 +770,7 @@ class Perso {
     public function getMetier() {
         return $this->metier;
     }
-    
+
     /**
      * Set tours
      *
@@ -774,6 +788,44 @@ class Perso {
      */
     public function getTours() {
         return $this->tours;
+    }
+
+    /**
+     * Set sorts
+     *
+     * @return Perso 
+     */
+    public function setSorts($sorts) {
+        $this->sorts = $sorts;
+        return $this;
+    }
+
+    /**
+     * Get sorts
+     *
+     * @return array 
+     */
+    public function getSorts() {
+        return $this->sorts;
+    }
+    
+    /**
+     * Set sortils
+     *
+     * @return Perso 
+     */
+    public function setSortils($sortils) {
+        $this->sortils = $sortils;
+        return $this;
+    }
+
+    /**
+     * Get sortils
+     *
+     * @return array 
+     */
+    public function getSortils() {
+        return $this->sortils;
     }
 
 }
