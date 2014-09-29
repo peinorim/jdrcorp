@@ -78,155 +78,163 @@ $(document).ready(function () {
     $(document).on('click', '.removeComp', function () {
         $(this).parent().parent().remove();
     });
+});
 
-    function validateAllSteps() {
-        var isStepValid = true;
+function validateAllSteps() {
+    var isStepValid = true;
 
+    if (validateStep1() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 1, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 1, iserror: false});
+    }
+
+    if (validateStep2() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 2, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 2, iserror: false});
+    }
+    if (validateStep3() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 3, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 3, iserror: false});
+    }
+    if (validateStep4() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 4, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 4, iserror: false});
+    }
+    if (validateStep5() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 5, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 5, iserror: false});
+    }
+    if (validateStep6() === false) {
+        isStepValid = false;
+        $('#wizard').smartWizard('setError', {stepnum: 6, iserror: true});
+    } else {
+        $('#wizard').smartWizard('setError', {stepnum: 6, iserror: false});
+    }
+
+    if (!isStepValid) {
+        $('#wizard').smartWizard('showMessage', 'Veuillez corriger les erreurs pour chaque étape avant de continuer svp.');
+    }
+    return isStepValid;
+}
+
+function validateSteps(step) {
+    var isStepValid = true;
+    if (parseInt(step) === 1) {
         if (validateStep1() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 1, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 1, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
-
+    } else if (parseInt(step) === 2) {
         if (validateStep2() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 2, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 2, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
+    } else if (parseInt(step) === 3) {
         if (validateStep3() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 3, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 3, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
+    } else if (parseInt(step) === 4) {
         if (validateStep4() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 4, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 4, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
+    } else if (parseInt(step) === 5) {
         if (validateStep5() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 5, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 5, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
+    } else if (parseInt(step) === 6) {
         if (validateStep6() === false) {
             isStepValid = false;
-            $('#wizard').smartWizard('setError', {stepnum: 6, iserror: true});
+            //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
         } else {
-            $('#wizard').smartWizard('setError', {stepnum: 6, iserror: false});
+            $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
         }
-
-        if (!isStepValid) {
-            $('#wizard').smartWizard('showMessage', 'Veuillez corriger les erreurs pour chaque étape avant de continuer svp.');
-        }
-        return isStepValid;
     }
+    return isStepValid;
+}
 
-    function validateSteps(step) {
-        var isStepValid = true;
-        if (parseInt(step) === 1) {
-            if (validateStep1() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        } else if (parseInt(step) === 2) {
-            if (validateStep2() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        } else if (parseInt(step) === 3) {
-            if (validateStep3() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        } else if (parseInt(step) === 4) {
-            if (validateStep4() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        } else if (parseInt(step) === 5) {
-            if (validateStep5() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        } else if (parseInt(step) === 6) {
-            if (validateStep6() === false) {
-                isStepValid = false;
-                //$('#wizard').smartWizard('showMessage', "Veuillez corriger les erreurs de l'étape n°" + step + " svp.");
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: true});
-            } else {
-                $('#wizard').smartWizard('setError', {stepnum: step, iserror: false});
-            }
-        }
-        return isStepValid;
+function validateStep1() {
+    var isValid = true;
+    if (isNaN($('#age').val()) || $('#age').val() === '' || parseInt($('#age').val()) <= 0) {
+        $('#age').parent().parent().addClass('has-error');
+        isValid = false;
+    } else {
+        $('#age').parent().parent().addClass('has-success');
+    }
+    if ($('#nom').val() === '') {
+        $('#nom').parent().parent().addClass('has-error');
+        isValid = false;
+    } else {
+        $('#nom').parent().parent().addClass('has-success');
     }
 
-    function validateStep1() {
-        var isValid = true;
-        if (isNaN($('#age').val()) || $('#age').val() === '' || parseInt($('#age').val()) <= 0) {
-            $('#age').parent().parent().addClass('has-error');
-            isValid = false;
-        } else {
-            $('#age').parent().parent().addClass('has-success');
-        }
-        if ($('#nom').val() === '') {
-            $('#nom').parent().parent().addClass('has-error');
-            isValid = false;
-        } else {
-            $('#nom').parent().parent().addClass('has-success');
-        }
-
-        if ($('#maison').val() === '') {
-            $('#maison').parent().parent().addClass('has-error');
-            isValid = false;
-        } else {
-            $('#maison').parent().parent().addClass('has-success');
-        }
-
-        return isValid;
+    if ($('#maison').val() === '') {
+        $('#maison').parent().parent().addClass('has-error');
+        isValid = false;
+    } else {
+        $('#maison').parent().parent().addClass('has-success');
     }
 
-    function validateStep2() {
-        var isValid = true;
-        return isValid;
+    return isValid;
+}
+
+function validateStep2() {
+    var isValid = true;
+    if (parseInt($('#totCaracs').text()) < 30) {
+        $('#totCaracs').parent().parent().removeClass('alert-warning').addClass('alert-danger');
+        isValid = false;
+    } else {
+        $('#totCaracs').parent().parent().removeClass('alert-danger').addClass('alert-warning');
     }
-    function validateStep2() {
-        var isValid = true;
-        return isValid;
+    return isValid;
+}
+function validateStep3() {
+    var isValid = true;
+    if (parseInt($('#metiers').val()) === 0) {
+        $('#metiers').parent().parent().addClass('has-error');
+        isValid = false;
+    } else {
+        $('#metiers').parent().parent().addClass('has-error');
     }
-    function validateStep3() {
-        var isValid = true;
-        return isValid;
-    }
-    function validateStep4() {
-        var isValid = true;
-        return isValid;
-    }
-    function validateStep5() {
-        var isValid = true;
-        return isValid;
-    }
-    function validateStep6() {
-        var isValid = true;
-        return isValid;
-    }
-});
+    return isValid;
+}
+function validateStep4() {
+    var isValid = true;
+    return isValid;
+}
+function validateStep5() {
+    var isValid = true;
+    return isValid;
+}
+function validateStep6() {
+    var isValid = true;
+    return isValid;
+}
