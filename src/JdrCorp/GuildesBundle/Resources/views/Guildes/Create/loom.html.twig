@@ -1,0 +1,113 @@
+<div class="panel-group" id="accordionLoom"  style="height:500px;overflow:auto;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionLoom" href="#collapseLoomOne">
+                    Les tours
+                </a>
+            </h4>
+        </div>
+        <div id="collapseLoomOne" class="panel-collapse collapse">
+            <div id="listeTour" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Nom</th>
+                    <th>Effet</th>
+                    <th>Maison</th>
+                    </thead>
+                    <tbody>
+                        {% for tour in listetour %}
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="tour[]" value="{{tour.getId}}">
+                                            {{tour.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{tour.getEffet}}</td>
+                                <td>{{tour.getMaison.getNom}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionLoom" href="#collapseLoomTwo">
+                    Les sorts
+                </a>
+            </h4>
+        </div>
+        <div id="collapseLoomTwo" class="panel-collapse collapse">
+            <div id="listeSorts" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Nom</th>
+                    <th>Effet</th>
+                    <th>Maison</th>
+                    </thead>
+                    <tbody>
+                        {% for sort in listesort %}
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sort[]" value="{{sort.getId}}">
+                                            {{sort.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{sort.getEffet}}</td>
+                                <td>{{sort.getMaison.getNom}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordionLoom" href="#collapseLoomThree">
+                    Les sortilèges
+                </a>
+            </h4>
+        </div>
+        <div id="collapseLoomThree" class="panel-collapse collapse">
+            <div id="listeSortileges" class="panel-body">
+                <table class="table table-hover" style="height:300px;overflow:auto;">
+                    <thead>
+                    <th>Nom</th>
+                    <th>Effet</th>
+                    <th>Maison</th>
+                    </thead>
+                    <tbody>
+                        {% for sortilege in listesortilege %}
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sortil[]" value="{{sortilege.getId}}">
+                                            {{sortilege.getNom}}
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>{{sortilege.getEffet}}</td>
+                                <td>{{sortilege.getMaison.getNom}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

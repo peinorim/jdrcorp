@@ -18,21 +18,21 @@
                         <th style='text-align: left;'>%age total</th>
                         </thead>
                         <tbody>
-  {% for comp in listeComp %}
-                            <tr>
-        {% if comp in listeCompMetier %}
-                                <td class="col-md-4">{{ comp.getNom }}</td>
-                                <td class="col-md-2">{{ comp.getBase }}%</td>
-                                <td class="col-md-2"><div class="input-group"><input type="text" class="comp form-control col-md-3 " name="comp[{{ comp.getId }}]" value=""  maxlength="3"/><span class="input-group-addon">%</span></div></td>
-                                <td  class="col-md-4"style='text-align: left;'></td>
-        {% else %}
-                                <td class="col-md-4">{{ comp.getNom }}</td>
-                                <td class="col-md-2">{{ comp.getBase }}%</td>
-                                <td class="col-md-2"></td>
-                                <td class="col-md-4" style='text-align: left;'></td>
-        {% endif %}
-                            </tr>
-  {% endfor %}
+                            {% for comp in listeComp %}
+                                <tr>
+                                    {% if comp in listeCompMetier %}
+                                        <td class="col-md-4">{{ comp.getNom }}</td>
+                                        <td class="col-md-2">{{ comp.getBase }}%</td>
+                                        <td class="col-md-2"><div class="input-group"><input type="text" class="comp form-control col-md-3 " name="comp[{{ comp.getId }}]" value=""  maxlength="3"/><span class="input-group-addon">%</span></div></td>
+                                        <td  class="col-md-4"style='text-align: left;'></td>
+                                    {% else %}
+                                        <td class="col-md-4">{{ comp.getNom }}</td>
+                                        <td class="col-md-2">{{ comp.getBase }}%</td>
+                                        <td class="col-md-2"></td>
+                                        <td class="col-md-4" style='text-align: left;'></td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -41,99 +41,99 @@
     </div>
 
 
-{% if metier.getNbContact > 0 %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                    Armes de contact
-                </a>
-            </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-            <div style="max-height:350px;overflow:auto;">
-                <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
-                    <thead>
-                    <th>Armes de contact</th>
-                    <th>Base</th>
-                    <th>Dégâts</th>
-                    <th>Mains</th>
-                    <th>%age rajouté</th>
-                    <th style='text-align: center;'>%age total</th>
-                    </thead>
-                    <tbody>
-  {% for arme in listeArmes %}
-            {% if arme.getType == 'C' %}
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_contact"/>{{ arme.getNom }}
-                                    </label>
-                                </div>
-                            </td>
-                            <td class="col-md-2">{{ arme.getBase }}%</td>
-                            <td class="col-md-2">{{ arme.getDegats }}</td>
-                            <td class="col-md-2">{{ arme.getMains }}</td>
-                            <td class="col-md-2"><div class="input-group"><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/><span class="input-group-addon">%</span></div></td>
-                            <td style='text-align: center;'></td>
-                        </tr>
-            {% endif %}
-  {% endfor %}
-                    </tbody>
-                </table>
+    {% if metier.getNbContact > 0 %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        Armes de contact
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div style="max-height:350px;overflow:auto;">
+                    <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
+                        <thead>
+                        <th>Armes de contact</th>
+                        <th>Base</th>
+                        <th>Dégâts</th>
+                        <th>Mains</th>
+                        <th>%age rajouté</th>
+                        <th style='text-align: center;'>%age total</th>
+                        </thead>
+                        <tbody>
+                            {% for arme in listeArmes %}
+                                {% if arme.getType == 'C' %}
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_contact"/>{{ arme.getNom }}
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="col-md-2">{{ arme.getBase }}%</td>
+                                        <td class="col-md-2">{{ arme.getDegats }}</td>
+                                        <td class="col-md-2">{{ arme.getMains }}</td>
+                                        <td class="col-md-2"><div class="input-group"><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/><span class="input-group-addon">%</span></div></td>
+                                        <td style='text-align: center;'></td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-{% endif %}
+    {% endif %}
 
-{% if metier.getNbJet > 0 %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                    Armes de jet
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-            <div style="max-height:350px;overflow:auto;">
-                <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
-                    <thead>
-                    <th>Armes de jet</th>
-                    <th>Base</th>
-                    <th>Dégâts</th>
-                    <th>%age rajouté</th>
-                    <th style='text-align: center;'>%age total</th>
-                    </thead>
-                    <tbody>
-  {% for arme in listeArmes %}
-            {% if arme.getType == 'J' %}
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_jet"/>{{ arme.getNom }}
-                                    </label>
-                                </div>
-                            </td>
-                            <td class="col-md-2">{{ arme.getBase }}%</td>
-                            <td class="col-md-2">{{ arme.getDegats }}</td>
-                            <td class="col-md-2"><div class="input-group"><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/><span class="input-group-addon">%</span></div></td>
-                            <td style='text-align: center;'></td>
-                        </tr>
-            {% endif %}
-  {% endfor %}
-                    </tbody>
-                </table>
+    {% if metier.getNbJet > 0 %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        Armes de jet
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div style="max-height:350px;overflow:auto;">
+                    <table class="table table-hover" style="height:200px;overflow:auto;display: table;">
+                        <thead>
+                        <th>Armes de jet</th>
+                        <th>Base</th>
+                        <th>Dégâts</th>
+                        <th>%age rajouté</th>
+                        <th style='text-align: center;'>%age total</th>
+                        </thead>
+                        <tbody>
+                            {% for arme in listeArmes %}
+                                {% if arme.getType == 'J' %}
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="arme_{{ arme.getId }}" class="cb_jet"/>{{ arme.getNom }}
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="col-md-2">{{ arme.getBase }}%</td>
+                                        <td class="col-md-2">{{ arme.getDegats }}</td>
+                                        <td class="col-md-2"><div class="input-group"><input type="text" class="armes form-control col-md-3" name="arme[{{ arme.getId }}]" value=""  maxlength="3" disabled/><span class="input-group-addon">%</span></div></td>
+                                        <td style='text-align: center;'></td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-{% endif %}
+    {% endif %}
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var contact_max = parseInt({{metier.getNbContact}});
         var nb_contact_max = 0;
         var jet_max = parseInt({{metier.getNbJet}});
@@ -152,11 +152,11 @@
             info.removeClass('alert alert-info');
             info.html('');
         }
-        $(document).on('click', '.cb_contact', function() {
+        $(document).on('click', '.cb_contact', function () {
             if ($(this).prop('checked') === true) {
                 nb_contact_max++;
                 if (nb_contact_max === contact_max) {
-                    $(".cb_contact").each(function() {
+                    $(".cb_contact").each(function () {
                         if ($(this).prop('checked') === false) {
                             $(this).attr("disabled", "disabled");
                             $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").val('');
@@ -167,7 +167,7 @@
                     });
                 } else {
                     $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").children(":first").removeAttr("disabled");
-                    $(".cb_contact").each(function() {
+                    $(".cb_contact").each(function () {
                         if ($(this).prop('checked') === false) {
                             $(this).removeAttr("disabled");
                             $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").children(":first").attr("disabled", "disabled");
@@ -183,18 +183,18 @@
                 }
                 $(this).parent().parent().parent().siblings("td:eq(3)").children(":first").children(":first").val('');
                 $(this).parent().parent().parent().siblings("td:last").html('');
-                $(".cb_contact").each(function() {
+                $(".cb_contact").each(function () {
                     if ($(this).prop('checked') === false) {
                         $(this).removeAttr("disabled");
                     }
                 });
             }
         });
-        $(document).on('click', '.cb_jet', function() {
+        $(document).on('click', '.cb_jet', function () {
             if ($(this).prop('checked') === true) {
                 nb_jet_max++;
                 if (nb_jet_max === jet_max) {
-                    $(".cb_jet").each(function() {
+                    $(".cb_jet").each(function () {
                         if ($(this).prop('checked') === false) {
                             $(this).attr("disabled", "disabled");
                             $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").val('');
@@ -205,7 +205,7 @@
                     });
                 } else {
                     $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").removeAttr("disabled");
-                    $(".cb_jet").each(function() {
+                    $(".cb_jet").each(function () {
                         if ($(this).prop('checked') === false) {
                             $(this).removeAttr("disabled");
                             $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").attr("disabled", "disabled");
@@ -221,7 +221,7 @@
                 }
                 $(this).parent().parent().parent().siblings("td:eq(2)").children(":first").children(":first").val('');
                 $(this).parent().parent().parent().siblings("td:last").html('');
-                $(".cb_jet").each(function() {
+                $(".cb_jet").each(function () {
                     if ($(this).prop('checked') === false) {
                         $(this).removeAttr("disabled");
                     }

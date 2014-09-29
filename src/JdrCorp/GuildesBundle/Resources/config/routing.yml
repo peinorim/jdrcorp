@@ -36,3 +36,16 @@ Guildes_equipement:
 Guildes_machinations:
     pattern:  /guildes/machinations
     defaults: { _controller: JdrCorpGuildesBundle:Guildes:machination } 
+Guildes_create:
+    pattern:  /guildes/create
+    defaults: { _controller: JdrCorpGuildesBundle:Create:index } 
+Guildes_create_getMetier:
+    pattern:  /guildes/metier/{id}
+    defaults: { _controller: JdrCorpGuildesBundle:Create:getMetier }
+    requirements:
+        _method:  POST
+Guildes_generate:
+    pattern:  /guildes/generate
+    defaults: { _controller: JdrCorpGuildesBundle:Create:create }
+    requirements:
+        _method:  POST

@@ -31,6 +31,15 @@ class CompetenceMetier {
      */
     private $metier;
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
     // Getter et setter pour l'entité Metier
     public function setMetier(\JdrCorp\GuildesBundle\Entity\Metier $metier) {
         $this->metier = $metier;
