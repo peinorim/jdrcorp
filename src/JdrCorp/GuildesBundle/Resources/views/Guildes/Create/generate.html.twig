@@ -144,18 +144,18 @@
                 <li>Portée : {{tour.portee}}</li> 
                 <li>Effet : {{tour.effet}}</li>
                 <li style="margin-top:20px;"></li>
-            {% endfor %}
+                {% endfor %}
         </ul>
-        
+
         <ul id="sorts" style="width:520px;">
             {% for sort in perso.sorts %}
                 <li>Nom : {{sort.nom}}  -  Difficulté : {{sort.diff}}</li>    
                 <li>Type : {{sort.type}}</li>
                 <li style="margin-top:20px;"></li>
-            {% endfor %}
-            {% for sortil in perso.sortils %}
+                {% endfor %}
+                {% for sortil in perso.sortils %}
                 <li>Nom : {{sortil.nom}}  -  Difficulté : {{sortil.diff}}</li>    
-            {% endfor %}
+                {% endfor %}
         </ul>
     </body>
     <style>
@@ -197,7 +197,11 @@
         #fiche_verso {
             page-break-before:always;
             page-break-after:always;
-            background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
+            {%if perso.tours|length > 0 or perso.sorts|length > 0 or perso.sortils|length > 0%}
+                background:url("{{ asset('images/guildes_verso.jpg') }}") no-repeat left top;
+            {%else%}
+                background:url("{{ asset('images/guildes_verso_clear.jpg') }}") no-repeat left top;
+            {%endif%}
             top:1600px;
             width:1150px;
             height:1573px;
