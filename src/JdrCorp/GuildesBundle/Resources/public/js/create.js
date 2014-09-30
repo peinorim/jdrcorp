@@ -185,15 +185,18 @@ function validateStep1() {
     var isValid = true;
     if (isNaN($('#age').val()) || $('#age').val() === '' || parseInt($('#age').val()) <= 0) {
         $('#age').parent().parent().addClass('has-error');
+        $('#age').parent().parent().removeClass('has-success');
         isValid = false;
     } else {
         $('#age').parent().parent().addClass('has-success');
+        $('#age').parent().parent().removeClass('has-error');
     }
     if ($('#nom').val() === '') {
         $('#nom').parent().parent().addClass('has-error');
         isValid = false;
     } else {
         $('#nom').parent().parent().addClass('has-success');
+        $('#nom').parent().parent().removeClass('has-error');
     }
 
     if ($('#maison').val() === '') {
