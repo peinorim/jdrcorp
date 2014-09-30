@@ -19,83 +19,83 @@ class Arme {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="init", type="integer")
      */
-    private $init;
+    protected $init;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="att", type="integer")
      */
-    private $att;
+    protected $att;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="def", type="integer")
      */
-    private $def;
+    protected $def;
 
     /**
      * @var string
      *
      * @ORM\Column(name="blessure", type="string", length=255)
      */
-    private $blessure;
+    protected $blessure;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="enc", type="integer")
      */
-    private $enc;
+    protected $enc;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="fort", type="integer")
      */
-    private $fort;
+    protected $fort;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="cad", type="integer")
      */
-    private $cad;
+    protected $cad;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="pmoy", type="integer")
      */
-    private $pmoy;
+    protected $pmoy;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peff", type="integer")
      */
-    private $peff;
+    protected $peff;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Competence")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $competence;
+    protected $competence;
 
     /**
      * Get id

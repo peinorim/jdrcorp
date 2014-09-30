@@ -172,6 +172,9 @@ class CreateController extends Controller {
             $perso->setTours($tours);
             $perso->setSorts($sorts);
             $perso->setSortils($sortils);
+            
+            $em->persist($perso);
+            $em->flush();
 
             $html = $this->renderView('JdrCorpGuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso,));
             if ($request->request->get('options') === 'jpg') {

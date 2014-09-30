@@ -19,48 +19,48 @@ class CDBMaison {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="titre", type="text")
      */
-    private $titre;
+    protected $titre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cdb", type="text")
      */
-    private $cdb;
+    protected $cdb;
 
     /**
      * @var string
      *
      * @ORM\Column(name="effet", type="text")
      */
-    private $effet;
+    protected $effet;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mes", type="text")
      */
-    private $mes;
+    protected $mes;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mes_effet", type="text")
      */
-    private $mesEffet;
+    protected $mesEffet;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $maison;
+    protected $maison;
 
     /**
      * Set maison

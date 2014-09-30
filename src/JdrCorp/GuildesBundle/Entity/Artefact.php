@@ -19,24 +19,24 @@ class Artefact {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
      */
-    private $maison;
+    protected $maison;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\ArtefactType")
      */
-    private $type;
+    protected $type;
 
     /**
      * Get id

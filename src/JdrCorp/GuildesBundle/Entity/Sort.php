@@ -19,55 +19,55 @@ class Sort {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="diff", type="string", length=255)
      */
-    private $diff;
+    protected $diff;
 
     /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
      */
-    private $type;
+    protected $type;
 
     /**
      * @var string
      *
      * @ORM\Column(name="portee", type="string", length=255)
      */
-    private $portee;
+    protected $portee;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cible", type="string", length=255)
      */
-    private $cible;
+    protected $cible;
 
     /**
      * @var string
      *
      * @ORM\Column(name="effet", type="text")
      */
-    private $effet;
+    protected $effet;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $maison;
+    protected $maison;
 
     /**
      * Set maison

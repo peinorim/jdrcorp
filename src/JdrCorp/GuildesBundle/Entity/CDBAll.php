@@ -19,21 +19,21 @@ class CDBAll
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="text")
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="effet", type="text")
      */
-    private $effet;
+    protected $effet;
 
 
     /**

@@ -19,17 +19,17 @@ class CompetenceMetier {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Competence")
      */
-    private $competence;
+    protected $competence;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Metier")
      */
-    private $metier;
+    protected $metier;
 
     /**
      * Get id

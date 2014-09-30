@@ -19,40 +19,40 @@ class Competence {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Chapitre")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $chapitre;
+    protected $chapitre;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Carac")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $carac;
+    protected $carac;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="apprenti", type="integer")
      */
-    private $apprenti;
+    protected $apprenti;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="academie", type="integer")
      */
-    private $academie;
+    protected $academie;
 
     /**
      * Get id

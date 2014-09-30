@@ -19,41 +19,41 @@ class Equipement {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prix", type="string", length=50)
      */
-    private $prix;
+    protected $prix;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="rarete", type="integer")
      */
-    private $rarete;
+    protected $rarete;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\EquipCategorie")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categorie;
+    protected $categorie;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="base", type="integer")
      */
-    private $base;
+    protected $base;
 
     /**
      * Get id

@@ -19,62 +19,62 @@ class Machination {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="niveau", type="string", length=255)
      */
-    private $niveau;
+    protected $niveau;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
      */
-    private $description;
+    protected $description;
 
     /**
      * @var string
      *
      * @ORM\Column(name="novice", type="text")
      */
-    private $novice;
+    protected $novice;
 
     /**
      * @var string
      *
      * @ORM\Column(name="initie", type="text")
      */
-    private $initie;
+    protected $initie;
 
     /**
      * @var string
      *
      * @ORM\Column(name="expert", type="text")
      */
-    private $expert;
+    protected $expert;
 
     /**
      * @var string
      *
      * @ORM\Column(name="effet_pervers", type="text")
      */
-    private $effetPervers;
+    protected $effetPervers;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Chapitre")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $chapitre;
+    protected $chapitre;
 
     /**
      * Get id

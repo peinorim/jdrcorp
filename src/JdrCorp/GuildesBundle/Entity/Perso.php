@@ -19,210 +19,210 @@ class Perso {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string")
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="surnom", type="string")
      */
-    private $surnom;
+    protected $surnom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="maison", type="string")
      */
-    private $maison;
+    protected $maison;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="age", type="string")
+     * @ORM\Column(name="age", type="integer")
      */
-    private $age;
+    protected $age;
 
     /**
      * @var string
      *
      * @ORM\Column(name="sexe", type="string")
      */
-    private $sexe;
+    protected $sexe;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="desc", type="text")
+     * @ORM\Column(name="descrip", type="text")
      */
-    private $desc;
+    protected $descrip;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="agile", type="integer")
      */
-    private $agile;
+    protected $agile;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="fort", type="integer")
      */
-    private $fort;
+    protected $fort;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="res", type="integer")
      */
-    private $res;
+    protected $res;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="obs", type="integer")
      */
-    private $obs;
+    protected $obs;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="charm", type="integer")
      */
-    private $charm;
+    protected $charm;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="ruse", type="integer")
      */
-    private $ruse;
+    protected $ruse;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="savant", type="integer")
      */
-    private $savant;
+    protected $savant;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="tal", type="integer")
      */
-    private $tal;
+    protected $tal;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="guerrier", type="integer")
      */
-    private $guerrier;
+    protected $guerrier;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="etrange", type="integer")
      */
-    private $etrange;
+    protected $etrange;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="guildien", type="integer")
      */
-    private $guildien;
+    protected $guildien;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="destin", type="integer")
      */
-    private $destin;
+    protected $destin;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="pv", type="integer")
      */
-    private $pv;
+    protected $pv;
 
     /**
      * @var string
      *
      * @ORM\Column(name="metier", type="string")
      */
-    private $metier;
+    protected $metier;
 
     /**
      * @var array
      *
      * @ORM\Column(name="competences", type="array")
      */
-    private $competences;
+    protected $competences;
 
     /**
      * @var array
      *
      * @ORM\Column(name="armes", type="array")
      */
-    private $armes;
+    protected $armes;
 
     /**
      * @var array
      *
      * @ORM\Column(name="armures", type="array")
      */
-    private $armures;
+    protected $armures;
 
     /**
      * @var array
      *
      * @ORM\Column(name="loom", type="array")
      */
-    private $loom;
+    protected $loom;
 
     /**
      * @var array
      *
      * @ORM\Column(name="competencesCpg", type="array")
      */
-    private $competencesCpg;
+    protected $competencesCpg;
 
     /**
      * @var array
      *
      * @ORM\Column(name="equip", type="array")
      */
-    private $equip;
+    protected $equip;
 
     /**
      * @var array
      *
      * @ORM\Column(name="tours", type="array")
      */
-    private $tours;
+    protected $tours;
     
     /**
      * @var array
      *
      * @ORM\Column(name="sorts", type="array")
      */
-    private $sorts;
+    protected $sorts;
     
     /**
      * @var array
      *
      * @ORM\Column(name="sortils", type="array")
      */
-    private $sortils;
+    protected $sortils;
 
     public function __construct($request) {
         $this->setNom($request->request->get('nom'));
@@ -230,7 +230,7 @@ class Perso {
         $this->setMaison($request->request->get('maison'));
         $this->setAge($request->request->get('age'));
         $this->setSexe($request->request->get('sexe'));
-        $this->setDesc($request->request->get('desc'));
+        $this->setDescrip($request->request->get('desc'));
         $this->setAgile($request->request->get('agile'));
         $this->setFort($request->request->get('fort'));
         $this->setRes($request->request->get('res'));
@@ -363,8 +363,8 @@ class Perso {
      * @param string $desc
      * @return Perso
      */
-    public function setDesc($desc) {
-        $this->desc = $desc;
+    public function setDescrip($desc) {
+        $this->descrip = $desc;
         return $this;
     }
 
@@ -374,7 +374,7 @@ class Perso {
      * @return string 
      */
     public function getDesc() {
-        return $this->desc;
+        return $this->descrip;
     }
 
     /**

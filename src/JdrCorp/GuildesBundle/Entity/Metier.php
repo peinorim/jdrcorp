@@ -19,20 +19,20 @@ class Metier {
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\ManyToOne(targetEntity="JdrCorp\GuildesBundle\Entity\Maison")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $maison;
+    protected $maison;
 
     /**
      * Get id

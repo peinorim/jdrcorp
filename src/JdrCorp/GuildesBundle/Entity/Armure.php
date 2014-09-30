@@ -19,56 +19,56 @@ class Armure
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var float
      *
      * @ORM\Column(name="init", type="float")
      */
-    private $init;
+    protected $init;
 
     /**
      * @var float
      *
      * @ORM\Column(name="att", type="float")
      */
-    private $att;
+    protected $att;
 
     /**
      * @var float
      *
      * @ORM\Column(name="def", type="float")
      */
-    private $def;
+    protected $def;
 
     /**
      * @var float
      *
      * @ORM\Column(name="protec", type="float")
      */
-    private $protec;
+    protected $protec;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="enc", type="integer")
      */
-    private $enc;
+    protected $enc;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="fort", type="integer")
      */
-    private $fort;
+    protected $fort;
 
 
     /**
