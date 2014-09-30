@@ -228,6 +228,11 @@ function validateStep3() {
 }
 function validateStep4() {
     var isValid = true;
+    var armes = $("#listeArmes :checkbox:checked").length;
+    var armures = $("#listeArmures :checkbox:checked").length;
+    if (armes === 0 || armures === 0) {
+        isValid = false;
+    }
     return isValid;
 }
 function validateStep5() {
