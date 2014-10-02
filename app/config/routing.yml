@@ -11,14 +11,14 @@ jdr_corp_elric:
     prefix:   /
     
 register:
-    pattern:   /jdrcorp/register
+    pattern:   /register
     defaults:  { _controller: JdrCorpIndexBundle:Index:register } 
 register_submit:
-    pattern:   /jdrcorp/register/submit
+    pattern:   /register/submit
     defaults:  { _controller: JdrCorpIndexBundle:Index:register_submit }    
     
 login:
-    pattern:   /jdrcorp/login
+    pattern:   /login
     defaults:  { _controller: JdrCorpElricBundle:Elric:index }
 
 login_check:

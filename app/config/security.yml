@@ -25,12 +25,12 @@ security:
             anonymous: true
             provider: main
             form_login:
-                login_path:                     /jdrcorp/login
+                login_path:                     /login
                 use_forward:                    false
                 check_path:                     /login_check
                 post_only:                      true
                 always_use_default_target_path: true
-                default_target_path:            /jdrcorp/elric
+                default_target_path:            /elric
                 target_path_parameter:          _target_path
                 use_referer:                    false
                 failure_path:                   null
@@ -41,7 +41,7 @@ security:
                 intention:                      authenticate
             logout:
                 path:   /logout
-                target: /jdrcorp/elric
+                target: /elric
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
