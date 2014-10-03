@@ -9,72 +9,81 @@
         {% javascripts '@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/index.js' %}
+        {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/index.js' filter='?yui_js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
-        {% stylesheets 'bundles/jdrcorpelric/css/bootstrap.css'  filter='cssrewrite' %}
+        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/bootstrap.css'  filter='?yui_css' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
-        {% stylesheets 'bundles/jdrcorpguildes/css/index.css' filter='cssrewrite' %}
+        {% stylesheets '@JdrCorpGuildesBundle/Resources/public/index.css' filter='?yui_css' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
+        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/smart_wizard.css' filter='?yui_css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
     </head>
-{% block body %}
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{path('jdr_corp_index_homepage_duplicate')}}">Accueil JdrCorp</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar">
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Elric <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{path('Elric') }}">Index</a></li>
-                        {% if is_granted("ROLE_USER") == false %}
-                        <li><a href="{{path('register') }}">Inscription</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Guildes <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{path('Guildes') }}">Index</a></li>
-                        <li><a href="{{path('Guildes_armes') }}">Armes & Armures</a></li>
-                        <li><a href="{{path('Guildes_artefacts') }}">Artefacts</a></li>
-                        <li><a href="{{path('Guildes_cdb') }}">Coups de bols & Mésaventures</a></li>
-                        <li><a href="{{path('Guildes_comp') }}">Compétences & Métiers</a></li>
-                        <li><a href="{{path('Guildes_create') }}">Création de personnage</a></li>
-                        <li><a href="{{path('Guildes_equipement') }}">Equipement</a></li>
-                        <li><a href="{{path('Guildes_dice') }}">Lanceur de dés</a></li>
-                        <li><a href="{{path('Guildes_loom') }}">Loom</a></li>
-                        <li><a href="{{path('Guildes_machinations') }}">Machinations</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-  {% if notice %}
-    <div class="alert alert-{{type}} alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ notice }}</div>
-  {% endif %}
-  {% block fos_user_content %}
-  {% endblock fos_user_content %}
+    {% block body %}
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{path('jdr_corp_index_homepage_duplicate')}}">Accueil JdrCorp</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Elric <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{{path('Elric') }}">Index</a></li>
+                                {% if is_granted("ROLE_USER") == false %}
+                                <li><a href="{{path('register') }}">Inscription</a></li>
+                                {% endif %}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Guildes <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{{path('Guildes') }}">Index</a></li>
+                            <li><a href="{{path('Guildes_armes') }}">Armes & Armures</a></li>
+                            <li><a href="{{path('Guildes_artefacts') }}">Artefacts</a></li>
+                            <li><a href="{{path('Guildes_cdb') }}">Coups de bols & Mésaventures</a></li>
+                            <li><a href="{{path('Guildes_comp') }}">Compétences & Métiers</a></li>
+                            <li><a href="{{path('Guildes_create') }}">Création de personnage</a></li>
+                            <li><a href="{{path('Guildes_equipement') }}">Equipement</a></li>
+                            <li><a href="{{path('Guildes_dice') }}">Lanceur de dés</a></li>
+                            <li><a href="{{path('Guildes_loom') }}">Loom</a></li>
+                            <li><a href="{{path('Guildes_machinations') }}">Machinations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% if notice %}
+            <div class="alert alert-{{type}} alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ notice }}</div>
+        {% endif %}
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
 
-{% endblock %}
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    {% endblock %}
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-47119875-3', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-47119875-3', 'auto');
+        ga('send', 'pageview');
 
-</script>
+    </script>
 </html>
