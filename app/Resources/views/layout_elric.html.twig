@@ -78,6 +78,9 @@
                 <input type="submit" class="btn btn-default" value="Connexion"/>
                 <button class="btn btn-default"><a href="{{path('register') }}">Inscription</a></button>
             </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://paocorp.com">Site créé par paocorp.com</a></li>
+            </ul>
             {% else %}
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -90,6 +93,7 @@
                         <input type="submit" class="btn btn-default" value="Déconnexion"/>
                     </form>
                 </li>
+                <li><a href="http://paocorp.com">Site créé par paocorp.com</a></li>
             </ul>
             {% endif %}
         </div>
