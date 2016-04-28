@@ -4,46 +4,49 @@ JdrCorp - Guildes - Equipement
 {% endblock %}
 
 {% block fos_user_content %}
+<div class="container">
+	<div class="alert alert-info">
+		1 guilder de corail = 10 guilders d'écume = 100 guilders de sable
+	</div>
 
-<div class="alert alert-info">
-    1 guilder de corail = 10 guilders d'écume = 100 guilders de sable
-</div>
-
-<div class="panel-group" id="accordionArmes">
-    {% for cate in listeEqCate %}
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{cate.getId}}">
-                    {{cate.getNom}}
-                </a>
-            </h4>
-        </div>
-        <div id="collapse{{cate.getId}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Prix</th>
-                            <th>Rareté</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in listeEquip %}
-                        {%if item.getCategorie.getId == cate.getId%}
-                        <tr>
-                            <td>{{item.getNom}}</td>
-                            <td>{{item.getprix}}</td>
-                            <td>{{item.getRarete}}</td>
-                        </tr>
-                        {%endif%}
-                        {%endfor%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    {%endfor%}
+	<div class="panel-group" id="accordionArmes">
+		{% for cate in listeEqCate %}
+		<div class="panel panel-warning">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{cate.getId}}">
+		                {{cate.getNom}}
+		            </a>
+		        </h4>
+		    </div>
+		    <div id="collapse{{cate.getId}}" class="panel-collapse collapse">
+		        <div class="panel-body">
+					<div class="table-responsive">
+				        <table class="table table-hover">
+				            <thead>
+				                <tr>
+				                    <th>Nom</th>
+				                    <th>Prix</th>
+				                    <th>Rareté</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                {% for item in listeEquip %}
+				                {%if item.getCategorie.getId == cate.getId%}
+				                <tr>
+				                    <td>{{item.getNom}}</td>
+				                    <td>{{item.getprix}}</td>
+				                    <td>{{item.getRarete}}</td>
+				                </tr>
+				                {%endif%}
+				                {%endfor%}
+				            </tbody>
+				        </table>
+					</div>
+		        </div>
+		    </div>
+		</div>
+		{%endfor%}
+	</div>
 </div>
 {% endblock fos_user_content %}

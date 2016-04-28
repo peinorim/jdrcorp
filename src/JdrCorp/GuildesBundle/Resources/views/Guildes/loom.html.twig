@@ -4,107 +4,110 @@ JdrCorp - Guildes - Loom
 {% endblock %}
 
 {% block fos_user_content %}
-
-<div class="panel-group" id="accordionMaisons">
-    {% for maison in listemaison %}
-    {%if maison.getNom != 'Génériques'%}
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionMaisons" href="#collapse{{maison.getId}}">
-                    {{maison.getNom}}
-                </a>
-            </h4>
-        </div>
-        <div id="collapse{{maison.getId}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Tours</h3>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Portée</th>
-                                    <th>Cible</th>
-                                    <th>Durée</th>
-                                    <th>Effet</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for tour in listeTour %}
-                                {%if tour.getMaison.getId == maison.getId%}
-                                <tr>
-                                    <td>{{tour.getNom}}</td>
-                                    <td>{{tour.getPortee}}</td>
-                                    <td>{{tour.getCible}}</td>
-                                    <td>{{tour.getDuree}}</td>
-                                    <td>{{tour.getEffet}}</td>
-                                </tr>
-                                {%endif%}
-                                {%endfor%}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Sorts</h3>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Difficultée</th>
-                                    <th>Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for sort in listeSort %}
-                                    {%if sort.getMaison.getId == maison.getId%}
-                                <tr>
-                                    <td>{{sort.getNom}}</td>
-                                    <td>{{sort.getDiff}}</td>
-                                    <td>{{sort.getType}}</td>
-                                </tr>
-                                    {%endif%}
-                                {%endfor%}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Sortilèges</h3>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Difficultée</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for sortilege in listeSortilege %}
-                                    {%if sortilege.getMaison.getId == maison.getId%}
-                                <tr>
-                                    <td>{{sortilege.getNom}}</td>
-                                    <td>{{sortilege.getDiff}}</td>
-                                </tr>
-                                    {%endif%}
-                                {%endfor%}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {%endif%}
-    {%endfor%}
+<div class="container">
+	<div class="panel-group" id="accordionMaisons">
+		{% for maison in listemaison %}
+		{%if maison.getNom != 'Génériques'%}
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <a data-toggle="collapse" data-parent="#accordionMaisons" href="#collapse{{maison.getId}}">
+		                {{maison.getNom}}
+		            </a>
+		        </h4>
+		    </div>
+		    <div id="collapse{{maison.getId}}" class="panel-collapse collapse">
+		        <div class="panel-body">
+		            <div class="panel panel-primary">
+		                <div class="panel-heading">
+		                    <h3 class="panel-title">Tours</h3>
+		                </div>
+		                <div class="panel-body">
+							<div class="table-responsive">
+				                <table class="table table-hover">
+				                    <thead>
+				                        <tr>
+				                            <th>Nom</th>
+				                            <th>Portée</th>
+				                            <th>Cible</th>
+				                            <th>Durée</th>
+				                            <th>Effet</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody>
+				                        {% for tour in listeTour %}
+						                    {%if tour.getMaison.getId == maison.getId%}
+						                    <tr>
+						                        <td>{{tour.getNom}}</td>
+						                        <td>{{tour.getPortee}}</td>
+						                        <td>{{tour.getCible}}</td>
+						                        <td>{{tour.getDuree}}</td>
+						                        <td>{{tour.getEffet}}</td>
+						                    </tr>
+						                    {%endif%}
+				                        {%endfor%}
+				                    </tbody>
+				                </table>
+							</div>
+		                </div>
+		            </div>
+		            <div class="panel panel-primary">
+		                <div class="panel-heading">
+		                    <h3 class="panel-title">Sorts</h3>
+		                </div>
+		                <div class="panel-body">
+		                    <table class="table table-hover">
+		                        <thead>
+		                            <tr>
+		                                <th>Nom</th>
+		                                <th>Difficultée</th>
+		                                <th>Type</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            {% for sort in listeSort %}
+		                                {%if sort.getMaison.getId == maison.getId%}
+		                            <tr>
+		                                <td>{{sort.getNom}}</td>
+		                                <td>{{sort.getDiff}}</td>
+		                                <td>{{sort.getType}}</td>
+		                            </tr>
+		                                {%endif%}
+		                            {%endfor%}
+		                        </tbody>
+		                    </table>
+		                </div>
+		            </div>
+		            <div class="panel panel-primary">
+		                <div class="panel-heading">
+		                    <h3 class="panel-title">Sortilèges</h3>
+		                </div>
+		                <div class="panel-body">
+		                    <table class="table table-hover">
+		                        <thead>
+		                            <tr>
+		                                <th>Nom</th>
+		                                <th>Difficultée</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            {% for sortilege in listeSortilege %}
+		                                {%if sortilege.getMaison.getId == maison.getId%}
+		                            <tr>
+		                                <td>{{sortilege.getNom}}</td>
+		                                <td>{{sortilege.getDiff}}</td>
+		                            </tr>
+		                                {%endif%}
+		                            {%endfor%}
+		                        </tbody>
+		                    </table>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		{%endif%}
+		{%endfor%}
+	</div>
 </div>
 {% endblock fos_user_content %}

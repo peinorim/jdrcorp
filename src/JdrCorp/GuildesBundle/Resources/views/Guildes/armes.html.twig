@@ -5,94 +5,100 @@ JdrCorp - Guildes - Armes & Armures
 
 {% block fos_user_content %}
 
-<div class="panel-group" id="accordionArmes">
-    {% for comp in listeComp %}
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{comp.getId}}">
-                    {{comp.getNom}}
-                </a>
-            </h4>
-        </div>
-        <div id="collapse{{comp.getId}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Init</th>
-                            <th>Att</th>
-                            <th>Def</th>
-                            <th>Blessure</th>
-                            <th>Encombrement</th>
-                            <th>Fort requis</th>
-                            <th>Cad</th>
-                            <th>PMoy</th>
-                            <th>PEff</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for arme in listeArmes %}
-                        {%if arme.getCompetence.getId == comp.getId%}
-                        <tr>
-                            <td>{{arme.getNom}}</td>
-                            <td>{{arme.getInit}}</td>
-                            <td>{{arme.getAtt}}</td>
-                            <td>{{arme.getDef}}</td>
-                            <td>{{arme.getBlessure}}</td>
-                            <td>{{arme.getEnc}}</td>
-                            <td>{{arme.getFort}}</td>
-                            <td>{{arme.getCad}}</td>
-                            <td>{{arme.getPmoy}}</td>
-                            <td>{{arme.getPeff}}</td>
-                        </tr>
-                        {%endif%}
-                        {%endfor%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    {%endfor%}
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapseArmures">
-                    Armures
-                </a>
-            </h4>
-        </div>
-        <div id="collapseArmures" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Init</th>
-                            <th>Att</th>
-                            <th>Def</th>
-                            <th>Protection</th>
-                            <th>Encombrement</th>
-                            <th>Fort requis</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for armure in listeArmures %}
-                        <tr>
-                            <td>{{armure.getNom}}</td>
-                            <td>{{armure.getInit}}</td>
-                            <td>{{armure.getAtt}}</td>
-                            <td>{{armure.getDef}}</td>
-                            <td>{{armure.getProtec}}</td>
-                            <td>{{armure.getEnc}}</td>
-                            <td>{{armure.getFort}}</td>
-                        </tr>
-                        {%endfor%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<div class="container">
+	<div class="panel-group" id="accordionArmes">
+		{% for comp in listeComp %}
+		<div class="panel panel-warning">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{comp.getId}}">
+		                {{comp.getNom}}
+		            </a>
+		        </h4>
+		    </div>
+		    <div id="collapse{{comp.getId}}" class="panel-collapse collapse">
+		        <div class="panel-body">
+					<div class="table-responsive">
+				        <table class="table table-hover">
+				            <thead>
+				                <tr>
+				                    <th>Nom</th>
+				                    <th>Init</th>
+				                    <th>Att</th>
+				                    <th>Def</th>
+				                    <th>Blessure</th>
+				                    <th>Encombrement</th>
+				                    <th>Fort requis</th>
+				                    <th>Cad</th>
+				                    <th>PMoy</th>
+				                    <th>PEff</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                {% for arme in listeArmes %}
+				                {%if arme.getCompetence.getId == comp.getId%}
+				                <tr>
+				                    <td>{{arme.getNom}}</td>
+				                    <td>{{arme.getInit}}</td>
+				                    <td>{{arme.getAtt}}</td>
+				                    <td>{{arme.getDef}}</td>
+				                    <td>{{arme.getBlessure}}</td>
+				                    <td>{{arme.getEnc}}</td>
+				                    <td>{{arme.getFort}}</td>
+				                    <td>{{arme.getCad}}</td>
+				                    <td>{{arme.getPmoy}}</td>
+				                    <td>{{arme.getPeff}}</td>
+				                </tr>
+				                {%endif%}
+				                {%endfor%}
+				            </tbody>
+				        </table>
+					</div>
+		        </div>
+		    </div>
+		</div>
+		{%endfor%}
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapseArmures">
+		                Armures
+		            </a>
+		        </h4>
+		    </div>
+		    <div id="collapseArmures" class="panel-collapse collapse">
+		        <div class="panel-body">
+					<div class="table-responsive">
+				        <table class="table table-hover">
+				            <thead>
+				                <tr>
+				                    <th>Nom</th>
+				                    <th>Init</th>
+				                    <th>Att</th>
+				                    <th>Def</th>
+				                    <th>Protection</th>
+				                    <th>Encombrement</th>
+				                    <th>Fort requis</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                {% for armure in listeArmures %}
+				                <tr>
+				                    <td>{{armure.getNom}}</td>
+				                    <td>{{armure.getInit}}</td>
+				                    <td>{{armure.getAtt}}</td>
+				                    <td>{{armure.getDef}}</td>
+				                    <td>{{armure.getProtec}}</td>
+				                    <td>{{armure.getEnc}}</td>
+				                    <td>{{armure.getFort}}</td>
+				                </tr>
+				                {%endfor%}
+				            </tbody>
+				        </table>
+					</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
 </div>
 {% endblock fos_user_content %}

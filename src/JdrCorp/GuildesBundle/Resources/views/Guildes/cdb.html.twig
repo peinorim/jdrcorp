@@ -4,26 +4,26 @@ JdrCorp - Guildes - Cdb & Més
 {% endblock %}
 
 {% block fos_user_content %}
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#generiques" data-toggle="tab">Génériques</a></li>
+		<li><a href="#maisons" data-toggle="tab">Maisons</a></li>
+		<li><a href="#academie" data-toggle="tab">Académie</a></li>
+	</ul>
 
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#generiques" data-toggle="tab">Génériques</a></li>
-    <li><a href="#maisons" data-toggle="tab">Maisons</a></li>
-    <li><a href="#academie" data-toggle="tab">Académie</a></li>
-</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="generiques">
+		    {% include 'JdrCorpGuildesBundle:Guildes:cdb_all.html.twig' %}
+		</div>
 
-<div class="tab-content">
-    <div class="tab-pane active" id="generiques">
-        {% include 'JdrCorpGuildesBundle:Guildes:cdb_all.html.twig' %}
-    </div>
-
-    <div class="tab-pane" id="maisons">
-        {% include 'JdrCorpGuildesBundle:Guildes:cdb_maisons.html.twig' %}
-    </div>
-    <div class="tab-pane" id="academie">
-        {% include 'JdrCorpGuildesBundle:Guildes:cdb_academie.html.twig' %}
-    </div>
+		<div class="tab-pane" id="maisons">
+		    {% include 'JdrCorpGuildesBundle:Guildes:cdb_maisons.html.twig' %}
+		</div>
+		<div class="tab-pane" id="academie">
+		    {% include 'JdrCorpGuildesBundle:Guildes:cdb_academie.html.twig' %}
+		</div>
+	</div>
 </div>
-
 
 {% javascripts '@JdrCorpGuildesBundle/Resources/public/js/cdb.js' %}
 <script type="text/javascript" src="{{ asset_url }}"></script>

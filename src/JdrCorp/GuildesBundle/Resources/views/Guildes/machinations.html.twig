@@ -4,39 +4,40 @@ JdrCorp - Guildes - Machinations
 {% endblock %}
 
 {% block fos_user_content %}
-
-<div class="panel-group" id="accordionArmes">
-    {% for chap in listeChap %}
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{chap.getId}}">
-                    {{chap.getNom}}
-                </a>
-            </h4>
-        </div>
-        <div id="collapse{{chap.getId}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                {% for machi in listeMachination %}
-                {%if machi.getChapitre.getId == chap.getId%}
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="well">
-                            <h4><b>{{machi.getNom}}</b></h4>
-                            <p><b>Niveau : </b>{{machi.getNiveau}}</p>
-                            <p><b>Description : </b>{{machi.getDescription}}</p>
-                            <p><b>Novice : </b> {{machi.getNovice}}</p>
-                            <p><b>Initié : </b> {{machi.getInitie}}</p>
-                            <p><b>Expert : </b> {{machi.getExpert}}</p>
-                            <p><b>Effet pervers : </b> {{machi.getEffetPervers}}</p>
-                        </div>
-                    </div>
-                </div>
-                {%endif%}
-                {%endfor%}
-            </div>
-        </div>
-    </div>
-    {%endfor%}
+<div class="container">
+	<div class="panel-group" id="accordionArmes">
+		{% for chap in listeChap %}
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <a data-toggle="collapse" data-parent="#accordionArmes" href="#collapse{{chap.getId}}">
+		                {{chap.getNom}}
+		            </a>
+		        </h4>
+		    </div>
+		    <div id="collapse{{chap.getId}}" class="panel-collapse collapse">
+		        <div class="panel-body">
+		            {% for machi in listeMachination %}
+		            {%if machi.getChapitre.getId == chap.getId%}
+		            <div class="row">
+		                <div class="col-md-6">
+		                    <div class="well">
+		                        <h4><b>{{machi.getNom}}</b></h4>
+		                        <p><b>Niveau : </b>{{machi.getNiveau}}</p>
+		                        <p><b>Description : </b>{{machi.getDescription}}</p>
+		                        <p><b>Novice : </b> {{machi.getNovice}}</p>
+		                        <p><b>Initié : </b> {{machi.getInitie}}</p>
+		                        <p><b>Expert : </b> {{machi.getExpert}}</p>
+		                        <p><b>Effet pervers : </b> {{machi.getEffetPervers}}</p>
+		                    </div>
+		                </div>
+		            </div>
+		            {%endif%}
+		            {%endfor%}
+		        </div>
+		    </div>
+		</div>
+		{%endfor%}
+	</div>
 </div>
 {% endblock fos_user_content %}
