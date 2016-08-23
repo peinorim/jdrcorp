@@ -1,0 +1,10 @@
+{% extends "::layout_index.html.twig" %}
+{% block title %}
+    JdrCorp - Mon profil
+{% endblock %}
+{% block metas %}
+{% endblock %}
+
+{% block fos_user_content %}
+    {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock fos_user_content %}

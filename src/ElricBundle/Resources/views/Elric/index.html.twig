@@ -3,7 +3,12 @@
 JdrCorp - Elric - Accueil
 {% endblock %}
 {% block fos_user_content %}
-<div class="" style="margin-top:50px;">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>Elric - Création de fiche de personnage</h1>
+        </div>
+    </div>
+<div>
     <form method="post" action="{{path('Elric_Create') }}" id="create" name="create" enctype='multipart/form-data'>
         <div id="wizard" class="swMain" style="height:500px;width:100%;">
             <ul>

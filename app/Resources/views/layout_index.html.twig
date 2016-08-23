@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>{% block title %}Index - jdrcorp.paocorp.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="google-site-verification" content="A-DQr-ZIqPeK9JBKPgWoZzn9lgUTsCG9PQTlByJPXCA"/>
     <meta name="theme-color" content="#000000">
     {% block metas %}
+        <meta name="description"
+              content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg.">
+        <meta name="keywords" content="elric, guildes, jeu de rôles, pdf, jdrcorp">
         <meta property="og:description"
               content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg."/>
         <meta property="og:title" content="Jeu de rôle Elric"/>
@@ -90,7 +93,12 @@
             </ul>
         </div>
     </nav>
-    {% if type is defined and notice is defined %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="alert alert-info flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    {% if type is defined and notice is defined and notice != null %}
         <div class="alert alert-{{ type }}" role="alert">
             {{ notice }}
         </div>

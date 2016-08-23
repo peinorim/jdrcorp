@@ -31,10 +31,14 @@ class Sort {
      * @ORM\Column(name="sort_nom", type="string", length=255)
      */
     protected $sortNom;
-	
-	/**
-    * @ManyToMany(targetEntity="ElricBundle\Entity\Metier", mappedBy="sorts")
-    */
+
+    /**
+     * @ManyToMany(targetEntity="Metier")
+     * @JoinTable(name="SortMetier",
+     *      joinColumns={@JoinColumn(name="sort_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="metier_id", referencedColumnName="id")}
+     *      )
+     */
     protected $metiers;
 
     /**

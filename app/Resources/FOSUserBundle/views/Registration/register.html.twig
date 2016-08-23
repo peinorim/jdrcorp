@@ -57,18 +57,4 @@
             </form>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('#fos_user_registration_register').on('submit', function (e) {
-                if ($("#fos_user_registration_form_username").val() === "username") {
-                    if ($("#fos_user_registration_form_email").val() !== "") {
-                        $("#fos_user_registration_form_username").val($("#fos_user_registration_form_email").val());
-                    } else {
-                        return false;
-                    }
-                }
-                $(this).submit();
-            });
-        });
-    </script>
 {% endblock fos_user_content %}
