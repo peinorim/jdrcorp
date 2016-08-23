@@ -1,0 +1,11 @@
+<ul id="myComp">
+  {% for comp in listeComp %}
+        {% if comp in myComp and compTot[comp.getId] != '' and comp.getType == 'N' %}
+    <li><input type="checkbox" checked="checked"/>{{ comp.getNom }} ({{ comp.getBase }}%){{ compTot[comp.getId] }}%</li>
+        {%elseif comp in myComp and compTot[comp.getId] == '' and comp.getType == 'N' %}
+    <li><input type="checkbox" checked="checked"/>{{ comp.getNom }} ({{ comp.getBase }}%)___%</li>
+        {% elseif comp.getType == 'N' %}
+    <li><input type="checkbox" disabled/>{{ comp.getNom }} ({{ comp.getBase }}%)___</li>
+        {% endif %}
+  {% endfor %}
+</ul>

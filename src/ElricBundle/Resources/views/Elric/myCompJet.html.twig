@@ -1,0 +1,45 @@
+<table id="myArmure">
+    <thead>
+        <tr>
+            <th>Armure</th>
+            <th>Abs</th>
+            <th>Abs sans heaume</th>
+            <th>Encombrement</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for armure in myArmures %}
+        <tr>
+            <td class="col-md-4">{{ armure.getNom }}</td>
+            <td class="col-md-2">{{ armure.getAbs }}</td>
+            <td class="col-md-2">{{ armure.getAbsSans }}</td>
+            <td class="col-md-2">{{ armure.getEnc }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+<table id="myCompJet">
+    <thead>
+        <tr>
+            <th>Arme</th>
+            <th>Pourcentage</th>
+            <th>Dégâts</th>
+            <th>Structure</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for arme in myArmes %}
+     {% if arme.getType == 'J' %}
+        <tr>
+            <td class="col-md-4">{{ arme.getNom }} ({{ arme.getBase }}%)</td>
+            <td class="col-md-2">{{ arme.getTotal }}%</td>
+            <td class="col-md-2">{{ arme.getDegats }}</td>
+            <td class="col-md-2">{{ arme.getStructure }}</td>
+        </tr>
+    {% endif %}
+{% endfor %}
+    </tbody>
+</table>

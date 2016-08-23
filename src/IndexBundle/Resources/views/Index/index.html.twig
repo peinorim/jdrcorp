@@ -1,0 +1,21 @@
+{% extends "::layout_index.html.twig" %}
+{% block title %}
+    JdrCorp - Accueil
+{% endblock %}
+{% block fos_user_content %}
+    <div class="container">
+        <div class="col-md-6 col-sm-6">
+            <a class="thumbnail" href="{{ path('Elric') }}">
+                <img class="img-responsive" src="{{ asset('res/img/Elric_index.jpg') }}">
+                <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <a class="thumbnail" href="{{ path('Guildes') }}">
+                <img class="img-responsive" src="{{ asset('res/img/Guildes_index.jpg') }}">
+                <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
+            </a>
+        </div>
+    </div>
+{% endblock fos_user_content %}

@@ -1,0 +1,15 @@
+jdr_corp_index_homepage:
+    path:  /
+    defaults: { _controller: IndexBundle:Index:index }
+
+jdr_corp_index_homepage_duplicate:
+    path:  /index
+    defaults: { _controller: IndexBundle:Index:index }
+
+elric_profile:
+    path:  /mesfiches
+    defaults: { _controller: IndexBundle:Index:profile }
+
+fos_user_registration_confirmed:
+    path: /elric
+    defaults: { _controller: ElricBundle:Elric:index }

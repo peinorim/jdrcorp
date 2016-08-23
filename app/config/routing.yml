@@ -1,28 +1,17 @@
-jdr_corp_index:
-    resource: "@JdrCorpIndexBundle/Resources/config/routing.yml"
+guildes:
+    resource: "@GuildesBundle/Resources/config/routing.yml"
     prefix:   /
 
-jdr_corp_guildes:
-    resource: "@JdrCorpGuildesBundle/Resources/config/routing.yml"
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+index:
+    resource: "@IndexBundle/Resources/config/routing.yml"
     prefix:   /
 
-jdr_corp_elric:
-    resource: "@JdrCorpElricBundle/Resources/config/routing.yml"
+elric:
+    resource: "@ElricBundle/Resources/config/routing.yml"
     prefix:   /
-    
-register:
-    pattern:   /register
-    defaults:  { _controller: JdrCorpIndexBundle:Index:register } 
-register_submit:
-    pattern:   /register/submit
-    defaults:  { _controller: JdrCorpIndexBundle:Index:register_submit }    
-    
-login:
-    pattern:   /login
-    defaults:  { _controller: JdrCorpElricBundle:Elric:index }
-
-login_check:
-    pattern:   /login_check
-    
-logout:
-    pattern:   /logout

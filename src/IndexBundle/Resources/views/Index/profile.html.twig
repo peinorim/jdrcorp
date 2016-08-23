@@ -1,0 +1,265 @@
+{% extends "::layout_index.html.twig" %}
+{% block title %}
+    JdrCorp - Mes fiches de personnages
+{% endblock %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h3 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            {% if myfiches|length >0 %}
+                                Vous avez créé {{ myfiches|length }} fiche(s) pour Elric
+                            {% else %}
+                                Vous n'avez aucune fiche pour Elric
+                            {% endif %}
+                        </a>
+                    </h3>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        {% if myfiches|length >0 %}
+                            <table class="table table-hover table-responsive">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for fiche in myfiches %}
+                                    <tr>
+                                        <td class="col-md-6">Nom du personnage : {{ fiche.getPerso.getNom }} - Créé
+                                            le
+                                            : {{ fiche.date | date('d/m/Y à H:i:s') }}</td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">PDF</button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">JPG</button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+
+                                            <form action="{{ path('Elric_delete_fiche', {'id': fiche.getId}) }}"
+                                                  method="post">
+                                                <button class="btn btn-danger" type="submit">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <a href="{{ path('Elric') }}">Créer une fiche de personnage pour Elric</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            {% if myfichesGuildes|length >0 %}
+                                Vous avez créé {{ myfichesGuildes|length }} fiche(s) pour Guildes Eldorado
+                            {% else %}
+                                Vous n'avez créé aucune fiche pour Guildes Eldorado
+                            {% endif %}
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        {% if myfichesGuildes|length >0 %}
+                            <table class="table table-hover table-responsive">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for fiche in myfichesGuildes %}
+                                    <tr>
+                                        <td class="col-md-6">Nom du personnage : {{ fiche.getPerso.getNom }} - Créé
+                                            le
+                                            : {{ fiche.date | date('d/m/Y à H:i:s') }}</td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">PDF</button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">JPG</button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_delete_fiche', {'id': fiche.getId}) }}"
+                                                  method="post">
+                                                <button class="btn btn-danger" type="submit">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <a href="{{ path('Guildes_create') }}">Créer une fiche de personnage pour Guildes</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="heading3">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse3"
+                               aria-expanded="true" aria-controls="collapse3">
+                                {% if fichesElric is defined %}{{ fichesElric|length }}{% endif %} fiches créée(s) sur Elric
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="heading3">
+                        <div class="panel-body">
+                            {% if fichesElric is defined and fichesElric|length > 0 %}
+                                <table class="table table-hover table-responsive">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for fiche in fichesElric %}
+                                        <tr>
+                                            <td class="col-md-6">Nom du personnage : {{ fiche.getPerso.getNom }} - Créé
+                                                le
+                                                : {{ fiche.date | date('d/m/Y à H:i:s') }}
+                                            </td>
+                                            <td class="col-md-2">
+                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                                      target="_blank" method="post">
+                                                    <button type="submit" class="btn btn-primary btn-sm">PDF</button>
+                                                </form>
+                                            </td>
+                                            <td class="col-md-2">
+                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                                      target="_blank" method="post">
+                                                    <button type="submit" class="btn btn-primary btn-sm">JPG</button>
+                                                </form>
+                                            </td>
+                                            <td class="col-md-2">
+                                                <form action="{{ path('Elric_delete_fiche', {'id': fiche.getId}) }}"
+                                                      method="post">
+                                                    <button class="btn btn-danger" type="submit"
+                                                            title="Supprimer cette fiche">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                Aucune fiche créée sur Elric
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading4">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse4"
+                           aria-expanded="true" aria-controls="collapse4">
+                            {% if fichesGuildes is defined %}{{ fichesGuildes|length }}{% endif %} fiches créée(s) sur Guildes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
+                     aria-labelledby="heading4">
+                    <div class="panel-body">
+                        {% if fichesGuildes is defined and fichesGuildes|length > 0 %}
+                            <table class="table table-hover table-responsive">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for fiche in fichesGuildes %}
+                                    <tr>
+                                        <td class="col-md-6">Nom du personnage : {{ fiche.getPerso.getNom }} -
+                                            Créé
+                                            le
+                                            : {{ fiche.date | date('d/m/Y à H:i:s') }}
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">PDF
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                                  target="_blank" method="post">
+                                                <button type="submit" class="btn btn-primary btn-sm">JPG
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td class="col-md-2">
+                                            <form action="{{ path('Guildes_delete_fiche', {'id': fiche.getId}) }}"
+                                                  method="post">
+                                                <button class="btn btn-danger" type="submit"
+                                                        title="Supprimer cette fiche">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            Aucune fiche créée sur Guildes
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock fos_user_content %}

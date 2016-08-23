@@ -1,0 +1,386 @@
+	
+<base href="http://{{app.request.host}}">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>Guildes Eldorado - Fiche de personnage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="fiche_recto"></div>
+        <div id="fiche_verso"></div>
+        <span id="nom">{{perso.nom|raw }}</span>
+        <span id="surnom">{{perso.surnom|raw }}</span>
+        <span id="maison">{{perso.maison|raw }}</span>
+        <span id="age">{{perso.age|raw }}</span>
+        <span id="sexe">{{perso.sexe }}</span>
+        <span id="desc">{{perso.desc|raw }}</span>
+        <span id="metier">{{perso.metier}}</span>
+        <span id="destin">{{perso.destin}}</span>
+        <span id="agile">
+            {% for i in 1..perso.agile %}
+                <p class="puce"></p>
+            {% endfor %}
+        </span>
+        <span id="fort">
+            {% for i in 1..perso.fort %}
+                <p class="puce"></p>
+            {% endfor %}
+        </span>
+        <span id="res">
+            {% for i in 1..perso.res %}
+                <p class="puce"></p>
+            {% endfor %}
+        </span>
+        <span id="obs">
+            {% for i in 1..perso.obs %}
+                <p class="puce"></p>
+            {% endfor %}
+        </span>
+        <span id="charm">
+            {% for i in 1..perso.charm %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="ruse">
+            {% for i in 1..perso.ruse %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="savant">
+            {% for i in 1..perso.savant %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="tal">
+            {% for i in 1..perso.tal %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+
+        <span id="guerrier">
+            {% for i in 1..perso.guerrier %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="etrange">
+            {% for i in 1..perso.etrange %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <span id="guildien">
+            {% for i in 1..perso.guildien %}
+                <p class="puce1"></p>
+            {% endfor %}
+        </span>
+        <table id="pv" style="width:102px;">
+            <tbody>
+                {% for i in 1..perso.res %}
+                    <tr>
+                        <td style="padding-top: 14px;padding-bottom: 14px;"><span class="puce"></span></td>
+                        <td><span class="puce"></span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="comp" style="width:245px;">
+            <tbody>
+                {% for comp, niv in perso.competences %}
+                    <tr>
+                        <td>{{comp}}</td>
+                        <td>{{niv}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="compCpg" style="width:280px;">
+            <tbody>
+                {% for comp, niv in perso.competencesCpg %}
+                    <tr>
+                        <td>{{comp}}</td>
+                        <td>{{niv}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% for couleur, pts in perso.loom %}
+            <span class="couleur" id="{{couleur}}">{{pts}}</span>
+        {% endfor %}
+        <table id="armes">
+            <tbody>
+                {% for arme in perso.armes %}
+                    <tr>
+                        <td style="width:200px;">{{arme.Nom}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Init}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Att}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Def}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{arme.Blessure}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="armures">
+            <tbody>
+                {% for armure in perso.armures %}
+                    <tr>
+                        <td style="width:200px;">{{armure.Nom}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Init}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Att}}</td>
+                        <td style="padding:0px 35px 0px 0px;">{{armure.Def}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <span id="encperm">{{perso.fort * 2}}</span>
+        <ul id="equip">
+            {% for item in perso.equip %}
+                <li>{{item.Nom}}</li>
+                {% endfor %}
+        </ul>
+        <ul id="tours" style="width:520px;">
+            {% for tour in perso.tours %}
+                <li>Nom : {{tour.nom}}  -  Cible : {{tour.cible}}</li>    
+                <li>Portée : {{tour.portee}}</li> 
+                <li>Effet : {{tour.effet}}</li>
+                <li style="margin-top:20px;"></li>
+                {% endfor %}
+        </ul>
+
+        <ul id="sorts" style="width:520px;">
+            {% for sort in perso.sorts %}
+                <li>Nom : {{sort.nom}}  -  Difficulté : {{sort.diff}}</li>    
+                <li>Type : {{sort.type}}</li>
+                <li style="margin-top:20px;"></li>
+                {% endfor %}
+                {% for sortil in perso.sortils %}
+                <li>Nom : {{sortil.nom}}  -  Difficulté : {{sortil.diff}}</li>    
+                {% endfor %}
+        </ul>
+    </body>
+    <style>
+        span, table, img, ul{
+            font-family: Calibri;
+            font-size: 23px;
+            font-weight: bold;
+            position:absolute;
+            display:block;
+        }
+        table{
+            border-collapse: collapse;
+            font-weight: normal;
+        }
+        .puce{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .puce1{
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #000000;
+        }
+        .couleur, #destin{
+            font-size: 30px;
+            text-align: center;
+            width:50px;
+        }
+        #fiche_recto {
+            background:url("{{ asset('res/img/guildes_recto.jpg') }}") no-repeat left top;
+            width:1150px;
+            height:1573px;
+        }
+        #fiche_verso {
+            page-break-before:always;
+            page-break-after:always;
+            {%if perso.tours|length > 0 or perso.sorts|length > 0 or perso.sortils|length > 0%}
+                background:url("{{ asset('res/img/guildes_verso.jpg') }}") no-repeat left top;
+            {%else%}
+                background:url("{{ asset('res/img/guildes_verso_clear.jpg') }}") no-repeat left top;
+            {%endif%}
+            top:1600px;
+            width:1150px;
+            height:1573px;
+        }
+        #nom{  
+            top:15px;
+            left:380px;
+        }
+        #surnom{  
+            top:15px;
+            left:640px;
+        }
+        #maison{  
+            top:15px;
+            left:920px;
+        }
+        #age{  
+            top:15px;
+            left:1085px;
+        }
+
+        #sexe{  
+            top:45px;
+            left:430px;
+        }
+
+        #desc{  
+            top:73px;
+            left:310px;
+        }
+        #agile{  
+            top:241px;
+            left:247px;
+        }
+
+        #fort{  
+            top:298px;
+            left:247px;
+        }
+
+        #res{  
+            top:355px;
+            left:247px;
+        }
+
+        #obs{  
+            top:412px;
+            left:247px;
+        }
+
+        #charm{  
+            top:239px;
+            left:889px;
+        }
+
+        #ruse{  
+            top:295px;
+            left:889px;
+        }
+
+        #savant{  
+            top:352px;
+            left:889px;
+        }
+
+        #tal{  
+            top:410px;
+            left:889px;
+        }
+
+        #guerrier{  
+            top:213px;
+            left:989px;
+        }
+
+        #etrange{  
+            top:311px;
+            left:989px;
+        }
+
+        #guildien{  
+            top:410px;
+            left:989px;
+        }
+
+        #destin{  
+            top:410px;
+            left:580px;
+            color:red;
+        }
+
+        #metier{  
+            top:130px;
+            left:400px;
+        }
+
+        #comp{
+            top:620px;
+            left:60px;
+        }
+
+        #compCpg{
+            top:617px;
+            left:380px;
+        }
+
+        #jaune{
+            top:588px;
+            left:733px;
+            color:yellow;
+        }
+
+        #noir{
+            top:588px;
+            left:890px;
+            color:black;
+        }
+
+        #rouge{
+            top:588px;
+            left:1050px;
+            color:red;
+        }
+        #vert{
+            top:710px;
+            left:733px;
+            color:green;
+        }
+        #violet{
+            top:710px;
+            left:1050px;
+            color:purple;
+        }
+
+        #pv{
+            top:905px;
+            left:1054px;
+        }
+
+        #armes{
+            top:1437px;
+            left:220px;
+            font-size:18px;
+        }
+
+        #armures{
+            top:1195px;
+            left:680px;
+            font-size:17px;
+        }
+        #encperm{
+            top:1707px;
+            left:550px;
+        }
+        #equip{
+            top:1725px;
+            left:0px;
+            width:800px;
+            font-size:18px;
+            list-style: none;
+        }
+        #equip li  { 
+            width:25%;
+            line-height:1.5em;
+            float:left;
+            display:inline;
+        }
+        #tours{
+            top:2470px;
+            left:0px;
+            font-size: 18px;
+            list-style: none;
+        }
+        #sorts{
+            top:1975px;
+            left:570px;
+            font-size: 18px;
+            list-style: none;
+        }
+
+    </style>
+</html>

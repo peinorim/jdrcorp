@@ -1,118 +1,27 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{% block title %}Watch My Desk{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/jquery-1.10.2.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/jquery.smartWizard-2.0.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/bootstrap.min.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@JdrCorpElricBundle/Resources/public/js/index.js' filter='?yui_js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
-        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/bootstrap.css'  filter='?yui_css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/index.css' filter='?yui_css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets '@JdrCorpElricBundle/Resources/public/css/smart_wizard.css' filter='?yui_css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-    </head>
-{% block body %}
-
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{path('jdr_corp_index_homepage_duplicate')}}">Accueil JdrCorp</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Elric <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{path('Elric') }}">Index</a></li>
-                        {% if is_granted("ROLE_USER") == false %}
-                        <li><a href="{{path('register') }}">Inscription</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Guildes <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{path('Guildes') }}">Index</a></li>
-                        <li><a href="{{path('Guildes_armes') }}">Armes & Armures</a></li>
-                        <li><a href="{{path('Guildes_artefacts') }}">Artefacts</a></li>
-                        <li><a href="{{path('Guildes_cdb') }}">Coups de bols & Mésaventures</a></li>
-                        <li><a href="{{path('Guildes_comp') }}">Compétences & Métiers</a></li>
-                        <li><a href="{{path('Guildes_create') }}">Création de personnage</a></li>
-                        <li><a href="{{path('Guildes_equipement') }}">Equipement</a></li>
-                        <li><a href="{{path('Guildes_dice') }}">Lanceur de dés</a></li>
-                        <li><a href="{{path('Guildes_loom') }}">Loom</a></li>
-                        <li><a href="{{path('Guildes_machinations') }}">Machinations</a></li>
-                    </ul>
-                </li>
-                <li><span class="label label-warning pull-right hidden-xs " style="font-size:100%;">{{nbFiches}} fiches créées à ce jour</span></li>
-            </ul>
-            {% if is_granted("ROLE_USER") == false %}
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="http://paocorp.com">Site créé par paocorp.com</a></li>
-			</ul>
-			<a class="navbar-form navbar-right" href="{{path('register') }}"><button class="btn btn-default">Inscription</button></a>
-            <form class="navbar-form navbar-right" action="{{ path('login_check') }}" method="post">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="_useremail" placeholder="email">    
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="_password" placeholder="mot de passe">    
-                </div>
-                <input type="hidden" name="_target_path" value="account" />
-                <input type="submit" class="btn btn-default" value="Connexion"/>
-            </form>
-            {% else %}
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form class="navbar-form navbar-right" action="{{ path('profile') }}" method="post">
-                        <input type="submit" class="btn btn-default" value="Mes fiches générées"/>
-                    </form>
-                </li>
-                <li>
-                    <form class="navbar-form navbar-right" action="{{ path('logout') }}" method="post">
-                        <input type="submit" class="btn btn-default" value="Déconnexion"/>
-                    </form>
-                </li>
-				<li><a href="http://paocorp.com">Site créé par paocorp.com</a></li>
-            </ul>
-            {% endif %}
-        </div>
-    </nav>
-  {% if notice %}
-    <div class="alert alert-{{type}} alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{ notice }}</div>
-  {% endif %}
-  {% block fos_user_content %}
-  {% endblock fos_user_content %}
-
+{% extends "::layout_index.html.twig" %}
+{% block metas %}
+    <meta property="og:description"
+          content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg."/>
+    <meta property="og:title" content="Jeu de rôle Elric"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ url(app.request.attributes.get('_route')) }}"/>
+    <meta property="og:image" content="https://paocorp.com/res/images/portfolio/elric.jpg"/>
+    <meta property="og:image:secure_url" content="https://paocorp.com/res/images/portfolio/elric.jpg"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <meta property="og:image:width" content="377"/>
+    <meta property="og:image:height" content="207"/>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 {% endblock %}
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-47119875-3', 'auto');
-  ga('send', 'pageview');
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/elric/smart_wizard.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/elric/index.css') }}"/>
+{% endblock %}
 
-</script>
-</html>
+{% block js %}
+    <!-- SCRIPTS -->
+    <script src="{{ asset('res/js/jquery.smartWizard-2.0.min.js') }}"></script>
+    <script src="{{ asset('res/js/elric.js') }}"></script>
+{% endblock %}

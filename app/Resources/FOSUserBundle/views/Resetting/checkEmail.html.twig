@@ -1,0 +1,24 @@
+{% extends "::layout_index.html.twig" %}
+{% block title %}
+    Mot de passe réinitialisé
+{% endblock %}
+
+{% block metas %}
+{% endblock %}
+
+{% block fos_user_content %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Mot de passe réinitialisé</h1>
+        </div>
+        <p>
+            Votre mot de passe a bien été réinitialisé, un email vous a été envoyé contenant un lien pour définir votre nouveau mot de passe.
+        </p>
+        <p>
+            <a href="{{ path('fos_user_security_login') }}">
+                Se connecter
+            </a>
+        </p>
+    </div>
+{% endblock %}

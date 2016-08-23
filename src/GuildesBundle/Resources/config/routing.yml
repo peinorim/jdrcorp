@@ -1,0 +1,69 @@
+Guildes:
+    path:  /guildes
+    defaults: { _controller: GuildesBundle:Guildes:index }
+Guildes_duplicate:
+    path:  /guildes/
+    defaults: { _controller: GuildesBundle:Guildes:index }
+Guildes_duplicate_2:
+    path:  /guildes/index
+    defaults: { _controller: GuildesBundle:Guildes:index }
+Guildes_comp:
+    path:  /guildes/comp
+    defaults: { _controller: GuildesBundle:Comp:comp }
+Guildes_links:
+    path:  /guildes/links/{type}/{id}
+    defaults: { _controller: GuildesBundle:Comp:links }
+    requirements:
+        _method:  POST
+    options:
+        expose: true
+Guildes_artefacts:
+    path:  /guildes/artefacts
+    defaults: { _controller: GuildesBundle:Guildes:artefacts }
+Guildes_dice:
+    path:  /guildes/dice
+    defaults: { _controller: GuildesBundle:Guildes:dice }
+Guildes_cdb:
+    path:  /guildes/cdb
+    defaults: { _controller: GuildesBundle:CDB:cdb }
+Guildes_loom:
+    path:  /guildes/loom
+    defaults: { _controller: GuildesBundle:Guildes:loom }
+Guildes_armes:
+    path:  /guildes/armes
+    defaults: { _controller: GuildesBundle:Guildes:armes }
+Guildes_equipement:
+    path:  /guildes/equipement
+    defaults: { _controller: GuildesBundle:Guildes:equipement }
+Guildes_machinations:
+    path:  /guildes/machinations
+    defaults: { _controller: GuildesBundle:Guildes:machination }
+Guildes_create:
+    path:  /guildes/create
+    defaults: { _controller: GuildesBundle:Create:index }
+Guildes_create_getMetier:
+    path:  /guildes/metier/{id}
+    defaults: { _controller: GuildesBundle:Create:getMetier }
+    requirements:
+        _method:  POST
+    options:
+        expose: true
+Guildes_generate:
+    path:  /guildes/generate
+    defaults: { _controller: GuildesBundle:Create:create }
+    requirements:
+        _method:  POST
+
+Guildes_review:
+    path:     /guildes/review/{id}/{format}
+    defaults: { _controller: GuildesBundle:Guildes:review }
+    requirements:
+        page:  \d+
+        _method:  POST
+
+Guildes_delete_fiche:
+    path:     /guildes/delete/{id}
+    defaults: { _controller: GuildesBundle:Guildes:delete }
+    requirements:
+        page:  \d+
+        _method:  POST

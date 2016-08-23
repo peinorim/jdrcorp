@@ -1,0 +1,22 @@
+{% extends "::layout_index.html.twig" %}
+
+{% block metas %}
+{% endblock %}
+
+{% block fos_user_content %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Inscription confirmée</h1>
+        </div>
+        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+        {% if targetUrl %}
+            <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        {% endif %}
+        <p>
+            <a href="{{ path('fos_user_security_login') }}">
+                Se connecter
+            </a>
+        </p>
+    </div>
+{% endblock fos_user_content %}

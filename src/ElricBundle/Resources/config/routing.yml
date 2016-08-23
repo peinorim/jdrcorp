@@ -1,0 +1,32 @@
+Elric:
+    path:     /elric
+    defaults: { _controller: ElricBundle:Elric:index }
+
+Elric_Metier_Comp:
+    path:     /elric/metierComp/{id}
+    defaults: { _controller: ElricBundle:Elric:getCompMetier }
+    requirements:
+        page:  \d+
+        _method:  POST
+    options:
+        expose: true
+
+Elric_Create:
+    path:     /elric/create
+    defaults: { _controller: ElricBundle:Elric:create }
+    requirements:
+        _method:  POST
+
+Elric_review:
+    path:     /elric/review/{id}/{format}
+    defaults: { _controller: ElricBundle:Elric:review }
+    requirements:
+        page:  \d+
+        _method:  POST
+
+Elric_delete_fiche:
+    path:     /elric/delete/{id}
+    defaults: { _controller: ElricBundle:Elric:delete }
+    requirements:
+        page:  \d+
+        _method:  POST

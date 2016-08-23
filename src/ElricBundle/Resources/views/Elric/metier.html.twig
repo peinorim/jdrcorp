@@ -1,0 +1,27 @@
+<h2 class="StepTitle">Métiers & Compétences</h2>
+<div class="col-md-4" style="margin-top:10px;">
+    <select id="metiers" name="metier" class="form-control">
+        <option value="0">Choisissez un métier</option>
+        {% for met in listeMet %}
+            <option value="{{ met.getId }}">{{ met.getMetierNom }}</option>
+        {% endfor %}
+    </select>
+    <div class="alert alert-warning">Vous avez <span id="totPts">250</span> points à répartir</div>
+    <ul id="info_armes"></ul>
+</div>
+<div id="compMetiers" class="col-md-8" style="height:500px;overflow:auto;">
+    <table class="table table-hover" style="height:300px;overflow:auto;">
+        <thead>
+        <th>Compétences</th>
+        <th>%age de base</th>
+        </thead>
+        <tbody>
+        {% for comp in listeComp %}
+            <tr>
+                <td class="col-md-4">{{ comp.getNom }}</td>
+                <td class="col-md-2">{{ comp.getBase }}%</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

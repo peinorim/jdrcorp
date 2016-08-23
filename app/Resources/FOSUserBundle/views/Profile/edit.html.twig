@@ -1,0 +1,29 @@
+{% extends "::layout_index.html.twig" %}
+
+{% block title %}
+    JdrCorp - Editer mon profil
+{% endblock %}
+{% block metas %}
+{% endblock %}
+
+{% block fos_user_content %}
+    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+{% endblock fos_user_content %}
+
+{% block adds %}
+    <script>
+        $(document).ready(function () {
+            $("#fos_user_profile_form_username").parent().hide();
+            $('.fos_user_profile_edit').on('submit', function (e) {
+                if ($("#fos_user_profile_form_username").val() !== $("#fos_user_profile_form_email").val()) {
+                    if ($("#fos_user_profile_form_email").val() !== "") {
+                        $("#fos_user_profile_form_username").val($("#fos_user_profile_form_email").val());
+                    } else {
+                        return false;
+                    }
+                }
+                $(this).submit();
+            });
+        });
+    </script>
+{% endblock adds %}
