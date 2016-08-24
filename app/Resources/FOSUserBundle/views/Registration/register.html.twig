@@ -2,6 +2,11 @@
 {% block title %}
     JdrCorp - Inscription
 {% endblock %}
+
+{% block robots %}
+    <meta name="robots" content="index, nofollow">
+{% endblock %}
+
 {% block fos_user_content %}
     {% trans_default_domain 'FOSUserBundle' %}
     <div class="container">

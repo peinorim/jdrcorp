@@ -2,8 +2,14 @@
 {% block title %}
     JdrCorp - Réinitialisation du mot de passe
 {% endblock %}
+
+{% block robots %}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block metas %}
 {% endblock %}
+
 {% block fos_user_content %}
     {% trans_default_domain 'FOSUserBundle' %}
     <div class="container">
@@ -28,3 +34,6 @@
         </form>
     </div>
 {% endblock fos_user_content %}
+
+{% block analytics %}
+{% endblock %}

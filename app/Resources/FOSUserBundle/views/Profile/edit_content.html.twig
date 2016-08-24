@@ -10,10 +10,12 @@
             <div>
                 <input type="submit" value="Envoyer"/>
             </div>
+            {{ form_end(form) }}
         </div>
-        <a href="{{ path('fos_user_change_password') }}">
-            Changer de mot de passe
-        </a>
+        <p>
+            <a href="{{ path('fos_user_change_password') }}">
+                Changer de mot de passe
+            </a>
+        </p>
     </div>
-    {{ form_end(form) }}
 {% endblock fos_user_content %}

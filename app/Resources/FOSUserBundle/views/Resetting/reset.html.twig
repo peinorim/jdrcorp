@@ -2,9 +2,17 @@
 {% block title %}
     Réinitialisation de mot de passe
 {% endblock %}
+
+{% block robots %}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block metas %}
 {% endblock %}
 
 {% block fos_user_content %}
     {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
 {% endblock fos_user_content %}
+
+{% block analytics %}
+{% endblock %}

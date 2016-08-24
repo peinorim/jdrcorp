@@ -4,6 +4,9 @@
 {% endblock %}
 {% block fos_user_content %}
     <div class="container-fluid">
+        <div class="page-header">
+            <h1>Guildes Eldorado - Compétences et métiers</h1>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-primary">
@@ -14,7 +17,7 @@
                         <ul id="all_met" class="nav nav-pills nav-stacked" style="max-width: 260px;">
                             {% for metier in listeMetiers %}
                                 <li style="float:left;" id="metier_{{ metier.getId }}">
-                                    <a href="#">{{ metier.getNom }}</a>
+                                    <a rel="nofollow">{{ metier.getNom }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -33,7 +36,7 @@
                                 <li style="float:left;margin-top:0!important;line-height: 1.25em;"
                                     id="comp_{{ comp.getId }}"
                                     data-carac="{{ comp.getCarac.getId }}" data-chap="{{ comp.getChapitre.getId }}">
-                                    <a href="#">
+                                    <a rel="nofollow">
                                         {{ comp.getNom }}
                                     </a>
                                 </li>
@@ -45,7 +48,7 @@
                                 <li style="float:left;margin-top:0!important;line-height: 1.25em;"
                                     id="comp_{{ comp.getId }}"
                                     data-carac="{{ comp.getCarac.getId }}" data-chap="{{ comp.getChapitre.getId }}">
-                                    <a href="#">
+                                    <a rel="nofollow">
                                         {{ comp.getNom }}
                                     </a>
                                 </li>
@@ -60,10 +63,10 @@
                         <h3 class="panel-title">Caractéristiques</h3>
                     </div>
                     <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+                        <ul class="caracs nav nav-pills nav-stacked" style="max-width: 260px;">
                             {% for carac in listeCarac %}
                                 <li id="carac_{{ carac.getId }}" style="margin-top:0!important;line-height: 1.25em;">
-                                    <a href="#">
+                                    <a rel="nofollow">
                                         {{ carac.getNom }}
                                     </a>
                                 </li>
@@ -76,10 +79,10 @@
                         <h3 class="panel-title">Chapitres</h3>
                     </div>
                     <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+                        <ul class="chapters nav nav-pills nav-stacked" style="max-width: 260px;">
                             {% for chap in listeChap %}
                                 <li id="chap_{{ chap.getId }}" style="margin-top:0!important;line-height: 1.25em;">
-                                    <a href="#">
+                                    <a rel="nofollow">
                                         {{ chap.getNom }}
                                     </a>
                                 </li>

@@ -2,9 +2,17 @@
 {% block title %}
     JdrCorp - Mon profil
 {% endblock %}
+
+{% block robots %}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block metas %}
 {% endblock %}
 
 {% block fos_user_content %}
     {% include "FOSUserBundle:Profile:show_content.html.twig" %}
 {% endblock fos_user_content %}
+
+{% block analytics %}
+{% endblock %}

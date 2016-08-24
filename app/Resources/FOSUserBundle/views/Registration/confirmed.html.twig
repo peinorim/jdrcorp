@@ -1,5 +1,9 @@
 {% extends "::layout_index.html.twig" %}
 
+{% block robots %}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block metas %}
 {% endblock %}
 
@@ -20,3 +24,5 @@
         </p>
     </div>
 {% endblock fos_user_content %}
+{% block analytics %}
+{% endblock %}
