@@ -1,6 +1,7 @@
 {% extends "::layout_index.html.twig" %}
 
 {% block metas %}
+    <meta name="theme-color" content="#1b5e20">
     <meta name="description" content="Recueil de données et des règles du jeu de rôle Guildes Eldorado. Ce site contient aussi le lanceur de dés du jeu et une génération de fiches de personnage au format pdf ou jpg.">
     <meta name="keywords" content="elric, guildes, jeu de rôles, pdf, jdrcorp">
     <meta property="og:description"
@@ -15,4 +16,8 @@
     <meta property="og:image:height" content="206"/>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
+
+{% block adds %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/guildes.css') }}"/>
 {% endblock %}

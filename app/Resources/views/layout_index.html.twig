@@ -4,11 +4,11 @@
     <title>{% block title %}Index - jdrcorp.paocorp.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="google-site-verification" content="A-DQr-ZIqPeK9JBKPgWoZzn9lgUTsCG9PQTlByJPXCA"/>
-    <meta name="theme-color" content="#000000">
     {% block robots %}
         <meta name="robots" content="index, follow">
     {% endblock %}
     {% block metas %}
+        <meta name="theme-color" content="#000000">
         <meta name="description"
               content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg.">
         <meta name="keywords" content="elric, guildes, jeu de rôles, pdf, jdrcorp">
@@ -26,76 +26,66 @@
 </head>
 <body>
 {% block body %}
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ path('jdr_corp_index_homepage_duplicate') }}">Accueil JdrCorp</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar">
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Elric <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{ path('Elric') }}">Index</a></li>
-                        {% if app.user == false %}
-                            <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-                            <li><a rel="nofollow" href="{{ path('fos_user_resetting_request') }}">Mot de passe
-                                    oublié</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Guildes <b class="caret"></b></a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li><a href="{{ path('Guildes') }}">Index</a></li>
-                        <li><a href="{{ path('Guildes_armes') }}">Armes & Armures</a></li>
-                        <li><a href="{{ path('Guildes_artefacts') }}">Artefacts</a></li>
-                        <li><a href="{{ path('Guildes_cdb') }}">Coups de bols & Mésaventures</a></li>
-                        <li><a href="{{ path('Guildes_comp') }}">Compétences & Métiers</a></li>
-                        <li><a href="{{ path('Guildes_create') }}">Création de personnage</a></li>
-                        <li><a href="{{ path('Guildes_equipement') }}">Equipement</a></li>
-                        <li><a href="{{ path('Guildes_dice') }}">Lanceur de dés</a></li>
-                        <li><a href="{{ path('Guildes_loom') }}">Loom</a></li>
-                        <li><a href="{{ path('Guildes_machinations') }}">Machinations</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if app.user == false %}
-                    <li>
-                        <a rel="nofollow" href="{{ path('fos_user_security_login') }}">
-                            <button class="btn btn-default">Connexion</button>
-                        </a>
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('jdr_corp_index_homepage_duplicate') }}">Accueil JdrCorp</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Elric <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{{ path('Elric') }}">Créer une fiche de personnage</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="{{ path('fos_user_registration_register') }}">
-                            <button class="btn btn-default">Inscription</button>
-                        </a>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Guildes <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{{ path('Guildes') }}">Index</a></li>
+                            <li><a href="{{ path('Guildes_armes') }}">Armes & Armures</a></li>
+                            <li><a href="{{ path('Guildes_artefacts') }}">Artefacts</a></li>
+                            <li><a href="{{ path('Guildes_cdb') }}">Coups de bols & Mésaventures</a></li>
+                            <li><a href="{{ path('Guildes_comp') }}">Compétences & Métiers</a></li>
+                            <li><a href="{{ path('Guildes_create') }}">Création de personnage</a></li>
+                            <li><a href="{{ path('Guildes_equipement') }}">Equipement</a></li>
+                            <li><a href="{{ path('Guildes_dice') }}">Lanceur de dés</a></li>
+                            <li><a href="{{ path('Guildes_loom') }}">Loom</a></li>
+                            <li><a href="{{ path('Guildes_machinations') }}">Machinations</a></li>
+                        </ul>
                     </li>
-                {% else %}
-                    <li>
-                        <a rel="nofollow" href="{{ path('elric_profile') }}">
-                            <button type="button" class="btn btn-default">Mes fiches générées</button>
-                        </a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="{{ path('fos_user_security_logout') }}">
-                            <button type="button" class="btn btn-default">Déconnexion</button>
-                        </a>
-                    </li>
-                {% endif %}
-                <li>
-                    <a target="_blank" href="http://paocorp.com">Site créé par paocorp.com</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                </ul>
+                <div class="nav navbar-form navbar-right">
+                    {% if app.user == false %}
+                        <div class="form-group">
+                            <a href="{{ path('fos_user_security_login') }}">
+                                <button class="btn btn-default">Connexion</button>
+                            </a>
+                            <a href="{{ path('fos_user_registration_register') }}">
+                                <button class="btn btn-default">Inscription</button>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <a rel="nofollow" href="{{ path('elric_profile') }}">
+                                <button type="button" class="btn btn-default">Mes fiches générées</button>
+                            </a>
+                            <a rel="nofollow" href="{{ path('fos_user_security_logout') }}">
+                                <button type="button" class="btn btn-default">Déconnexion</button>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
     {% for flash_message in app.session.flashBag.get('notice') %}
         <div class="alert alert-info flash-notice">
             {{ flash_message }}
@@ -106,8 +96,11 @@
             {{ notice }}
         </div>
     {% endif %}
-    {% block fos_user_content %}
-    {% endblock fos_user_content %}
+
+    <section>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -117,7 +110,7 @@
                     <ul>
                         {% if app.user == false %}
                             <li>
-                                <a rel="nofollow" href="{{ path('fos_user_security_login') }}">
+                                <a href="{{ path('fos_user_security_login') }}">
                                     Connexion
                                 </a>
                             </li>
@@ -169,6 +162,11 @@
                     </ul>
                 </li>
             </ul>
+            <div class="row">
+                <div class="col-md-12 center">
+                    <a target="_blank" href="http://paocorp.com">paocorp.com - {{ "now"|date("Y") }}</a>
+                </div>
+            </div>
         </div>
     </footer>
 

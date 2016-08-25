@@ -1,7 +1,8 @@
 {% extends "::layout_index.html.twig" %}
 {% block metas %}
+    <meta name="theme-color" content="#000000">
     <meta name="description" content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg.">
-    <meta name="keywords" content="elric, guildes, jeu de rôles, pdf, jdrcorp">
+    <meta name="keywords" content="elric, guildes, jeux de rôles, pdf, jdrcorp">
     <meta property="og:description"
           content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg."/>
     <meta property="og:title" content="Jeu de rôle Elric"/>
@@ -18,8 +19,6 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{{ asset('res/css/elric/smart_wizard.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/index.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/elric/index.css') }}"/>
 {% endblock %}
 
 {% block js %}

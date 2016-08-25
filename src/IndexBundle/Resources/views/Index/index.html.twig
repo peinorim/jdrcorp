@@ -10,17 +10,28 @@
         </div>
 
         <div class="col-md-6 col-sm-6">
-            <a class="thumbnail" href="{{ path('Elric') }}">
-                <img class="img-responsive" src="{{ asset('res/img/Elric_index.jpg') }}" alt="elric">
-                <button type="button" class="btn btn-primary btn-block">Créer une fiche de personnage pour Elric
-                </button>
-            </a>
+            <div class="thumbnail">
+                <a href="{{ path('Elric') }}">
+                    <img class="img-responsive" src="{{ asset('res/img/Elric_index.jpg') }}" alt="elric">
+                    <div class="caption">
+                        <a href="{{ path('Elric') }}" class="btn btn-primary btn-block">
+                            Créer une fiche de personnage pour Elric
+                        </a>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="col-md-6 col-sm-6">
-            <a class="thumbnail" href="{{ path('Guildes') }}">
-                <img class="img-responsive" src="{{ asset('res/img/Guildes_index.jpg') }}" alt="guildes">
-                <button type="button" class="btn btn-success btn-block">Entrer dans l'univers de Guildes</button>
-            </a>
+            <div class="thumbnail">
+                <a href="{{ path('Guildes') }}">
+                    <img class="img-responsive" src="{{ asset('res/img/Guildes_index.jpg') }}" alt="guildes">
+                    <div class="caption">
+                        <a href="{{ path('Guildes') }}" class="btn btn-success btn-block">
+                            Entrer dans l'univers de Guildes
+                        </a>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock fos_user_content %}

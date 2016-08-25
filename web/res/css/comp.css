@@ -1,0 +1,43 @@
+body {
+    display: block;
+}
+
+h1.label {
+    font-size: 150%;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none;
+    display: block;
+}
+
+#all_comp li a,
+#all_met li a,
+.caracs li a,
+.chapters li a {
+    cursor: pointer;
+}
+
+#all_comp, #all_met, #all_compcpg {
+    overflow: hidden;
+    display: block;
+}
+
+#all_comp li, #all_compcpg li {
+    width: 25%;
+}
+
+#all_met li {
+    width: 50%;
+}
+
+p {
+    text-align: justify;
+}
+
