@@ -55,7 +55,7 @@ Guildes_generate:
         _method:  POST
 
 Guildes_review:
-    path:     /guildes/review/{id}/{format}
+    path:     /guildes/review/{id}/{name}.{format}
     defaults: { _controller: GuildesBundle:Guildes:review }
     requirements:
         page:  \d+

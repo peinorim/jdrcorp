@@ -101,7 +101,7 @@ class ElricController extends Controller {
         }
     }
 
-    public function reviewAction($id, $format) {
+    public function reviewAction($id, $name, $format) {
         $repositoryPerso = $this->getDoctrine()->getRepository('ElricBundle:Perso');
         $repositoryFiche = $this->getDoctrine()->getRepository('ElricBundle:Fiche');
 
@@ -112,7 +112,7 @@ class ElricController extends Controller {
 
         if ($this->getUser() && $perso !== null) {
 
-            if ($this->getUser()->getId() == $fiche->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') || $this->getUser()->getId() == $fiche->getUser()->getId()) {
 
                 $repositoryComp = $this->getDoctrine()->getRepository('ElricBundle:Competence');
                 $listeComp = $repositoryComp->findAll();

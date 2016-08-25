@@ -12,7 +12,7 @@
         <div id="fiche_verso1"></div>
         <div id="fiche_verso2"></div>
         {% if image != null and image.path != null %}
-            <img src="{{asset(image.getWebPath)}}" height="200" width="200" id="embleme"/>
+            <img src="{{asset(image.getWebPath)}}" style="max-width: 100%; max-height: 300px;" id="embleme"/>
         {% endif %}
         <span id="proprio">{{perso.getProprio}}</span>
         <span id="nom">{{perso.getNom}}</span>
@@ -75,9 +75,9 @@
             left:450px;
         }
         #embleme{
-            top:250px;
-            left:860px;
-            z-index: 100
+            left: 868px;
+            top: 245px;
+            z-index: 100;
         }
         #fort{
             top:320px;

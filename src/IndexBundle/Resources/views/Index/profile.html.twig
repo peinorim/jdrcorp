@@ -40,13 +40,13 @@
                                             le
                                             : {{ fiche.date | date('d/m/Y à H:i:s') }}</td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'pdf' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">PDF</button>
                                             </form>
                                         </td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                            <form action="{{ path('Elric_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'jpg' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">JPG</button>
                                             </form>
@@ -104,13 +104,13 @@
                                             le
                                             : {{ fiche.date | date('d/m/Y à H:i:s') }}</td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'pdf' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">PDF</button>
                                             </form>
                                         </td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'jpg' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">JPG</button>
                                             </form>
@@ -166,13 +166,13 @@
                                                 : {{ fiche.date | date('d/m/Y à H:i:s') }}
                                             </td>
                                             <td class="col-md-2">
-                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'pdf' }) }}"
                                                       target="_blank" method="post">
                                                     <button type="submit" class="btn btn-primary btn-sm">PDF</button>
                                                 </form>
                                             </td>
                                             <td class="col-md-2">
-                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                                <form action="{{ path('Elric_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'jpg' }) }}"
                                                       target="_blank" method="post">
                                                     <button type="submit" class="btn btn-primary btn-sm">JPG</button>
                                                 </form>
@@ -228,14 +228,14 @@
                                             : {{ fiche.date | date('d/m/Y à H:i:s') }}
                                         </td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'pdf' }) }}"
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'pdf' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">PDF
                                                 </button>
                                             </form>
                                         </td>
                                         <td class="col-md-2">
-                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'format': 'jpg' }) }}"
+                                            <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'jpg' }) }}"
                                                   target="_blank" method="post">
                                                 <button type="submit" class="btn btn-primary btn-sm">JPG
                                                 </button>

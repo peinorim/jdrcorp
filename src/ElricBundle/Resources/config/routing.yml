@@ -18,7 +18,7 @@ Elric_Create:
         _method:  POST
 
 Elric_review:
-    path:     /elric/review/{id}/{format}
+    path:     /elric/review/{id}/{name}.{format}
     defaults: { _controller: ElricBundle:Elric:review }
     requirements:
         page:  \d+

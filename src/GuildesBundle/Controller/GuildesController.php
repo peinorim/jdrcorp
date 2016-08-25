@@ -179,7 +179,7 @@ class GuildesController extends Controller
             $perso = $fiche->getPerso();
             if ($perso !== null) {
 
-                if ($this->getUser()->getId() == $fiche->getUserId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+                if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') || $this->getUser()->getId() == $fiche->getUser()->getId() ) {
 
                     $html = $this->renderView('GuildesBundle:Guildes/Create:generate.html.twig', array('perso' => $perso));
                     if ($format === 'jpg') {
