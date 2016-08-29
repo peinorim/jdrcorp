@@ -2,13 +2,15 @@
 <html lang="fr">
 <head>
     <title>{% block title %}Index - jdrcorp.paocorp.com{% endblock %}</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="google-site-verification" content="A-DQr-ZIqPeK9JBKPgWoZzn9lgUTsCG9PQTlByJPXCA"/>
     {% block robots %}
         <meta name="robots" content="index, follow">
     {% endblock %}
+    <meta name="theme-color" content="#000000">
+    <link rel="author" href="https://paocorp.com"/>
     {% block metas %}
-        <meta name="theme-color" content="#000000">
         <meta name="description"
               content="Création de fiche de personnage pour le jeu de rôle Elric. Ce site permet de générer des fiches de personnage au format pdf ou jpg.">
         <meta name="keywords" content="elric, guildes, jeu de rôles, pdf, jdrcorp">
@@ -17,7 +19,7 @@
         <meta property="og:title" content="Jeu de rôle Elric"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="{{ url(app.request.attributes.get('_route')) }}"/>
-        <meta property="og:image" content="https://paocorp.com/res/images/portfolio/elric.jpg"/>
+        <meta property="og:image" content="http://paocorp.com/res/images/portfolio/elric.jpg"/>
         <meta property="og:image:secure_url" content="https://paocorp.com/res/images/portfolio/elric.jpg"/>
         <meta property="og:image:type" content="image/jpeg"/>
         <meta property="og:image:width" content="377"/>
@@ -36,7 +38,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path('jdr_corp_index_homepage_duplicate') }}">Accueil JdrCorp</a>
+                <a class="navbar-brand" href="{{ path('jdr_corp_index_homepage') }}">Accueil JdrCorp</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar">
@@ -164,7 +166,7 @@
             </ul>
             <div class="row">
                 <div class="col-md-12 center">
-                    <a target="_blank" href="http://paocorp.com">paocorp.com - {{ "now"|date("Y") }}</a>
+                    <a target="_blank" rel="author" href="https://paocorp.com">paocorp.com - {{ "now"|date("Y") }}</a>
                 </div>
             </div>
         </div>

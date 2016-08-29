@@ -102,7 +102,7 @@ security:
 
             logout:
                 path: /logout
-                target: /elric
+                target: /
             anonymous:    true
 
     access_control:

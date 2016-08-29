@@ -2,7 +2,7 @@ $(function() {
 
     $("#comp_path").addClass('active');
 
-    $("li").click(function (event) {
+    $(".comp li").click(function (event) {
         event.preventDefault();
         $("li.active").each(function (index) {
             $(this).removeClass('active');

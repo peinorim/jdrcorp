@@ -17,10 +17,7 @@ a, a:hover {
     display: block;
 }
 
-#all_comp li a,
-#all_met li a,
-.caracs li a,
-.chapters li a {
+.comp li a {
     cursor: pointer;
 }
 
