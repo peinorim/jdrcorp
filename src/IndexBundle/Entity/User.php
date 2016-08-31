@@ -87,4 +87,5 @@ class User extends BaseUser implements \ArrayAccess
     public function offsetUnset($offset)
     {
         // TODO: Implement offsetUnset() method.
-}}
+    }
+}

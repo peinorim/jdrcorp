@@ -37,7 +37,7 @@ class IndexController extends Controller
                     $myfiches = null;
                 }
                 if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-                    $fichesElric = $this->getDoctrine()->getManager()->getRepository('ElricBundle:Fiche')->findAll();
+                    $fichesElric = $em->getRepository('ElricBundle:Fiche')->findAll();
                     $fichesGuildes = $repositoryFicheGuildes->createQueryBuilder('p')->orderBy('p.date', 'DESC')->getQuery()->getResult();
                 }
                 return $this->render('IndexBundle:Index:profile.html.twig', array('notice' => $notice, 'type' => $type, 'myfiches' => $myfiches, 'myfichesGuildes' => $myfichesGuildes, 'fichesElric' => $fichesElric, "fichesGuildes" => $fichesGuildes));

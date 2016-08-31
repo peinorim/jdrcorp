@@ -146,7 +146,7 @@ class ElricController extends Controller {
         $nbFiches = count($repositoryFiche->findAll());
         $fiche_suppr = $repositoryFiche->find($id);
 
-        if ($fiche_suppr->getUser() === null || $this->getUser()->getId() == $fiche_suppr->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+        if (($fiche_suppr->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche_suppr->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $em->remove($fiche_suppr);
             $em->remove($fiche_suppr->getPerso());
             $em->flush();

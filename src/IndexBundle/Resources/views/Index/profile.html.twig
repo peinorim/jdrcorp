@@ -156,6 +156,7 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -217,6 +218,7 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -230,14 +232,16 @@
                                         <td class="col-md-2">
                                             <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'pdf' }) }}"
                                                   target="_blank" method="post">
-                                                <button type="submit" class="btn btn-primary btn-sm">PDF
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    PDF
                                                 </button>
                                             </form>
                                         </td>
                                         <td class="col-md-2">
                                             <form action="{{ path('Guildes_review', {'id': fiche.getId, 'name': fiche.getPerso.getNom, 'format': 'jpg' }) }}"
                                                   target="_blank" method="post">
-                                                <button type="submit" class="btn btn-primary btn-sm">JPG
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    JPG
                                                 </button>
                                             </form>
                                         </td>

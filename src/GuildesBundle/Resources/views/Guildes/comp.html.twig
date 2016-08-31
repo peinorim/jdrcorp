@@ -14,10 +14,12 @@
                         <h3 class="panel-title">Métiers</h3>
                     </div>
                     <div class="panel-body">
-                        <ul id="all_met" class="nav nav-pills nav-stacked" style="max-width: 260px;">
+                        <ul id="all_met" class="nav nav-pills nav-stacked col-md-8">
                             {% for metier in listeMetiers %}
                                 <li style="float:left;" id="metier_{{ metier.getId }}">
-                                    <a rel="nofollow">{{ metier.getNom }}</a>
+                                    <a rel="nofollow">
+                                        {{ metier.getNom }}
+                                    </a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -31,7 +33,7 @@
                     </div>
                     <div class="panel-body">
                         <div style="margin:0!important;" class="page-header">Compétences d'apprenti</div>
-                        <ul id="all_comp" class="nav nav-pills nav-stacked">
+                        <ul id="all_comp" class="nav nav-pills nav-stacked col-md-12">
                             {% for comp in listeCompApp %}
                                 <li style="float:left;margin-top:0!important;line-height: 1.25em;"
                                     id="comp_{{ comp.getId }}"
@@ -43,7 +45,7 @@
                             {% endfor %}
                         </ul>
                         <div style="margin:0!important;" class="page-header">Compétences de compagnon</div>
-                        <ul id="all_compcpg" class="nav nav-pills nav-stacked">
+                        <ul id="all_compcpg" class="nav nav-pills nav-stacked col-md-12">
                             {% for comp in listeCompCpg %}
                                 <li style="float:left;margin-top:0!important;line-height: 1.25em;"
                                     id="comp_{{ comp.getId }}"
@@ -63,9 +65,9 @@
                         <h3 class="panel-title">Caractéristiques</h3>
                     </div>
                     <div class="panel-body">
-                        <ul class="caracs nav nav-pills nav-stacked" style="max-width: 260px;">
+                        <ul class="caracs nav nav-pills nav-stacked col-md-12">
                             {% for carac in listeCarac %}
-                                <li id="carac_{{ carac.getId }}" style="margin-top:0!important;line-height: 1.25em;">
+                                <li id="carac_{{ carac.getId }}">
                                     <a rel="nofollow">
                                         {{ carac.getNom }}
                                     </a>
@@ -79,7 +81,7 @@
                         <h3 class="panel-title">Chapitres</h3>
                     </div>
                     <div class="panel-body">
-                        <ul class="chapters nav nav-pills nav-stacked" style="max-width: 260px;">
+                        <ul class="chapters nav nav-pills nav-stacked col-md-12">
                             {% for chap in listeChap %}
                                 <li id="chap_{{ chap.getId }}" style="margin-top:0!important;line-height: 1.25em;">
                                     <a rel="nofollow">

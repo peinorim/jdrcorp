@@ -206,7 +206,7 @@ class GuildesController extends Controller
             $nbFiches = count($repositoryFiche->findAll());
             $fiche = $repositoryFiche->find($id);
 
-            if ($fiche->getUserId() === null || $this->getUser()->getId() == $fiche->getUserId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            if (($fiche->getUserId() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche->getUserId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
                 $em->remove($fiche);
                 $em->remove($fiche->getPerso());
                 $em->flush();
