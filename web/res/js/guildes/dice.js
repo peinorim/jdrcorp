@@ -58,7 +58,6 @@ function dice() {
         var comp_id = $('#comp_nom').val();
         var comp_niv = $('#comp_niv').val();
         var nb_des = parseInt($('#nb_des').val());
-        var puce = 0;
 
         if (comp_id !== '0' && comp_niv !== '0' && nb_des !== 0) {
 
@@ -127,7 +126,6 @@ function dice() {
                     jettot = jettot + " => " + String(max1);
                     $('#res').html(jettot + getDiff(max1).bold());
                 } else {
-                    jetdest = jetdest * 1 + puce * 1;
                     $('#res').html(jetdest + getDiff(sommedest).bold());
                 }
             } else if (comp_niv === 'I') {
@@ -205,7 +203,6 @@ function dice() {
                     jettot = jettot + " => " + String(max1);
                     $('#res').html(jettot + getDiff(max1).bold());
                 } else {
-                    jetdest = jetdest * 1 + puce * 1;
                     $('#res').html(jetdest + getDiff(sommedest).bold());
                 }
 
@@ -289,7 +286,6 @@ function dice() {
                     jettot = jettot + " => " + String(max1);
                     $('#res').html(jettot + getDiff(max1).bold());
                 } else {
-                    jetdest = jetdest * 1 + puce * 1;
                     $('#res').html(jetdest + getDiff(sommedest).bold());
                 }
 
@@ -446,69 +442,20 @@ function getDiff(tot) {
     var diff = parseInt($('#diff').val());
     var reussi = null;
 
-    if (diff === 3) {
-        if (tot >= 3 && tot < 9) {
-            reussi = " Réussite normale.";
-        } else if (tot < 3) {
-            reussi = " Echec.";
-        } else if (tot >= 9) {
-            reussi = " Baraka !";
-        }
-    } else if (diff === 6) {
-        if (tot >= 6 && tot < 12) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 12) {
-            reussi = " Baraka !";
-        } else if (tot < 6 && tot > 0) {
-            reussi = " Echec.";
-        } else if (tot <= 0) {
-            reussi = " Schkoumoune...";
-        }
-
-    } else if (diff === 9) {
-        if (tot >= 9 && tot < 15) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 15) {
-            reussi = " Baraka !";
-        } else if (tot < 9 && tot >= 3) {
-            reussi = " Echec.";
-        } else if (tot < 3) {
-            reussi = " Schkoumoune...";
-        }
-
-    } else if (diff === 12) {
-        if (tot >= 12 && tot < 18) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 18) {
-            reussi = " Baraka !";
-        } else if (tot < 12 && tot >= 6) {
-            reussi = " Echec.";
-        } else if (tot < 6) {
-            reussi = " Schkoumoune...";
-        }
-    } else if (diff === 18) {
-        if (tot >= 18 && tot < 24) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 24) {
-            reussi = " Baraka !";
-        } else if (tot < 18 && tot >= 12) {
-            reussi = " Echec.";
-        } else if (tot < 12) {
-            reussi = " Schkoumoune...";
-        }
-    } else if (diff === 25) {
-        if (tot >= 25 && tot < 31) {
-            reussi = " Réussite normale.";
-        } else if (tot >= 31) {
-            reussi = " Baraka !";
-        } else if (tot < 25 && tot >= 19) {
-            reussi = " Echec.";
-        } else if (tot < 19) {
-            reussi = " Schkoumoune...";
-        }
-    } else if (diff === 0) {
+    if (diff === 0) {
         reussi = '';
+    } else {
+        if (tot >= diff && tot < diff + 6) {
+            reussi = " Réussite normale.";
+        } else if (tot >= diff + 6) {
+            reussi = " Baraka !";
+        } else if (tot < diff && tot > diff - 6) {
+            reussi = " Echec.";
+        } else if (tot < diff - 6) {
+            reussi = " Schkoumoune...";
+        }
     }
+
     switch (reussi) {
 
         case ' Réussite normale.':

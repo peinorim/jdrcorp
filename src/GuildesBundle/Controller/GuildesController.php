@@ -203,17 +203,14 @@ class GuildesController extends Controller
         if ($request->getMethod() === 'POST') {
             $em = $this->getDoctrine()->getManager('guildes');
             $repositoryFiche = $em->getRepository('GuildesBundle:Fiche');
-            $nbFiches = count($repositoryFiche->findAll());
             $fiche = $repositoryFiche->find($id);
 
             if (($fiche->getUserId() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche->getUserId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
                 $em->remove($fiche);
                 $em->remove($fiche->getPerso());
                 $em->flush();
-                return $this->redirect($this->generateUrl('elric_profile'));
-            } else {
-                return $this->render('IndexBundle:Index:profile.html.twig', array('notice' => 'Erreur ! Vous ne pouvez pas supprimer cette fiche.', 'type' => 'danger', 'myfiches' => $myfiches, 'nbFiches' => $nbFiches));
             }
+            return $this->redirect($this->generateUrl('elric_profile'));
         }
     }
 

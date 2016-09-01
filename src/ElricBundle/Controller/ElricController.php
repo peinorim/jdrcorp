@@ -143,17 +143,14 @@ class ElricController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $repositoryFiche = $em->getRepository('ElricBundle:Fiche');
-        $nbFiches = count($repositoryFiche->findAll());
         $fiche_suppr = $repositoryFiche->find($id);
 
         if (($fiche_suppr->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche_suppr->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $em->remove($fiche_suppr);
             $em->remove($fiche_suppr->getPerso());
             $em->flush();
-            return $this->redirect($this->generateUrl('elric_profile'));
-        } else {
-            return $this->render('IndexBundle:Index:profile.html.twig', array('notice' => 'Erreur ! Vous ne pouvez pas supprimer cette fiche.', 'type' => 'danger', 'myfiches' => $myfiches, 'nbFiches' => $nbFiches));
         }
+        return $this->redirect($this->generateUrl('elric_profile'));
     }
 
 }
