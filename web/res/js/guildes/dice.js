@@ -59,7 +59,7 @@ function dice() {
         var comp_niv = $('#comp_niv').val();
         var nb_des = parseInt($('#nb_des').val());
 
-        if (comp_id !== '0' && comp_niv !== '0' && nb_des !== 0) {
+        if (comp_id != 0 && comp_niv != 0 && nb_des != 0) {
 
             if (comp_niv === 'N') {
 
@@ -295,7 +295,7 @@ function dice() {
 
         var comp_id = $('#comp_nom').val();
 
-        if (comp_id !== '0') {
+        if (comp_id != 0) {
 
             var arraydest = [0];
             var dicedest = (Math.floor(Math.random() * 6)) + 1;
@@ -364,7 +364,7 @@ function dice() {
         var nb_des = parseInt($('#carac_niv').val());
         var carac_niv = parseInt($('#carac_niv').val());
 
-        if (carac_id !== "0" && nb_des !== 0 && carac_niv !== 0) {
+        if (carac_id != 0 && nb_des != 0 && carac_niv != 0) {
             var arraydest = [0];
             var dicedest = (Math.floor(Math.random() * 6)) + 1;
             arraydest.push(dicedest);

@@ -8,9 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CompController extends Controller {
 
     public function indexAction() {
-        $notice = null;
-        $type = null;
-        return $this->render('GuildesBundle:Guildes:index.html.twig', array('notice' => $notice, 'type' => $type));
+        return $this->render('GuildesBundle:Guildes:index.html.twig');
     }
 
     public function compAction() {
@@ -22,8 +20,8 @@ class CompController extends Controller {
         $repositoryComp = $em->getRepository('GuildesBundle:Competence');
         $repositoryMetier = $em->getRepository('GuildesBundle:Metier');
 
-        $listeCarac = $repositoryCarac->findAll();
-        $listeChap = $repositoryChap->findAll();
+        $listeCarac = $repositoryCarac->createQueryBuilder('c')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
+        $listeChap = $repositoryChap->createQueryBuilder('c')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         $listeCompApp = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 1')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         $listeCompCpg = $repositoryComp->createQueryBuilder('c')->where('c.apprenti = 0')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         $listeMetier = $repositoryMetier->findBy(array(), array('nom' => 'asc'));

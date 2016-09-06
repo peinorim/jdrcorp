@@ -9,6 +9,7 @@ use ElricBundle\Entity\Fiche;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 
 class ElricController extends Controller {
 
@@ -98,6 +99,8 @@ class ElricController extends Controller {
             } else {
                 return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($html), 200, array('Content-Type' => 'application/pdf'));
             }
+        } else {
+            throw new MethodNotAllowedException(array("POST"), "Méthode non autorisée");
         }
     }
 
@@ -149,6 +152,8 @@ class ElricController extends Controller {
             $em->remove($fiche_suppr);
             $em->remove($fiche_suppr->getPerso());
             $em->flush();
+        } else {
+            throw new AccessDeniedHttpException("Vous n'avez pas accès à cette fiche.");
         }
         return $this->redirect($this->generateUrl('elric_profile'));
     }

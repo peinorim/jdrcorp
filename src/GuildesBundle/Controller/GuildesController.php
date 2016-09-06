@@ -7,14 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 
 class GuildesController extends Controller
 {
 
     public function indexAction()
     {
-        $notice = null;
-        $type = null;
         $tour = null;
         $machi = null;
         $cdb = null;
@@ -57,28 +56,23 @@ class GuildesController extends Controller
             $mes = $repositoryMesAll->createQueryBuilder('c')->where('c.id =' . rand(1, $countMes - 1))->getQuery()->getOneOrNullResult();
         }
 
-        return $this->render('GuildesBundle:Guildes:index.html.twig', array('notice' => $notice, 'type' => $type, 'tour' => $tour, 'machi' => $machi, 'cdb' => $cdb, 'mes' => $mes));
+        return $this->render('GuildesBundle:Guildes:index.html.twig', array('tour' => $tour, 'machi' => $machi, 'cdb' => $cdb, 'mes' => $mes));
     }
 
     public function diceAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryCarac = $em->getRepository('GuildesBundle:Carac');
         $repositoryComp = $em->getRepository('GuildesBundle:Competence');
         $listeCarac = $repositoryCarac->findAll();
         $listeComp = $repositoryComp->findBy(array(), array('nom' => 'asc'));
-        return $this->render('GuildesBundle:Guildes:dice.html.twig', array('notice' => $notice,
-            'type' => $type, 'liste',
+        return $this->render('GuildesBundle:Guildes:dice.html.twig', array(
             'listeComp' => $listeComp,
             'listeCarac' => $listeCarac));
     }
 
     public function artefactsAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryMaison = $em->getRepository('GuildesBundle:Maison');
         $repositoryArtef = $em->getRepository('GuildesBundle:Artefact');
@@ -86,8 +80,7 @@ class GuildesController extends Controller
         $listeMaison = $repositoryMaison->findAll();
         $listeArtefac = $repositoryArtef->findAll();
         $listeArteType = $repositoryArteType->findAll();
-        return $this->render('GuildesBundle:Guildes:artefacts.html.twig', array('notice' => $notice,
-            'type' => $type, 'liste',
+        return $this->render('GuildesBundle:Guildes:artefacts.html.twig', array(
             'listeArte' => $listeArtefac,
             'listemaison' => $listeMaison,
             'listeArteType' => $listeArteType));
@@ -95,19 +88,16 @@ class GuildesController extends Controller
 
     public function loomAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryMaison = $em->getRepository('GuildesBundle:Maison');
         $repositoryTour = $em->getRepository('GuildesBundle:Tour');
         $repositorySort = $em->getRepository('GuildesBundle:Sort');
         $repositorySortilege = $em->getRepository('GuildesBundle:Sortilege');
-        $listeMaison = $repositoryMaison->findAll();
-        $listeTour = $repositoryTour->findAll();
-        $listeSort = $repositorySort->findAll();
-        $listeSortilege = $repositorySortilege->findAll();
-        return $this->render('GuildesBundle:Guildes:loom.html.twig', array('notice' => $notice,
-            'type' => $type,
+        $listeMaison = $repositoryMaison->createQueryBuilder('m')->orderBy('m.nom', 'ASC')->getQuery()->getResult();
+        $listeTour = $repositoryTour->createQueryBuilder('t')->orderBy('t.nom', 'ASC')->getQuery()->getResult();
+        $listeSort = $repositorySort->createQueryBuilder('s')->orderBy('s.nom', 'ASC')->getQuery()->getResult();
+        $listeSortilege = $repositorySortilege->createQueryBuilder('s')->orderBy('s.nom', 'ASC')->getQuery()->getResult();
+        return $this->render('GuildesBundle:Guildes:loom.html.twig', array(
             'listemaison' => $listeMaison,
             'listeTour' => $listeTour,
             'listeSort' => $listeSort,
@@ -116,20 +106,17 @@ class GuildesController extends Controller
 
     public function armesAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryArmes = $em->getRepository('GuildesBundle:Arme');
         $repositoryArmures = $em->getRepository('GuildesBundle:Armure');
-        $listeArmes = $repositoryArmes->findAll();
-        $listeArmures = $repositoryArmures->findAll();
+        $listeArmes = $repositoryArmes->createQueryBuilder('a')->orderBy('a.nom', 'ASC')->getQuery()->getResult();
+        $listeArmures = $repositoryArmures->createQueryBuilder('a')->orderBy('a.nom', 'ASC')->getQuery()->getResult();
 
         foreach ($listeArmes as $arme) {
             $listeComp[$arme->getCompetence()->getId()] = $arme->getCompetence();
         }
 
-        return $this->render('GuildesBundle:Guildes:armes.html.twig', array('notice' => $notice,
-            'type' => $type,
+        return $this->render('GuildesBundle:Guildes:armes.html.twig', array(
             'listeArmes' => $listeArmes,
             'listeArmures' => $listeArmures,
             'listeComp' => $listeComp));
@@ -137,32 +124,26 @@ class GuildesController extends Controller
 
     public function equipementAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryEquip = $em->getRepository('GuildesBundle:Equipement');
         $repositoryEqCate = $em->getRepository('GuildesBundle:EquipCategorie');
-        $listeEquip = $repositoryEquip->findAll();
-        $listeEqCate = $repositoryEqCate->findAll();
+        $listeEquip = $repositoryEquip->createQueryBuilder('e')->orderBy('e.nom', 'ASC')->getQuery()->getResult();
+        $listeEqCate = $repositoryEqCate->createQueryBuilder('e')->orderBy('e.nom', 'ASC')->getQuery()->getResult();
 
-        return $this->render('GuildesBundle:Guildes:equipement.html.twig', array('notice' => $notice,
-            'type' => $type,
+        return $this->render('GuildesBundle:Guildes:equipement.html.twig', array(
             'listeEquip' => $listeEquip,
             'listeEqCate' => $listeEqCate));
     }
 
     public function machinationAction()
     {
-        $notice = null;
-        $type = null;
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryMachin = $em->getRepository('GuildesBundle:Machination');
         $repositoryChap = $em->getRepository('GuildesBundle:Chapitre');
-        $listeMachination = $repositoryMachin->findAll();
-        $listeChap = $repositoryChap->findAll();
+        $listeMachination = $repositoryMachin->createQueryBuilder('m')->orderBy('m.nom', 'ASC')->getQuery()->getResult();
+        $listeChap = $repositoryChap->createQueryBuilder('c')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
 
-        return $this->render('GuildesBundle:Guildes:machinations.html.twig', array('notice' => $notice,
-            'type' => $type,
+        return $this->render('GuildesBundle:Guildes:machinations.html.twig', array(
             'listeMachination' => $listeMachination,
             'listeChap' => $listeChap));
     }
@@ -193,6 +174,8 @@ class GuildesController extends Controller
             } else {
                 throw new AccessDeniedHttpException("Cette fiche n'existe pas");
             }
+        } else {
+            throw new MethodNotAllowedException(array("POST"), "Méthode non autorisée");
         }
     }
 
@@ -209,8 +192,12 @@ class GuildesController extends Controller
                 $em->remove($fiche);
                 $em->remove($fiche->getPerso());
                 $em->flush();
+            } else {
+                throw new AccessDeniedHttpException("Vous n'avez pas accès à cette fiche.");
             }
             return $this->redirect($this->generateUrl('elric_profile'));
+        } else {
+            throw new MethodNotAllowedException(array("POST"), "Méthode non autorisée");
         }
     }
 
