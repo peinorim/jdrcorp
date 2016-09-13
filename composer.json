@@ -29,7 +29,8 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "^1.6",
-        "knplabs/knp-snappy-bundle": "dev-master"
+        "knplabs/knp-snappy-bundle": "dev-master",
+        "friendsofsymfony/http-cache-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -57,9 +58,6 @@
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
         "symfony-tests-dir": "tests",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+        "symfony-assets-install": "relative"
     }
 }

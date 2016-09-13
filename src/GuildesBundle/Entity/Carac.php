@@ -28,6 +28,12 @@ class Carac
      */
     protected $nom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CaracType")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    private $type;
+
 
     /**
      * Get id
@@ -60,5 +66,15 @@ class Carac
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

@@ -1,0 +1,106 @@
+{% extends "::layout_guildes.html.twig" %}
+{% block title %}
+    JdrCorp - Guildes - Caractéristiques
+{% endblock %}
+
+{% block fos_user_content %}
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>Guildes Eldorado - Caractéristiques</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-5 col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Caractéristiques physiques</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            {% for carac in listeCaracPhys %}
+                                <div class="form-group">
+                                    <span>{{ carac.nom }} : </span>
+                                    <div class="btn-group points" data-toggle="buttons">
+                                        {% for i in 1..6 %}
+                                            <label class="btn btn-default caracVal" data-id="{{ carac.id }}">
+                                                <input type="radio" name="options" class="option{% if carac.nom == "Résistant" %} res{% endif %}"/>
+                                                {{ i }}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="btn-group" data-toggle="buttons">
+                                        {% for caracArt in listeCaracArt %}
+                                            <label class="btn btn-default artVal" data-art="{{ caracArt.id }}" data-carac="{{ carac.id }}">
+                                                <input type="radio" name="options" class="option-type"/>
+                                                {{ caracArt.nom }}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Caractéristiques mentales</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            {% for carac in listeCaracMent %}
+                                <div class="form-group">
+                                    <span>{{ carac.nom }} : </span>
+                                    <div class="btn-group points" data-toggle="buttons">
+                                        {% for i in 1..6 %}
+                                            <label class="btn btn-default caracVal" data-id="{{ carac.id }}">
+                                                <input type="radio" name="options" class="option"/>
+                                                {{ i }}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="btn-group" data-toggle="buttons">
+                                        {% for caracArt in listeCaracArt %}
+                                            <label class="btn btn-default artVal" data-art="{{ caracArt.id }}" data-carac="{{ carac.id }}">
+                                                <input type="radio" name="options" class="option-type"/>
+                                                {{ caracArt.nom }}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-2">
+                <ul class="list-group">
+                    {% for carac in listeCaracArt %}
+                        <li class="list-group-item">
+                            {{ carac.nom }} : <span id="carac-{{ carac.id }}" class="badge"></span>
+                        </li>
+                    {% endfor %}
+                    <li class="list-group-item">
+                        Points de vie : <span id="pv" class="badge"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="infos" class="alert alert-info hidden" role="alert">
+        </div>
+
+    </div>
+{% endblock fos_user_content %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('res/css/guildes/caracs.css') }}"/>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ asset('res/js/guildes/caracs.js') }}"></script>
+{% endblock %}

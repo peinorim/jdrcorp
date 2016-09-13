@@ -64,8 +64,8 @@ class GuildesController extends Controller
         $em = $this->getDoctrine()->getManager('guildes');
         $repositoryCarac = $em->getRepository('GuildesBundle:Carac');
         $repositoryComp = $em->getRepository('GuildesBundle:Competence');
-        $listeCarac = $repositoryCarac->findAll();
-        $listeComp = $repositoryComp->findBy(array(), array('nom' => 'asc'));
+        $listeCarac = $repositoryCarac->createQueryBuilder('c')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
+        $listeComp = $repositoryComp->createQueryBuilder('c')->orderBy('c.nom', 'ASC')->getQuery()->getResult();
         return $this->render('GuildesBundle:Guildes:dice.html.twig', array(
             'listeComp' => $listeComp,
             'listeCarac' => $listeCarac));
@@ -77,13 +77,43 @@ class GuildesController extends Controller
         $repositoryMaison = $em->getRepository('GuildesBundle:Maison');
         $repositoryArtef = $em->getRepository('GuildesBundle:Artefact');
         $repositoryArteType = $em->getRepository('GuildesBundle:ArtefactType');
-        $listeMaison = $repositoryMaison->findAll();
-        $listeArtefac = $repositoryArtef->findAll();
-        $listeArteType = $repositoryArteType->findAll();
+        $listeMaison = $repositoryMaison->createQueryBuilder('m')->orderBy('m.nom', 'ASC')->getQuery()->getResult();
+        $listeArtefac = $repositoryArtef->createQueryBuilder('a')->orderBy('a.nom', 'ASC')->getQuery()->getResult();
+        $listeArteType = $repositoryArteType->createQueryBuilder('t')->orderBy('t.nom', 'ASC')->getQuery()->getResult();
         return $this->render('GuildesBundle:Guildes:artefacts.html.twig', array(
             'listeArte' => $listeArtefac,
             'listemaison' => $listeMaison,
             'listeArteType' => $listeArteType));
+    }
+
+    public function caracsAction() {
+        $em = $this->getDoctrine()->getManager('guildes');
+        $repositoryCarac = $em->getRepository('GuildesBundle:Carac');
+
+        $listeCaracPhys = $repositoryCarac->createQueryBuilder('c')
+            ->leftJoin("GuildesBundle:CaracType", "ct", "WITH", "c.type=ct.id")
+            ->where("ct.nom = 'Physique'")
+            ->orderBy('c.nom', 'ASC')
+            ->getQuery()->getResult();
+
+        $listeCaracMent = $repositoryCarac->createQueryBuilder('c')
+            ->leftJoin("GuildesBundle:CaracType", "ct", "WITH", "c.type=ct.id")
+            ->where("ct.nom = 'Mentale'")
+            ->orderBy('c.nom', 'ASC')
+            ->getQuery()->getResult();
+
+        $listeCaracArt = $repositoryCarac->createQueryBuilder('c')
+            ->leftJoin("GuildesBundle:CaracType", "ct", "WITH", "c.type=ct.id")
+            ->where("ct.nom = 'Art'")
+            ->orderBy('c.nom', 'ASC')
+            ->getQuery()->getResult();
+
+        return $this->render('GuildesBundle:Guildes:caracs.html.twig', array(
+            'listeCaracPhys' => $listeCaracPhys,
+                'listeCaracMent' => $listeCaracMent,
+                'listeCaracArt' => $listeCaracArt
+            )
+        );
     }
 
     public function loomAction()

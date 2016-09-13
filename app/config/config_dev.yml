@@ -32,3 +32,16 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+fos_http_cache:
+    cache_control:
+        defaults:
+            overwrite: true
+        rules:
+            # match everything to set defaults
+            -
+                match:
+                    path: ^/
+                headers:
+                    overwrite: false
+                    cache_control: { public: true, max_age: 0, s_maxage: 0 }
+                    etag: true

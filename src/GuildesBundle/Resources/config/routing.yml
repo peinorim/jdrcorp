@@ -10,6 +10,9 @@ Guildes_duplicate_2:
 Guildes_comp:
     path:  /guildes/comp
     defaults: { _controller: GuildesBundle:Comp:comp }
+Guildes_caracs:
+    path:  /guildes/caracs
+    defaults: { _controller: GuildesBundle:Guildes:caracs }
 Guildes_links:
     path:  /guildes/links/{type}/{id}
     defaults: { _controller: GuildesBundle:Comp:links }
