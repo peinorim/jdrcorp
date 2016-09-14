@@ -3,7 +3,6 @@
 namespace IndexBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use IndexBundle\Entity\User;
 
 class IndexController extends Controller
 {
@@ -22,7 +21,7 @@ class IndexController extends Controller
             $fichesGuildes = null;
             $user = $this->getUser();
 
-            if (null !== $user) {
+            if ($user !== null) {
                 $em = $this->getDoctrine()->getManager();
                 $emGuildes = $this->getDoctrine()->getManager('guildes');
 
@@ -37,8 +36,8 @@ class IndexController extends Controller
                     $myfiches = null;
                 }
                 if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-                    $fichesElric = $em->getRepository('ElricBundle:Fiche')->findAll();
-                    $fichesGuildes = $repositoryFicheGuildes->createQueryBuilder('p')->orderBy('p.date', 'DESC')->getQuery()->getResult();
+                    $fichesElric = $em->getRepository('ElricBundle:Fiche')->createQueryBuilder('p')->orderBy('p.date', 'ASC')->getQuery()->getResult();
+                    $fichesGuildes = $repositoryFicheGuildes->createQueryBuilder('p')->orderBy('p.date', 'ASC')->getQuery()->getResult();
                 }
                 return $this->render('IndexBundle:Index:profile.html.twig', array('notice' => $notice, 'type' => $type, 'myfiches' => $myfiches, 'myfichesGuildes' => $myfichesGuildes, 'fichesElric' => $fichesElric, "fichesGuildes" => $fichesGuildes));
             }

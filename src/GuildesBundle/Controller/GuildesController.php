@@ -105,7 +105,6 @@ class GuildesController extends Controller
         $listeCaracArt = $repositoryCarac->createQueryBuilder('c')
             ->leftJoin("GuildesBundle:CaracType", "ct", "WITH", "c.type=ct.id")
             ->where("ct.nom = 'Art'")
-            ->orderBy('c.nom', 'ASC')
             ->getQuery()->getResult();
 
         return $this->render('GuildesBundle:Guildes:caracs.html.twig', array(
@@ -141,6 +140,8 @@ class GuildesController extends Controller
         $repositoryArmures = $em->getRepository('GuildesBundle:Armure');
         $listeArmes = $repositoryArmes->createQueryBuilder('a')->orderBy('a.nom', 'ASC')->getQuery()->getResult();
         $listeArmures = $repositoryArmures->createQueryBuilder('a')->orderBy('a.nom', 'ASC')->getQuery()->getResult();
+
+        $listeComp = array();
 
         foreach ($listeArmes as $arme) {
             $listeComp[$arme->getCompetence()->getId()] = $arme->getCompetence();
