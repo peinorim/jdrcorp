@@ -14,35 +14,37 @@ $(function () {
             $("#infos").hide();
             $("#ptsAttrib").text("");
         }
-    });
-
-    $(".option.res").parent().click(function (event) {
-        $("#pv").text(parseInt($(this).text()) * 2);
+        if ($(this).find(".option").hasClass("res")) {
+            $("#pv").text(parseInt($(this).text()) * 2);
+        }
+        refreshArts();
     });
 
     $(".option-type").parent().click(function (event) {
         $(this).button('toggle');
+        refreshArts();
+    });
 
-        var artId = parseInt($(this).attr("data-art"));
-        var artAttrib = 0;
+    function refreshArts() {
+        $(".active.artVal").each(function (index) {
+            var artId = parseInt($(this).attr("data-art"));
+            var artAttrib = 0;
+            $(".active.artVal[data-art='" + artId + "']").each(function (index) {
+                var point = parseInt($(this).parent().parent().find(".caracVal.active").text());
+                if (!isNaN(point)) {
+                    artAttrib += point;
+                }
+            });
 
-        $(".active.artVal[data-art='" + artId + "']").each(function (index) {
-
-            var point = parseInt($(this).parent().parent().find(".caracVal.active").text());
-            if (!isNaN(point)) {
-                artAttrib += point;
+            if (artAttrib !== 0) {
+                if ($(this).text().trim() === "Art Guildien") {
+                    $("#carac-" + artId).text(parseInt(artAttrib / 2));
+                } else {
+                    $("#carac-" + artId).text(parseInt(artAttrib / 3));
+                }
             }
         });
-
-        if (artAttrib !== 0) {
-            if ($(this).text().trim() === "Art Guildien") {
-                $("#carac-" + artId).text(parseInt(artAttrib / 2));
-            } else {
-                $("#carac-" + artId).text(parseInt(artAttrib / 3));
-            }
-        }
-
-    });
+    }
 
 
 });
