@@ -1,4 +1,21 @@
 $(function () {
+
+    $(".option").parent().click(function (event) {
+        $(this).button('toggle');
+        var pts = 0;
+        $(".caracVal.active").each(function (index) {
+            pts += parseInt($(this).text());
+        });
+
+        if (pts > 0) {
+            $("#infos").removeClass("hidden");
+            $("#ptsAttrib").text("Vous avez alloué " + pts + " points de caractéristiques.");
+        } else {
+            $("#infos").hide();
+            $("#ptsAttrib").text("");
+        }
+    });
+
     $(".option.res").parent().click(function (event) {
         $("#pv").text(parseInt($(this).text()) * 2);
     });
