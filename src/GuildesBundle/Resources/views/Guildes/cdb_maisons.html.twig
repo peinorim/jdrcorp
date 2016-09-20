@@ -12,22 +12,22 @@
         <div id="collapse{{maison.getId}}" class="panel-collapse collapse">
             <div class="panel-body">
                 {% for cdb in listecdbmaison %}
-                {% if maison.getId == cdb.getMaison.getId %}
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4><b>{{cdb.getTitre}}</b></h4>
-                            <h5><b>Coup de bol</b></h5>
-                            <p>{{cdb.getCdb}}</p>
-                            <p><i>{{cdb.getEffet}}</i></p>
-                            <hr></hr>
-                            <h5><b>Mésaventure</b></h5>
-                            <p>{{cdb.getMes}}</p>
-                            <p><i>{{cdb.getMesEffet}}</i></p>
+                    {% if maison.getId == cdb.getMaison.getId %}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h4><b>{{ cdb.getTitre }}</b></h4>
+                                    <h5><b>Coup de bol</b></h5>
+                                    <p>{{ cdb.getCdb }}</p>
+                                    <p><i>{{ cdb.getEffet }}</i></p>
+                                    <hr></hr>
+                                    <h5><b>Mésaventure</b></h5>
+                                    <p>{{ cdb.getMes }}</p>
+                                    <p><i>{{ cdb.getMesEffet }}</i></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                {%endif%}
+                    {%endif%}
                 {%endfor%}
             </div>
         </div>

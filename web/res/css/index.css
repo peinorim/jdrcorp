@@ -51,6 +51,10 @@
     font-size: 28px;
 }
 
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 1px;
+}
+
 .navbar-default {
     background-color: #282727;
     border-color: #000000;

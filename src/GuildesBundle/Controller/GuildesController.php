@@ -214,7 +214,7 @@ class GuildesController extends Controller
     {
         $request = Request::createFromGlobals();
 
-        if ($request->getMethod() === 'POST') {
+        if ($request->getMethod() === 'POST' && is_numeric($id)) {
             $em = $this->getDoctrine()->getManager('guildes');
             $repositoryFiche = $em->getRepository('GuildesBundle:Fiche');
             $fiche = $repositoryFiche->find($id);

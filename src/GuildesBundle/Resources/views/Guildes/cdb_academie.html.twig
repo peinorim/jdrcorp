@@ -10,14 +10,14 @@
         <div id="acaOne" class="panel-collapse collapse">
             <div class="panel-body">
                 {% for cdb in listecdbacademie %}
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <b>{{cdb.getNom}}</b>
-                            <p><i>{{cdb.getEffet}}</i></p>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <b>{{ cdb.getNom }}</b>
+                                <p><i>{{ cdb.getEffet }}</i></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {%endfor%}
             </div>
         </div>
@@ -33,14 +33,14 @@
         <div id="acaTwo" class="panel-collapse collapse">
             <div class="panel-body">
                 {% for mes in listemesacademie %}
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <b>{{mes.getNom}}</b>
-                            <p><i>{{mes.getEffet}}</i></p>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <b>{{ mes.getNom }}</b>
+                                <p><i>{{ mes.getEffet }}</i></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {%endfor%}
             </div>
         </div>

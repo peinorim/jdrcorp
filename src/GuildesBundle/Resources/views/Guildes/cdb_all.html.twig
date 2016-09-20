@@ -10,14 +10,14 @@
         <div id="collapseOne" class="panel-collapse collapse in">
             <div class="panel-body">
                 {% for cdb_all in listecdb_all %}
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <b>{{cdb_all.getNom}}</b>
-                            <p><i>{{cdb_all.getEffet}}</i></p>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <b>{{ cdb_all.getNom }}</b>
+                                <p><i>{{ cdb_all.getEffet }}</i></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {%endfor%}
             </div>
         </div>
@@ -33,14 +33,14 @@
         <div id="collapseTwo" class="panel-collapse collapse">
             <div class="panel-body">
                 {% for mes_all in listemes_all %}
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <b>{{mes_all.getNom}}</b>
-                            <p><i>{{mes_all.getEffet}}</i></p>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <b>{{ mes_all.getNom }}</b>
+                                <p><i>{{ mes_all.getEffet }}</i></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {%endfor%}
             </div>
         </div>

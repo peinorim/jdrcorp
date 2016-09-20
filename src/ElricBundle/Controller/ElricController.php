@@ -146,14 +146,16 @@ class ElricController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $repositoryFiche = $em->getRepository('ElricBundle:Fiche');
-        $fiche_suppr = $repositoryFiche->find($id);
+        if (is_numeric($id)) {
+            $fiche_suppr = $repositoryFiche->find($id);
 
-        if (($fiche_suppr->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche_suppr->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            $em->remove($fiche_suppr);
-            $em->remove($fiche_suppr->getPerso());
-            $em->flush();
-        } else {
-            throw new AccessDeniedHttpException("Vous n'avez pas accès à cette fiche.");
+            if (($fiche_suppr->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) || $this->getUser()->getId() == $fiche_suppr->getUser()->getId() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+                $em->remove($fiche_suppr);
+                $em->remove($fiche_suppr->getPerso());
+                $em->flush();
+            } else {
+                throw new AccessDeniedHttpException("Vous n'avez pas accès à cette fiche.");
+            }
         }
         return $this->redirect($this->generateUrl('elric_profile'));
     }

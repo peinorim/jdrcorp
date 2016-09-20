@@ -39,20 +39,20 @@ JdrCorp - Guildes - Armes & Armures
 				            </thead>
 				            <tbody>
 				                {% for arme in listeArmes %}
-				                {%if arme.getCompetence.getId == comp.getId%}
-				                <tr>
-				                    <td>{{arme.getNom}}</td>
-				                    <td>{{arme.getInit}}</td>
-				                    <td>{{arme.getAtt}}</td>
-				                    <td>{{arme.getDef}}</td>
-				                    <td>{{arme.getBlessure}}</td>
-				                    <td>{{arme.getEnc}}</td>
-				                    <td>{{arme.getFort}}</td>
-				                    <td>{{arme.getCad}}</td>
-				                    <td>{{arme.getPmoy}}</td>
-				                    <td>{{arme.getPeff}}</td>
-				                </tr>
-				                {%endif%}
+									{% if arme.getCompetence.getId == comp.getId %}
+										<tr>
+											<td>{{ arme.getNom }}</td>
+											<td>{{ arme.getInit }}</td>
+											<td>{{ arme.getAtt }}</td>
+											<td>{{ arme.getDef }}</td>
+											<td>{{ arme.getBlessure }}</td>
+											<td>{{ arme.getEnc }}</td>
+											<td>{{ arme.getFort }}</td>
+											<td>{{ arme.getCad }}</td>
+											<td>{{ arme.getPmoy }}</td>
+											<td>{{ arme.getPeff }}</td>
+										</tr>
+									{% endif %}
 				                {%endfor%}
 				            </tbody>
 				        </table>
@@ -86,15 +86,15 @@ JdrCorp - Guildes - Armes & Armures
 				            </thead>
 				            <tbody>
 				                {% for armure in listeArmures %}
-				                <tr>
-				                    <td>{{armure.getNom}}</td>
-				                    <td>{{armure.getInit}}</td>
-				                    <td>{{armure.getAtt}}</td>
-				                    <td>{{armure.getDef}}</td>
-				                    <td>{{armure.getProtec}}</td>
-				                    <td>{{armure.getEnc}}</td>
-				                    <td>{{armure.getFort}}</td>
-				                </tr>
+									<tr>
+										<td>{{ armure.getNom }}</td>
+										<td>{{ armure.getInit }}</td>
+										<td>{{ armure.getAtt }}</td>
+										<td>{{ armure.getDef }}</td>
+										<td>{{ armure.getProtec }}</td>
+										<td>{{ armure.getEnc }}</td>
+										<td>{{ armure.getFort }}</td>
+									</tr>
 				                {%endfor%}
 				            </tbody>
 				        </table>
